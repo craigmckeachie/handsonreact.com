@@ -5,11 +5,11 @@ sidebar_label: Side Effects & Lifecyle
 slug: /side-effects-lifecyle
 ---
 
-# Side Effects
+## Side Effects
 
 Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effects. Whether or not you’re used to calling these operations “side effects” (or just “effects”), you’ve likely performed them in your components before.
 
-## useEffect
+### useEffect
 
 This Hook should be used for any side-effects you’re executing in your render cycle.
 
@@ -62,9 +62,9 @@ function Clock() {
 ReactDOM.render(<Clock />, document.getElementById('root'));
 ```
 
-# Lifecycle
+## Lifecycle
 
-## What are Lifecycle Methods
+### What are Lifecycle Methods
 
 Lifecycle methods are custom functionality that gets executed during the different phases of a component. There are methods available when the component gets created and inserted into the DOM (mounting), when the component updates, and when the component gets unmounted or removed from the DOM.
 
@@ -82,7 +82,7 @@ Lifecycle methods are custom functionality that gets executed during the differe
 
 > Here is an interactive version that links to the documentation for each method: [React Lifecycle Methods Diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
-## Using LifeCycle Methods
+### Using LifeCycle Methods
 
 In applications with many components, it’s very important to free up resources taken by the components when they are destroyed.
 
@@ -122,7 +122,7 @@ class Clock extends React.Component {
 ReactDOM.render(<Clock />, document.getElementById('root'));
 ```
 
-## Reference
+### Reference
 
 - [React Lifecycle Methods Diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 - [Glossary: Lifecycle Methods](https://reactjs.org/docs/glossary.html#lifecycle-methods)

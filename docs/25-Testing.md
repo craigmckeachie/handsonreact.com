@@ -1,4 +1,9 @@
-# Chapter 25: Testing
+---
+id: 25-Testing
+title: Testing
+sidebar_label: Testing
+slug: /testing
+---
 
 ## Tools
 

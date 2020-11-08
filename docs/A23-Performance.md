@@ -1,20 +1,9 @@
-# Appendix 23: Performance
-
-- [Appendix 23: Performance](#appendix-23-performance)
-  - [Premature Optimization](#premature-optimization)
-  - [What causes a component to `render` in React?](#what-causes-a-component-to-render-in-react)
-    - [Component Render Demo (optional)](#component-render-demo-optional)
-      - [styles.css](#stylescss)
-      - [main.jsx](#mainjsx)
-  - [Wasted Renders](#wasted-renders)
-    - [`React.PureComponent`](#reactpurecomponent)
-    - [`React.memo`](#reactmemo)
-  - [`React.memo` Demo](#reactmemo-demo)
-    - [styles.css](#stylescss-1)
-  - [`React.PureComponent` Demo](#reactpurecomponent-demo)
-    - [FAQs](#faqs)
-      - [index.js](#indexjs)
-  - [Resources](#resources)
+---
+id: A23-Performance
+title: Performance
+sidebar_label: Performance
+slug: /performance
+---
 
 ## Premature Optimization
 

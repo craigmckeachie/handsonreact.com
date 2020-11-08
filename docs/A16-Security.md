@@ -1,4 +1,9 @@
-# Appendix A15: Security
+---
+id: A16-Security
+title: Security
+sidebar_label: Security
+slug: /security
+---
 
 ## Encoding
 

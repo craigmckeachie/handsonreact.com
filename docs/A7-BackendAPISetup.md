@@ -1,4 +1,11 @@
-# Appendix A7: Backend API Setup
+---
+id: A7-BackendAPISetup
+title: Backend API Setup
+sidebar_label: Backend API Setup
+slug: /backend-api-setup
+---
+
+## Steps
 
 1. In the `demos` directory, install `json-server`
 

@@ -1,4 +1,9 @@
-# PropTypes
+---
+id: A10-PropTypes
+title: PropTypes
+sidebar_label: PropTypes
+slug: /prop-types
+---
 
 ## Summary
 
@@ -6,7 +11,7 @@ Runtime type checking for React props and similar objects.
 
 ## Overview
 
-As your app grows, you can catch a lot of bugs with typechecking. For some applications, you can use `JavaScript` extensions like `Flow` or `TypeScript` to typecheck your whole application. 
+As your app grows, you can catch a lot of bugs with typechecking. For some applications, you can use `JavaScript` extensions like `Flow` or `TypeScript` to typecheck your whole application.
 
 But even if you don’t use those, the `React.PropTypes library` offers some crucial typechecking abilities.
 
@@ -19,7 +24,9 @@ But even if you don’t use those, the `React.PropTypes library` offers some cru
 ```shell
 npm install --save prop-types
 ```
+
 #### `index.html`
+
 ```diff
 <!DOCTYPE html>
 <html lang="en">
@@ -48,49 +55,48 @@ import PropTypes from 'prop-types';
 
 1. Add the following code:
 
-    #### `main.jsx`
-    ```js
-    //same with function components
-    
-    // function Greeter(props) {
-    //   return <h1>Hello, {props.name}</h1>;
-    // }
+   #### `main.jsx`
 
-    class Greeter extends React.Component {
-    render() {
-        return <h1>Hello, {this.props.name}</h1>;
-    }
-    }
+   ```js
+   //same with function components
 
-    Greeter.propTypes = {
-    name: PropTypes.string.isRequired
-    };
+   // function Greeter(props) {
+   //   return <h1>Hello, {props.name}</h1>;
+   // }
 
-    const element = <Greeter name="Joe" />;
-    ReactDOM.render(element, document.getElementById('root'));
-    ```
+   class Greeter extends React.Component {
+     render() {
+       return <h1>Hello, {this.props.name}</h1>;
+     }
+   }
+
+   Greeter.propTypes = {
+     name: PropTypes.string.isRequired,
+   };
+
+   const element = <Greeter name="Joe" />;
+   ReactDOM.render(element, document.getElementById('root'));
+   ```
+
 1. Change PropType to object.
 
-    #### `main.jsx`
-    ```js
-    ...
-    Greeter.propTypes = {
-    name: PropTypes.object.isRequired
-    };
-    ...
-    ```
+   #### `main.jsx`
+
+   ```js
+   ...
+   Greeter.propTypes = {
+   name: PropTypes.object.isRequired
+   };
+   ...
+   ```
 
 1. You should receive the following warning in the browser `console`.
-    ```
-    Warning: Failed prop type: Invalid prop `name` of type `string` supplied to `Greeter`, expected `object`.
-        in Greeter
-    ```
-
-
-
-
-
+   ```
+   Warning: Failed prop type: Invalid prop `name` of type `string` supplied to `Greeter`, expected `object`.
+       in Greeter
+   ```
 
 ## Reference
+
 - [PropTypes library on npm](https://www.npmjs.com/package/prop-types)
 - [Official React Documentation on PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)

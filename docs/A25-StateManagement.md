@@ -1,4 +1,9 @@
-# State Management
+---
+id: A25-StateManagement
+title: State Management
+sidebar_label: State Management
+slug: /state-management
+---
 
 ## Summary
 

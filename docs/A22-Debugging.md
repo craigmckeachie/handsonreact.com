@@ -1,4 +1,11 @@
-# Debugging
+---
+id: A22-Debugging
+title: Debugging
+sidebar_label: Debugging
+slug: /debugging
+---
+
+## Setup
 
 1. Open **Lab 25** solution code.
 2. In a command-prompt or terminal, run the commands.
@@ -101,7 +108,7 @@ Open `Chrome DevTools` by following these steps:
 1. Log `this.props.project`
 1. Step through the code using the buttons outlined in the [JavaScript Debugging Reference](https://developers.google.com/web/tools/chrome-devtools/javascript/reference).
 
-## Debugging React in Visual Studio Code
+## Debugging in Visual Studio Code
 
 This section describes how you can set breakpoints and debug JavaScript or TypeScript directly in Visual Studio Code instead of directly using a browser's DevTools like Chrome.
 
