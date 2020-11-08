@@ -77,7 +77,9 @@ module.exports = {
         //   ],
         // },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Funny Ant LLC. Built with Docusaurus.`,
+      copyright: `This site is licensed under <a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">
+      GPL version 3.
+    </a><br/>Copyright © ${new Date().getFullYear()} Funny Ant LLC.`,
     },
   },
   presets: [

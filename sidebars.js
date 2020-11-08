@@ -2,6 +2,8 @@ module.exports = {
   someSidebar: {
     Fundamentals: [
       '01-Overview',
+      '00-ComputerSetup',
+      '00-VisualStudioCodeSetup',
       '02-Elements',
       '03-JSX',
       '04-VirtualDOM',
