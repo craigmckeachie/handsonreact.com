@@ -70,7 +70,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
@@ -115,7 +115,8 @@ Now requests to `/todos/42` will be handled correctly both in development and in
 
 ## Building for Relative Paths
 
-By default, Create React App produces a build assuming your app is hosted at the server root.<br>
+By default, Create React App produces a build assuming your app is hosted at the server root.
+
 To override this, specify the `homepage` in your `package.json`, for example:
 
 ```js
@@ -124,10 +125,10 @@ To override this, specify the `homepage` in your `package.json`, for example:
 
 This will let Create React App correctly infer the root path to use in the generated HTML file.
 
-**Note**: If you are using `react-router@^4`, you can root `<Link>`s using the `basename` prop on any `<Router>`.<br>
-More information [here](https://reacttraining.com/react-router/web/api/BrowserRouter/basename-string).<br>
+**Note**: If you are using `react-router@^4`, you can root `<Link>`s using the `basename` prop on any `<Router>`.<br />
+More information [here](https://reacttraining.com/react-router/web/api/BrowserRouter/basename-string).<br />
 
-<br>
+<br />
 For example:
 
 ```js

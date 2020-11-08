@@ -1,9 +1,9 @@
-# Chapter 2: Elements
-
-- [Chapter 2: Elements](#chapter-2-elements)
-  - [Part 1 - Hello World in JavaScript](#part-1---hello-world-in-javascript)
-  - [Part 2 - Hello World in React](#part-2---hello-world-in-react)
-  - [Reference](#reference)
+---
+id: 02-Elements
+title: Elements
+sidebar_label: Elements
+slug: /elements
+---
 
 React implements a browser-independent DOM system for performance and cross-browser compatibility. They call this the Virtual DOM.
 
@@ -188,10 +188,10 @@ Hello World in JavaScript is not that different than it is in React. Let's updat
    ```
 
    > The method signature for createElement is as follows:
-   >
-   > ```js
-   > React.createElement(type, [props], [...children]);
-   > ```
+
+   ```js
+   React.createElement(type, [props], [...children]);
+   ```
 
 4. Log out the `React Element` to the console.
 
@@ -228,15 +228,13 @@ Hello World in JavaScript is not that different than it is in React. Let's updat
    );
    ```
 
-<br>
-
 > To summarize the `React.createElement` parameters are as follows.
 >
 > - Param 1: the element you want to create
 > - Param 2: an object that contains all the properties you want to be applied or set on that element
 > - Param 3: as a convenience, you can provide the children as any number of arguments after the props
 
-React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
+`React.createElement()` performs a few checks to help you write bug-free code but essentially it creates an object like this:
 
 ```js
 // Note: this structure is simplified
@@ -257,4 +255,4 @@ These objects are called `React elements`. You can think of them as descriptions
 - [createElement](https://reactjs.org/docs/react-api.html#createelement)
 - [Elements vs Components](https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html)
 - [React Supported HTML Attributes](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes)
-- [Glossary: Elements](https://reactjs.org/docs/glossary.html#elements)
+- [Glossary Elements](https://reactjs.org/docs/glossary.html#elements)

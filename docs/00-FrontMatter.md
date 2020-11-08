@@ -5,6 +5,8 @@ sidebar_label: Contents
 slug: /Contents
 ---
 
+![React Logo](https://user-images.githubusercontent.com/1474579/98454773-3a009780-2136-11eb-8e60-1f4ada52ed43.png)
+
 <br />
 
 <sub><sup>
@@ -24,7 +26,7 @@ This material is available for private, non-commercial use under the [GPL versio
 If you would like to use this material to conduct your own training or workshop, please contact us at [funnyant.com](https://www.funnyant.com/contact).
 </sup></sub>
 
-<!-- <div style="page-break-after: always;"></div> -->
+<div style="page-break-after: always;"></div>
 
 ---
 

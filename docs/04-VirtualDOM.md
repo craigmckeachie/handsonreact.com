@@ -27,7 +27,7 @@ React implements a browser-independent DOM system for performance and cross-brow
 
 3. See the diagram below to better understand how the Virtual DOM works in React.
 
-   <!-- ![Virtual DOM](./assets/React-Virtual-DOM.png) -->
+   ![Virtual DOM](https://user-images.githubusercontent.com/1474579/98454703-84cddf80-2135-11eb-91a3-cdcb7eb47712.png)
 
    ## Reference
 

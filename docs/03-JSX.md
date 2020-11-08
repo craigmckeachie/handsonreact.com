@@ -1,11 +1,5 @@
 # Chapter 3: JSX
 
-- [Chapter 3: JSX](#chapter-3-jsx)
-  - [Part 1 - Replacing createElement with JSX](#part-1---replacing-createelement-with-jsx)
-  - [Part 2 - Embedding Expressions in JSX](#part-2---embedding-expressions-in-jsx)
-  - [Part 3 - Specifying Attributes with JSX](#part-3---specifying-attributes-with-jsx)
-  - [Reference](#reference)
-
 JSX just provides syntactic sugar for the function:
 
 ```js
@@ -90,7 +84,6 @@ React.createElement(component, props, ...children);
     );
     ```
 
-
     Self-closing element:
 
     ```js
@@ -99,7 +92,7 @@ React.createElement(component, props, ...children);
 
     ```js
     React.createElement('i', {
-      className: 'fas fa-plus'
+      className: 'fas fa-plus',
     });
     ```
 
@@ -110,7 +103,6 @@ React.createElement(component, props, ...children);
 An expression can be created in JSX with curly braces. When you create an expression using curly braces you are saying you want to write some JavaScript.
 
 1.  Create a variable and assign a `name` to it then use that variable inside your `JSX` in an `expression`.
-
 
     ```diff
     <script type="text/babel">
@@ -151,7 +143,7 @@ An expression can be created in JSX with curly braces. When you create an expres
    const logo = {
      name: 'React Logo',
      title: 'React Logo',
-     path: './react-logo.png'
+     path: './react-logo.png',
    };
 
    const element = <img src={logo.path} alt={logo.name} title={logo.title} />;

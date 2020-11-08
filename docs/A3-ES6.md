@@ -1,6 +1,6 @@
 # Appendix A3: ECMAScript 6 (ES6)
 
-![ Logo](./assets/es-ecmascript-logo.png)
+![ECMAScript Logo](https://user-images.githubusercontent.com/1474579/98454730-dd04e180-2135-11eb-8e4a-803478f01dab.png)
 
 <div style="page-break-after: always;"></div>
 

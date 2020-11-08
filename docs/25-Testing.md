@@ -1,53 +1,5 @@
 # Chapter 25: Testing
 
-- [Chapter 25: Testing](#chapter-25-testing)
-  - [Tools](#tools)
-    - [Jest](#jest)
-    - [React Testing Library](#react-testing-library)
-    - [Enzyme](#enzyme)
-    - [Jest DOM](#jest-dom)
-    - [ReactTestUtils](#reacttestutils)
-    - [JSDOM](#jsdom)
-  - [Syntax](#syntax)
-  - [JavaScript Tests](#javascript-tests)
-      - [`src\math.js`](#srcmathjs)
-      - [`src\math.test.js`](#srcmathtestjs)
-  - [Mocking](#mocking)
-    - [Mocking Modules](#mocking-modules)
-      - [`src\__mocks__\math.js`](#src__mocks__mathjs)
-      - [`src\math.test.js`](#srcmathtestjs-1)
-    - [Mocking Functions](#mocking-functions)
-      - [`src\__mocks__\math.js`](#src__mocks__mathjs-1)
-      - [`src\math.test.js`](#srcmathtestjs-2)
-      - [`src\math.test.js`](#srcmathtestjs-3)
-      - [`src\math.test.js`](#srcmathtestjs-4)
-  - [Debugging Tests](#debugging-tests)
-    - [Debugging Tests in Chrome](#debugging-tests-in-chrome)
-      - [`package.json`](#packagejson)
-      - [math.test.js](#mathtestjs)
-    - [Debugging Tests in Visual Studio Code](#debugging-tests-in-visual-studio-code)
-    - [Running One Test](#running-one-test)
-    - [Excluding Tests](#excluding-tests)
-  - [Component Tests (with React Testing Library)](#component-tests-with-react-testing-library)
-      - [npm](#npm)
-      - [Yarn](#yarn)
-      - [`src/setupTests.js`](#srcsetuptestsjs)
-      - [`src/App.test.js`](#srcapptestjs)
-    - [React Testing Library Tips](#react-testing-library-tips)
-  - [Components Tests (with Enzyme)](#components-tests-with-enzyme)
-    - [Smoke](#smoke)
-    - [Shallow](#shallow)
-    - [Full](#full)
-      - [`src\setupTests.js`](#srcsetuptestsjs-1)
-      - [`src\app.test.js`](#srcapptestjs-1)
-  - [Component Snapshot Tests (with Jest)](#component-snapshot-tests-with-jest)
-  - [Reference](#reference)
-    - [General](#general)
-    - [Jest](#jest-1)
-    - [React Testing Library](#react-testing-library-1)
-    - [Enzyme](#enzyme-1)
-    - [Create React App & Tests](#create-react-app--tests)
-
 ## Tools
 
 ### Jest
@@ -515,12 +467,12 @@ You can replace `it()` with `xit()` (or `test()` with `xtest()`) to temporarily 
 - If the query supplied is not good consider that the markup in your app is not accessible and endevour to learn more about accessibility.
   > Even if you don't care about accessibility your tests will become more reliable and less brittle by embracing it.
 - Prefer ByRole
-<!-- - find versus get versus
+- Understand the difference between find versus get methods
 - async await
 - React Testing Library does not encourage you to mock child components so often you are writing integration tests instead of unit tests.
 - Test components that use APIs with `msw`
 - [Which query to use for React Testing Library?](https://testing-library.com/docs/guide-which-query)
-- Accessibility Cheat Sheet for, id role button, role form requires name, role alert -->
+- Accessibility Cheat Sheet for, id role button, role form requires name, role alert
 
 ## Components Tests (with Enzyme)
 

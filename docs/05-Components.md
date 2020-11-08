@@ -1,14 +1,3 @@
-# Chapter 5: Components
-
-- [Chapter 5: Components](#chapter-5-components)
-  - [Overview](#overview)
-  - [Creating an Element](#creating-an-element)
-  - [Creating a Function Component](#creating-a-function-component)
-  - [Rendering a Component](#rendering-a-component)
-  - [Creating a Class Component](#creating-a-class-component)
-  - [Composing & Reuse](#composing--reuse)
-  - [Reference](#reference)
-
 ## Overview
 
 Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components.

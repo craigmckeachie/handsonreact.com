@@ -1,37 +1,5 @@
 # Chapter 13: Forms
 
-- [Chapter 13: Forms](#chapter-13-forms)
-  - [Controlled Components](#controlled-components)
-    - [Controlled **Function** Components](#controlled-function-components)
-    - [Controlled **Class** Components](#controlled-class-components)
-  - [Submitting](#submitting)
-    - [Function Component Example](#function-component-example)
-    - [Class Component Example](#class-component-example)
-  - [Controlling other Types of HTML Form Elements](#controlling-other-types-of-html-form-elements)
-  - [Validation](#validation)
-    - [Validation (with Function Component & Hooks)](#validation-with-function-component--hooks)
-      - [styles.css](#stylescss)
-      - [main.jsx](#mainjsx)
-    - [Validation (in a Class Component)](#validation-in-a-class-component)
-      - [main.jsx](#mainjsx-1)
-  - [Uncontrolled Components](#uncontrolled-components)
-    - [Refs](#refs)
-    - [Function Component Example](#function-component-example-1)
-      - [Setting defaultValue](#setting-defaultvalue)
-    - [Class Component Example](#class-component-example-1)
-    - [File Input Example](#file-input-example)
-  - [Items App Demo (CRUD) (continued)](#items-app-demo-crud-continued)
-    - [Requirements](#requirements)
-    - [Solution (using Function Components & Hooks)](#solution-using-function-components--hooks)
-      - [styles.css](#stylescss-1)
-      - [index.html](#indexhtml)
-      - [main.jsx](#mainjsx-2)
-    - [Solution (using Class Components)](#solution-using-class-components)
-      - [styles.css](#stylescss-2)
-      - [index.html](#indexhtml-1)
-      - [main.jsx](#mainjsx-3)
-  - [Reference](#reference)
-
 ## Controlled Components
 
 In HTML, form elements such as `<input>`, `<textarea>`, and `<select>` typically maintain their own state and update it based on user input.
@@ -714,7 +682,7 @@ Below we continue to expand on the Items (CRUD) Demo to use forms and do additio
    - create a Form component
    - Add a text input and button to it
    - render the Form in the Container by adding it above the list
-     - Note: since render needs to return one parent element you will need to wrap <Form> and <List> in an outer <div> or <React.Fragment>
+     - Note: since render needs to return one parent element you will need to wrap `<Form>` and `<List>` in an outer `<div>` or `<React.Fragment>`
    - read the value from the input when you click the add button
 1. Add a feature to update an item inline
 

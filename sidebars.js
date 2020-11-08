@@ -3,6 +3,6 @@ module.exports = {
     Fundamentals: ['01-Overview'],
     Advanced: ['doc1', 'doc2', 'doc3'],
     Redux: ['mdx'],
-    Advanced: ['doc1', 'doc2', 'doc3'],
+    Labs: ['doc1', 'doc2', 'doc3'],
   },
 };
