@@ -1,24 +1,9 @@
-# Chapter 10: Conditional Rendering
-
-- [Chapter 10: Conditional Rendering](#chapter-10-conditional-rendering)
-  - [if](#if)
-    - [Component](#component)
-    - [Element](#element)
-      - [Function Component Example (using hooks)](#function-component-example-using-hooks)
-      - [Class Component Example](#class-component-example)
-    - [Null](#null)
-    - [Preventing Components from Rendering](#preventing-components-from-rendering)
-    - [Summary (if)](#summary-if)
-  - [Conditional Operator ? true : false](#conditional-operator--true--false)
-    - [Simple](#simple)
-    - [Complicated](#complicated)
-  - [Logical && Operator](#logical--operator)
-    - [Class Component Example](#class-component-example-1)
-    - [Function Component Example (with hooks)](#function-component-example-with-hooks)
-  - [Syntax Summary](#syntax-summary) - [if](#if-1) - [if else](#if-else)
-    - [? (inline)](#-inline)
-    - [&& (inline)](#-inline-1)
-  - [Resources](#resources)
+---
+id: 10-ConditionalRendering
+title: Conditional Rendering
+sidebar_label: Conditional Rendering
+slug: /conditional-rendering
+---
 
 Just use the features in the JavaScript language.
 

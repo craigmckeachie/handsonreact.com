@@ -1,16 +1,9 @@
-# Chapter 9: Side Effects & Lifecycle
-
-- [Chapter 9: Side Effects & Lifecycle](#chapter-9-side-effects--lifecycle)
-- [Side Effects](#side-effects)
-  - [useEffect](#useeffect)
-    - [What does useEffect do?](#what-does-useeffect-do)
-    - [Using useEffect](#using-useeffect)
-    - [useEffect Simple Demo](#useeffect-simple-demo)
-- [Lifecycle](#lifecycle)
-  - [What are Lifecycle Methods](#what-are-lifecycle-methods)
-      - [React Lifecycle Methods Diagram: Common Methods](#react-lifecycle-methods-diagram-common-methods)
-  - [Using LifeCycle Methods](#using-lifecycle-methods)
-  - [Lifecycle Reference](#lifecycle-reference)
+---
+id: 09-SideEffectsLifecyle
+title: Side Effects & Lifecyle
+sidebar_label: Side Effects & Lifecyle
+slug: /side-effects-lifecyle
+---
 
 # Side Effects
 

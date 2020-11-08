@@ -1,30 +1,11 @@
-# Chapter 8: State
-
-- [Chapter 8: State](#chapter-8-state)
-  - [Definition](#definition)
-    - [state](#state)
-  - [State in Function Components](#state-in-function-components)
-    - [Using the `useState` Hook](#using-the-usestate-hook)
-      - [Defining `state`](#defining-state)
-        - [main.jsx](#mainjsx)
-      - [Setting `state`](#setting-state)
-        - [main.jsx](#mainjsx-1)
-      - [Remember not to set `state` directly, use the setter function returned by the hook.](#remember-not-to-set-state-directly-use-the-setter-function-returned-by-the-hook)
-        - [main.jsx](#mainjsx-2)
-    - [FAQs](#faqs)
-    - [Where to use `useEffect`](#where-to-use-useeffect)
-    - [Using Multiple State Variables](#using-multiple-state-variables)
-      - [Should I use one or many state variables?](#should-i-use-one-or-many-state-variables)
-    - [Setting `state` using the current `state` or `props`](#setting-state-using-the-current-state-or-props)
-      - [Use a Functional update](#use-a-functional-update)
-  - [State in Class Components](#state-in-class-components)
-    - [Using State Correctly](#using-state-correctly)
-  - [Data Flows Down](#data-flows-down)
-  - [Reference](#reference)
+---
+id: 08-State
+title: State
+sidebar_label: State
+slug: /state
+---
 
 ## Definition
-
-### state
 
 A component needs state when some data associated with it changes over time. For example, a Checkbox component might need isChecked in its state, and a NewsFeed component might want to keep track of fetchedPosts in its state.
 
@@ -132,7 +113,7 @@ It returns a pair of values: the current state and a function that updates it. T
 
 The syntax for `useState` is confusing at first because it uses **Array destructuring** to return a pair. Array destructuring is used because it allows the us to decide what the variable and setter function should be named.
 
-### Where to use `useEffect`
+### Where to use `useState`
 
 | In Classes    | With Hooks |
 | ------------- | ---------- |

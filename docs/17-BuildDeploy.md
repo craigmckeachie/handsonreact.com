@@ -1,17 +1,3 @@
-# Chapter 19: Build & Deploy
-
-- [Chapter 19: Build & Deploy](#chapter-19-build--deploy)
-  - [Build](#build)
-  - [Deploy](#deploy)
-  - [Static Server](#static-server)
-  - [Other Solutions](#other-solutions)
-  - [Serving Apps with Client-Side Routing](#serving-apps-with-client-side-routing)
-  - [Building for Relative Paths](#building-for-relative-paths)
-    - [Serving the Same Build from Different Paths](#serving-the-same-build-from-different-paths)
-  - [Customizing Environment Variables for Arbitrary Build Environments](#customizing-environment-variables-for-arbitrary-build-environments)
-  - [Static File Caching](#static-file-caching)
-  - [Resources](#resources)
-
 ## Build
 
 `npm run build` creates a `build` directory with a production build of your app. Inside the `build/static` directory will be your JavaScript and CSS files. Each filename inside of `build/static` will contain a unique hash of the file contents. This hash in the file name enables [long term caching techniques](#static-file-caching).
@@ -34,7 +20,7 @@ If you're using **code splitting** to split up your application, this will creat
 
 ## Deploy
 
-`npm run build` creates a `build` directory with a production build of your app. Set up your favorite HTTP server so that a visitor to your site is served `index.html`, and requests to static paths like `/static/js/main.<hash>.js` are served with the contents of the `/static/js/main.<hash>.js` file. For more information see the [production build](<[production-build.md](https://facebook.github.io/create-react-app/docs/production-build)>) section of the Create React App documentation.
+`npm run build` creates a `build` directory with a production build of your app. Set up your favorite HTTP server so that a visitor to your site is served `index.html`, and requests to static paths like `/static/js/main.<hash>.js` are served with the contents of the `/static/js/main.<hash>.js` file. For more information see the [production build](https://facebook.github.io/create-react-app/docs/production-build) section of the Create React App documentation.
 
 ## Static Server
 

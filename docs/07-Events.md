@@ -1,29 +1,9 @@
-# Chapter 7: Events
-
-- [Chapter 7: Events](#chapter-7-events)
-  - [Subscribing (an Event Handler)](#subscribing-an-event-handler)
-    - [In Vanilla JavaScript](#in-vanilla-javascript)
-      - [Setup](#setup)
-      - [Steps](#steps)
-    - [In React: Function Component](#in-react-function-component)
-      - [Setup](#setup-1)
-      - [Steps](#steps-1)
-    - [In React: Class Component](#in-react-class-component)
-      - [Setup](#setup-2)
-      - [Steps](#steps-2)
-  - [Binding (the Event Handler)](#binding-the-event-handler)
-    - [Why Binding is Necessary?](#why-binding-is-necessary)
-    - [Binding Examples](#binding-examples)
-  - [Passing Parameters](#passing-parameters)
-    - [Using Arrow Functions](#using-arrow-functions)
-    - [Using Bind](#using-bind)
-    - [Reference](#reference)
-  - [Accessing Event Information](#accessing-event-information)
-    - [Using Arrow Functions](#using-arrow-functions-1)
-    - [Using Bind](#using-bind-1)
-    - [Synthetic Events](#synthetic-events)
-  - [Reference](#reference-1)
-  - [Binding (the Event Handler): Other Approaches to Avoid](#binding-the-event-handler-other-approaches-to-avoid)
+---
+id: 07-Events
+title: Events
+sidebar_label: Events
+slug: /events
+---
 
 ## Subscribing (an Event Handler)
 
