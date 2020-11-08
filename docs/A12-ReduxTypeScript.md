@@ -1,15 +1,9 @@
-# Appendix A12: Redux with TypeScript
-
-- [Appendix A12: Redux with TypeScript](#appendix-a12-redux-with-typescript)
-  - [Benefits](#benefits)
-  - [Installing](#installing)
-  - [Usage](#usage)
-  - [State](#state)
-  - [Actions & Action Creators](#actions--action-creators)
-  - [Reducers](#reducers)
-  - [Connect (React Redux)](#connect-react-redux)
-  - [Redux Thunk](#redux-thunk)
-  - [Resources](#resources)
+---
+id: A12-ReduxTypeScript
+title: Redux & TypeScript
+sidebar_label: Redux & TypeScript
+slug: /redux-typescript
+---
 
 ## Benefits
 

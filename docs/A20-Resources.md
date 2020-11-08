@@ -5,7 +5,7 @@ sidebar_label: Resources
 slug: /resources
 ---
 
-## Resources
+## Curated Lists
 
 - [React Community Resources (see navigation on right)](https://reactjs.org/community/support.html)
 - [React Resource Lists](https://reactjs.org/community/external-resources.html)

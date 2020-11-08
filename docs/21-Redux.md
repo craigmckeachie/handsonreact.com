@@ -1,28 +1,9 @@
-# Chapter 21: Redux
-
-- [Chapter 21: Redux](#chapter-21-redux)
-  - [What is Redux?](#what-is-redux)
-  - [What is State?](#what-is-state)
-  - [Benefits](#benefits)
-    - [Benefit Checklist](#benefit-checklist)
-  - [When do you need Redux?](#when-do-you-need-redux)
-  - [Principles of Redux](#principles-of-redux)
-  - [Core Concepts](#core-concepts)
-    - [State](#state)
-    - [Actions](#actions)
-    - [Reducer](#reducer)
-    - [Store](#store)
-    - [Developer Tools](#developer-tools)
-  - [Complementary Packages](#complementary-packages)
-  - [Demos](#demos)
-    - [Counter Demo](#counter-demo)
-    - [Debugging & Time Traveling Demo](#debugging--time-traveling-demo)
-  - [Gotchas/Tips](#gotchastips)
-  - [Reference](#reference)
-    - [Redux](#redux)
-    - [Action Creators:](#action-creators)
-    - [DevTools](#devtools)
-      - [Configuring devtools & thunk](#configuring-devtools--thunk)
+---
+id: 21-Redux
+title: Redux
+sidebar_label: Redux
+slug: /redux
+---
 
 ## What is Redux?
 

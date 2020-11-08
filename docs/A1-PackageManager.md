@@ -280,7 +280,7 @@ Since the introduction of `Yarn`, `npm` now has:
 - introduced a lock file to improve reliability
 - saves dependencies without `--save`
 
-> The `npm` client is still significantly more popular than `Yarn` and has recently been winning back users.
+> The `npm` client is more popular and commonly used (because it is included with `Node.js`) than `Yarn`.
 
 - [Chart comparing npm vs Yarn downloads](https://www.npmtrends.com/yarn-vs-npm)
 

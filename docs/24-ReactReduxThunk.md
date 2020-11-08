@@ -1,6 +1,17 @@
-# Chapter 24: React, Redux & Thunk
+---
+id: 24-ReactReduxThunk
+title: React Redux Thunk
+sidebar_label: React Redux Thunk
+slug: /react-redux-thunk
+---
 
 ## Setup
+
+:::tip
+
+If you previously completed the [HTTP](./14-HTTP.md) demos these three setup **steps** were **already** **completed** in that section.
+
+:::
 
 1. Verify [these styles](./14-HTTP.md#stylescss) have been added to the `demos` project
 2. Verify the [backend API setup detailed here](./A7-BackendAPISetup.md) has been completed.

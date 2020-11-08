@@ -1,21 +1,9 @@
-# Chapter 23: Redux Thunk
-
-- [Chapter 23: Redux Thunk](#chapter-23-redux-thunk)
-  - [Overview](#overview)
-  - [Async](#async)
-    - [Async Actions](#async-actions)
-    - [Thunk](#thunk)
-  - [Installation](#installation)
-  - [Demos](#demos)
-    - [1. Your First Thunk](#1-your-first-thunk)
-    - [2. CRUD](#2-crud)
-  - [Middleware & Enhancers](#middleware--enhancers)
-  - [Reference](#reference)
-    - [Thunk](#thunk-1)
-    - [Why Reducers need to be Pure](#why-reducers-need-to-be-pure)
-    - [Middleware & Enhancers](#middleware--enhancers-1)
-    - [Testing](#testing)
-    - [Diagram](#diagram)
+---
+id: 23-ReduxThunk
+title: Redux Thunk
+sidebar_label: Redux Thunk
+slug: /redux-thunk
+---
 
 Thunk middleware for Redux. Enables async actions (making http calls from actions).
 
@@ -111,7 +99,7 @@ class PhotoAPI {
       const httpErrorInfo = {
         status: response.status,
         statusText: response.statusText,
-        url: response.url
+        url: response.url,
       };
       console.log(
         `logging http details for debugging: ${JSON.stringify(httpErrorInfo)}`
@@ -136,7 +124,7 @@ const LOAD_PHOTOS_FAILURE = 'LOAD_PHOTOS_FAILURE';
 const initialState = {
   photos: [],
   processing: false,
-  error: null
+  error: null,
 };
 
 function reducer(state = initialState, action) {
@@ -165,10 +153,10 @@ function loadPhotos() {
     dispatch({ type: LOAD_PHOTOS_REQUEST });
     return photoAPI
       .getAll(1)
-      .then(data => {
+      .then((data) => {
         dispatch({ type: LOAD_PHOTOS_SUCCESS, payload: data });
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch({ type: LOAD_PHOTOS_FAILURE, payload: error });
       });
   };
@@ -217,8 +205,8 @@ class PhotoAPI {
       method: 'POST',
       body: JSON.stringify(photo),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     })
       .then(this.checkStatus)
       .then(this.parseJSON);
@@ -229,8 +217,8 @@ class PhotoAPI {
       method: 'PUT',
       body: JSON.stringify(photo),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     })
       .then(this.checkStatus)
       .then(this.parseJSON);
@@ -240,8 +228,8 @@ class PhotoAPI {
     return fetch(`${this.url}/${id}`, {
       method: 'DELETE',
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     })
       .then(this.checkStatus)
       .then(this.parseJSON);
@@ -265,7 +253,7 @@ class PhotoAPI {
       const httpErrorInfo = {
         status: response.status,
         statusText: response.statusText,
-        url: response.url
+        url: response.url,
       };
       console.log(
         `logging http details for debugging: ${JSON.stringify(httpErrorInfo)}`
@@ -301,7 +289,7 @@ const DELETE_PHOTO_FAILURE = 'DELETE_PHOTO_FAILURE';
 const initialState = {
   photos: [],
   processing: false,
-  error: null
+  error: null,
 };
 
 //reducer
@@ -319,7 +307,7 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         processing: false,
-        photos: [...state.photos, action.payload]
+        photos: [...state.photos, action.payload],
       };
     case ADD_PHOTO_FAILURE:
       return { ...state, processing: false, error: action.payload.message };
@@ -329,11 +317,11 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         processing: false,
-        photos: state.photos.map(photo => {
+        photos: state.photos.map((photo) => {
           return photo.id === action.payload.id
             ? Object.assign({}, photo, action.payload)
             : photo;
-        })
+        }),
       };
     case UPDATE_PHOTO_FAILURE:
       return { ...state, processing: false, error: action.payload.message };
@@ -343,7 +331,7 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         processing: false,
-        photos: state.photos.filter(photo => photo.id !== action.payload.id)
+        photos: state.photos.filter((photo) => photo.id !== action.payload.id),
       };
     case DELETE_PHOTO_FAILURE:
       return { ...state, processing: false, error: action.payload.message };
@@ -354,60 +342,60 @@ function reducer(state = initialState, action) {
 
 //action creators
 function loadPhotos() {
-  return dispatch => {
+  return (dispatch) => {
     let photoAPI = new PhotoAPI();
     dispatch({ type: LOAD_PHOTOS_REQUEST });
     return photoAPI
       .getAll(1)
-      .then(data => {
+      .then((data) => {
         dispatch({ type: LOAD_PHOTOS_SUCCESS, payload: data });
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch({ type: LOAD_PHOTOS_FAILURE, payload: error });
       });
   };
 }
 
 function addPhoto(photo) {
-  return dispatch => {
+  return (dispatch) => {
     let photoAPI = new PhotoAPI();
     dispatch({ type: ADD_PHOTO_REQUEST });
     return photoAPI
       .add(photo)
-      .then(data => {
+      .then((data) => {
         dispatch({ type: ADD_PHOTO_SUCCESS, payload: data });
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch({ type: ADD_PHOTO_FAILURE, payload: error });
       });
   };
 }
 
 function updatePhoto(photo) {
-  return dispatch => {
+  return (dispatch) => {
     let photoAPI = new PhotoAPI();
     dispatch({ type: UPDATE_PHOTO_REQUEST });
     return photoAPI
       .update(photo)
-      .then(data => {
+      .then((data) => {
         dispatch({ type: UPDATE_PHOTO_SUCCESS, payload: data });
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch({ type: UPDATE_PHOTO_FAILURE, payload: error });
       });
   };
 }
 
 function deletePhoto(photoId) {
-  return dispatch => {
+  return (dispatch) => {
     let photoAPI = new PhotoAPI();
     dispatch({ type: DELETE_PHOTO_REQUEST });
     return photoAPI
       .delete(photoId)
-      .then(data => {
+      .then((data) => {
         dispatch({ type: DELETE_PHOTO_SUCCESS, payload: data });
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch({ type: DELETE_PHOTO_FAILURE, payload: error });
       });
   };
@@ -444,7 +432,7 @@ const newPhoto = {
   albumId: 1,
   title: 'Added Photo',
   url: 'https://via.placeholder.com/600/b0f7cc',
-  thumbnailUrl: 'https://via.placeholder.com/150/b0f7cc'
+  thumbnailUrl: 'https://via.placeholder.com/150/b0f7cc',
 };
 
 const updatedPhoto = {
@@ -452,7 +440,7 @@ const updatedPhoto = {
   albumId: 1,
   title: 'Updated Photo',
   url: 'https://via.placeholder.com/600/b0f7cc',
-  thumbnailUrl: 'https://via.placeholder.com/150/b0f7cc'
+  thumbnailUrl: 'https://via.placeholder.com/150/b0f7cc',
 };
 
 async function test() {

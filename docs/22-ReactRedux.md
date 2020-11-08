@@ -1,29 +1,9 @@
-# Chapter 22: React Redux
-
-- [Chapter 22: React Redux](#chapter-22-react-redux)
-  - [Overview](#overview)
-    - [React bindings for Redux](#react-bindings-for-redux)
-    - [`connect` is used in Class Components](#connect-is-used-in-class-components)
-    - [`useSelector` and `useDispatch` Hooks are used in Function Components](#useselector-and-usedispatch-hooks-are-used-in-function-components)
-    - [`Provider` gets you access to the `Store`](#provider-gets-you-access-to-the-store)
-  - [Hooks provided by the React Redux library : `useSelector` and `useDispatch`](#hooks-provided-by-the-react-redux-library--useselector-and-usedispatch)
-    - [`useSelector`](#useselector)
-    - [`useDispatch`](#usedispatch)
-    - [Example](#example)
-  - [The `connect` function](#the-connect-function)
-    - [What it Does](#what-it-does)
-    - [Using](#using)
-    - [Example](#example-1)
-    - [Writing `mapState` Functions](#writing-mapstate-functions)
-    - [Writing `mapDispatch` Functions](#writing-mapdispatch-functions)
-    - [Tips](#tips)
-  - [Provider](#provider)
-  - [Inside React Redux (optional)](#inside-react-redux-optional)
-    - [Inside `connect`](#inside-connect)
-    - [Demo of How `connect` Works](#demo-of-how-connect-works)
-    - [Final Code](#final-code)
-    - [Inside `Provider`](#inside-provider)
-  - [Reference](#reference)
+---
+id: 22-ReactRedux
+title: React Redux
+sidebar_label: React Redux
+slug: /react-redux
+---
 
 ## Overview
 
