@@ -51,10 +51,6 @@ slug: /computer-setup
    npm start
    ```
 
-   <!-- ```shell
-   npm i react@16 react-dom@16
-   ``` -->
-
    > If you've previously installed `create-react-app` globally via `npm install -g create-react-app`, it is recommended that you uninstall the package using `npm uninstall -g create-react-app` to ensure that `npx` always uses the latest version.
 
    3. After the application builds, your default browser should open to [http://localhost:3000/](http://localhost:3000/).
@@ -68,20 +64,24 @@ slug: /computer-setup
    > Students may use any IDE/editor that they are comfortable with using.
 
    - We **recommend** **Visual Studio Code**.
+
      - It is **free**, **cross-platform** has a **small** download, and is a **quick** install.
-     - **Visit** [https://code.visualstudio.com/](https://code.visualstudio.com/) to **install**.
+     - **Visit** [code.visualstudio.com](https://code.visualstudio.com/) to **install**.
+
        > Don't confuse Visual Studio Code with the heavier Visual Studio IDE used for .NET development.
-     - [Follow these directions](./00-VisualStudioCodeSetup.md) to configure Visual Studio Code for the course.
-   - **WebStorm** or **IntelliJ IDEA Ultimate** both made by `JetBrains` are also great choices.
 
-     - In summary, these IDEs are heavier but have more features built-in.
-     - **Visit** [Download WebStorm](https://www.jetbrains.com/webstorm/download/) to **install**.
-       - OR
-     - **Visit** [Download IntelliJ IDEA](https://www.jetbrains.com/idea/download/) to **install**.
+     - Please [follow these directions](./00-VisualStudioCodeSetup.md) to configure Visual Studio Code for the course.
 
-       > Note: IntelliJ IDEA Ultimate includes TypeScript support while the Community Edition does not.
+- **WebStorm** or **IntelliJ IDEA Ultimate** both made by `JetBrains` are also great choices.
 
-     > Each download comes with a free 30-day trial.
+  - In summary, these IDEs are heavier but have more features built-in.
+  - **Visit** [Download WebStorm](https://www.jetbrains.com/webstorm/download/) to **install**.
+    - OR
+  - **Visit** [Download IntelliJ IDEA](https://www.jetbrains.com/idea/download/) to **install**.
+
+    > Note: IntelliJ IDEA Ultimate includes TypeScript support while the Community Edition does not.
+
+    > Each download comes with a free 30-day trial.
 
 5. `Google Chrome` browser.
    - **Visit** [http://www.google.com/chrome/](http://www.google.com/chrome/) to **install**.
