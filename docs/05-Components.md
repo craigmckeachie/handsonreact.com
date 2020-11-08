@@ -1,7 +1,13 @@
+---
+id: 05-Components
+title: Components
+sidebar_label: Components
+slug: /components
+---
+
 ## Overview
 
 Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components.
-<br/>
 
 > Use the React DevTools in Chrome to inspect the application we will build during the labs and show the component hierarchy. Use the solution code from Lab 16.
 

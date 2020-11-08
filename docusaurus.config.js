@@ -11,8 +11,9 @@ module.exports = {
     navbar: {
       title: 'Hands on React',
       logo: {
-        alt: 'Hands on React Logo',
-        src: 'img/logo.svg',
+        alt: 'React Logo',
+        src:
+          'https://user-images.githubusercontent.com/1474579/98455653-856c7300-2141-11eb-9bf2-090d7d7e4d00.png',
       },
       items: [
         {
@@ -86,14 +87,12 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+          editUrl: 'https://github.com/craigmckeachie/handsonreact.com/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+          editUrl: 'https://github.com/craigmckeachie/handsonreact.com/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

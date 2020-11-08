@@ -1,4 +1,9 @@
-# Chapter 3: JSX
+---
+id: 03-JSX
+title: JSX
+sidebar_label: JSX
+slug: /jsx
+---
 
 JSX just provides syntactic sugar for the function:
 

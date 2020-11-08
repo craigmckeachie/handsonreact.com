@@ -1,10 +1,9 @@
-# Chapter 6: Props
-
-- [Chapter 6: Props](#chapter-6-props)
-  - [Read-only](#read-only)
-  - [String Literals vs. Expressions](#string-literals-vs-expressions)
-  - [Function vs. Class Components](#function-vs-class-components)
-  - [Additional Reading](#additional-reading)
+---
+id: 06-Props
+title: Props
+sidebar_label: Props
+slug: /props
+---
 
 `Props` is short for `properties`. When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object `props`.
 

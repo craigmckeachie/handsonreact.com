@@ -1,4 +1,9 @@
-# Chapter 4: Virtual DOM
+---
+id: 04-VirtualDOM
+title: Virtual DOM
+sidebar_label: Virtual DOM
+slug: /virtual-dom
+---
 
 React implements a browser-independent DOM system for performance and cross-browser compatibility. They call this the Virtual DOM.
 
