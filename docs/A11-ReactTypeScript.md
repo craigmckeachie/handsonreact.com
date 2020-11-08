@@ -7,7 +7,7 @@ slug: /react-typescript
 
 ## Installation
 
-- See the section `Create New TypeScript Project` in `Appendix A6: Project Setup`.
+- See the section `Create New TypeScript Project` in [Project Setup](./A6-ProjectSetup.md).
 
 - We will use the `my-app` project we created with TypeScript enabled using `Create React App`.
 
