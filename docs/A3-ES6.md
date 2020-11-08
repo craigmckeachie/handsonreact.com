@@ -649,7 +649,7 @@ user1  Leslie
 
 <div style="page-break-after: always;"></div>
 
-## Resources
+## Reference
 
 - [ES6 Features](http://es6-features.org)
 - [Learn ES2015/6](https://babeljs.io/docs/en/learn)

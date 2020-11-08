@@ -1,6 +1,7 @@
 # Appendix A4: TypeScript
 
 <!-- ![TypeScript Logo](./assets/ts-logo.png) -->
+
 <kbd>![TypeScript Logo](https://user-images.githubusercontent.com/1474579/65373054-1df61a00-dc46-11e9-97bb-10e5e00a9981.png)</kbd>
 
 <div style="page-break-after: always;"></div>
@@ -32,19 +33,19 @@
 ## How TypeScript Works
 
 - TypeScript provides a compiler tsc (TypeScript compiler) that transpiles TypeScript to JavaScript or more specifically ES5.
-- Transpilation refers to a specific kind of compilation, source code to source code. 
+- Transpilation refers to a specific kind of compilation, source code to source code.
 - We traditionally think about compilers as transforming source code to bytecode.
 - Remember, ES5 is valid TypeScript.
 - Visit: typescriptlang.org/play/index.html
 
-
 ## Who is Behind TypeScript?
-Anders Hejlsberg	
+
+Anders Hejlsberg
+
 - Core developer of TypeScript
 - Microsoft technical fellow
 - Lead architect C#
 - Original author Turbo Pascal: Delphi
-
 
 ![Anders](https://user-images.githubusercontent.com/1474579/65373220-a37ac980-dc48-11e9-8833-0fee81c948e5.png)
 
@@ -272,7 +273,7 @@ There are numerous other language features TypeScript provides that you are prob
 
 You can use these language features in your own application code but the React library doesn't use any of these features in their APIs as they support coding in `JavaScript` or `TypeScript`.
 
-## Resources
+## Reference
 
 - [TypeScript Deep Dive](https://basarat.gitbooks.io/typescript/content/docs/getting-started.html)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/basic-types.html)

@@ -1,19 +1,9 @@
-# Chapter 16: Hooks
-
-- [Chapter 16: Hooks](#chapter-16-hooks)
-  - [Defined](#defined)
-  - [Why Hooks?](#why-hooks)
-  - [No Breaking Changes](#no-breaking-changes)
-  - [Hooks API](#hooks-api)
-  - [useState](#usestate)
-    - [Simple Class Component](#simple-class-component)
-    - [Simple Function Component](#simple-function-component)
-  - [useEffect](#useeffect)
-    - [useEffect Simple Demo](#useeffect-simple-demo)
-  - [Custom Hooks](#custom-hooks)
-  - [Rules of Hooks](#rules-of-hooks)
-  - [Labs](#labs)
-  - [Reference](#reference)
+---
+id: 16-Hooks
+title: Hooks
+sidebar_label: Hooks
+slug: /hooks
+---
 
 ## Defined
 

@@ -1,4 +1,9 @@
-# Chapter 13: Forms
+---
+id: 13-Forms
+title: Forms
+sidebar_label: Forms
+slug: /forms
+---
 
 ## Controlled Components
 

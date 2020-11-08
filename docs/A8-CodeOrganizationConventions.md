@@ -1,20 +1,9 @@
-# Appendix A8: Best Practices
-
-- [Appendix A8: Best Practices](#appendix-a8-best-practices)
-  - [Code Organization](#code-organization)
-    - [Opinions](#opinions)
-    - [Key Questions](#key-questions)
-      - [Grouping by features](#grouping-by-features)
-      - [Grouping by file type](#grouping-by-file-type)
-      - [Pro/Con](#procon)
-      - [Pro/Con](#procon-1)
-      - [Pro/Con](#procon-2)
-    - [Best Practices](#best-practices)
-  - [Code Conventions (Style Guides)](#code-conventions-style-guides)
-  - [Project Setup](#project-setup)
-- [Reference](#reference)
-  - [Code Organization](#code-organization-1)
-  - [Code Conventions](#code-conventions)
+---
+id: A8-CodeOrganizationConventions
+title: Code Organization & Conventions
+sidebar_label: Code Organization & Conventions
+slug: /code-organization-conventions
+---
 
 ## Code Organization
 
@@ -204,9 +193,9 @@ If you need to build a single-page React application that supports server-side r
 
 If you need to use create a static React website you should consider using [Gatsby](https://www.gatsbyjs.org/)...a free and open source framework based on React that helps developers build blazing fast websites and apps.
 
-# Reference
+## Reference
 
-## Code Organization
+### Code Organization
 
 - [React Documentation: File Structure](https://reactjs.org/docs/faq-structure.html)
 - [Stackoverflow: React Code Naming Conventions](https://stackoverflow.com/questions/49276070/reactjs-code-naming-conventions)
@@ -216,6 +205,6 @@ If you need to use create a static React website you should consider using [Gats
 - [Components having own folder should have a component file with the same name](https://blog.bitsrc.io/structuring-a-react-project-a-definitive-guide-ac9a754df5eb)
 - [File Layout that Considers Container & Redux Components](https://itnext.io/optimal-file-structure-for-react-applications-66287250b42)
 
-## Code Conventions
+### Code Conventions
 
 [TC 39: JavaScript Language Feature Approval Process](http://2ality.com/2015/11/tc39-process.html)

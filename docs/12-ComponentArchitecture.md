@@ -1,21 +1,9 @@
-# Chapter 12: Component Architecture
-
-- [Chapter 12: Component Architecture](#chapter-12-component-architecture)
-  - [Reuse](#reuse)
-  - [Component Communication](#component-communication)
-    - [Common Communication Patterns](#common-communication-patterns)
-    - [Additional Communication Patterns](#additional-communication-patterns)
-- [Design Patterns](#design-patterns)
-  - [Lifting State Up](#lifting-state-up)
-    - [Function Component Example](#function-component-example)
-    - [Class Component Example](#class-component-example)
-  - [Container and Presentation Components](#container-and-presentation-components)
-    - [Container (Smart) Components](#container-smart-components)
-    - [Presentation Components](#presentation-components)
-    - [Reference](#reference)
-  - [Composition vs Inheritance](#composition-vs-inheritance)
-  - [Thinking in React](#thinking-in-react)
-  - [Reference](#reference-1)
+---
+id: 12-ComponentArchitecture
+title: Component Architecture
+sidebar_label: Component Architecture
+slug: /component-architecture
+---
 
 ## Reuse
 

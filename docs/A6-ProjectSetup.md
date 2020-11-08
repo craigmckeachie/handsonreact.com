@@ -1,23 +1,9 @@
-# Appendix A6: Project Setup
-
-- [Appendix A6: Project Setup](#appendix-a6-project-setup)
-  - [Create New ES6 Project](#create-new-es6-project)
-    - [npm](#npm)
-    - [Yarn](#yarn)
-  - [Create New TypeScript Project](#create-new-typescript-project)
-    - [npm](#npm-1)
-    - [Yarn](#yarn-1)
-  - [Folder Structure](#folder-structure)
-  - [Browser Support](#browser-support)
-    - [Supported Language Features](#supported-language-features)
-    - [Polyfills](#polyfills)
-      - [react-app-polyfill](#react-app-polyfill)
-    - [Usage](#usage)
-  - [Styles and Assets](#styles-and-assets)
-      - [`Button.css`](#buttoncss)
-      - [`Button.js`](#buttonjs)
-  - [Dependencies](#dependencies)
-  - [Reference](#reference)
+---
+id: A6-ProjectSetup
+title: Project Setup
+sidebar_label: Project Setup
+slug: /project-setup
+---
 
 ## Create New ES6 Project
 
@@ -61,7 +47,6 @@ yarn create react-app my-app --template typescript
 ```
 
 1. Then open [http://localhost:3000/](http://localhost:3000/) to see your app.
-   https://facebook.github.io/create-react-app/docs/adding-typescript
 
 ## Folder Structure
 

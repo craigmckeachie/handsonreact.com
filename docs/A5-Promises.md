@@ -59,7 +59,7 @@ Reference:
      id: '10',
      first: 'James',
      last: 'Brown',
-     email: 'james.brown@gmail.com'
+     email: 'james.brown@gmail.com',
    };
 
    const orders = [
@@ -67,20 +67,20 @@ Reference:
        id: 50,
        name: 'Vitamins',
        description: "Men's Multi-Vitamin",
-       price: 25.99
+       price: 25.99,
      },
      {
        id: 103,
        name: 'AC Adapter Power Cord',
        description: 'Power Supply Cord Charger PSU',
-       price: 15.99
+       price: 15.99,
      },
      {
        id: 317,
        name: 'Gatorade',
        description: '12 pack Gatorade',
-       price: 12.99
-     }
+       price: 12.99,
+     },
    ];
 
    const recentlyViewedItems = [
@@ -88,40 +88,40 @@ Reference:
        id: 504,
        name: 'Water Bottle',
        description: 'Eco 32oz Water Bottle',
-       price: 25
+       price: 25,
      },
      {
        id: 78,
        name: 'Pens',
        description: 'Writing Pens, thick point',
-       price: 15.99
+       price: 15.99,
      },
      {
        id: 317,
        name: 'Notebook',
        description: 'Spiral Ring Notebook',
-       price: 12.99
-     }
+       price: 12.99,
+     },
    ];
 
    const orderTrackingStatus = {
      status: 'shipped',
-     lastLocation: 'Knoxville, TN'
+     lastLocation: 'Knoxville, TN',
    };
 
    const notFoundResponse = {
      status: 404,
-     statusText: 'Not found'
+     statusText: 'Not found',
    };
 
    const unauthorizedResponse = {
      status: 401,
-     statusText: 'Unauthorized'
+     statusText: 'Unauthorized',
    };
 
    const serverErrorResponse = {
      status: 500,
-     statusText: 'Server Error'
+     statusText: 'Server Error',
    };
    ```
 
@@ -159,27 +159,27 @@ Reference:
    api.findCustomer(
      'James',
      'Brown',
-     customer => {
+     (customer) => {
        console.log('1 ', customer);
        console.log('getting orders for customer id: ', customer.id);
        return api.getOrders(
          customer.id,
-         orders => {
+         (orders) => {
            console.log('2 ', orders);
            const mostRecentOrderId = orders[0].id;
            console.log('getting status for order id: ', mostRecentOrderId);
            return api.getOrderTrackingStatus(
              mostRecentOrderId,
-             status => {
+             (status) => {
                console.log('3', status);
              },
-             error => console.log(error)
+             (error) => console.log(error)
            );
          },
-         error => console.log(error)
+         (error) => console.log(error)
        );
      },
-     error => console.log(error)
+     (error) => console.log(error)
    );
    ```
 
@@ -204,7 +204,7 @@ Promise Guarantees
      id: '10',
      first: 'James',
      last: 'Brown',
-     email: 'james.brown@gmail.com'
+     email: 'james.brown@gmail.com',
    };
 
    const orders = [
@@ -212,20 +212,20 @@ Promise Guarantees
        id: 50,
        name: 'Vitamins',
        description: "Men's Multi-Vitamin",
-       price: 25.99
+       price: 25.99,
      },
      {
        id: 103,
        name: 'AC Adapter Power Cord',
        description: 'Power Supply Cord Charger PSU',
-       price: 15.99
+       price: 15.99,
      },
      {
        id: 317,
        name: 'Gatorade',
        description: '12 pack Gatorade',
-       price: 12.99
-     }
+       price: 12.99,
+     },
    ];
 
    const recentlyViewedItems = [
@@ -233,47 +233,47 @@ Promise Guarantees
        id: 504,
        name: 'Water Bottle',
        description: 'Eco 32oz Water Bottle',
-       price: 25
+       price: 25,
      },
      {
        id: 78,
        name: 'Pens',
        description: 'Writing Pens, thick point',
-       price: 15.99
+       price: 15.99,
      },
      {
        id: 317,
        name: 'Notebook',
        description: 'Spiral Ring Notebook',
-       price: 12.99
-     }
+       price: 12.99,
+     },
    ];
 
    const orderTrackingStatus = {
      status: 'shipped',
-     lastLocation: 'Knoxville, TN'
+     lastLocation: 'Knoxville, TN',
    };
 
    const notFoundResponse = {
      status: 404,
-     statusText: 'Not found'
+     statusText: 'Not found',
    };
 
    const unauthorizedResponse = {
      status: 401,
-     statusText: 'Unauthorized'
+     statusText: 'Unauthorized',
    };
 
    const serverErrorResponse = {
      status: 500,
-     statusText: 'Server Error'
+     statusText: 'Server Error',
    };
    ```
 
 1. Paste the API class.
 
    ```js
-   const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
    function wrapInPromise(waitTime, action, data) {
      return wait(waitTime).then(() => {
@@ -316,21 +316,21 @@ Promise Guarantees
    const api = new FakeAPI();
    api
      .findCustomer('James', 'Brown')
-     .then(customer => {
+     .then((customer) => {
        console.log('1 ', customer);
        console.log('getting orders for customer id: ', customer.id);
        return api.getOrders(customer.id);
      })
-     .then(orders => {
+     .then((orders) => {
        console.log('2 ', orders);
        const mostRecentOrderId = orders[0].id;
        console.log('getting status for order id: ', mostRecentOrderId);
        return api.getOrderTrackingStatus();
      })
-     .then(status => {
+     .then((status) => {
        console.log('3', status);
      })
-     .catch(error => console.log(error));
+     .catch((error) => console.log(error));
    ```
 
 ##### How Promises Improve on Callbacks
@@ -353,25 +353,25 @@ This code makes all these mistakes but works the same as the above code. It is j
 const api = new FakeAPI();
 api
   .findCustomer('James', 'Brown')
-  .then(customer => {
+  .then((customer) => {
     console.log('1 ', customer);
     console.log('getting orders for customer id: ', customer.id);
     api
       .getOrders(customer.id)
-      .then(orders => {
+      .then((orders) => {
         console.log('2 ', orders);
         const mostRecentOrderId = orders[0].id;
         console.log('getting status for order id: ', mostRecentOrderId);
         api
           .getOrderTrackingStatus()
-          .then(status => {
+          .then((status) => {
             console.log('3', status);
           })
-          .catch(error => console.log(error));
+          .catch((error) => console.log(error));
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   })
-  .catch(error => console.log(error));
+  .catch((error) => console.log(error));
 ```
 
 ## Async/Await
@@ -402,7 +402,7 @@ Here is the example with error handling:
 ```js
 ``` -->
 
-## Resources
+## Reference
 
 - [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 - [Google Web Fundamentals: Promises](https://developers.google.com/web/fundamentals/primers/promises)

@@ -121,7 +121,7 @@ This section describes how you can set breakpoints and debug JavaScript or TypeS
 8. You will stop on the breakpoint in **VS Code**.
 <!-- ## Network -->
 
-## Resources
+## Reference
 
 - [Get Started with Debugging JavaScript in Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/javascript)
 - [Chrome Devtools Documentation](https://developers.google.com/web/tools/chrome-devtools)

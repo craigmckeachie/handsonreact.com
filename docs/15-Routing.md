@@ -1,15 +1,9 @@
-# Chapter 15: Routing
-
-- [Chapter 15: Routing](#chapter-15-routing)
-  - [Overview](#overview)
-  - [Installation](#installation)
-  - [Basics](#basics)
-    - [Not Found (404)](#not-found-404)
-      - [`package.json`](#packagejson)
-  - [Parameters](#parameters)
-    - [URL Parameters](#url-parameters)
-    - [Query Parameters](#query-parameters)
-  - [Nesting](#nesting)
+---
+id: 15-Routing
+title: Routing
+sidebar_label: Routing
+slug: /routing
+---
 
 ## Overview
 

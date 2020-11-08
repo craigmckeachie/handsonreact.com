@@ -1,3 +1,10 @@
+---
+id: 17-BuildDeploy
+title: Build & Deploy
+sidebar_label: Build & Deploy
+slug: /build-deploy
+---
+
 ## Build
 
 `npm run build` creates a `build` directory with a production build of your app. Inside the `build/static` directory will be your JavaScript and CSS files. Each filename inside of `build/static` will contain a unique hash of the file contents. This hash in the file name enables [long term caching techniques](#static-file-caching).
@@ -170,7 +177,7 @@ To deliver the best performance to your users, it's best practice to specify a `
 
 Using `Cache-Control: max-age=31536000` for your `build/static` assets, and `Cache-Control: no-cache` for everything else is a safe and effective starting point that ensures your user's browser will always check for an updated `index.html` file, and will cache all of the `build/static` files for one year. Note that you can use the one year expiration on `build/static` safely because the file contents hash is embedded into the filename.
 
-## Resources
+## Reference
 
 - [Create React App Production Builds](https://facebook.github.io/create-react-app/docs/production-build)
 - [Create React App Deployment](https://facebook.github.io/create-react-app/docs/deployment)

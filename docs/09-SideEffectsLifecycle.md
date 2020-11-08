@@ -122,7 +122,7 @@ class Clock extends React.Component {
 ReactDOM.render(<Clock />, document.getElementById('root'));
 ```
 
-## Lifecycle Reference
+## Reference
 
 - [React Lifecycle Methods Diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 - [Glossary: Lifecycle Methods](https://reactjs.org/docs/glossary.html#lifecycle-methods)

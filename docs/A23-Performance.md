@@ -10,7 +10,7 @@
     - [`React.PureComponent`](#reactpurecomponent)
     - [`React.memo`](#reactmemo)
   - [`React.memo` Demo](#reactmemo-demo)
-      - [styles.css](#stylescss-1)
+    - [styles.css](#stylescss-1)
   - [`React.PureComponent` Demo](#reactpurecomponent-demo)
     - [FAQs](#faqs)
       - [index.js](#indexjs)
@@ -689,7 +689,7 @@ ReactDOM.render(
 );
 ```
 
-## Resources
+## Reference
 
 - [React.PureComponent](https://reactjs.org/docs/react-api.html#reactpurecomponent)
 - [React.memo](https://reactjs.org/docs/react-api.html#reactmemo)

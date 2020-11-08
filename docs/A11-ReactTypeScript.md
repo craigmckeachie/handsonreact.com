@@ -10,10 +10,10 @@
     - [Class Component](#class-component)
       - [`src\Hello.tsx`](#srchellotsx-1)
   - [State](#state)
-      - [`src\Hello.tsx`](#srchellotsx-2)
-      - [`src\App.tsx`](#srcapptsx-2)
+    - [`src\Hello.tsx`](#srchellotsx-2)
+    - [`src\App.tsx`](#srcapptsx-2)
   - [Event Handlers](#event-handlers)
-      - [`src\Hello.tsx`](#srchellotsx-3)
+    - [`src\Hello.tsx`](#srchellotsx-3)
   - [Resources](#resources)
 
 ## Installation
@@ -220,7 +220,7 @@ class Hello extends React.Component<Props, State> {
   }
 
   updateEnthusiasm(change: number) {
-    this.setState(currentState => {
+    this.setState((currentState) => {
       return { currentEnthusiasm: currentState.currentEnthusiasm + change };
     });
   }
@@ -232,8 +232,6 @@ function getExclamationMarks(numChars: number) {
   return Array(numChars + 1).join('!');
 }
 ```
-
-
 
 2. Notice that `state` is the second type parameter being passed when the class is constructed.
 
@@ -251,6 +249,7 @@ function getExclamationMarks(numChars: number) {
 3. Set `enthusiasmLevel` as a `prop`.
 
 #### `src\App.tsx`
+
 ```diff
 import React from 'react';
 import './App.css';
@@ -259,7 +258,7 @@ import Hello from './Hello';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Hello name="Evis" 
+      <Hello name="Evis"
 +      enthusiasmLevel={2}
       ></Hello>
     </div>
@@ -323,7 +322,7 @@ class Hello extends React.Component<Props, State> {
   }
 
   updateEnthusiasm(change: number) {
-    this.setState(currentState => {
+    this.setState((currentState) => {
       return { currentEnthusiasm: currentState.currentEnthusiasm + change };
     });
   }
@@ -336,7 +335,7 @@ function getExclamationMarks(numChars: number) {
 }
 ```
 
-## Resources
+## Reference
 
 - [How to Use TypeScript with React & Redux](https://medium.com/@rossbulat/how-to-use-typescript-with-react-and-redux-a118b1e02b76)
 - [Microsoft Tutorial on React & Redux using TypeScript](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)

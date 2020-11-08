@@ -1,18 +1,9 @@
-# Chapter 11: Lists
-
-- [Chapter 11: Lists](#chapter-11-lists)
-  - [In Vanilla JavaScript](#in-vanilla-javascript)
-    - [a. for loop](#a-for-loop)
-    - [b. #array.forEach](#b-arrayforeach)
-    - [c. #array.map](#c-arraymap)
-    - [d. #array.map with arrow function](#d-arraymap-with-arrow-function)
-  - [In React: Rendering Multiple Elements](#in-react-rendering-multiple-elements)
-  - [In React: Rendering Multiple Components](#in-react-rendering-multiple-components)
-  - [Keys](#keys)
-    - [Adding Keys](#adding-keys)
-    - [Where to put Keys](#where-to-put-keys)
-  - [map() in JSX](#map-in-jsx)
-  - [Resources](#resources)
+---
+id: 11-Lists
+title: Lists
+sidebar_label: Lists
+slug: /lists
+---
 
 Often the answer to the question of how do I do something in React can be answered by understanding how would you do it in JavaScript.
 
@@ -45,7 +36,7 @@ console.log(tens);
 const numbers = [1, 2, 3, 4, 5];
 const tens = [];
 
-numbers.forEach(function(number) {
+numbers.forEach(function (number) {
   tens.push(number * 10);
 });
 
@@ -57,7 +48,7 @@ console.log(tens);
 ```js
 const numbers = [1, 2, 3, 4, 5];
 
-const tens = numbers.map(function(number) {
+const tens = numbers.map(function (number) {
   return number * 10;
 });
 
@@ -68,7 +59,7 @@ console.log(tens);
 
 ```js
 const numbers = [1, 2, 3, 4, 5];
-const tens = numbers.map(number => number * 10);
+const tens = numbers.map((number) => number * 10);
 console.log(tens);
 ```
 
@@ -78,7 +69,7 @@ We can use the Array's `map` function to transform an array of data into an arra
 
 ```js
 function FruitList(props) {
-  const fruitListItems = props.fruits.map(fruit => (
+  const fruitListItems = props.fruits.map((fruit) => (
     <li key={fruit.id}>{fruit.name}</li>
   ));
   return <ul>{fruitListItems}</ul>;
@@ -89,7 +80,7 @@ const data = [
   { id: 2, name: 'orange' },
   { id: 3, name: 'blueberry' },
   { id: 4, name: 'banana' },
-  { id: 5, name: 'kiwi' }
+  { id: 5, name: 'kiwi' },
 ];
 
 ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
@@ -113,7 +104,7 @@ function FruitList(props) {
 ```js
 function FruitList(props) {
   const fruitListItems = [];
-  props.fruits.forEach(fruit => {
+  props.fruits.forEach((fruit) => {
     const fruitListItem = <li key={fruit.id}>{fruit.name}</li>;
     fruitListItems.push(fruitListItem);
   });
@@ -133,7 +124,7 @@ function FruitListItem(props) {
 }
 
 function FruitList(props) {
-  const fruitListItems = props.fruits.map(fruit => (
+  const fruitListItems = props.fruits.map((fruit) => (
     <FruitListItem key={fruit.id} fruit={fruit} />
   ));
   return <ul>{fruitListItems}</ul>;
@@ -144,7 +135,7 @@ const data = [
   { id: 2, name: 'orange' },
   { id: 3, name: 'blueberry' },
   { id: 4, name: 'banana' },
-  { id: 5, name: 'kiwi' }
+  { id: 5, name: 'kiwi' },
 ];
 
 ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
@@ -215,7 +206,7 @@ function FruitListItem(props) {
 }
 
 function FruitList(props) {
-  const fruitListItems = props.fruits.map(fruit => (
+  const fruitListItems = props.fruits.map((fruit) => (
     <FruitListItem fruit={fruit} />
   ));
   return <ul>{fruitListItems}</ul>;
@@ -226,7 +217,7 @@ const data = [
   { id: 2, name: 'orange' },
   { id: 3, name: 'blueberry' },
   { id: 4, name: 'banana' },
-  { id: 5, name: 'kiwi' }
+  { id: 5, name: 'kiwi' },
 ];
 ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
 ```
@@ -247,7 +238,7 @@ function FruitListItem(props) {
 }
 
 function FruitList(props) {
-  const fruitListItems = props.fruits.map(fruit => (
+  const fruitListItems = props.fruits.map((fruit) => (
     <FruitListItem key={fruit.id} fruit={fruit} />
   ));
   return <ul>{fruitListItems}</ul>;
@@ -258,7 +249,7 @@ const data = [
   { id: 2, name: 'orange' },
   { id: 3, name: 'blueberry' },
   { id: 4, name: 'banana' },
-  { id: 5, name: 'kiwi' }
+  { id: 5, name: 'kiwi' },
 ];
 
 ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
@@ -274,7 +265,7 @@ As you get more comfortable in JSX using map directly in the return statement in
 function FruitList(props) {
   return (
     <ul>
-      {props.fruits.map(fruit => (
+      {props.fruits.map((fruit) => (
         <FruitListItem key={fruit.id} fruit={fruit} />
       ))}
     </ul>
@@ -284,7 +275,7 @@ function FruitList(props) {
 
 > Be careful not to overuse this approach as it can be harder to read, write, and maintain.
 
-## Resources
+## Reference
 
 - [Lists & Keys](https://reactjs.org/docs/lists-and-keys.html)
 - [Understanding unique keys for array children in React.js](https://stackoverflow.com/questions/28329382/understanding-unique-keys-for-array-children-in-react-js)

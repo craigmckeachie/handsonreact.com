@@ -12,15 +12,17 @@
   - [Resources](#resources)
 
 ## Benefits
+
 TypeScript has the potential to bring the following benefits to a Redux application:
 
 1. Type safety for reducers, state and action creators
 1. Easy refactoring of typed code
 1. A superior developer experience in a team environment
 
-
 ## Installing
-To get all the benefits of types you should install the type definition file for the React Redux library.  The other libraries (Redux and Redux Thunk) install with their type definitions and React Redux will likely do the same in the near future.
+
+To get all the benefits of types you should install the type definition file for the React Redux library. The other libraries (Redux and Redux Thunk) install with their type definitions and React Redux will likely do the same in the near future.
+
 ```
 npm install --save-dev @types/react-redux
 ```
@@ -28,7 +30,8 @@ npm install --save-dev @types/react-redux
 ## Usage
 
 Each of the following sections demonstrates how TypeScript can be used with the various parts of Redux.
-> [Click here for  the full source code for a small but complete example of Redux being used with TypeScript](https://github.com/craigmckeachie/r16_hello-redux).
+
+> [Click here for the full source code for a small but complete example of Redux being used with TypeScript](https://github.com/craigmckeachie/r16_hello-redux).
 
 ## State
 
@@ -68,10 +71,9 @@ export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm;
 
 export function incrementEnthusiasm(): IncrementEnthusiasm {
   return {
-    type: INCREMENT_ENTHUSIASM
+    type: INCREMENT_ENTHUSIASM,
   };
 }
-
 ```
 
 ```ts
@@ -113,7 +115,6 @@ export type ProjectActionTypes =
 
 ```
 
-
 ## Reducers
 
 ```ts
@@ -127,7 +128,7 @@ export function reducer(
     case DECREMENT_ENTHUSIASM:
       return {
         ...state,
-        enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1)
+        enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1),
       };
   }
   return state;
@@ -147,7 +148,7 @@ export function projectReducer(
         ...state,
         projects: state.projects.filter(
           (project: Project) => project.id !== action.payload.id
-        )
+        ),
       };
     case DELETE_PROJECT_FAILURE:
       return { ...state, error: action.payload.message };
@@ -155,8 +156,6 @@ export function projectReducer(
       return state;
   }
 }
-
-
 ```
 
 ## Connect (React Redux)
@@ -165,39 +164,33 @@ export function projectReducer(
 export function mapStateToProps({ enthusiasmLevel, name }: StoreState) {
   return {
     enthusiasmLevel,
-    name
+    name,
   };
 }
 
 export function mapDispatchToProps(dispatch: Dispatch<EnthusiasmAction>) {
   return {
     onIncrement: () => dispatch(incrementEnthusiasm()),
-    onDecrement: () => dispatch(decrementEnthusiasm())
+    onDecrement: () => dispatch(decrementEnthusiasm()),
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Hello);
+export default connect(mapStateToProps, mapDispatchToProps)(Hello);
 ```
 
 ```ts
 function mapStateToProps(state: AppState): ProjectState {
   return {
-    ...state.projectState
+    ...state.projectState,
   };
 }
 
 const mapDispatchToProps = {
   onLoad: loadProjects,
-  onSave: saveProject
+  onSave: saveProject,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProjectsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectsPage);
 ```
 
 ## Redux Thunk
@@ -210,21 +203,20 @@ export function loadProjects(
     dispatch({ type: LOAD_PROJECTS_REQUEST });
     return projectAPI
       .get(page)
-      .then(data => {
+      .then((data) => {
         dispatch({
           type: LOAD_PROJECTS_SUCCESS,
-          payload: { projects: data, page }
+          payload: { projects: data, page },
         });
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch({ type: LOAD_PROJECTS_FAILURE, payload: error });
       });
   };
 }
 ```
 
-
-## Resources
+## Reference
 
 - [How to Use TypeScript with React & Redux](https://medium.com/@rossbulat/how-to-use-typescript-with-react-and-redux-a118b1e02b76)
 - [Microsoft Tutorial on React & Redux using TypeScript](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)

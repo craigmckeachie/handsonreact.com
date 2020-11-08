@@ -21,7 +21,7 @@
       - [Interactive Updates](#interactive-updates)
       - [Uninstalling Dependencies](#uninstalling-dependencies)
     - [package-lock.json](#package-lockjson)
-        - [Broken package.json scenarios](#broken-packagejson-scenarios)
+      - [Broken package.json scenarios](#broken-packagejson-scenarios)
     - [npm Scripts](#npm-scripts)
       - [Your First Script](#your-first-script)
   - [Resources](#resources)
@@ -270,7 +270,7 @@ Npm's scripts directive can do everything that these build tools can, more su
 npm run hi
 ```
 
-## Resources
+## Reference
 
 - [npm Documentation](https://docs.npmjs.com/)
 - [Configuration](https://docs.npmjs.com/misc/config)
@@ -396,7 +396,7 @@ or
 yarn install
 ```
 
-## Resources
+## Reference
 
 - [Yarn Documentation](https://yarnpkg.com/en/docs)
 - [Migrating from npm](https://yarnpkg.com/en/docs/migrating-from-npm)

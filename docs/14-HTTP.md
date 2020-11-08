@@ -1,33 +1,9 @@
-# Chapter 14: HTTP
-
-- [Chapter 14: HTTP](#chapter-14-http)
-  - [Setup Backend](#setup-backend)
-  - [Axios](#axios)
-  - [Fetch](#fetch)
-  - [React](#react)
-    - [componentDidMount](#componentdidmount)
-    - [Loading](#loading)
-    - [Error Handling](#error-handling)
-    - [Lists](#lists)
-    - [Example](#example)
-  - [Reuse](#reuse)
-  - [POST](#post)
-      - [POST with Axios](#post-with-axios)
-      - [POST with Fetch](#post-with-fetch)
-  - [PUT](#put)
-  - [DELETE](#delete)
-  - [Items Demo App (CRUD) using HTTP](#items-demo-app-crud-using-http)
-    - [Function Component Example](#function-component-example)
-      - [`api\db.json`](#apidbjson)
-      - [styles.css](#stylescss)
-      - [index.html](#indexhtml)
-      - [main.jsx](#mainjsx)
-    - [Class Component Example](#class-component-example)
-      - [`api\db.json`](#apidbjson-1)
-      - [styles.css](#stylescss-1)
-      - [index.html](#indexhtml-1)
-      - [main.jsx](#mainjsx-1)
-- [Resources](#resources)
+---
+id: 14-HTTP
+title: HTTP
+sidebar_label: HTTP
+slug: /http
+---
 
 The ability to make HTTP calls is not built-in to React.
 

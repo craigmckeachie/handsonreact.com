@@ -398,7 +398,7 @@ return condition ? <div>true</div> : <div>false</div>;
 return condition && <div>true</div>;
 ```
 
-## Resources
+## Reference
 
 - [Conditional Rendering: Official Documentation](https://reactjs.org/docs/conditional-rendering.html)
 - [All React Conditional Rendering Techniques](https://www.robinwieruch.de/conditional-rendering-react/)
