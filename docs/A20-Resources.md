@@ -1,10 +1,17 @@
-# Appendix A20: Resources
+---
+id: A20-Resources
+title: Resources
+sidebar_label: Resources
+slug: /resources
+---
+
+## Resources
 
 - [React Community Resources (see navigation on right)](https://reactjs.org/community/support.html)
 - [React Resource Lists](https://reactjs.org/community/external-resources.html)
 - [Collection of Awesome React Things](https://github.com/enaqx/awesome-react)
 
-## Example Application:
+## Example Applications
 
 - [Examples of Production Grade Open Source React Apps](https://maxrozen.com/examples-of-large-production-grade-open-source-react-apps/)
 - [Color Picker: Microsoft Community Content](https://github.com/microsoft/TechnicalCommunityContent/tree/master/Web%20Frameworks/React/Session%203%20-%20Hands%20On)

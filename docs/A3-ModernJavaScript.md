@@ -1,41 +1,11 @@
-# Appendix A3: ECMAScript 6 (ES6)
+---
+id: A3-ModernJavaScript
+title: Modern JavaScript
+sidebar_label: Modern JavaScript
+slug: /modern-javascript
+---
 
 ![ECMAScript Logo](https://user-images.githubusercontent.com/1474579/98454730-dd04e180-2135-11eb-8e4a-803478f01dab.png)
-
-<div style="page-break-after: always;"></div>
-
-## Contents
-
-- [Appendix A3: ECMAScript 6 (ES6)](#appendix-a3-ecmascript-6-es6)
-  - [Contents](#contents)
-  - [Classes](#classes)
-    - [Constructors](#constructors)
-    - [Methods](#methods)
-    - [Class Fields](#class-fields)
-  - [Scope (var, let, const)](#scope-var-let-const)
-    - [var](#var)
-    - [let](#let)
-    - [const](#const)
-  - [Arrow Functions](#arrow-functions)
-    - [Function](#function)
-    - [Arrow function](#arrow-function)
-  - [Modules](#modules)
-    - [First Module](#first-module)
-    - [Another Module](#another-module)
-  - [Template Literals](#template-literals)
-  - [Default, Rest, Spread](#default-rest-spread)
-    - [Default](#default)
-    - [Rest](#rest)
-    - [Spread](#spread)
-  - [Destructuring](#destructuring)
-    - [Objects](#objects)
-    - [Arrays](#arrays)
-  - [Optional Parameters](#optional-parameters)
-  - [Object.assign()](#objectassign)
-  - [Object Initializer](#object-initializer)
-  - [Resources](#resources)
-
-<div style="page-break-after: always;"></div>
 
 ## Classes
 
@@ -125,8 +95,6 @@ Ron Swanson
 Ron Swanson
 ```
 
-<div style="page-break-after: always;"></div>
-
 ### Class Fields
 
 Class Fields are only a stage-3 proposal so you need to install an additional [plugin](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) to use them.
@@ -160,8 +128,6 @@ console.log(person.first + ' ' + person.last);
 Craig McKeachie
 ```
 
-<div style="page-break-after: always;"></div>
-
 ## Scope (var, let, const)
 
 ### var
@@ -187,8 +153,6 @@ console.log('at end: ' + counter);
 4
 at end: 4
 ```
-
-<div style="page-break-after: always;"></div>
 
 ### let
 
@@ -227,8 +191,6 @@ a = 2;
 ```zsh
 Error: "a" is read-only
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Arrow Functions
 
@@ -271,8 +233,6 @@ numbers.forEach((n) => console.log(n));
 4
 ```
 
-<div style="page-break-after: always;"></div>
-
 ## Modules
 
 ### First Module
@@ -300,8 +260,6 @@ console.log(myFunction());
 ```
 myFunction was run.
 ```
-
-<div style="page-break-after: always;"></div>
 
 ### Another Module
 
@@ -351,8 +309,6 @@ let myClass = new MyClass();
 console.log(myClass.myClassMethod());
 ```
 
-<div style="page-break-after: always;"></div>
-
 3.  Result
 
 ```
@@ -362,8 +318,6 @@ myMethod on myObject is running.
 55
 myClassMethod on myClass is running.
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Template Literals
 
@@ -383,8 +337,6 @@ console.log(sentence);
 I ate food.
 I enjoyed it.
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Default, Rest, Spread
 
@@ -432,8 +384,6 @@ b: b
 c
 ```
 
-<div style="page-break-after: always;"></div>
-
 ### Spread
 
 1.  Code
@@ -452,8 +402,6 @@ console.log(add(...[1, 2, 3]));
 ```sh
 6
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Destructuring
 
@@ -481,8 +429,6 @@ Thomas
 Edison
 ```
 
-<div style="page-break-after: always;"></div>
-
 Assignment is left to right with an object literal.
 
 1.  Code
@@ -506,8 +452,6 @@ console.log(lastName);
 Thomas
 Edison
 ```
-
-<div style="page-break-after: always;"></div>
 
 ### Arrays
 
@@ -550,8 +494,6 @@ console.log(c);
 3
 ```
 
-<div style="page-break-after: always;"></div>
-
 ## Optional Parameters
 
 1.  Code
@@ -575,8 +517,6 @@ console.log(buildName('Craig', 'McKeachie', 'D.'));
 Craig McKeachie
 Craig D. McKeachie
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Object.assign()
 
@@ -615,8 +555,6 @@ console.log(obj);
 { a: 1, b: 2, c: 3 }
 ```
 
-<div style="page-break-after: always;"></div>
-
 ## Object Initializer
 
 1.  Code
@@ -646,8 +584,6 @@ console.log('user1 ', user.name);
 user  Leslie
 user1  Leslie
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Reference
 

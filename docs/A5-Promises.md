@@ -1,22 +1,11 @@
-## Appendixes A5:Promise
+---
+id: A5-Promises
+title: Promises & Async Await
+sidebar_label: Promises & Async Await
+slug: /promises-async-await
+---
 
 Promises are a foundational technology in JavaScript.
-
-<div style="page-break-after: always;"></div>
-
-## Contents
-
-- [Appendixes A5:Promise](#appendixes-a5promise)
-- [Contents](#contents)
-  - [Asynchronous vs Synchronous](#asynchronous-vs-synchronous)
-    - [Analogy](#analogy)
-  - [Callback vs Promise](#callback-vs-promise)
-    - [Callback Example](#callback-example)
-    - [Promise Example](#promise-example)
-      - [How Promises Improve on Callbacks](#how-promises-improve-on-callbacks)
-    - [Common Issues/Mistakes:](#common-issuesmistakes)
-- [Async/Await](#asyncawait)
-- [Resources](#resources)
 
 ### Asynchronous vs Synchronous
 

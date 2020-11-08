@@ -1,42 +1,8 @@
-# Appendix A1: Package Managers
-
-- [Appendix A1: Package Managers](#appendix-a1-package-managers)
-- [npm](#npm)
-  - [What is Node.js?](#what-is-nodejs)
-    - [Compare to:](#compare-to)
-      - [What is Java’s runtime?](#what-is-javas-runtime)
-      - [What is .NET’s runtime?](#what-is-nets-runtime)
-  - [What is npm?](#what-is-npm)
-    - [Shared Code](#shared-code)
-  - [Using npm](#using-npm)
-    - [Global Installs](#global-installs)
-      - [Global Packages Location](#global-packages-location)
-      - [The Problem with Global Installs?](#the-problem-with-global-installs)
-    - [Local Installs](#local-installs)
-    - [package.json](#packagejson)
-      - [dependencies](#dependencies)
-      - [devDependencies](#devdependencies)
-      - [Semantic Versioning](#semantic-versioning)
-      - [Updating Dependencies](#updating-dependencies)
-      - [Interactive Updates](#interactive-updates)
-      - [Uninstalling Dependencies](#uninstalling-dependencies)
-    - [package-lock.json](#package-lockjson)
-      - [Broken package.json scenarios](#broken-packagejson-scenarios)
-    - [npm Scripts](#npm-scripts)
-      - [Your First Script](#your-first-script)
-  - [Resources](#resources)
-- [Yarn](#yarn)
-  - [Why Yarn?](#why-yarn)
-    - [Performance](#performance)
-    - [Reliability](#reliability)
-    - [Security](#security)
-    - [Other](#other)
-  - [npm vs. Yarn](#npm-vs-yarn)
-  - [Installation](#installation)
-    - [Install via npm](#install-via-npm)
-  - [Common Commands](#common-commands)
-  - [Resources](#resources-1)
-
+---
+id: A1-PackageManager
+title: Package Managers
+sidebar_label: Package Managers
+slug: /package-managers
 ---
 
 # npm
@@ -46,7 +12,7 @@
 - JavaScript runtime
 - Built on Chrome's V8 JavaScript engine
 
-### Compare to:
+### Compare To
 
 #### What is Java’s runtime?
 
@@ -270,7 +236,7 @@ Npm's scripts directive can do everything that these build tools can, more su
 npm run hi
 ```
 
-## Reference
+### Reference
 
 - [npm Documentation](https://docs.npmjs.com/)
 - [Configuration](https://docs.npmjs.com/misc/config)
@@ -306,7 +272,7 @@ npm run hi
 
 - Saves dependencies locally if `package.json` exists in directory even if you don't set the command line flag `--save`.
 
-## npm vs. Yarn
+### npm vs. Yarn
 
 Since the introduction of `Yarn`, `npm` now has:
 
@@ -318,11 +284,13 @@ Since the introduction of `Yarn`, `npm` now has:
 
 - [Chart comparing npm vs Yarn downloads](https://www.npmtrends.com/yarn-vs-npm)
 
-## Installation
+### Installation
 
-### Install via npm
+#### Install via npm
 
-To install Yarn through the npm package manager if you already have it installed. If you already have Node.js installed then you should already have npm.
+To install Yarn through the npm package manager run the command:
+
+> If you already have Node.js installed then you should already have npm.
 
 Once you have npm installed you can run:
 
@@ -342,7 +310,7 @@ Installs in the directory ~/.yarn
 
 > To show hidden files on macOS: CMD + SHIFT + .
 
-## Common Commands
+### Common Commands
 
 Here are some of the most common commands you'll need.
 
@@ -396,7 +364,7 @@ or
 yarn install
 ```
 
-## Reference
+### Reference
 
 - [Yarn Documentation](https://yarnpkg.com/en/docs)
 - [Migrating from npm](https://yarnpkg.com/en/docs/migrating-from-npm)

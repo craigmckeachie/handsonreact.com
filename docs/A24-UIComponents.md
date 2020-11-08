@@ -1,4 +1,9 @@
-# UI Components
+---
+id: A24-UIComponents
+title: UI Components
+sidebar_label: UI Components
+slug: /ui-compoonents
+---
 
 ## Comparisons
 

@@ -1,30 +1,9 @@
-# Appendix A4: TypeScript
-
-<!-- ![TypeScript Logo](./assets/ts-logo.png) -->
-
-<kbd>![TypeScript Logo](https://user-images.githubusercontent.com/1474579/65373054-1df61a00-dc46-11e9-97bb-10e5e00a9981.png)</kbd>
-
-<div style="page-break-after: always;"></div>
-
-## Contents
-
-- [Appendix A4: TypeScript](#appendix-a4-typescript)
-  - [Contents](#contents)
-  - [Diagram](#diagram)
-  - [How TypeScript Works](#how-typescript-works)
-  - [Who is Behind TypeScript?](#who-is-behind-typescript)
-  - [Type Annotations](#type-annotations)
-  - [Classes](#classes)
-    - [Fields](#fields)
-    - [Parameter Properties](#parameter-properties)
-    - [Member visibility (public, private, protected)](#member-visibility-public-private-protected)
-  - [Automatically Import Modules](#automatically-import-modules)
-  - [Nullable Parameters](#nullable-parameters)
-  - [Interfaces](#interfaces)
-  - [Other Language Features](#other-language-features)
-  - [Resources](#resources)
-
-<div style="page-break-after: always;"></div>
+---
+id: A4-TypeScript
+title: TypeScript
+sidebar_label: TypeScript
+slug: /typescript
+---
 
 ## Diagram
 
@@ -78,8 +57,6 @@ Anders Hejlsberg
     Hi Ben
     ```
 
-<div style="page-break-after: always;"></div>
-
 ## Classes
 
 ### Fields
@@ -107,8 +84,6 @@ Anders Hejlsberg
 
 > Class field declarations for JavaScript
 > https://github.com/tc39/proposal-class-fields
-
-<div style="page-break-after: always;"></div>
 
 1.  Code:
 
@@ -179,8 +154,6 @@ Members are public by default but you can explicitly make them public, private, 
 
    > While protected class members are accessible from the descendant’s code, they are not accessible on the class instance.
 
-<div style="page-break-after: always;"></div>
-
 ## Automatically Import Modules
 
 1.  Create file `my-module.ts`
@@ -209,8 +182,6 @@ Members are public by default but you can explicitly make them public, private, 
     myFunction was run.
     ```
 
-<div style="page-break-after: always;"></div>
-
 ## Nullable Parameters
 
 1.  Code
@@ -234,8 +205,6 @@ console.log(buildName('Craig', 'McKeachie', 'D.'));
 Craig McKeachie
 Craig D. McKeachie
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Interfaces
 

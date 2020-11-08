@@ -1,19 +1,9 @@
-# Appendix A2: Compiler Setup
-
-- [Appendix A2: Compiler Setup](#appendix-a2-compiler-setup)
-  - [How It Works](#how-it-works)
-  - [Setup (Babel)](#setup-babel)
-    - [Create Project](#create-project)
-    - [Install Babel](#install-babel)
-    - [Run Babel](#run-babel)
-  - [Setup (TypeScript)](#setup-typescript)
-    - [Create Project](#create-project-1)
-    - [Install TypeScript](#install-typescript)
-    - [Configure TypeScript](#configure-typescript)
-    - [Setting the Compiler Strictness](#setting-the-compiler-strictness)
-      - [--strict](#--strict)
-      - [--strictNullChecks](#--strictnullchecks)
-    - [Run TypeScript](#run-typescript)
+---
+id: A2-CompilerSetup
+title: Compiler Setup
+sidebar_label: Compiler Setup
+slug: /compiler-setup
+---
 
 ## How It Works
 

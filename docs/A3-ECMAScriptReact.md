@@ -1,31 +1,9 @@
-# Essential JavaScript for React
-
-- [Essential JavaScript for React](#essential-javascript-for-react)
-  - [Setup](#setup)
-  - [Scope (var, let, const)](#scope-var-let-const)
-    - [tldr;](#tldr)
-    - [var](#var)
-    - [let](#let)
-    - [const](#const)
-  - [Arrow Functions](#arrow-functions)
-    - [Function](#function)
-    - [Arrow function](#arrow-function)
-  - [Destructuring](#destructuring)
-    - [Objects](#objects)
-    - [Arrays](#arrays)
-  - [Classes](#classes)
-    - [Constructors](#constructors)
-    - [Methods](#methods)
-    - [Class Fields](#class-fields)
-  - [Modules](#modules)
-    - [First Module](#first-module)
-    - [Another Module](#another-module)
-  - [Spread](#spread)
-  - [Array.map() method](#arraymap-method)
-    - [a. for loop](#a-for-loop)
-    - [b. #array.forEach](#b-arrayforeach)
-    - [c. #array.map](#c-arraymap)
-    - [d. #array.map with arrow function](#d-arraymap-with-arrow-function)
+---
+id: A3-ECMAScriptReact
+title: Essential JavaScript for React
+sidebar_label: Essential JavaScript for React
+slug: /essential-javascript-react
+---
 
 ## Setup
 
@@ -36,7 +14,6 @@
 
 ```sh
 npm install
-
 ```
 
 then
@@ -91,8 +68,6 @@ console.log('at end: ' + counter);
 at end: 4
 ```
 
-<div style="page-break-after: always;"></div>
-
 ### let
 
 1.  Code
@@ -131,8 +106,6 @@ a = 2;
 ```zsh
 TypeError: Assignment to constant variable.
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Arrow Functions
 
@@ -175,8 +148,6 @@ numbers.forEach((n) => console.log(n));
 4
 ```
 
-<div style="page-break-after: always;"></div>
-
 ## Destructuring
 
 ### Objects
@@ -203,8 +174,6 @@ Thomas
 Edison
 ```
 
-<div style="page-break-after: always;"></div>
-
 Assignment is left to right with an object literal.
 
 1.  Code
@@ -229,8 +198,6 @@ Thomas
 Edison
 ```
 
-<div style="page-break-after: always;"></div>
-
 ### Arrays
 
 1.  Code
@@ -251,8 +218,6 @@ console.log(c);
 2
 3
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Classes
 
@@ -342,8 +307,6 @@ Ron Swanson
 Ron Swanson
 ```
 
-<div style="page-break-after: always;"></div>
-
 ### Class Fields
 
 Class Fields are only a stage-3 proposal so you need to install an additional [plugin](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) to use them.
@@ -375,8 +338,6 @@ console.log(person.first + ' ' + person.last);
 Craig McKeachie
 ```
 
-<div style="page-break-after: always;"></div>
-
 ## Modules
 
 ### First Module
@@ -404,8 +365,6 @@ console.log(myFunction());
 ```
 myFunction was run.
 ```
-
-<div style="page-break-after: always;"></div>
 
 ### Another Module
 
@@ -455,8 +414,6 @@ let myClass = new MyClass();
 console.log(myClass.myClassMethod());
 ```
 
-<div style="page-break-after: always;"></div>
-
 3.  Result
 
 ```
@@ -466,8 +423,6 @@ myMethod on myObject is running.
 55
 myClassMethod on myClass is running.
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Spread
 
@@ -487,8 +442,6 @@ console.log(add(...[1, 2, 3]));
 ```sh
 6
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Array.map() method
 
