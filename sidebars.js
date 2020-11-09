@@ -83,6 +83,16 @@ module.exports = {
           'labs/js/24-ReduxActionsReducer',
           'labs/js/25-ReduxWithReact',
           'labs/js/A1-SkippingLabs',
+          {
+            type: 'link',
+            label: 'Snippets',
+            href: 'https://github.com/craigmckeachie/snip',
+          },
+          {
+            type: 'link',
+            label: 'Solution Code',
+            href: 'https://github.com/craigmckeachie/keeptrack-js',
+          },
         ],
       },
       {
@@ -113,6 +123,16 @@ module.exports = {
           'labs/ts/24-ReduxActionsReducer',
           'labs/ts/25-ReduxWithReact',
           'labs/ts/A1-SkippingLabs',
+          {
+            type: 'link',
+            label: 'Snippets',
+            href: 'https://github.com/craigmckeachie/snip',
+          },
+          {
+            type: 'link',
+            label: 'Solution Code',
+            href: 'https://github.com/craigmckeachie/keeptrack-ts',
+          },
         ],
       },
     ],
