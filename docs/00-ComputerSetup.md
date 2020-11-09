@@ -13,7 +13,7 @@ slug: /computer-setup
 2. **Node.js** installed, a recent **10.x or 12.x LTS** version.
 
    - **Visit** [http://nodejs.org/](http://nodejs.org/).
-   - **Click** the `12.19.[x] LTS Recommended For Most Users` (or similar) **green button on the left** to **download** the **installer** file.
+   - **Click** the `14.15.[x] LTS Recommended For Most Users` (or similar) **green button on the left** to **download** the **installer** file.
    - **Run** the **installer**, accepting all _default_ _settings_.
    - After installation, **confirm** that the `Path` environment variable on your computer has been modified to include the path for `node` and `npm` by following these steps.
      - **Open** a `command prompt` (Windows) or `terminal` (Mac).
@@ -24,7 +24,8 @@ slug: /computer-setup
        npm -v
        ```
      - **Verify** the **version** of each program is **returned**.
-   - Please **DO NOT use** `Node 8.x` or `11.x`, `13.x` `14.x`, or `15.x` for this class.
+     - Node versions 10.x, 12.x, and 14.x are Long Term Support (LTS) versions and will work for this class.
+   - Please **DO NOT use** `Node 8.x` or `11.x`, `13.x` or `15.x` for this class.
    - If you are using one of the older or experimental versions of `Node.js` listed above, uninstall it and reinstall a recent **LTS** version.
      - [How to remove Node.js from Windows](https://stackoverflow.com/a/20711410/48175)
      ```
