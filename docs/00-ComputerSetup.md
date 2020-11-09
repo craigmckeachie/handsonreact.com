@@ -10,7 +10,7 @@ slug: /computer-setup
 1. A **recent** version of **Windows** (7 or later), **macOS**, or **Linux**, with:
    - _current system updates_
    - at least `4 GB` of `RAM`
-2. **Node.js** installed, a recent **10.x or 12.x LTS** version.
+2. **Node.js** installed, a recent **10.x, 12.x, or 14.x LTS** version.
 
    - **Visit** [http://nodejs.org/](http://nodejs.org/).
    - **Click** the `14.15.[x] LTS Recommended For Most Users` (or similar) **green button on the left** to **download** the **installer** file.
