@@ -395,4 +395,4 @@ Here is the example with error handling:
 
 - [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 - [Google Web Fundamentals: Promises](https://developers.google.com/web/fundamentals/primers/promises)
-- [Emulate a long-running API](httpstat.us/200?sleep=5000)
+- [Emulate a long-running API](http://httpstat.us/200?sleep=5000)
