@@ -24,7 +24,7 @@ slug: /computer-setup
        npm -v
        ```
      - **Verify** the **version** of each program is **returned**.
-     - Node versions 10.x, 12.x, and 14.x are Long Term Support (LTS) versions and will work for this class.
+   - Please **DO use** `Node` `10.x`, `12.x`, or `14.x` (Long Term Support (LTS)) versions for this class.
    - Please **DO NOT use** `Node 8.x` or `11.x`, `13.x` or `15.x` for this class.
    - If you are using one of the older or experimental versions of `Node.js` listed above, uninstall it and reinstall a recent **LTS** version.
      - [How to remove Node.js from Windows](https://stackoverflow.com/a/20711410/48175)
