@@ -52,7 +52,6 @@
    + import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
    + import HomePage from './home/HomePage';
 
-
    function App() {
    -  return (
    -    <div className="container">

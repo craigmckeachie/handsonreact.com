@@ -82,7 +82,7 @@ Download the completed code for the lab **before** the one you would like to wor
 
 ### &#10004; You have completed the Appendix A1 for the labs.
 
-<br>
+<br />
 
 ## Reference
 

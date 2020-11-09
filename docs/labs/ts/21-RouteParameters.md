@@ -102,7 +102,7 @@
    4. **Click** on the name or description in any of the project cards .
    5. **Verify** you are taken to the `/projects/1` route and the `ProjectPage` **displays** the `ProjectDetail` component.
 
-   <kbd><![image](https://user-images.githubusercontent.com/1474579/65079801-e77e7d80-d96d-11e9-8e1f-c8dab5ae60ba.png)</kbd>
+   <![image](https://user-images.githubusercontent.com/1474579/65079801-e77e7d80-d96d-11e9-8e1f-c8dab5ae60ba.png)
 
 ---
 
