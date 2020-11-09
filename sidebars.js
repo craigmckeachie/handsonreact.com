@@ -54,6 +54,6 @@ module.exports = {
       'A3-ECMAScriptReact',
     ],
     Resources: ['A24-UIComponents', 'A20-Resources'],
-    Labs: ['doc1', 'doc2', 'doc3'],
+    Labs: [{ JavaScript: ['doc1', 'doc2'] }, { TypeScript: ['doc3', 'doc2'] }],
   },
 };
