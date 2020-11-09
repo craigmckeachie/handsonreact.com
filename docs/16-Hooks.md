@@ -5,9 +5,27 @@ sidebar_label: Hooks
 slug: /hooks
 ---
 
+break into hooks (intro)
+custom hooks
+
 ## Defined
 
 > Hooks are a new addition in React 16.8. They let you use `state` and other React features including `Lifecycle Methods` without writing a class.
+
+## Background
+
+- React has always had two types of components: class and function.
+- Before hooks, class and function components were not interchangeable.
+- Before hooks, function components had two feature limitations:
+  - couldn't have state
+  - couldn't have lifecycle events
+- After hooks, function components became feature equivalent to class components
+  - can have state (useState hook)
+  - can handle lifecycle events (useEffect hook)
+- Before hooks, React had patterns to reuse stateful logic but none of the approaches worked well
+  - First, Higher-Order Components
+  - Then, Render Props
+- After hooks, creating custom hooks is an ideal solution to reuse stateful logic
 
 ## Why Hooks?
 
@@ -44,6 +62,20 @@ Before we continue, note that Hooks are:
   - Hooks are now available with the release of v16.8.0.
 - There are no plans to remove classes from React.
 - Hooks don’t replace your knowledge of React concepts.
+
+## Best Practice
+
+**Function components with hooks** are now considered a best practice in the React community.
+
+If you are starting a new project I would recommend using all function components with hooks and avoid writing class components.
+
+## Should I rewrite my class components?
+
+After learning that function components with hooks have become a best practice, the question becomes: should you should rewrite your existing class components (if you have them) to be function components?
+
+- As I mentioned previously, there are no plans to remove class components from React.
+- If your class components are working and you only need to make small bug fixes and find them easy to make I don't think it is worth the effort.
+- If you are finding it difficult for your team to grasp React and JavaScript (for example: the nuances of the this keyword) then it might be worth it to rewrite the components as functions.
 
 ## Hooks API
 
@@ -188,85 +220,6 @@ function Post() {
 ReactDOM.render(<Post />, document.getElementById('root'));
 ```
 
-<!-- ### Items App with Hooks
-
-#### Items App Modifying Container to `useState` and `useEffect`
-
-We will start with the component architecture demo from earlier in the course and refactor the `Container` component to use `hooks`.
-
-We have commented out the class code and replaced it with the hooks so you can see the syntax differences.
-
-At this point, we are not calling an API yet we are just working with in-memory data.
-
-_Note: This is not intended to be a full code example To get this example running, we would need to start with the code from the component architecture demo and replace just the `Container` component implementation._
-
-##### Steps
-
-- change class to function
-- remove render method keep implementation
-- comment out state
-- replace with useState
-- all handlers to const functions, comment out implementation
-- remove this from jsx
-- update handlers to use `set` functions
-
-```js
-...
-
-function Container() {
-  //   state = {
-  //     items: []
-  //   };
-    const [items, setItems] = React.useState([]);
-
-  //   componentDidMount() {
-  //     this.setState({ items: initialItems });
-  //   }
-
-  React.useEffect(() => setItems(initialItems), []);
-
-  const addItem = item => {
-    setItems([...items, item]);
-    //   this.setState(state => ({ items: [...state.items, item] }));
-  };
-
-  const updateItem = updatedItem => {
-    let updatedItems = items.map(item => {
-      return item.id === updatedItem.id
-        ? Object.assign({}, item, updatedItem)
-        : item;
-    });
-    return setItems(updatedItems);
-    //   this.setState(state => {
-    //     let items = state.items.map(item => {
-    //       return item.id === updatedItem.id
-    //         ? Object.assign({}, item, updatedItem)
-    //         : item;
-    //     });
-    //     return { items };
-    //   });
-  };
-
-  const removeItem = removeThisItem => {
-    const filteredItems = items.filter(item => item.id != removeThisItem.id);
-    setItems(filteredItems);
-    //   this.setState(state => {
-    //     const items = state.items.filter(item => item.id != removeThisItem.id);
-    //     return { items };
-    //   });
-  };
-
-  return (
-    <React.Fragment>
-      <Form item="" onSubmit={addItem} buttonValue="Add" />
-      <List items={items} onRemove={removeItem} onUpdate={updateItem} />
-    </React.Fragment>
-  );
-}
-
-
-``` -->
-
 ## Custom Hooks
 
 Building your own Hooks lets you extract component logic into reusable functions.
@@ -289,11 +242,7 @@ Traditionally in React, we’ve had two popular ways to share stateful logic bet
 
 ## Labs
 
-The labs in this course use a **mix** of **class** and **function** **components** with a **heavier weight** towards **function components with hooks** which are now considered a best practice in the React community.
-
-> If you would like to see the lab code using all function components review the `hooks` branch in the lab solution repository.
->
-> _Note: This branch is currently only available in the TypeScript version of the code and not the JavaScript version._
+The labs in this course use all **function components with hooks** which are now considered a best practice in the React community.
 
 ## Reference
 
