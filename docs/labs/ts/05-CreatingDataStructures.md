@@ -1,4 +1,6 @@
-# Lab 5: Data
+---
+title: 'Lab 5: Data'
+---
 
 ## Objectives
 

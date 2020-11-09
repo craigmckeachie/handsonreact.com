@@ -1,4 +1,6 @@
-# Lab 23 Redux: Installation & Configuration
+---
+title: 'Lab 23 Redux: Installation & Configuration'
+---
 
 ## Objectives
 

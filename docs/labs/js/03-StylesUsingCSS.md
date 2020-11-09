@@ -1,4 +1,6 @@
-# Lab 3: Styles Using CSS
+---
+title: 'Lab 3: Styles Using CSS'
+---
 
 ## Objectives
 

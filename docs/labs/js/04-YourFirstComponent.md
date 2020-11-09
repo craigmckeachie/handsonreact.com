@@ -1,4 +1,6 @@
-# Lab 4: Your First Component
+---
+title: 'Lab 4: Your First Component'
+---
 
 ## Objectives
 

@@ -1,4 +1,6 @@
-# Lab 1: Creating a New Project
+---
+title: 'Lab 1: Creating a New Project'
+---
 
 ## Objectives
 

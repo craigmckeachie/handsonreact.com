@@ -1,4 +1,6 @@
-# Lab 13: More Component Communication
+---
+title: 'Lab 13: More Component Communication'
+---
 
 ## Objectives
 

@@ -1,4 +1,6 @@
-# Lab 22: Build & Deploy
+---
+title: 'Lab 22: Build & Deploy'
+---
 
 ## Objectives
 

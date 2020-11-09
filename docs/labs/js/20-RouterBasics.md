@@ -1,4 +1,6 @@
-# Lab 20: Router Basics
+---
+title: 'Lab 20: Router Basics'
+---
 
 ## Objectives
 

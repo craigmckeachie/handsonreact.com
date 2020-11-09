@@ -1,4 +1,6 @@
-# Lab 25: Redux with React
+---
+title: 'Lab 25: Redux with React'
+---
 
 ## Objectives
 

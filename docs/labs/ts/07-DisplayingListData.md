@@ -1,4 +1,6 @@
-# Lab 7: Displaying List Data
+---
+title: 'Lab 7: Displaying List Data'
+---
 
 ## Objectives
 

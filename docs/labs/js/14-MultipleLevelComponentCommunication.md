@@ -1,4 +1,6 @@
-# Lab 14: Component Communication through Multiple Levels
+---
+title: 'Lab 14: Component Communication through Multiple Levels'
+---
 
 ## Objectives
 

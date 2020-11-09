@@ -1,4 +1,6 @@
-# Lab 11: Communicating from Child to Parent Component
+---
+title: 'Lab 11: Communicating from Child to Parent Component'
+---
 
 ## Objectives
 

@@ -1,4 +1,6 @@
-# Lab 21: Route Parameters
+---
+title: 'Lab 21: Route Parameters'
+---
 
 ## Objectives
 

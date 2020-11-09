@@ -1,4 +1,6 @@
-# Lab 9: Responding to an Event
+---
+title: 'Lab 9: Responding to an Event'
+---
 
 ## Objectives
 

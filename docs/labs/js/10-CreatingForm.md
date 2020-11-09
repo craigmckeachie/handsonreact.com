@@ -1,4 +1,6 @@
-# Lab 10: Creating a Form to Edit Your Data
+---
+title: 'Lab 10: Creating a Form to Edit Your Data'
+---
 
 ## Objectives
 

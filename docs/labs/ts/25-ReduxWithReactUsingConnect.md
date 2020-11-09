@@ -1,4 +1,6 @@
-# Lab 25: Redux with React
+---
+title: 'Lab 25: Redux with React'
+---
 
 ## Objectives
 
@@ -178,13 +180,13 @@
    // React Redux (connect)---------------
    function mapStateToProps(state: AppState): ProjectState {
      return {
-       ...state.projectState
+       ...state.projectState,
      };
    }
 
    const mapDispatchToProps = {
      onLoad: loadProjects,
-     onSave: saveProject
+     onSave: saveProject,
    };
 
    export default connect(mapStateToProps, mapDispatchToProps)(ProjectsPage);

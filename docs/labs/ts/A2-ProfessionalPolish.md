@@ -1,4 +1,6 @@
-# Professional Polish
+---
+title: 'Professional Polish'
+---
 
 Use `lab25` as the starting point for these enhancements.
 

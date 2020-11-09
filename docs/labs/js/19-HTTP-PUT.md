@@ -1,4 +1,6 @@
-# Lab 19: HTTP PUT
+---
+title: 'Lab 19: HTTP PUT'
+---
 
 ## Objectives
 

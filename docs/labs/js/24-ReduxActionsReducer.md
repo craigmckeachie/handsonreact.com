@@ -1,4 +1,6 @@
-# Lab 24: Redux | Actions and Reducer
+---
+title: 'Lab 24: Redux | Actions and Reducer'
+---
 
 ## Objectives
 

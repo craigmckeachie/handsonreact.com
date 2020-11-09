@@ -1,4 +1,6 @@
-# Appendix A1: How to Skip Labs
+---
+title: 'How to Skip Labs'
+---
 
 Labs can be skipped by attendees who:
 

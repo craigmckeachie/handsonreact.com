@@ -1,4 +1,6 @@
-# Lab 8: More Reusable Components
+---
+title: 'Lab 8: More Reusable Components'
+---
 
 ## Objectives
 

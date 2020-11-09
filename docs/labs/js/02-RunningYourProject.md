@@ -1,4 +1,6 @@
-# Lab 2: Running Your Project
+---
+title: 'Lab 2: Running Your Project'
+---
 
 ## Objectives
 

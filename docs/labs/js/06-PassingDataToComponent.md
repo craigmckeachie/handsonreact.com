@@ -1,4 +1,6 @@
-# Lab 6: Passing Data to a Component
+---
+title: 'Lab 6: Passing Data to a Component'
+---
 
 ## Objectives
 

@@ -1,4 +1,6 @@
-# Lab 18: HTTP GET
+---
+title: 'Lab 18: HTTP GET'
+---
 
 ## Objectives
 

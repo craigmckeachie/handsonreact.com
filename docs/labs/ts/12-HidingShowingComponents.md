@@ -1,4 +1,6 @@
-# Lab 12: Hiding and Showing Components
+---
+title: 'Lab 12: Hiding and Showing Components'
+---
 
 ## Objectives
 

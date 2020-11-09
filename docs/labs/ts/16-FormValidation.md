@@ -1,4 +1,6 @@
-# Lab 16: Form Validation
+---
+title: 'Lab 16: Form Validation'
+---
 
 ## Objectives
 
