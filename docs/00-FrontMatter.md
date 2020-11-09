@@ -26,8 +26,6 @@ This material is available for private, non-commercial use under the [GPL versio
 If you would like to use this material to conduct your own training or workshop, please contact us at [funnyant.com](https://www.funnyant.com/contact).
 </sup></sub>
 
-<div style="page-break-after: always;"></div>
-
 ---
 
 - Foundation
@@ -89,9 +87,3 @@ If you would like to use this material to conduct your own training or workshop,
   - [Redux with TypeScript](A12-ReduxTypeScript.md) (if applicable)
 
 - [Resources](A20-Resources.md)
-
-<!--
-- Future
-
-  - Animations (using ReactTransitionGroup)
-  - Functional Programming -->

@@ -67,8 +67,6 @@ code . //opens Visual Studio Code
 
 > `targets` refers to the target environment your code will run in; in our use case it will be `node` (not a browser)
 
-<div style="page-break-after: always;"></div>
-
 ### Run Babel
 
 1.  Create file `src\program.js`
@@ -89,8 +87,6 @@ npx babel src --watch --out-dir lib
 
 > `npx` allows you to run local packages and is available in npm 5.2 or higher. For more information see [this article](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
 
-<div style="page-break-after: always;"></div>
-
 6.  Open _another_ (a new) command-prompt or terminal in the `esdemos` directory.
 
 - In VS Code: View> Integrated Terminal
@@ -107,8 +103,6 @@ node ./lib/program.js
 ```
 hello
 ```
-
-<div style="page-break-after: always;"></div>
 
 ## Setup (TypeScript)
 
@@ -129,8 +123,6 @@ npm init -y
 npm install typescript@3.1.6 --save-dev
 ```
 
-<div style="page-break-after: always;"></div>
-
 ### Configure TypeScript
 
 1.  Open a `command-prompt` or `terminal`.
@@ -146,8 +138,6 @@ npx tsc --init
 - This creates a `tsconfig.json` file with the default command line options.
 
 - Documentation for all TypeScript _[compiler options are available here.](https://www.typescriptlang.org/docs/handbook/compiler-options.html)_
-
-<div style="page-break-after: always;"></div>
 
 ### Setting the Compiler Strictness
 
@@ -169,8 +159,6 @@ npx tsc --init
    > In strict null checking mode, the null and undefined values are not in the domain of every type and are only assignable to themselves and any (the one exception being that undefined is also assignable to void).
 
    > The default setting for the compiler option `--noEmitOnError` is false so output is emitted even if errors were reported. For more information on why this is the default behavior see: https://github.com/Microsoft/TypeScript/issues/828
-
-<div style="page-break-after: always;"></div>
 
 ### Run TypeScript
 
@@ -199,5 +187,3 @@ npx tsc --init
     ```
     Hi Ben
     ```
-
-<div style="page-break-after: always;"></div>
