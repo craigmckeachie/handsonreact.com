@@ -7,7 +7,23 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'craigmckeachie',
   projectName: 'handsonreact.com',
+  // scripts: [
+  //   {
+  //     src: 'https://platform.twitter.com/widgets.js',
+  //     async: true,
+  //   },
+  // ],
   themeConfig: {
+    image: 'img/hands-on-react.png',
+    announcementBar: {
+      id: 'share',
+      content: `If you like Hands on React, <a className="share-btn-twitter"
+      rel="noopener" target="_blank"
+      href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhandsonreact.com%2Fdocs%2F&text=Hands+on+React.+The+best+way+to+learn+React.+by+%40cmckeachie&hashtags=">share it on Twitter.</a>`,
+      backgroundColor: 'rgb(72, 77, 91)',
+      textColor: '#ffffff',
+      isCloseable: false,
+    },
     navbar: {
       title: 'Hands on React',
       logo: {
@@ -49,14 +65,6 @@ module.exports = {
         // {
         //   title: 'Community',
         //   items: [
-        //     {
-        //       label: 'Stack Overflow',
-        //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-        //     },
-        //     {
-        //       label: 'Discord',
-        //       href: 'https://discordapp.com/invite/docusaurus',
-        //     },
         //     {
         //       label: 'Twitter',
         //       href: 'https://twitter.com/docusaurus',

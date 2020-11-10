@@ -21,7 +21,7 @@ StackOverflow.com 2019 Survey of 90,000 developers:
 - [Most Popular Web Frameworks](https://insights.stackoverflow.com/survey/2019#technology-_-web-frameworks)
 - [Most Loved/Dreaded/Wanted Web Frameworks](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-web-frameworks)
 
-Looking at this chart from npm trends (npm is the most popular package manager for JavaScript) it becomes clear that both React and Angular have extremely strong adoption.
+Looking at this chart from npm trends (npm is the most popular package manager for JavaScript) it becomes clear that both React has extremely strong adoption.
 
 ![npm trends chart of javascript frameworks](https://user-images.githubusercontent.com/1474579/94379000-6f5ba380-00fb-11eb-848a-91f012b33232.png)
 
