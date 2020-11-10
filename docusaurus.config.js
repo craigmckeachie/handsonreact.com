@@ -15,7 +15,7 @@ module.exports = {
   // ],
   themeConfig: {
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: 'light',
     },
     image: 'img/hands-on-react.png',
     announcementBar: {
