@@ -14,6 +14,9 @@ module.exports = {
   //   },
   // ],
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+    },
     image: 'img/hands-on-react.png',
     announcementBar: {
       id: 'share',
