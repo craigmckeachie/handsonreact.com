@@ -21,7 +21,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 ### Simple HOC
 
-1. Here is a simple example of a higher-order component (HOC). Paste the code below in `main.jsx`
+1. Here is a simple example of a higher-order component (HOC). Paste the code below in `main.js`
 
 ````js
 The `wrapper` function is the higher-order function or more specificlaly component in the code below.
@@ -54,7 +54,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### Composition vs. HOCs
 
-1. To better understand when to use HOCs it is helpful to compare them to using composition with components. Paste the code below in `main.jsx` to see how composition can be used to combine components.
+1. To better understand when to use HOCs it is helpful to compare them to using composition with components. Paste the code below in `main.js` to see how composition can be used to combine components.
 
 ```js
 function Inner(props) {

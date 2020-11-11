@@ -338,7 +338,7 @@ form {
 
 Start with the following static mockup of a component hierarchy and then implement the requirements listed in the next section.
 
-#### main.jsx
+#### main.js
 
 ```js
 function ID() {

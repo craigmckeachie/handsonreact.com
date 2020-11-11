@@ -19,8 +19,8 @@ We can combine the two by making the React state be the “single source of trut
 
 Below is an example of what a controlled component would like like in a function component.
 
-1. Delete the current code in `main.jsx`.
-2. Add the following code to `main.jsx`
+1. Delete the current code in `main.js`.
+2. Add the following code to `main.js`
 
 ```js
 function ExampleForm() {
@@ -288,7 +288,7 @@ Below is an example of some basic validation implemented in our Contact Us form.
 }
 ```
 
-#### main.jsx
+#### main.js
 
 ```js
 function ContactUsForm() {
@@ -428,7 +428,7 @@ Some things to notice in the code above:
 
 ### Validation (in a Class Component)
 
-#### main.jsx
+#### main.js
 
 ```js
 class ContactUsForm extends React.Component {
@@ -747,7 +747,7 @@ form {
 ...
 ```
 
-#### main.jsx
+#### main.js
 
 ```js
 function ID() {
@@ -929,7 +929,7 @@ form {
 ...
 ```
 
-#### main.jsx
+#### main.js
 
 ```js
 function ID() {
@@ -1114,8 +1114,8 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 If we have multiple inputs you can implement one onChange event handler function to handle them all.
 
-1. Delete the current code in `main.jsx`.
-2. Add the following code to `main.jsx`
+1. Delete the current code in `main.js`.
+2. Add the following code to `main.js`
 
 ```js
 class LoginForm extends React.Component {

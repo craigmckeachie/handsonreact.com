@@ -65,14 +65,14 @@ One might confuse elements with a more widely known concept of “components”.
     ```diff
     <body>
     <div id="root"></div>
-    + <script type="text/javascript" src="/main.jsx"></script>
+    + <script type="text/javascript" src="/main.js"></script>
     </body>
     ```
 
-    > ! Be sure that the `main.jsx` script tag's src attribute starts with a `/` or the later router examples will not work properly when you refresh the page.
+    > ! Be sure that the `main.js` script tag's src attribute starts with a `/` or the later router examples will not work properly when you refresh the page.
 
-7.  Create a new file `demos/main.jsx`
-8.  Add the following code to `demos/main.jsx`
+7.  Create a new file `demos/main.js`
+8.  Add the following code to `demos/main.js`
 
     ```js
     const rootElement = document.getElementById('root');
@@ -159,7 +159,7 @@ Hello World in JavaScript is not that different than it is in React. Let's updat
    - With the new transform, you can use JSX without importing React
    - The new transform was also implemented in the latest version of all the major React releases (16, 15, 0.14.x).
 
-2. Add the script tags to include `React` on the page. Place them just below the `root div` but before the `main.jsx` `script` tag
+2. Add the script tags to include `React` on the page. Place them just below the `root div` but before the `main.js` `script` tag
 
    ```html
    <script src="/node_modules/react/umd/react.development.js"></script>

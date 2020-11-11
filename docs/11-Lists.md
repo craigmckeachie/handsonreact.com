@@ -14,7 +14,7 @@ In JavaScript, the approach we use to loop through an `Array` and transform the 
 - functions like `forEach` and `map` to the Array in ES5
 - the arrow function in ES6 (ES2015)
 
-Clear the code in `main.jsx` and work through each example below to see the progression.
+Clear the code in `main.js` and work through each example below to see the progression.
 
 ### a. for loop
 

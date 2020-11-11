@@ -19,7 +19,7 @@ Handling events with **React elements** is very similar to handling events on **
 
 #### Setup
 
-1. Delete or comment out all current code in `main.jsx`
+1. Delete or comment out all current code in `main.js`
 
 #### Steps
 

@@ -39,12 +39,12 @@ Before making HTTP calls we need to [setup a backend following these directions]
        ...
        <script src="/node_modules/@babel/standalone/babel.min.js"></script>
    +   <script src="/node_modules/axios/dist/axios.js"></script>
-       <script type="text/babel" src="/main.jsx"></script>
+       <script type="text/babel" src="/main.js"></script>
    </body>
    </html>
    ```
 
-3. Try the following code in `main.jsx`:
+3. Try the following code in `main.js`:
 
    ```js
    const okUrl = 'http://localhost:3000/photos?_page=1&_limit=100';
@@ -99,7 +99,7 @@ The `Fetch API` is now standard in modern browsers and does not require an addit
 
 > Note that you will need to use a polyfill if you need to support IE browsers. See the [can I use feature page for fetch](https://caniuse.com/#feat=fetch) for more information. The most commonly used polyfill is [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch).
 
-1. Try the following code in `main.jsx`:
+1. Try the following code in `main.js`:
 
    ```js
    // const urls here
@@ -271,7 +271,7 @@ If the data is returned successfully, we can use what we learned in the list sec
 
 ### Function Component Example
 
-1.  Try the following code in `main.jsx`
+1.  Try the following code in `main.js`
 
     ```js
     const okUrl = 'http://localhost:3000/photos?_page=1&_limit=100';
@@ -342,7 +342,7 @@ If the data is returned successfully, we can use what we learned in the list sec
 
 ### Class Component Example
 
-1.  Try the following code in `main.jsx`
+1.  Try the following code in `main.js`
 
     ```js
     const okUrl = 'http://localhost:3000/photos?_page=1&_limit=100';
@@ -419,7 +419,7 @@ After you get comfortable using `Axios` and/or the `fetch API` and rendering the
 
 React is not very prescriptive about file names but their documentation does show these files being named with an API suffix (for example ProfileAPI.js).
 
-Review the examples below (using the fetch API). If time permits get the example running in `main.jsx`
+Review the examples below (using the fetch API). If time permits get the example running in `main.js`
 
 ### Function Component Example with API Object
 
@@ -793,7 +793,7 @@ form {
 ...
 ```
 
-#### main.jsx
+#### main.js
 
 ```js
 function ID() {
@@ -1108,7 +1108,7 @@ form {
 ...
 ```
 
-#### main.jsx
+#### main.js
 
 ```js
 function ID() {

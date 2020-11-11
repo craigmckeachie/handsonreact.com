@@ -22,7 +22,7 @@ State is local to the component (encapsulated) and should not be accessed outsid
 
 #### Defining `state`
 
-##### main.jsx
+##### main.js
 
 ```js
 function Clock() {
@@ -41,7 +41,7 @@ ReactDOM.render(<Clock />, document.getElementById('root'));
 
 #### Setting `state`
 
-##### main.jsx
+##### main.js
 
 ```diff
 function Clock() {
@@ -67,7 +67,7 @@ ReactDOM.render(<Clock />, document.getElementById('root'));
 
 #### Remember not to set `state` directly, use the setter function returned by the hook.
 
-##### main.jsx
+##### main.js
 
 ```diff
 function Clock() {

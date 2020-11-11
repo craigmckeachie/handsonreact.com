@@ -30,7 +30,7 @@ Component changed? Re-render. Parent changed? Re-render. Section of props that d
 }
 ```
 
-#### main.jsx
+#### main.js
 
 ```js
 const { Component, PureComponent } = React;
@@ -226,7 +226,7 @@ Steps:
    }
    ```
 
-1. **Paste** the **code** below into `main.jsx`
+1. **Paste** the **code** below into `main.js`
 1. **Open** the application in a **browser**.
 1. **Open** Chrome DevTools and switch to the `console`.
 1. Type in the add textbox to add an item and then click the add button.
@@ -411,7 +411,7 @@ Run the demo below and open the console to observe some wasted renders.
 
 Steps:
 
-1. **Paste** the **code** below into `main.jsx`
+1. **Paste** the **code** below into `main.js`
 1. **Open** the application in a **browser**.
 1. **Open** Chrome DevTools and switch to the `console`.
 1. Type in the add textbox to add an item and then click the add button.

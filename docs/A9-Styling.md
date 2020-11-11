@@ -69,7 +69,7 @@ Componests can be styled using CSS classes or inline styles as you would in when
    </head>
    ```
 
-4. Create an `Alert` component in `main.jsx` and display the different kinds of alerts
+4. Create an `Alert` component in `main.js` and display the different kinds of alerts
 
    ```js
    function Alert() {

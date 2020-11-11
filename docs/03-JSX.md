@@ -51,8 +51,8 @@ React.createElement(component, props, ...children);
     ...
     <script src="/node_modules/react-dom/umd/react-dom.development.js"></script>
     + <script src="/node_modules/@babel/standalone/babel.min.js"></script>
-    - <script type="text/javascript" src="/main.jsx">
-    + <script type="text/babel" src="/main.jsx">
+    - <script type="text/javascript" src="/main.js">
+    + <script type="text/babel" src="/main.js">
     ...
     </script>
     ```

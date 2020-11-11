@@ -36,17 +36,17 @@ There are two versions:
    +    <script src="/node_modules/react-router-dom/umd/react-router-dom.js"></script>
        <script src="/node_modules/@babel/standalone/babel.min.js"></script>
        <script src="/node_modules/axios/dist/axios.min.js"></script>
-       <script type="text/babel" src="/main.jsx"></script>
+       <script type="text/babel" src="/main.js"></script>
    ```
 
-   > ! Be sure that the `main.jsx` script tag's src attribute starts with a `/` or the router will not work properly when you refresh the page.
+   > ! Be sure that the `main.js` script tag's src attribute starts with a `/` or the router will not work properly when you refresh the page.
 
 3. Log the `RouterRouterDOM` to verify it is installed properly
 
    - Also export the common components so they are easier to use
 
    ```js
-   //main.jsx
+   //main.js
    console.log(window.ReactRouterDOM);
 
    const {

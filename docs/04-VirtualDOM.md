@@ -7,7 +7,7 @@ slug: /virtual-dom
 
 React implements a browser-independent DOM system for performance and cross-browser compatibility. They call this the Virtual DOM.
 
-1. Replace the JavaScript code in `main.jsx` with the following:
+1. Replace the JavaScript code in `main.js` with the following:
 
    ```js
    function renderElement() {

@@ -761,4 +761,4 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ## Notes
 
 - When dealing with this much code in one file make sure things are defined before they are used.
-- For example, `List` would be undefined if you tried to connect it before it was defined further down in `main.jsx`.
+- For example, `List` would be undefined if you tried to connect it before it was defined further down in `main.js`.

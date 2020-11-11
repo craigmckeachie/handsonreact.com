@@ -55,7 +55,7 @@ import PropTypes from 'prop-types';
 
 1. Add the following code:
 
-   #### `main.jsx`
+   #### `main.js`
 
    ```js
    //same with function components
@@ -80,7 +80,7 @@ import PropTypes from 'prop-types';
 
 1. Change PropType to object.
 
-   #### `main.jsx`
+   #### `main.js`
 
    ```js
    ...

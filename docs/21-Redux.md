@@ -228,7 +228,7 @@ npm install --save redux react-redux redux-thunk
 ...
 ```
 
-3. Add the following code to `main.jsx`
+3. Add the following code to `main.js`
 
 ```js
 //action types
