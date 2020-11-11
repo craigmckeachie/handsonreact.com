@@ -38,7 +38,7 @@ module.exports = {
         {
           to: 'docs/',
           activeBasePath: 'docs',
-          label: 'Docs',
+          label: 'Course',
           position: 'left',
         },
         // { to: 'blog', label: 'Blog', position: 'left' },
@@ -99,9 +99,26 @@ module.exports = {
           ],
         },
       ],
-      copyright: `<br/><br/> This site is licensed under <a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">
-      GPL version 3.
-    </a><br/>Copyright © ${new Date().getFullYear()} Funny Ant, LLC. All rights reserved.`,
+      copyright: `<br/><br/> 
+      <section style="font-size: 85%"">
+          <div className="container">
+            <div className="row">
+              <p>
+                 The content on this site is available for private, non-commercial use under
+                <a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">
+                  GPL version 3
+                </a>.
+                <br/> 
+                If you would like to use this material to conduct your
+                own training or workshop, please contact us at
+                <a href="https://www.funnyant.com/contact">funnyant.com</a>.
+                <br/>
+                Copyright © ${new Date().getFullYear()} Funny Ant, LLC. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </section>
+     `,
     },
   },
   presets: [

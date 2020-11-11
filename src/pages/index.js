@@ -74,31 +74,12 @@ function Home() {
               )}
               to={useBaseUrl('docs/')}
             >
-              Get Started
+              Start Learning
             </Link>
           </div>
         </div>
       </header>
       <main>
-        <section className={styles.features}>
-          <div className="container">
-            <div className="row">
-              <p>
-                No part of this site may be reproduced in any form or by any
-                electronic or mechanical means including information storage and
-                retrieval systems, without permission from the author. This
-                material is available for private, non-commercial use under the{' '}
-                <a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">
-                  GPL version 3
-                </a>{' '}
-                license. If you would like to use this material to conduct your
-                own training or workshop, please contact us at{' '}
-                <a href="https://www.funnyant.com/contact">funnyant.com</a>.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* {features && features.length > 0 && (
           <section className={styles.features}>
             <div className="container">
