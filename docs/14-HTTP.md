@@ -244,13 +244,14 @@ fetch(serverErrorUrl)
    const forbiddenErrorUrl = 'https://httpstat.us/403';
    ```
 
-## React
+## In React
 
 Now that we understand the fundamental underlying concepts lets render this data in React.
 
-### componentDidMount
+### When to Load Data?
 
-You should populate data with AJAX calls in the `componentDidMount` lifecycle method. This is so you can use `setState` to update your component when the data is retrieved.
+- In a function component, you should make your AJAX calls in a `useEffect` hook. When the data or the error returns you can use your set state updater function returned from `useState` to update the state.
+- In a class component, you should make your AJAX calls in the `componentDidMount` lifecycle method. This is so you can use `setState` to update your component when the data is retrieved.
 
 ### Loading
 
@@ -268,7 +269,78 @@ If the data is returned successfully, we can use what we learned in the list sec
 
 > ! Remember we need to set a key on the list items.
 
-### Example
+### Function Component Example
+
+1.  Try the following code in `main.jsx`
+
+    ```js
+    const okUrl = 'http://localhost:3000/photos?_page=1&_limit=100';
+    const notFoundErrorUrl = 'https://httpstat.us/404';
+    const forbiddenErrorUrl = 'https://httpstat.us/403';
+    const serverErrorUrl = 'https://httpstat.us/500';
+
+    function PhotoList() {
+      const [loading, setLoading] = React.useState(false);
+      const [photos, setPhotos] = React.useState([]);
+      const [error, setError] = React.useState(null);
+
+      function toUserError(error) {
+        console.log('Call API to log the raw error. ', error);
+        return 'There was an error loading the photos.';
+      }
+
+      React.useEffect(() => {
+        setLoading(true);
+
+        fetch(okUrl)
+          .then((response) => {
+            if (!response.ok) throw new Error(response.statusText);
+            return response;
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            setError(null);
+            setPhotos(data);
+            setLoading(false);
+          })
+          .catch((error) => {
+            const userError = toUserError(error);
+            setError(userError);
+            setLoading(false);
+          });
+      }, []);
+
+      if (error) {
+        return <div>{error}</div>;
+      } else if (loading) {
+        return <div>Loading...</div>;
+      } else {
+        return (
+          <ul>
+            {photos.map((photo) => {
+              return (
+                <li key={photo.id}>
+                  <img src={photo.thumbnailUrl} alt={photo.title} />
+                  <h3>{photo.title}</h3>
+                </li>
+              );
+            })}
+          </ul>
+        );
+      }
+    }
+
+    ReactDOM.render(<PhotoList />, document.getElementById('root'));
+    ```
+
+1.  Try these other urls that return errors and verify they are logged properly.
+    ```js
+    const notFoundErrorUrl = 'https://httpstat.us/404';
+    const forbiddenErrorUrl = 'https://httpstat.us/403';
+    const serverErrorUrl = 'https://httpstat.us/500';
+    ```
+
+### Class Component Example
 
 1.  Try the following code in `main.jsx`
 
@@ -288,8 +360,7 @@ If the data is returned successfully, we can use what we learned in the list sec
       componentDidMount() {
         this.setState({ loading: true });
 
-        fetch(notFoundErrorUrl)
-          // fetch(okUrl)
+        fetch(okUrl)
           .then((response) => {
             if (!response.ok) throw new Error(response.statusText);
             return response;
@@ -335,46 +406,122 @@ If the data is returned successfully, we can use what we learned in the list sec
     ReactDOM.render(<PhotoList />, document.getElementById('root'));
     ```
 
-1.  Try these other urls that also return errors and verify they are logged properly.
+1.  Try these other urls that return errors and verify they are logged properly.
     ```js
     const notFoundErrorUrl = 'https://httpstat.us/404';
     const forbiddenErrorUrl = 'https://httpstat.us/403';
     const serverErrorUrl = 'https://httpstat.us/500';
     ```
-1.  If time permits, update the code to use `Axios` instead of the `fetch API` as shown below.
 
-    ```diff
-    componentDidMount() {
-        this.setState({ loading: true });
-
-    +    axios
-    +      .get(okUrl)
-    +      .then(response => response.data)
-    -     fetch(notFoundErrorUrl)
-    -     fetch(okUrl)
-    -      .then(response => {
-    -         if (!response.ok) throw new Error(response.statusText);
-    -         return response;
-    -       })
-    -     .then(response => response.json())
-        .then(data => {
-            this.setState({ photos: data, loading: false });
-        })
-        .catch(error => {
-            const userError = this.toUserError(error);
-            this.setState({ error: userError, loading: false });
-        });
-    }
-
-    ```
-
-## Reuse
+### Reuse via API object
 
 After you get comfortable using `Axios` and/or the `fetch API` and rendering the result in a React component, consider pulling the data access code into a reusable object. The benefit to doing this is that multiple components can make the same API call and convert to more user friendly error messages without repeating the code involved.
 
 React is not very prescriptive about file names but their documentation does show these files being named with an API suffix (for example ProfileAPI.js).
 
-Review the example below (using the fetch API). If time permits get the example running in `main.jsx`
+Review the examples below (using the fetch API). If time permits get the example running in `main.jsx`
+
+### Function Component Example with API Object
+
+```js
+const baseUrl = 'http://localhost:3000';
+const url = `${baseUrl}/photos`;
+
+function translateStatusToErrorMessage(status) {
+  switch (status) {
+    case 401:
+      return 'Please login again.';
+    case 403:
+      return 'You do not have permission to view the photos.';
+    default:
+      return 'There was an error retrieving the photos. Please try again.';
+  }
+}
+
+function checkStatus(response) {
+  if (response.ok) {
+    return response;
+  } else {
+    const httpErrorInfo = {
+      status: response.status,
+      statusText: response.statusText,
+      url: response.url,
+    };
+    console.log(
+      `logging http details for debugging: ${JSON.stringify(httpErrorInfo)}`
+    );
+
+    let errorMessage = translateStatusToErrorMessage(httpErrorInfo.status);
+    throw new Error(errorMessage);
+  }
+}
+
+function parseJSON(response) {
+  return response.json();
+}
+
+function delay(ms) {
+  return function (x) {
+    return new Promise((resolve) => setTimeout(() => resolve(x), ms));
+  };
+}
+
+const photoAPI = {
+  getAll(page = 1, limit = 100) {
+    return (
+      fetch(`${url}?_page=${page}&_limit=${limit}`)
+        // .then(delay(600))
+        .then(checkStatus)
+        .then(parseJSON)
+    );
+  },
+};
+
+function PhotoList() {
+  const [loading, setLoading] = React.useState(false);
+  const [photos, setPhotos] = React.useState([]);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    setLoading(true);
+    setError(null);
+
+    photoAPI
+      .getAll(1)
+      .then((data) => {
+        setPhotos(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(userError);
+        setLoading(false);
+      });
+  }, []);
+
+  if (error) {
+    return <div>{error}</div>;
+  } else if (loading) {
+    return <div>Loading...</div>;
+  } else {
+    return (
+      <ul>
+        {photos.map((photo) => {
+          return (
+            <li key={photo.id}>
+              <img src={photo.thumbnailUrl} alt={photo.title} />
+              <h3>{photo.title}</h3>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
+}
+
+ReactDOM.render(<PhotoList />, document.getElementById('root'));
+```
+
+### Class Component Example with API Object
 
 ```js
 const baseUrl = 'http://localhost:3000';
@@ -430,41 +577,6 @@ const photoAPI = {
         .then(parseJSON)
     );
   },
-
-  add(photo) {
-    return fetch(`${url}`, {
-      method: 'POST',
-      body: JSON.stringify(photo),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(checkStatus)
-      .then(parseJSON);
-  },
-
-  update(photo) {
-    return fetch(`${url}/${photo.id}`, {
-      method: 'PUT',
-      body: JSON.stringify(photo),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(checkStatus)
-      .then(parseJSON);
-  },
-
-  delete(id) {
-    return fetch(`${url}/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(checkStatus)
-      .then(parseJSON);
-  },
 };
 
 class PhotoList extends React.Component {
@@ -513,27 +625,9 @@ class PhotoList extends React.Component {
 ReactDOM.render(<PhotoList />, document.getElementById('root'));
 ```
 
-## POST
+## Fetch Mutations
 
-#### POST with Axios
-
-```js
-axios({
-  method: 'post',
-  url: 'http://localhost:3000/photos',
-  data: {
-    albumId: 1,
-    title: 'New Photo',
-    url: 'https://via.placeholder.com/600/b0f7cc',
-    thumbnailUrl: 'https://via.placeholder.com/150/b0f7cc',
-  },
-})
-  .then((response) => response.data)
-  .then((photo) => console.log(photo))
-  .catch((error) => console.log(error));
-```
-
-#### POST with Fetch
+### POST with Fetch
 
 ```js
 var url = 'http://localhost:3000/photos';
@@ -564,7 +658,7 @@ fetch(url, {
   .catch((error) => console.error('Error:', error));
 ```
 
-## PUT
+### PUT with Fetch
 
 ```js
 var okUrl = 'http://localhost:3000/photos/5001';
@@ -590,7 +684,7 @@ fetch(notFoundErrorUrl, {
   .catch((error) => console.error('Error:', error));
 ```
 
-## DELETE
+### DELETE with Fetch
 
 ```js
 var okUrl = 'http://localhost:3000/photos/5001';
@@ -609,6 +703,26 @@ fetch(okUrl, {
   .then((response) => response.json())
   .then((response) => console.log('Success:', JSON.stringify(response)))
   .catch((error) => console.error('Error:', error));
+```
+
+## Axios Mutations
+
+### POST with Axios
+
+```js
+axios({
+  method: 'post',
+  url: 'http://localhost:3000/photos',
+  data: {
+    albumId: 1,
+    title: 'New Photo',
+    url: 'https://via.placeholder.com/600/b0f7cc',
+    thumbnailUrl: 'https://via.placeholder.com/150/b0f7cc',
+  },
+})
+  .then((response) => response.data)
+  .then((photo) => console.log(photo))
+  .catch((error) => console.log(error));
 ```
 
 ## Items Demo App (CRUD) using HTTP
