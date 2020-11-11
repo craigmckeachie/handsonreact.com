@@ -63,11 +63,11 @@ module.exports = {
           items: [
             {
               label: 'Labs (JavaScript)',
-              to: 'docs/docs/labs/js/01-CreatingNewProject',
+              to: '/docs/labs/js/01-CreatingNewProject',
             },
             {
               label: 'Labs (TypeScript)',
-              to: 'docs/docs/labs/ts/01-CreatingNewProject',
+              to: '/docs/labs/ts/01-CreatingNewProject',
             },
           ],
         },
