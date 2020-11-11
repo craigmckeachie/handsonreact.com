@@ -98,6 +98,10 @@ const photoAPI = {
         // .then(delay(600))
         .then(checkStatus)
         .then(parseJSON)
+        .catch((error) => {
+          let errorMessage = translateStatusToErrorMessage(error);
+          throw new Error(errorMessage);
+        })
     );
   },
 };
@@ -118,7 +122,7 @@ function PhotoList() {
         setLoading(false);
       })
       .catch((error) => {
-        setError(userError);
+        setError(error.message);
         setLoading(false);
       });
   }, []);
@@ -198,6 +202,10 @@ const photoAPI = {
         // .then(delay(600))
         .then(checkStatus)
         .then(parseJSON)
+        .catch((error) => {
+          let errorMessage = translateStatusToErrorMessage(error);
+          throw new Error(errorMessage);
+        })
     );
   },
 };
@@ -218,7 +226,7 @@ function usePhotos() {
         setLoading(false);
       })
       .catch((error) => {
-        setError(userError);
+        setError(error.message);
         setLoading(false);
       });
   }, []);
