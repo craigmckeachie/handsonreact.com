@@ -127,13 +127,18 @@ One might confuse elements with a more widely known concept of “components”.
     }
     ```
 
-12) Run the web server
+   <!-- Consider using in the future.
+    ```
+    "start": "browser-sync -w --port=5000",
+    ``` -->
+
+12. Run the web server
     ```sh
     npm start
     ```
-13) Open `http://localhost:5000/` in your Chrome browser
+13. Open `http://localhost:5000/` in your Chrome browser
 
-14. Verify the page displays:
+14) Verify the page displays:
 
     ```
 
