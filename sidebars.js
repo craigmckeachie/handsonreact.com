@@ -7,25 +7,119 @@ module.exports = {
       '02-Elements',
       '03-JSX',
       '04-VirtualDOM',
-      'A6-ProjectSetup',
       '05-Components',
+      'A6-ProjectSetup',
+      {
+        'Labs A': [
+          {
+            JavaScript: [
+              'labs/js/01-CreatingNewProject',
+              'labs/js/02-RunningYourProject',
+              'labs/js/03-StylesUsingCSS',
+              'labs/js/04-YourFirstComponent',
+              'labs/js/05-CreatingDataStructures',
+            ],
+            TypeScript: [
+              'labs/ts/01-CreatingNewProject',
+              'labs/ts/02-RunningYourProject',
+              'labs/ts/03-StylesUsingCSS',
+              'labs/ts/04-YourFirstComponent',
+              'labs/ts/05-CreatingDataStructures',
+            ],
+          },
+        ],
+      },
       'A8-CodeOrganizationConventions',
       '06-Props',
       'A10-PropTypes',
       'A11-ReactTypeScript',
       '11-Lists',
-      'A22-Debugging',
       '07-Events',
+      {
+        'Labs B': [
+          {
+            JavaScript: [
+              'labs/js/06-PassingDataToComponent',
+              'labs/js/07-DisplayingListData',
+              'labs/js/08-MoreReusableComponents',
+              'labs/js/09-RespondingToEvent',
+              'labs/js/10-CreatingForm',
+            ],
+            TypeScript: [
+              'labs/ts/06-PassingDataToComponent',
+              'labs/ts/07-DisplayingListData',
+              'labs/ts/08-MoreReusableComponents',
+              'labs/ts/09-RespondingToEvent',
+              'labs/ts/10-CreatingForm',
+            ],
+          },
+        ],
+      },
       '08-Hooks',
       '08-State',
       '09-SideEffectsLifecyle',
       '10-ConditionalRendering',
       '12-ComponentArchitecture',
+      'A22-Debugging',
+      {
+        'Labs C': [
+          {
+            JavaScript: [
+              'labs/js/11-CommunicatingChildToParentComponent',
+              'labs/js/12-HidingShowingComponents',
+              'labs/js/13-MoreComponentCommunication',
+              'labs/js/14-MultipleLevelComponentCommunication',
+            ],
+            TypeScript: [
+              'labs/ts/11-CommunicatingChildToParentComponent',
+              'labs/ts/12-HidingShowingComponents',
+              'labs/ts/13-MoreComponentCommunication',
+              'labs/ts/14-MultipleLevelComponentCommunication',
+            ],
+          },
+        ],
+      },
       '13-Forms',
       'A7-BackendAPISetup',
       '14-HTTP',
+      {
+        'Labs D': [
+          {
+            JavaScript: [
+              'labs/js/15-FormValuesToState',
+              'labs/js/16-FormValidation',
+              'labs/js/17-SetupBackendRESTAPI',
+              'labs/js/18-HTTP-GET',
+              'labs/js/19-HTTP-PUT',
+            ],
+            TypeScript: [
+              'labs/ts/15-FormValuesToState',
+              'labs/ts/16-FormValidation',
+              'labs/ts/17-SetupBackendRESTAPI',
+              'labs/ts/18-HTTP-GET',
+              'labs/ts/19-HTTP-PUT',
+            ],
+          },
+        ],
+      },
       '15-Routing',
       '17-BuildDeploy',
+      {
+        'Labs E': [
+          {
+            JavaScript: [
+              'labs/js/20-RouterBasics',
+              'labs/js/21-RouteParameters',
+              'labs/js/22-BuildAndDeploy',
+            ],
+            TypeScript: [
+              'labs/ts/20-RouterBasics',
+              'labs/ts/21-RouteParameters',
+              'labs/ts/22-BuildAndDeploy',
+            ],
+          },
+        ],
+      },
     ],
     Advanced: [
       '16-CustomHooks',
