@@ -1,4 +1,6 @@
-# Testing Lab 2: Snapshot Tests
+---
+title: 'Testing Lab 2: Snapshot Tests'
+---
 
 ## Objectives
 

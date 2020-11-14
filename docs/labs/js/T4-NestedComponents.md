@@ -1,4 +1,6 @@
-# Testing Lab 4: Nested Components
+---
+title: 'Testing Lab 4: Nested Components'
+---
 
 ## Objectives
 

@@ -1,4 +1,6 @@
-# Testing Lab 5: Container Components
+---
+title: 'Testing Lab 5: Container Components'
+---
 
 ## Objectives
 

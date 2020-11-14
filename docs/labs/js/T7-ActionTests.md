@@ -1,4 +1,6 @@
-# Testing Lab 7: Action Tests
+---
+title: 'Testing Lab 7: Action Tests'
+---
 
 ## Objectives
 
