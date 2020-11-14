@@ -1,4 +1,6 @@
-# Testing Lab 3: More Component Testing
+---
+title: 'Testing Lab 3: More Component Testing'
+---
 
 ## Objectives
 

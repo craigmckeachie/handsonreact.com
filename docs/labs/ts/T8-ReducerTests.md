@@ -1,4 +1,6 @@
-# Testing Lab 8: Reducer Tests
+---
+title: 'Testing Lab 8: Reducer Tests'
+---
 
 ## Objectives
 

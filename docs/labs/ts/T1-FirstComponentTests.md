@@ -1,4 +1,6 @@
-# Testing Lab 1: Your First Component Test
+---
+title: 'Testing Lab 1: Your First Component Test'
+---
 
 ## Objectives
 

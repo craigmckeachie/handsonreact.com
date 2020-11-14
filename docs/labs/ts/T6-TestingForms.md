@@ -1,4 +1,6 @@
-# Testing Lab 6: Testing Forms
+---
+title: 'Testing Lab 6: Testing Forms'
+---
 
 ## Objectives
 
