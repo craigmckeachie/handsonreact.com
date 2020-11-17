@@ -113,7 +113,7 @@ title: 'Lab 9: Responding to an Event'
    3. **Click** the edit **button**.
    4. **Verify** the project is logged to the Chrome DevTools `console`.
 
-   <kbd>![image](https://user-images.githubusercontent.com/1474579/64896237-15ea1900-d64d-11e9-8463-8f9990db9d39.png)</kbd>
+![image](https://user-images.githubusercontent.com/1474579/64896237-15ea1900-d64d-11e9-8463-8f9990db9d39.png)
 
 ---
 

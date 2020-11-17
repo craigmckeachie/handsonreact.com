@@ -71,8 +71,6 @@ title: 'Lab 1: Creating a New Project'
 
     > Only files inside `public` can be used from `public/index.html`.
 
-### Downgrade to React version 16
-
 #### React 17
 
 - React 17 was released October 22nd 2020.
@@ -81,7 +79,9 @@ title: 'Lab 1: Creating a New Project'
 - With the new transform, you can use JSX without importing React.
 - The new transform was also implemented in the latest version of all the major React releases (16, 15, 0.14.x).
 
-#### Using React 16
+<!-- ### Downgrade to React version 16
+
+ #### Using React 16
 
 This section describes how to downgrade a new React project to use React version 16 and the last version of Create React App that doesn't use the new JSX transform.
 
@@ -98,7 +98,7 @@ This section describes how to downgrade a new React project to use React version
    ```diff
    + import React from 'react';
    ...
-   ```
+   ``` -->
 
 ---
 
