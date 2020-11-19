@@ -30,8 +30,8 @@ title: 'Lab 15: Form Values to State'
    #### `src\projects\ProjectForm.tsx`
 
    ```diff
-   - import React from 'react';
-   + import React, { useState } from 'react';
+   - import React, { SyntheticEvent } from 'react';
+   + import React, { SyntheticEvent, useState } from 'react';
 
    function ProjectForm({
    + project: initialProject,

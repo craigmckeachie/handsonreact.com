@@ -37,6 +37,9 @@ title: 'Lab 14: Component Communication through Multiple Levels'
    #### `src\projects\ProjectForm.tsx`
 
    ```diff
+   + import React, { SyntheticEvent } from 'react';
+   ...
+
    - function ProjectForm({ onCancel }: ProjectFormProps) {
    + function ProjectForm({ onSave, onCancel }: ProjectFormProps) {
 
