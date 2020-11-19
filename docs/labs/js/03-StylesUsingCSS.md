@@ -96,7 +96,7 @@ title: 'Lab 3: Styles Using CSS'
    ```css
    @import '../node_modules/mini.css/dist/mini-default.min.css';
    ```
-   > Alternatively, you could choose a dark theme: `mini-dark.min.css` or a nordic theme: `mini-dark.min.css`
+   > Alternatively, you could choose a dark theme: `mini-dark.min.css` or a nordic theme: `mini-nord.min.css`
 7. Verify you see the following output in the browser
 
    ![image](https://user-images.githubusercontent.com/1474579/64926635-c2eb9f80-d7cd-11e9-8ff7-84660d706ff9.png)
