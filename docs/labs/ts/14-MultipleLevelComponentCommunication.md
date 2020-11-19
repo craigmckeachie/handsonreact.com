@@ -37,8 +37,8 @@ title: 'Lab 14: Component Communication through Multiple Levels'
    #### `src\projects\ProjectForm.tsx`
 
    ```diff
-   - function ProjectForm({ onSave, onCancel }: ProjectFormProps) {
-   + function ProjectForm({ onCancel }: ProjectFormProps) {
+   - function ProjectForm({ onCancel }: ProjectFormProps) {
+   + function ProjectForm({ onSave, onCancel }: ProjectFormProps) {
 
    +  const handleSubmit = (event: SyntheticEvent) => {
    +    event.preventDefault();
