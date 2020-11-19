@@ -277,6 +277,9 @@ Below is an example of some basic validation implemented in our Contact Us form.
 
 ### Validation (with Function Component & Hooks)
 
+1. Create the file `styles.css`
+2. Add the following styles:
+
 #### styles.css
 
 ```css
@@ -286,6 +289,19 @@ Below is an example of some basic validation implemented in our Contact Us form.
   color: white;
   width: 50%;
 }
+```
+
+#### index.html
+
+```diff
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demos</title>
++    <link rel="stylesheet" href="/styles.css" />
+  </head>
+...
 ```
 
 #### main.js
@@ -742,7 +758,7 @@ form {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demos</title>
-+    <link rel="stylesheet" href="styles.css" />
++    <link rel="stylesheet" href="/styles.css" />
   </head>
 ...
 ```
