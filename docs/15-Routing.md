@@ -232,13 +232,13 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```js
 function NotFound() {
   return (
-    <React.Fragment>
+    <>
       <h2>Uh oh.</h2>
       <p>
         The page you requested could not be found. Is there any chance you were
         looking for one of these?
       </p>
-    </React.Fragment>
+    </>
   );
 }
 ```
@@ -272,6 +272,8 @@ function NotFound() {
 ## Parameters
 
 ### URL Parameters
+
+> This example builds on the code from the previous demonstrations in this section.
 
 1. Create a `Movie` model class.
 
@@ -343,46 +345,7 @@ function Movies(props) {
 
 > Notice how we pass props to a the `Movies` component which is rendered by the React Router
 
-- You might have been tempted to try one of these approaches:
-
 ```js
-//doesn't work
-<Route
-  path="/movies"
-  component={Movies(movies)}  />}
-/>
-```
-
-```js
-//doesn't work
-<Route
-  path="/movies"
-  component={Movies} movies={movies} />}
-/>
-```
-
-```js
-//works but not ideal
-<Route
-  path="/movies"
-  component={(props) => <Movies {...props} movies={movies} />}
-/>
-```
-
-```js
-//works but not ideal
-<Route
-  path="/movies"
-  component={(props) => <Movies {...props} movies={movies} />}
-/>
-```
-
-- To understand why the `works but is not ideal` code snippet above is not the best solution read this paragraph from the React Router documentation:
-
-  > “When you use the component props, the router uses React.createElement to create a new React element from the given component. That means if you provide an inline function to the component attribute, you would create a new component every render. This results in the existing component unmounting and the new component mounting instead of just updating the existing component.”
-
-```js
-//works
 <Route
   exact
   path="/movies"

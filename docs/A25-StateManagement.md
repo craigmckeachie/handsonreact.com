@@ -26,7 +26,8 @@ slug: /state-management
 - Using Redux Toolkit can significantly reduce the amount of _boilerplate_ code in Redux
 - Using TypeScript with Redux provides strong typing advantages but further increases the amount of _boilerplate_ code
 - Implementing Redux functionality with React Context often often results in eventually recreating Redux
-- Consider using libraries that focus on the specific kind of state that is most challenging,network state, such as React Query and SWR.
+- Consider using libraries that focus on the specific kind of state that is most challenging, network state, such as React Query and SWR.
+- The React Query and SWR APIs ar similar to the popular Apollo Client library for GraphQL but works with REST APIs as well as GraphQL APIs
 - Consider libraries which give you the basic functionality of Redux with a simpler API like Zustand or Easy Peasy
 - [npm Trends Chart comparing SWR, React Query, Zustand, Easy Peasy](https://www.npmtrends.com/swr-vs-react-query-vs-zustand-vs-easy-peasy)
 
@@ -81,3 +82,4 @@ Good use cases for Redux include:
 - [React Query Documentation](https://react-query.tanstack.com/docs/overview)
 - [React Query Blog Refactor Example](https://github.com/tannerlinsley/react-query-blog-refactor-example/commits/master)
 - [Managing React State: Pluralsight Course by Cory House](https://www.pluralsight.com/courses/react-state-managing)
+- [Apollo: GraphQL](https://www.apollographql.com/docs/react/data/queries/)
