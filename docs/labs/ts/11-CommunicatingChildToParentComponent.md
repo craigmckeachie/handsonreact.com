@@ -78,7 +78,7 @@ title: 'Lab 11: Communicating from Child to Parent Component'
    3. **Click** the edit **button** for a project.
    4. **Verify** the project is logged to the `Chrome DevTools` `console`.
 
-   <kbd>![image](https://user-images.githubusercontent.com/1474579/64900895-1d67ed00-d662-11e9-9bcc-f06b5e0218f9.png)</kbd>
+   ![image](https://user-images.githubusercontent.com/1474579/64900895-1d67ed00-d662-11e9-9bcc-f06b5e0218f9.png)
 
 > You may remember that logging was happening in a previous lab. In the previous lab, the logging was occuring in the child component. In this lab, we have removed the logging in the child component `ProjectCard` and are invoking a method on the parent list component `ProjectList`. The allows the card component to be easily reused in another part of the application.
 

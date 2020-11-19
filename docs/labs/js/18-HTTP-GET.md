@@ -487,8 +487,8 @@ function ProjectsPage() {
    5. **Click** on the `More...` **button** again.
    6. **Verify** that another 20 projects are appended to the end of the list.
 
-   ![More](https://user-images.githubusercontent.com/1474579/65072105-391f0c00-d95e-11e9-9e22-922fd0154b2a.png)
-   <kbd>![More](https://user-images.githubusercontent.com/1474579/65072105-391f0c00-d95e-11e9-9e22-922fd0154b2a.png)</kbd>
+   ![image](https://user-images.githubusercontent.com/1474579/65072105-391f0c00-d95e-11e9-9e22-922fd0154b2a.png)
+   ![image](https://user-images.githubusercontent.com/1474579/65072105-391f0c00-d95e-11e9-9e22-922fd0154b2a.png)
 
 ---
 
