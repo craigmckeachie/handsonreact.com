@@ -5,6 +5,14 @@
  * and scoped locally.
  */
 
+.page {
+  margin: 2rem;
+}
+
+/* h1 {
+  display: block;
+} */
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
@@ -34,4 +42,11 @@
 .featureImage {
   height: 200px;
   width: 200px;
+}
+
+.profileImage {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  margin-bottom: 2em;
 }

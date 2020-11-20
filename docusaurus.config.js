@@ -43,6 +43,12 @@ module.exports = {
         },
         // { to: 'blog', label: 'Blog', position: 'left' },
         {
+          to: 'about',
+          activeBasePath: '/',
+          label: 'About',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/craigmckeachie/handsonreact.com',
           label: 'GitHub',
           position: 'right',
