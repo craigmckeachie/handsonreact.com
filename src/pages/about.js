@@ -68,7 +68,7 @@ function About() {
                   developers
                 </strong>{' '}
                 on JavaScript frameworks/libraries including <code>React</code>{' '}
-                Angular and <code>Angular</code>
+                and <code>Angular</code>
                 <strong>with an average rating of 9.5 out of 10</strong>.
               </p>
               <p>
