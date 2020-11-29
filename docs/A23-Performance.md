@@ -699,7 +699,7 @@ ReactDOM.render(
 - [Pluralsight: Optimize Performance for React (payment required)](https://www.pluralsight.com/courses/optimize-performance-react)
 - [Strict Mode Documentation](https://reactjs.org/docs/strict-mode.html)
 - [Strict Mode Rendering Twice](https://stackoverflow.com/questions/61254372/my-react-component-is-rendering-twice-because-of-strict-mode)
-
+- [Optimizing React Native](https://blog.coinbase.com/optimizing-react-native-7e7bf7ac3a34)
 <!-- ## Unused Examples
 
 ```js
@@ -795,4 +795,5 @@ class Task extends React.PureComponent {
 }
 ReactDOM.render(<Test />, document.getElementById('root'));
 ```
- -->
+
+-->
