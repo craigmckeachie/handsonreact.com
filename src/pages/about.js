@@ -40,7 +40,7 @@ function About() {
                 <strong>try on-site training</strong>. I accepted and found that
                 I really enjoyed teaching, but, at first, I wasn't very good. I
                 was new to training and the manuals I used weren't great.
-                However, over time I worked at it ultimately{' '}
+                However, over time I worked at it and ultimately{' '}
                 <strong>
                   became an independent trainer and consultant specializing in
                   React and Angular
