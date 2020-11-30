@@ -13,6 +13,8 @@ React is one of the most popular JavaScript library currently so lets take a loo
 
 ## Why React?
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OxnrFTaPAWc?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 StackOverflow.com 2020 Survey of 65,000 developers:
 
 - [Most Popular Web Frameworks](https://insights.stackoverflow.com/survey/2020#technology-web-frameworks)
@@ -103,7 +105,9 @@ The architecture is component-based and allows you that allow you to create new 
 
 React makes it painless to create interactive UIs on top of web standards. Because it based on web standards, your application is easy to deploy to thousands of users simultaneously.
 
-## Angular, React Compared
+## React, Angular Compared
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4mTo57a9QRw?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### React
 
@@ -147,6 +151,8 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 
 ## Web application architectures
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/LUsT3SoILYg?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Server-side web application architecture
 
 - Java Spring
@@ -168,6 +174,10 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 ![SPA Architecture](https://user-images.githubusercontent.com/1474579/65373203-5565c600-dc48-11e9-957d-63b768bd9cd5.png)
 
 ## React Architecture
+
+## <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iTwyWYFcbWM?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
 
 ![React Architecture](https://user-images.githubusercontent.com/1474579/65395139-5daf2580-dd5c-11e9-88bd-489848766507.png)
 
