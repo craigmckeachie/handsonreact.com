@@ -5,6 +5,8 @@ sidebar_label: Elements
 slug: /elements
 ---
 
+import CallToAction from '../src/components/calltoaction';
+
 React implements a browser-independent DOM system for performance and cross-browser compatibility. They call this the Virtual DOM.
 
 - A React element is not an actual instance of a [DOM Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)
@@ -253,6 +255,10 @@ const element = {
 ```
 
 These objects are called `React elements`. You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
+
+---
+
+<CallToAction />
 
 ## Reference
 

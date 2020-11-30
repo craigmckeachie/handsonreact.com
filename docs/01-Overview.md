@@ -5,6 +5,8 @@ sidebar_label: Overview
 slug: /
 ---
 
+import CallToAction from '../src/components/calltoaction';
+
 There are so many JavaScript libraries and frameworks it is difficult to keep up and understand which are worth learning and how they might be valuable to your organization.
 
 React is one of the most popular JavaScript library currently so lets take a look at why you might want to consider adopting it as part of your technology stack.
@@ -168,3 +170,7 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 ## React Architecture
 
 ![React Architecture](https://user-images.githubusercontent.com/1474579/65395139-5daf2580-dd5c-11e9-88bd-489848766507.png)
+
+---
+
+<CallToAction />
