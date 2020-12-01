@@ -175,7 +175,7 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 
 ## React Architecture
 
-## <iframe width="560" height="315" src="https://www.youtube.com/embed/iTwyWYFcbWM?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iTwyWYFcbWM?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 ---
 
