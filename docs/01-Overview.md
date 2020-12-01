@@ -13,7 +13,7 @@ React is one of the most popular JavaScript library currently so lets take a loo
 
 ## Why React?
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OxnrFTaPAWc?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OxnrFTaPAWc?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 StackOverflow.com 2020 Survey of 65,000 developers:
 
@@ -107,7 +107,7 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 
 ## React, Angular Compared
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4mTo57a9QRw?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4mTo57a9QRw?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 ### React
 
@@ -151,7 +151,7 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 
 ## Web application architectures
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/LUsT3SoILYg?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LUsT3SoILYg?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 ### Server-side web application architecture
 
@@ -175,7 +175,7 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 
 ## React Architecture
 
-## <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iTwyWYFcbWM?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+## <iframe width="560" height="315" src="https://www.youtube.com/embed/iTwyWYFcbWM?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 ---
 
