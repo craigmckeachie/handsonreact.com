@@ -14,6 +14,9 @@ module.exports = {
   //   },
   // ],
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'G-T76XX1J3DR',
+    },
     colorMode: {
       defaultMode: 'light',
     },
