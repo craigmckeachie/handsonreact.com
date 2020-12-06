@@ -16,7 +16,8 @@ React is one of the most popular JavaScript library currently so lets take a loo
 
 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/OxnrFTaPAWc?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> -->
 
-<UnlockVideo title="Why React?" />
+<UnlockVideo title="Web Application Architectures" />
+<UnlockVideo title="Creating a Function Component" />
 
 StackOverflow.com 2020 Survey of 65,000 developers:
 

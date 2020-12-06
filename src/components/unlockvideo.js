@@ -110,76 +110,85 @@ import clsx from 'clsx';
 
 function UnlockVideo({ title }) {
   return (
-    <div className="row">
-      <div
-        className={clsx('col col--6', styles.callToAction)}
-        style={{ marginLeft: '15px' }}
-      >
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://sso.teachable.com/secure/634201/checkout/2315712/comprehensive-react"
+    <>
+      <div className="row">
+        <div
+          className={clsx('col col--6', styles.callToAction)}
+          style={{ marginLeft: '15px' }}
         >
-          <div className="card shadow--md" style={{ opacity: '.5' }}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://sso.teachable.com/secure/634201/checkout/2315712/comprehensive-react"
+          >
             <div
-              className="card__image"
-              style={{ textAlign: 'center', marginTop: '90px' }}
-            >
-              <img
-                src={useBaseUrl('static/img/lock-closed.svg')}
-                alt="Lock Closed"
-                title="Lock Closed"
-              />
-            </div>
-            <div className="card__body" style={{ textAlign: 'center' }}>
-              <h4>{title}</h4>
-            </div>
-            <div
-              className="card__footer"
+              className="card"
               style={{
-                borderTop: '1px solid var(--ifm-menu-color-background-active)',
+                opacity: '.4',
+                backgroundColor: 'var(--ifm-menu-color-background-active)',
               }}
             >
-              {/* <button class="button button--primary button--block">Visit</button> */}
-              <img
-                src={useBaseUrl('static/img/play-outline.svg')}
-                alt="play button"
-                style={{ opacity: '.5' }}
-              />
+              <div
+                className="card__image"
+                style={{ textAlign: 'center', marginTop: '70px' }}
+              >
+                <img
+                  src={useBaseUrl('static/img/lock-closed.svg')}
+                  alt="Lock Closed"
+                  title="Lock Closed"
+                />
+              </div>
+              <div className="card__body" style={{ textAlign: 'center' }}>
+                <h3>{title}</h3>
+              </div>
+              <div
+                className="card__footer"
+                style={{
+                  borderTop:
+                    '1px solid var(--ifm-menu-color-background-active)',
+                }}
+              >
+                {/* <button class="button button--primary button--block">Visit</button> */}
+                <img
+                  src={useBaseUrl('static/img/play-outline.svg')}
+                  alt="play button"
+                  style={{ opacity: '.5' }}
+                />
+              </div>
             </div>
-          </div>
-        </a>
-      </div>
-      <div className="col col--5">
-        <h4>Support this Site</h4>
+          </a>
+        </div>
+        <div className="col col--5">
+          <h4>Support this Site</h4>
 
-        <small>
-          <ul>
-            <li>6 hours of bite-sized (5-10 minute) videos</li>
-            <li>
-              All written material for the course is free and can be used for
-              individual self-paced learning
-            </li>
-            <li>
-              To get the full experience of an in-person training the videos are
-              available for purchase
-            </li>
-          </ul>
-          <h4>
-            Now in early access for <del>$199</del> <mark>$99</mark>
-          </h4>
-        </small>
+          <small>
+            <ul>
+              <li>6 hours of bite-sized videos</li>
+              <li>
+                All written material for the course is free and can be used for
+                individual self-paced learning
+              </li>
+              <li>
+                To get the experience of private training, purchase the videos
+              </li>
+            </ul>
+            <h4>
+              Get early access for <del>$199</del> <mark>$99</mark>
+            </h4>
+          </small>
 
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://sso.teachable.com/secure/634201/checkout/2315712/comprehensive-react"
-          className="button button--primary button--block "
-        >
-          Buy Early Access
-        </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://sso.teachable.com/secure/634201/checkout/2315712/comprehensive-react"
+            className="button button--primary button--block "
+          >
+            Buy Early Access
+          </a>
+        </div>
       </div>
-    </div>
+      <hr />
+    </>
   );
 }
 
