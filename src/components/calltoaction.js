@@ -29,7 +29,7 @@ function CallToAction() {
         </h1>
         <div className="button button--outline button--secondary button--lg">
           <a
-            href="https://sso.teachable.com/secure/634201/checkout/2315712/comprehensive-react"
+            href="https://sso.teachable.com/secure/634201/checkout/2683198/hands-on-react?coupon_code=EARLY"
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: 'none' }}

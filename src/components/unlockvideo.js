@@ -119,12 +119,12 @@ function UnlockVideo({ title }) {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://sso.teachable.com/secure/634201/checkout/2315712/comprehensive-react"
+            href="https://sso.teachable.com/secure/634201/checkout/2683198/hands-on-react?coupon_code=EARLY"
           >
             <div
               className="card"
               style={{
-                opacity: '.4',
+                opacity: '1',
                 backgroundColor: 'var(--ifm-menu-color-background-active)',
               }}
             >
@@ -139,20 +139,29 @@ function UnlockVideo({ title }) {
                 />
               </div>
               <div className="card__body" style={{ textAlign: 'center' }}>
-                <h3>{title}</h3>
+                <h3
+                  style={{
+                    color: 'var(--ifm-font-color-base)',
+                    marginBottom: '30px',
+                  }}
+                >
+                  {title}
+                </h3>
               </div>
               <div
                 className="card__footer"
                 style={{
                   borderTop:
                     '1px solid var(--ifm-menu-color-background-active)',
+                  backgroundColor: 'var(--ifm-link-color)',
+                  padding: '10px',
                 }}
               >
                 {/* <button class="button button--primary button--block">Visit</button> */}
                 <img
                   src={useBaseUrl('static/img/play-outline.svg')}
                   alt="play button"
-                  style={{ opacity: '.5' }}
+                  style={{ opacity: '.3' }}
                 />
               </div>
             </div>
@@ -180,7 +189,7 @@ function UnlockVideo({ title }) {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://sso.teachable.com/secure/634201/checkout/2315712/comprehensive-react"
+            href="https://sso.teachable.com/secure/634201/checkout/2683198/hands-on-react?coupon_code=EARLY"
             className="button button--primary button--block "
           >
             Buy Early Access
