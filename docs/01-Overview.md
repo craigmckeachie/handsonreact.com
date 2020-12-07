@@ -184,7 +184,3 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 ---
 
 ![React Architecture](https://user-images.githubusercontent.com/1474579/65395139-5daf2580-dd5c-11e9-88bd-489848766507.png)
-
----
-
-<CallToAction />
