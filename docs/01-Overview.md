@@ -51,11 +51,9 @@ Exercise:
 
 ### Amazing User Experience & Deployment Story
 
-> JavaScript libraries and frameworks provide an interactive user experience similar to a destop or native application that is as easy to update as a web application.
->
-> So why are React and other JavaScript libraries and frameworks so popular? I think it can be summed up in the following statement.
+So why are React and other JavaScript libraries and frameworks so popular? I think it can be summed up in the following statement.
 
-JavaScript libraries and frameworks provide an interactive user experience similar to a destop or native application that is as easy to update as a web application.
+> JavaScript libraries and frameworks provide an interactive user experience similar to a destop or native application that is as easy to update as a web application.
 
 In the past, developers have commonly used technologies from Microsoft (Windows Forms, WPF, Silverlight), Oracle (Java Swing), Adobe (Flash, Flex ) and/or mobile solutions such as iOS or Android development to provide rich interactive user experiences. These technologies were never easy to deploy or update for a large number of users. Which is why the business applications are built as web applications today.
 
