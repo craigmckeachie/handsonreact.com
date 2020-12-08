@@ -9,11 +9,16 @@ import UnlockVideo from '../src/components/unlockvideo';
 
 There are so many JavaScript libraries and frameworks it is difficult to keep up and understand which are worth learning and how they might be valuable to your organization.
 
-React is one of the most popular JavaScript library currently so lets take a look at why you might want to consider adopting it as part of your technology stack.
+React is one of the most popular JavaScript libraries currently so in this overview we are going to step back and take a look at the big picture and examine:
+
+- Why you might want to consider adopting it as part of your technology stack
+- What problem React is solving
+- Compare React to similar technologies
+- Understand evolving web application architectures
 
 ## Why React?
 
-<!-- <iframe width="388" height="218" src="https://www.youtube.com/embed/OxnrFTaPAWc?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> -->
+### Adoption
 
 StackOverflow.com 2020 Survey of 65,000 developers:
 
@@ -44,20 +49,10 @@ In addition, lots of companies are using React in their technology stack includi
 - Instacart
 - and more...
 
-Exercise:
+<!-- Exercise:
 
 1. Install the [React DevTools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en).
-1. Visit some of the sites above and see how they are using React.
-
-### Amazing User Experience & Deployment Story
-
-So why are React and other JavaScript libraries and frameworks so popular? I think it can be summed up in the following statement.
-
-> JavaScript libraries and frameworks provide an interactive user experience similar to a destop or native application that is as easy to update as a web application.
-
-In the past, developers have commonly used technologies from Microsoft (Windows Forms, WPF, Silverlight), Oracle (Java Swing), Adobe (Flash, Flex ) and/or mobile solutions such as iOS or Android development to provide rich interactive user experiences. These technologies were never easy to deploy or update for a large number of users. Which is why the business applications are built as web applications today.
-
-These JavaScript libraries and frameworks allow developers to "have their cake and eat it to" by enabling an interactive user experience while remaining a web application.
+1. Visit some of the sites above and see how they are using React. -->
 
 ### Easy to Learn
 
@@ -86,7 +81,9 @@ React is built on top of timeless web standard technology including JavaScript, 
 
 Subsequently, learning and getting better at React is really just becoming better at web development. This includes deeply understanding web standards which are technologies that seem to never go out of style.
 
-## What it is?
+## What is React?
+
+### Understanding
 
 > React is SQL for HTML or more specifically the Document Object Model (DOM)
 
@@ -97,7 +94,7 @@ A declarative language that most developers are familiar with is SQL. SQL is dec
 
 The architecture is component-based and allows you that allow you to create new custom, reusable, encapsulated HTML tags to use in web pages and web apps.
 
-## Why it is useful?
+### Why is it useful?
 
 > React makes it painless to create interactive UIs on top of web standards.
 
@@ -188,6 +185,16 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 - Backbone
 
 ![SPA Architecture](https://user-images.githubusercontent.com/1474579/65373203-5565c600-dc48-11e9-957d-63b768bd9cd5.png)
+
+### Why a Single-page web application architecture?
+
+So why are single-page web application architectures so popular? I think it can be summed up in the following statement.
+
+> JavaScript libraries and frameworks provide an interactive user experience similar to a destop or native application that is as easy to update as a web application.
+
+In the past, developers have commonly used technologies from Microsoft (Windows Forms, WPF, Silverlight), Oracle (Java Swing), Adobe (Flash, Flex ) and/or mobile solutions such as iOS or Android development to provide rich interactive user experiences. These technologies were never easy to deploy or update for a large number of users. Which is why the business applications are built as web applications today.
+
+These JavaScript libraries and frameworks allow developers to "have their cake and eat it to" by enabling an interactive user experience while remaining a web application.
 
 ## React Architecture
 
