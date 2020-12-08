@@ -198,7 +198,7 @@ These JavaScript libraries and frameworks allow developers to "have their cake a
 
 ## React Architecture
 
-<iframe width="388" height="218" src="https://www.youtube.com/embed/iTwyWYFcbWM?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+<!-- <iframe width="388" height="218" src="https://www.youtube.com/embed/iTwyWYFcbWM?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> -->
 
 ---
 
