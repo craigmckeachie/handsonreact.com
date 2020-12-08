@@ -103,7 +103,7 @@ The architecture is component-based and allows you that allow you to create new 
 
 React makes it painless to create interactive UIs on top of web standards. Because it based on web standards, your application is easy to deploy to thousands of users simultaneously.
 
-## React, Angular Compared
+## React, Angular, Vue Compared
 
 <!-- <iframe width="388" height="218" src="https://www.youtube.com/embed/4mTo57a9QRw?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> -->
 
@@ -115,7 +115,7 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 - Just the View in MVC
 - Need to include other libraries
   - React Router (Routing)
-  - Axios, fetch API (AJAX)
+  - HTTP: Axios or fetch API
 - ES6 (Babel compiler) or TypeScript (tsc compiler)
 - Create React App
 - Uses Webpack
@@ -135,17 +135,35 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 - Uses Webpack
 - Reactive Extensions for Angular (ngrx)
 
-### React vs. Angular: Key Insights
+### Vue
+
+- Community
+  - Started by former Google Technologist and Meteor core team member Evan You
+- Components
+- Framework
+- Modular
+- Vue Router (official Router)
+- Need to include other libraries
+  - HTTP: Axios or fetch API
+  - Forms
+- ES6 (Babel compiler) or TypeScript (tsc compiler)
+- Vue CLI
+- Vuex (State Management)
+
+### React, Angular, Vue: Key Insights
 
 > **Angular** continues to put **“JS”** **into HTML**. **React** puts **“HTML” into JS**. – Cory House
 
-- Angular is a more comprehensive library while React is more of a targeted micro library.
-- Because React is smaller it is:
+- Vue and Angular have templates which are often favored by developers without as much JavaScript experience
+- React does not have templates because it just relies on JavaScript combined with JSX so it is often favored by developers who are fluent in JavaScript
+- Angular is a more comprehensive framework while React is more of a targeted micro library. Vue can starts as a micro library and scales to a comprehensive framework.
+- Because React and Vue are smaller they can be:
   - Easier to understand
+    - Vue even more than React because of its use of templates and excellent documentation
   - Easier to include in a project
 - React is much more popular (but has existed longer)
-- React is used more by design/digital/interactive agencies as well as in the Enterprise
-- Angular is used more for Enterprise software particularly at larger organizations
+- React and Vue is used more by design/digital/interactive agencies to build interactive websites as well as in the applications in an enterprise
+- Angular is used more for building applications in the enterprise, particularly at larger organizations, and is getting better for website use cases
 
 ## Web application architectures
 
