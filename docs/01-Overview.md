@@ -184,7 +184,7 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 - Ember
 - Backbone
 
-![SPA Architecture](https://user-images.githubusercontent.com/1474579/65373203-5565c600-dc48-11e9-957d-63b768bd9cd5.png)
+![SPA Architecture](https://user-images.githubusercontent.com/1474579/101680131-3f4f4b80-3a2e-11eb-9e03-78e325ebdea4.png)
 
 ### Why a Single-page web application architecture?
 
