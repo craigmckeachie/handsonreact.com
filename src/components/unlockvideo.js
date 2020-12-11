@@ -4,7 +4,7 @@ import styles from './styles.module.css';
 import clsx from 'clsx';
 
 // function UnlockVideo({ title }) {
-//   const playUrl = useBaseUrl('static/img/play-outline.svg');
+//   const playUrl = useBaseUrl('img/play-outline.svg');
 //   return (
 //     <button
 //       className={'button button--outline button--primary button--lg shadow--sm'}
@@ -45,7 +45,7 @@ import clsx from 'clsx';
 // }
 
 // function UnlockVideo({ title }) {
-//   const playUrl = useBaseUrl('static/img/play-outline.svg');
+//   const playUrl = useBaseUrl('img/play-outline.svg');
 //   return (
 //     <div className="row">
 //       <div className="col col--9">
@@ -98,7 +98,7 @@ import clsx from 'clsx';
 //         <video
 //           width="320"
 //           height="240"
-//           poster={useBaseUrl('static/img/lock-closed.svg')}
+//           poster={useBaseUrl('img/lock-closed.svg')}
 //           controls
 //         >
 //           Your browser does not support the video tag.
@@ -133,7 +133,7 @@ function UnlockVideo({ title }) {
                 style={{ textAlign: 'center', marginTop: '70px' }}
               >
                 <img
-                  src={useBaseUrl('static/img/lock-closed.svg')}
+                  src={useBaseUrl('img/lock-closed.svg')}
                   alt="Lock Closed"
                   title="Lock Closed"
                 />
@@ -159,7 +159,7 @@ function UnlockVideo({ title }) {
               >
                 {/* <button class="button button--primary button--block">Visit</button> */}
                 <img
-                  src={useBaseUrl('static/img/play-outline.svg')}
+                  src={useBaseUrl('img/play-outline.svg')}
                   alt="play button"
                   style={{ opacity: '.3' }}
                 />
