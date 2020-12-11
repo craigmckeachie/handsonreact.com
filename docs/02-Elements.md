@@ -7,6 +7,8 @@ slug: /elements
 
 import UnlockVideo from '../src/components/unlockvideo';
 
+<UnlockVideo title="React Elements" />
+
 React implements a browser-independent DOM system for performance and cross-browser compatibility. They call this the Virtual DOM.
 
 - A React element is not an actual instance of a [DOM Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)
@@ -17,13 +19,9 @@ An element describes what you want to see on the screen.
 
 One might confuse elements with a more widely known concept of “components”. Typically, elements are not used directly, but get returned from components.
 
-<UnlockVideo title="Overview of React Elements" />
-
 ## Part 1 - Hello World in JavaScript
 
 In this part of the course we will create a `Hello World` application in vanilla JavaScript. We will later rewrite the application to use **React**.
-
-<UnlockVideo title="Hello World in JavaScript" />
 
 1.  Create directory `demos`
 
@@ -157,8 +155,6 @@ In this part of the course we will create a `Hello World` application in vanilla
 ## Part 2 - Hello World in React
 
 Hello World in JavaScript is not that different than it is in React. Let's update the code to see it in React.
-
-<UnlockVideo title="Hello World in React" />
 
 1. Open a new cmd prompt or terminal (leave `serve` running) and install `React`
 
