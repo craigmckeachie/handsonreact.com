@@ -6,6 +6,9 @@ slug: /
 ---
 
 import UnlockVideo from '../src/components/unlockvideo';
+import PreviewVideo from '../src/components/previewvideo';
+
+<PreviewVideo />
 
 There are so many JavaScript libraries and frameworks it is difficult to keep up and understand which are worth learning and how they might be valuable to your organization.
 
