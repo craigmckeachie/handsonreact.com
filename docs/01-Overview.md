@@ -105,8 +105,6 @@ React makes it painless to create interactive UIs on top of web standards. Becau
 
 ## React, Angular, Vue Compared
 
-<!-- <iframe width="388" height="218" src="https://www.youtube.com/embed/4mTo57a9QRw?rel=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> -->
-
 ### React
 
 - Facebook
