@@ -17,8 +17,28 @@ module.exports = {
     googleAnalytics: {
       trackingID: 'G-T76XX1J3DR',
     },
+    // colorMode: {
+    //   defaultMode: 'light',
+    // },
     colorMode: {
       defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+      switchConfig: {
+        // darkIcon: '\u{1F319}',
+        // lightIcon: '\u2600',
+        darkIcon: '\u263e',
+        lightIcon: '\u263c',
+        darkIconStyle: {
+          marginLeft: '2px',
+          fontSize: '18px',
+          color: 'black',
+        },
+        lightIconStyle: {
+          marginLeft: '1px',
+          fontSize: '18px',
+        },
+      },
     },
     image: 'img/hands-on-react.png',
     announcementBar: {
@@ -52,16 +72,22 @@ module.exports = {
           position: 'right',
         },
         {
-          href: 'https://github.com/craigmckeachie/handsonreact.com',
-          label: 'GitHub',
+          to: 'emailcourse',
+          activeBasePath: '/',
+          label: 'FREE Email Course',
           position: 'right',
         },
-        {
-          href:
-            'https://www.youtube.com/channel/UCxJG7GwhiI3lI7pn_HuBLgw?sub_confirmation=1',
-          label: 'YouTube',
-          position: 'right',
-        },
+        // {
+        //   href: 'https://github.com/craigmckeachie/handsonreact.com',
+        //   label: 'GitHub',
+        //   position: 'right',
+        // },
+        // {
+        //   href:
+        //     'https://www.youtube.com/channel/UCxJG7GwhiI3lI7pn_HuBLgw?sub_confirmation=1',
+        //   label: 'YouTube',
+        //   position: 'right',
+        // },
       ],
     },
     footer: {

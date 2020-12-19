@@ -6,6 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
+
 const features = [
   {
     title: 'Feature Name',
@@ -47,8 +48,10 @@ function Home() {
             frameborder="0"
             modestbranding="1"
           ></iframe>
+
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
+
           <div className={styles.buttons}>
             <Link
               className={clsx(
@@ -138,6 +141,7 @@ function Home() {
             </div>
           </div>
         </section>
+        <section></section>
       </main>
     </Layout>
   );
