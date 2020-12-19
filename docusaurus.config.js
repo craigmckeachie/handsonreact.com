@@ -17,16 +17,11 @@ module.exports = {
     googleAnalytics: {
       trackingID: 'G-T76XX1J3DR',
     },
-    // colorMode: {
-    //   defaultMode: 'light',
-    // },
     colorMode: {
       defaultMode: 'light',
       disableSwitch: false,
       respectPrefersColorScheme: true,
       switchConfig: {
-        // darkIcon: '\u{1F319}',
-        // lightIcon: '\u2600',
         darkIcon: '\u263e',
         lightIcon: '\u263c',
         darkIconStyle: {
@@ -48,6 +43,7 @@ module.exports = {
       href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhandsonreact.com%2Fdocs%2F&text=Hands+on+React.+The+best+way+to+learn+React.+by+%40cmckeachie&hashtags=">share it on Twitter.</a>`,
       backgroundColor: 'rgb(72, 77, 91)',
       textColor: '#ffffff',
+
       isCloseable: false,
     },
     navbar: {
@@ -77,17 +73,6 @@ module.exports = {
           label: 'FREE Email Course',
           position: 'right',
         },
-        // {
-        //   href: 'https://github.com/craigmckeachie/handsonreact.com',
-        //   label: 'GitHub',
-        //   position: 'right',
-        // },
-        // {
-        //   href:
-        //     'https://www.youtube.com/channel/UCxJG7GwhiI3lI7pn_HuBLgw?sub_confirmation=1',
-        //   label: 'YouTube',
-        //   position: 'right',
-        // },
       ],
     },
     footer: {
