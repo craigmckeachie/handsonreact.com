@@ -13,6 +13,13 @@ module.exports = {
   //     async: true,
   //   },
   // ],
+  scripts: [
+    {
+      src: 'https://www.google.com/recaptcha/api.js',
+      async: true,
+      defer: true,
+    },
+  ],
   themeConfig: {
     googleAnalytics: {
       trackingID: 'G-T76XX1J3DR',

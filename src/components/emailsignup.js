@@ -8,7 +8,9 @@ function EmailSignup() {
         method="POST"
         acceptCharset="utf-8"
       >
-        <p>One email every other work day with a short lesson.</p>
+        <p className="bigger">
+          One email every other work day with a short lesson.
+        </p>
         <label className="hidden" htmlFor="email">
           Email Address
         </label>
@@ -20,13 +22,7 @@ function EmailSignup() {
           id="email"
           placeholder="Email Address"
         />
-        <input
-          className="button  button--secondary button--lg"
-          type="submit"
-          name="submit"
-          value="Sign Up"
-          id="submit"
-        />
+
         <br />
         <p
           className="g-recaptcha"
@@ -43,6 +39,13 @@ function EmailSignup() {
           defaultValue="z7639TTHF7nPlEMpaPmYM7XQ"
         />
         <input type="hidden" name="subform" value="yes" />
+        <input
+          className="button  button--secondary button--lg"
+          type="submit"
+          name="submit"
+          value="Sign Up"
+          id="submit"
+        />
       </form>
     </div>
   );

@@ -6,7 +6,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
-
 const features = [
   {
     title: 'Feature Name',
@@ -42,12 +41,12 @@ function Home() {
         <div className="container">
           <iframe
             type="text/html"
-            width="560"
-            height="315"
+            width={560}
+            height={315}
             src="https://www.youtube.com/embed/VATwnEzWvgk?rel=0"
-            frameborder="0"
-            modestbranding="1"
-          ></iframe>
+            frameBorder={0}
+            modestbranding={1}
+          />
 
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
