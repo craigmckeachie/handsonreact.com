@@ -20,33 +20,3 @@
 div.react-toggle-track {
   background-color: var(--ifm-menu-color-background-active);
 }
-
-#email {
-  height: 4em;
-  width: 16em;
-  padding: 1em;
-}
-
-#submit {
-  /* height: 4em;
-  width: 10em;
-  padding: 1em;
-  text-transform: uppercase; */
-  display: inline;
-  margin: 1em;
-}
-
-.hidden {
-  display: none;
-}
-
-.docusaurus-highlight-code-line {
-  background-color: rgb(72, 77, 91);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
-}
-
-.bigger {
-  font-size: 110%;
-}

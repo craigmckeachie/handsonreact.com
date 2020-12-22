@@ -15,16 +15,22 @@ function EmailCourse() {
       title={`${siteConfig.title}`}
       description="Sign up for our free email course. "
     >
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
-        <div className="container">
-          <h1 className="hero__title">Email Course</h1>
-          <h2 className="hero__subtitle">Sign up for FREE to learn React</h2>
-
-          <section className="">
-            <EmailSignup />
-          </section>
-        </div>
-      </header>
+      <main className={styles.page}>
+        <iframe
+          width={720}
+          height={610}
+          src="https://dc254fa5.sibforms.com/serve/MUIEAIdxTUrh-u3oNTRQ4cLsa4P9Qrbmhp2mDC4VQuvaZkaAdb7Owf--Taga6kfShZC2xQA2K01jXF_Jl27WL1olotgBqPyieEKl4pXrzsaKz9_ein1wfZndJvJlta-8nPGEofUMHofXZaUrdWoaqC9LibvbebjteMiPkwCWUhW4toIJC_VrcI6BkuUh5-zybAtC8wIYlcn8uxrt"
+          frameBorder={0}
+          scrolling="auto"
+          allowFullScreen
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            maxWidth: '100%',
+          }}
+        />
+      </main>
     </Layout>
   );
 }
