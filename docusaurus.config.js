@@ -74,12 +74,12 @@ module.exports = {
           label: 'About',
           position: 'right',
         },
-        // {
-        //   to: 'emailcourse',
-        //   activeBasePath: '/',
-        //   label: 'FREE Email Course',
-        //   position: 'right',
-        // },
+        {
+          to: 'emailcourse',
+          activeBasePath: '/',
+          label: 'FREE Email Course',
+          position: 'right',
+        },
       ],
     },
     footer: {
