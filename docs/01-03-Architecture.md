@@ -7,7 +7,7 @@ slug: /architecture
 
 import PreviewVideo from '../src/components/previewvideo';
 
-It's valuable to understand who JavaScript applications are architected.
+It's valuable to understand how JavaScript applications are architected.
 In particular, it's valuable to understand how JavaScript application architecture is different from other web frameworks.
 
 ## Web application architectures
