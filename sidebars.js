@@ -3,7 +3,10 @@ module.exports = {
     Fundamentals: [
       '00-ComputerSetup',
       '00-VisualStudioCodeSetup',
-      '01-Overview',
+      '01-00-WhatIsReact',
+      '01-01-WhyReact',
+      '01-02-Comparison',
+      '01-03-Architecture',
       '02-Elements',
       '03-JSX',
       '04-VirtualDOM',
