@@ -5,7 +5,7 @@ sidebar_label: Comparison
 slug: /comparison
 ---
 
-import PreviewVideo from '../src/components/previewvideo';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## React, Angular, Vue Compared
 
@@ -68,3 +68,14 @@ JavaScript libraries and frameworks have more similarities than differences. The
 - React is much more popular (but has existed longer)
 - React and Vue is used more by design/digital/interactive agencies to build interactive websites as well as in the applications in an enterprise
 - Angular is used more for building applications in the enterprise, particularly at larger organizations, and is getting better for website use cases
+
+---
+
+<div id="video-container">
+  <p>
+    <a  href="https://courses.funnyant.com/courses/1063133/lectures/28654511?wvideo=dxethawj9b">
+        <img  src="https://cdn.filestackcontent.com/RnJOHZxsRoi041syhsXu" width={800} height={450} style={{width: 800, height: 450}} />
+        <img id="playVideo" height="30px" width="50px" src={useBaseUrl('img/play-arrow.svg')}/>    
+    </a>
+  </p>
+</div>

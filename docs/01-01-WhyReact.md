@@ -5,7 +5,7 @@ sidebar_label: Why React?
 slug: /why-react
 ---
 
-import PreviewVideo from '../src/components/previewvideo';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 There are so many JavaScript libraries and frameworks it is difficult to keep up and understand which are worth learning and how they might be valuable to your organization.
 
@@ -73,3 +73,14 @@ Not to worry though as React has an entire ecosystem of other tools and librarie
 React is built on top of timeless web standard technology including JavaScript, HTML, CSS, and the browser's Document Object Model (DOM).
 
 Subsequently, learning and getting better at React is really just becoming better at web development. This includes deeply understanding web standards which are technologies that seem to never go out of style.
+
+---
+
+<div id="video-container">
+  <p>
+    <a  href="https://courses.funnyant.com/courses/hands-on-react/lectures/28665275?wvideo=xh5cfjfsge">
+        <img  src="https://cdn.filestackcontent.com/HrvYt2XtRu2H3xh4bG6i" width={800} height={450} style={{width: 800, height: 450}} />
+        <img id="playVideo" height="30px" width="50px" src={useBaseUrl('img/play-arrow.svg')}/>    
+    </a>
+  </p>
+</div>

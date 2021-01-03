@@ -5,7 +5,7 @@ sidebar_label: Architecture
 slug: /architecture
 ---
 
-import PreviewVideo from '../src/components/previewvideo';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 It's valuable to understand how JavaScript applications are architected.
 In particular, it's valuable to understand how JavaScript application architecture is different from other web frameworks.
@@ -50,3 +50,14 @@ Below is a diagram that helps answer that question.
 ---
 
 ![React Architecture](https://user-images.githubusercontent.com/1474579/65395139-5daf2580-dd5c-11e9-88bd-489848766507.png)
+
+---
+
+<div id="video-container">
+  <p>
+    <a  href="https://courses.funnyant.com/courses/1063133/lectures/28654517?wvideo=p5t79a23ry">
+        <img  src="https://cdn.filestackcontent.com/hInQBheNT429AJ5Ck9lk" width={800} height={450} style={{width: 800, height: 450}} />
+        <img id="playVideo" height="30px" width="50px" src={useBaseUrl('img/play-arrow.svg')}/>    
+    </a>
+  </p>
+</div>
