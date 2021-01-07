@@ -35,7 +35,7 @@ function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Free course to help you learn React by writing code. <head />"
+      description="Free course to help you learn React by writing code."
     >
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">

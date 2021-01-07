@@ -12,8 +12,8 @@ function EmailCourse() {
   const { siteConfig = {} } = context;
   return (
     <Layout
-      title={`${siteConfig.title}`}
-      description="Sign up for our free email course. "
+      title="Email Course: Sign up for FREE to learn React"
+      description="One email every other work day with a short lesson."
     >
       <main className={styles.page}>
         <iframe
