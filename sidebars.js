@@ -24,7 +24,7 @@ module.exports = {
               'labs/js/05-CreatingDataStructures',
             ],
             TypeScript: [
-              'labs/js/00-Introduction',
+              'labs/ts/00-Introduction',
               'labs/ts/01-CreatingNewProject',
               'labs/ts/02-RunningYourProject',
               'labs/ts/03-StylesUsingCSS',
