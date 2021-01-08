@@ -16,6 +16,7 @@ module.exports = {
         'Labs A': [
           {
             JavaScript: [
+              'labs/js/00-Introduction',
               'labs/js/01-CreatingNewProject',
               'labs/js/02-RunningYourProject',
               'labs/js/03-StylesUsingCSS',
@@ -23,6 +24,7 @@ module.exports = {
               'labs/js/05-CreatingDataStructures',
             ],
             TypeScript: [
+              'labs/js/00-Introduction',
               'labs/ts/01-CreatingNewProject',
               'labs/ts/02-RunningYourProject',
               'labs/ts/03-StylesUsingCSS',
@@ -155,6 +157,7 @@ module.exports = {
     Labs: [
       {
         JavaScript: [
+          'labs/js/00-Introduction',
           'labs/js/01-CreatingNewProject',
           'labs/js/02-RunningYourProject',
           'labs/js/03-StylesUsingCSS',
@@ -204,6 +207,7 @@ module.exports = {
       },
       {
         TypeScript: [
+          'labs/ts/00-Introduction',
           'labs/ts/01-CreatingNewProject',
           'labs/ts/02-RunningYourProject',
           'labs/ts/03-StylesUsingCSS',

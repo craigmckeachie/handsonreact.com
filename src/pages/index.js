@@ -8,7 +8,7 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Feature Name',
+    title: 'Feature Name 1',
     imageUrl: 'img/hands-on-react.png',
     description: <>Feature Description</>,
   },
