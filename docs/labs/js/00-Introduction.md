@@ -76,4 +76,4 @@ _This is a preview of the application you will build._
 
 ### Snippets
 
-- [Click this link to get the code snippets used in the labs.](./snippets/)
+- [Click this link to visit the repository with the code snippets used in the labs.](https://github.com/craigmckeachie/snip)
