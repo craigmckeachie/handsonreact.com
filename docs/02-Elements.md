@@ -5,7 +5,7 @@ sidebar_label: Elements
 slug: /elements
 ---
 
-import UnlockVideo from '../src/components/unlockvideo';
+<!-- import UnlockVideo from '../src/components/unlockvideo'; -->
 
 React implements a browser-independent DOM system for performance and cross-browser compatibility. They call this the Virtual DOM.
 
@@ -260,7 +260,7 @@ These objects are called `React elements`. You can think of them as descriptions
 
 ---
 
-<UnlockVideo title="React Elements" />
+<!-- <UnlockVideo title="React Elements" /> -->
 
 ## Reference
 
