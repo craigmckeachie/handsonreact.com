@@ -71,14 +71,6 @@ title: 'Lab 1: Creating a New Project'
 
     > Only files inside `public` can be used from `public/index.html`.
 
-#### React 17
-
-- React 17 was released October 22nd 2020.
-- There aren't any significant changes but the labs have not been tested with the changes.
-- In particular, a new JSX transform was introduced.
-- With the new transform, you can use JSX without importing React.
-- The new transform was also implemented in the latest version of all the major React releases (16, 15, 0.14.x).
-
 <!-- ### Downgrade to React version 16
 
  #### Using React 16
@@ -103,3 +95,11 @@ This section describes how to downgrade a new React project to use React version
 ---
 
 ## &#10004; You have completed Lab 1
+
+#### React 17
+
+- React 17 was released October 22nd 2020.
+- There aren't any significant changes.
+- In particular, a new JSX transform was introduced.
+- With the new transform, you can use JSX without importing React.
+- The new transform was also implemented in the latest version of all the major React releases (16, 15, 0.14.x).
