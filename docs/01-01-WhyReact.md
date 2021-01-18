@@ -63,6 +63,7 @@ Not to worry though as React has an entire ecosystem of other tools and librarie
 - TypeScript: TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. Either the Babel or TypeScript compiler are used to get the features of a modern programming language today
 - webpack: efficiently bundles your JavaScript, CSS, HTML, and images for deployment
 - Create-React App: Creates a React project with best practices by running only one command
+- Next.js: the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed.
 - State Management Libraries including Redux and MobX to architect and manage the data in your application
 - GraphQL: a query language for your data APIs
 - React Native: Create native apps for Android and iOS using React
