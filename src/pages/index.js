@@ -90,7 +90,7 @@ function Home() {
                 <h3>Up to Date</h3>
 
                 <ul>
-                  <li>Focus Function components with Hooks</li>
+                  <li>Focused on Function components with Hooks</li>
                   <li>Option to use TypeScript</li>
                   <li>Alternatives to Redux State Management</li>
                   <li>
