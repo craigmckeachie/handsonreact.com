@@ -344,7 +344,11 @@ function ContactUsForm() {
     const departmentError = validateDepartment(department);
     const messageError = validateMessage(message);
     const agreedToTermsError = validateAgreedToTerms(agreedToTerms);
-    return departmentError && messageError && agreedToTermsError;
+    return (
+      departmentError === null &&
+      messageError == null &&
+      agreedToTermsError == null
+    );
   }
 
   function validateDepartment(value) {
