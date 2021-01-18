@@ -145,9 +145,7 @@ In this part of the course we will create a `Hello World` application in vanilla
 14) Verify the page displays:
 
     ```
-
     Hello World
-
     ```
 
 ## Part 2 - Hello World in React
