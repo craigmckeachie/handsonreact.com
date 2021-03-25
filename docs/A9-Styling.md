@@ -5,7 +5,7 @@ sidebar_label: Styling
 slug: /stylsg
 ---
 
-Componests can be styled using CSS classes or inline styles as you would in when using plain HTML and CSS without React.
+Components can be styled using CSS classes or inline styles as you would in when using plain HTML and CSS without React.
 
 ## Class
 

@@ -128,6 +128,7 @@ module.exports = {
     ],
     Advanced: [
       '16-CustomHooks',
+      'A17-OtherHooks',
       'A13-Context',
       'A25-StateManagement',
       '25-Testing',

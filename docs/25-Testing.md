@@ -210,17 +210,22 @@ export function add(a, b) {
 
 > Notice we are able to return values regardless of the inputs because we are mocking the module.
 
-#### `src\math.test.js`
+#### console output
 
 ```diff
-import { add } from './math';
-+ jest.mock('./math');
+Expected: 4
+    Received: 2
 
-test('add numbers', () => {
-+  expect(add(1, 1)).toEqual(4);
--  expect(add(1, 1)).toEqual(2);
--  expect(add(2, 2)).toEqual(4);
-});
+      3 | test('should add numbers', () => {
+      4 |   expect(add(1, 1)).toEqual(2);
+    > 5 |   expect(add(2, 2)).toEqual(4);
+        |                     ^
+      6 | });
+      7 |
+
+      at Object.<anonymous> (src/math.test.js:5:21)
+
+Test Suites: 1 failed, 1 passed, 2 total
 ```
 
 > Jest works based on the convention that if you create the mock module in a `__mocks__` directory next to the actual module and then call `jest.mock(./my-module)` the actual implementation will be replaced with your mock code.
@@ -248,11 +253,11 @@ To solve this we can mock not only the module but the `add` function as follows:
 
    ```diff
    import { add } from './math';
-   jest.mock('./math');
+   - jest.mock('./math');
    test('add numbers', () => {
    +  add.mockReturnValueOnce(2);
    +  add.mockReturnValueOnce(4);
-   +  expect(add(1, 1)).toEqual(2);
+      expect(add(1, 1)).toEqual(2);
      expect(add(2, 2)).toEqual(4);
    });
    ```
@@ -548,51 +553,6 @@ This requires the [`shallow()` rendering API](https://airbnb.io/enzyme/docs/api/
 
 8. You should see an additional test passing.
 
-### Full
-
-For testing React components in a way that resembles the way the components are used by end users. It is well suited for unit, integration, and end-to-end testing of React components and applications.
-
-It works more directly with DOM nodes, and therefore it's recommended to use with jest-dom for improved assertions.
-
-1. To install `react-testing-library` and `jest-dom`, you can run:
-
-   ```sh
-   npm install --save @testing-library/react @testing-library/jest-dom
-   ```
-
-   Alternatively you may use `yarn`:
-
-   ```sh
-   yarn add @testing-library/react @testing-library/jest-dom
-   ```
-
-2. As we did with `enzyme`, you can modify a `src\setupTests.js` file to avoid boilerplate in your test files:
-
-   #### `src\setupTests.js`
-
-   ```js
-   ...
-   // react-testing-library renders your components to document.body,
-
-   // this adds jest-dom's custom assertions
-   import '@testing-library/jest-dom/extend-expect';
-   ```
-
-3. Add a test using `react-testing-library` and `jest-dom` for testing that the `<App />` component renders "Learn React".
-
-   #### `src\app.test.js`
-
-   ```js
-   //full
-
-   import { render } from '@testing-library/react';
-
-   it('renders welcome message', () => {
-     const { getByText } = render(<App />);
-     expect(getByText('Learn React').textContent).toEqual('Learn React');
-   });
-   ```
-
 ## Component Snapshot Tests (with Jest)
 
 Snapshot testing is a feature of Jest that automatically generates text snapshots of your components and saves them on the disk so if the UI output changes, you get notified without manually writing any assertions on the component output. [Read more about snapshot testing](https://jestjs.io/blog/2016/07/27/jest-14.html).
@@ -601,7 +561,11 @@ Snapshot testing is a feature of Jest that automatically generates text snapshot
 
 Snapshot testing requires you to install the `react-test-renderer` which we already did for shallow testing.
 
-1.  Add the following test
+1.  If you haven't previously install the `react-test-renderer`.
+    ```
+    npm install react-test-renderer
+    ```
+2.  Add the following test
 
     #### `src\App.test.[js|tsx]`
 
@@ -617,8 +581,8 @@ Snapshot testing requires you to install the `react-test-renderer` which we alre
 
     > Normally you wouldn't snapshot the `App` component since it contains all other components
 
-2.  Open the file `src/__snapshots__\App.test.[js|tsx].snap`
-3.  Update `src/App.js`.
+3.  Open the file `src/__snapshots__\App.test.[js|tsx].snap`
+4.  Update `src/App.js`.
 
     #### `src/App.js`
 
@@ -631,13 +595,13 @@ Snapshot testing requires you to install the `react-test-renderer` which we alre
             <img src={logo} className="App-logo" alt="logo" />
     ```
 
-4.  See the message below.
+5.  See the message below.
     ```shell
      › 1 snapshot failed.
     Snapshot Summary
     › 1 snapshot failed from 1 test suite. Inspect your code changes or press `u` to update them.
     ```
-5.  Press `u` to update the snapshot.
+6.  Press `u` to update the snapshot.
 
 ## Reference
 
