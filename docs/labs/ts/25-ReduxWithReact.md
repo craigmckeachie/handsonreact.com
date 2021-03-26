@@ -269,8 +269,7 @@ title: 'Lab 25: Redux with React'
    export default ProjectList;
    ```
 
-4.
-5. **Verify** the application still works including loading and updating the projects.
+4. **Verify** the application still works including loading and updating the projects.
 
 ---
 

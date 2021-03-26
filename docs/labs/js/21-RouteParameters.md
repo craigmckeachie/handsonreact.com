@@ -63,8 +63,6 @@ title: 'Lab 21: Route Parameters'
        </Router>
      );
    }
-
-
    ```
 
 4. Make the name and description clickable by adding a `<Link />` component around them.

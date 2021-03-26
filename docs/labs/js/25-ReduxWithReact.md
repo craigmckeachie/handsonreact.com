@@ -167,7 +167,6 @@ title: 'Lab 25: Redux with React'
    import { Project } from './Project';
    + import { saveProject } from './state/projectActions';
 
-
    function ProjectForm({
      project: initialProject,
    - onSave,
@@ -208,14 +207,11 @@ title: 'Lab 25: Redux with React'
      );
    }
 
-    ProjectForm.propTypes = {
+   ProjectForm.propTypes = {
    -  onSave: PropTypes.func.isRequired,
-      onCancel: PropTypes.func.isRequired
+     onCancel: PropTypes.func.isRequired
    };
-
-
    export default ProjectForm;
-
    ```
 
 2. Provide the store.
@@ -265,7 +261,6 @@ title: 'Lab 25: Redux with React'
       projects: PropTypes.arrayOf(PropTypes.instanceOf(Project)).isRequired,
    -  onSave: PropTypes.func.isRequired
     };
-
    export default ProjectList;
    ```
 

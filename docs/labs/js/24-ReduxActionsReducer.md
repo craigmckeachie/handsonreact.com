@@ -194,7 +194,6 @@ export function projectReducer(state = initialProjectState, action) {
 
    ...
 
-
    export const initialAppState = {
    +  projectState: initialProjectState
    };
