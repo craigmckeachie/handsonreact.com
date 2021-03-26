@@ -163,7 +163,6 @@ npm install --save-dev @testing-library/user-event @testing-library/dom
    import ProjectCard from '../ProjectCard';
    + import userEvent from '@testing-library/user-event';
 
-
    describe('<ProjectCard />', () => {
      let project;
      let handleEdit;
@@ -195,7 +194,6 @@ npm install --save-dev @testing-library/user-event @testing-library/dom
    +  });
 
    });
-
    ```
 
 1. **Verify** the **test passes**.

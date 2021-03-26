@@ -136,7 +136,6 @@ title: 'Testing Lab 4: Nested Components'
    }
 
    export default ProjectCard;
-
    ```
 
 1. Modify the form component to add an `aria-label` and a `name` (which gives an implicit role of form) so we can access the form in the test.
@@ -162,8 +161,6 @@ title: 'Testing Lab 4: Nested Components'
    }
 
    export default ProjectForm;
-
-
    ```
 
 1. **Test** that the **form** is displayed when edit is clicked.
@@ -188,7 +185,6 @@ title: 'Testing Lab 4: Nested Components'
    +        })
    +      ).toBeInTheDocument();
    +    });
-
 
    });
 

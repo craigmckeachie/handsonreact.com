@@ -87,8 +87,6 @@ title: 'Testing Lab 4: Nested Components'
    +    expect(screen.getAllByRole('link')).toHaveLength(MOCK_PROJECTS.length);
    +    expect(screen.getAllByRole('button')).toHaveLength(MOCK_PROJECTS.length);
    +  });
-
-
    });
 
    ```
@@ -162,8 +160,6 @@ title: 'Testing Lab 4: Nested Components'
    }
 
    export default ProjectForm;
-
-
    ```
 
 1. **Test** that the **form** is displayed when edit is clicked.
@@ -188,10 +184,7 @@ title: 'Testing Lab 4: Nested Components'
    +        })
    +      ).toBeInTheDocument();
    +    });
-
-
    });
-
    ```
 
 1. Verify the test passes.

@@ -88,8 +88,6 @@ title: 'Testing Lab 5: Container Components'
    +    renderComponent();
    +    expect(screen.getByText(/loading/i)).toBeInTheDocument();
    +  });
-
-
    });
    ```
 
@@ -176,8 +174,6 @@ title: 'Testing Lab 5: Container Components'
       renderComponent();
       expect(screen.getByText(/loading/i)).toBeInTheDocument();
    });
-
-
    });
    ```
 
@@ -211,8 +207,6 @@ title: 'Testing Lab 5: Container Components'
    +      MOCK_PROJECTS.length
    +    );
    +  });
-
-
    });
 
    ```
@@ -254,7 +248,6 @@ title: 'Testing Lab 5: Container Components'
    +    await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
    +    expect(screen.getByRole('button', { name: /more/i })).+toBeInTheDocument();
    +  });
-
    });
 
    ```

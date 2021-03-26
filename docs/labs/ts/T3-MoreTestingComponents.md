@@ -163,7 +163,6 @@ npm install --save-dev @testing-library/user-event @testing-library/dom
    import ProjectCard from '../ProjectCard';
    + import userEvent from '@testing-library/user-event';
 
-
    describe('<ProjectCard />', () => {
      let project: Project;
      let handleEdit: jest.Mock;
@@ -181,9 +180,7 @@ npm install --save-dev @testing-library/user-event @testing-library/dom
          </MemoryRouter>
        );
      });
-
      ...
-
    +  it('handler called when edit clicked', () => {
    +    // this query works screen.getByText(/edit/i)
    +    // but using role is better
@@ -193,9 +190,7 @@ npm install --save-dev @testing-library/user-event @testing-library/dom
    +    expect(handleEdit).toBeCalledTimes(1);
    +    expect(handleEdit).toBeCalledWith(project);
    +  });
-
    });
-
    ```
 
 1. **Verify** the **test passes**.

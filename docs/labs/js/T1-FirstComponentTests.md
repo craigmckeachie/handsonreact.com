@@ -120,41 +120,6 @@ title: 'Testing Lab 1: Your First Component Test'
    PASS  src/home/HomePage.test.js
    ```
 
-1. Add a test to verify the component renders a title tag.
-
-   #### `src\home\HomePage.test.js`
-
-   ```js
-   // ...
-   test('renders title tag', () => {
-     let wrapper;
-     wrapper = shallow(<HomePage />);
-     expect(wrapper.exists('h2')).toBeTruthy();
-   });
-   ```
-
-1. Verify the test passes.
-   ```shell
-   PASS  src/home/HomePage.test.js
-   ```
-1. Add a test to verify the component renders a title.
-
-   #### `src\home\HomePage.test.js`
-
-   ```js
-   // ...
-   test('renders title', () => {
-     let wrapper;
-     wrapper = shallow(<HomePage />);
-     expect(wrapper.find('h2').text()).toBe('Home');
-   });
-   ```
-
-1. Verify the test passes.
-   ```shell
-   PASS  src/home/HomePage.test.js
-   ```
-
 ---
 
 ### &#10004; You have completed Testing Lab 1

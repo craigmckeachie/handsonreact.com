@@ -89,7 +89,6 @@ title: 'Testing Lab 5: Container Components'
    +    expect(screen.getByText(/loading/i)).toBeInTheDocument();
    +  });
 
-
    });
    ```
 
@@ -177,7 +176,6 @@ title: 'Testing Lab 5: Container Components'
       expect(screen.getByText(/loading/i)).toBeInTheDocument();
    });
 
-
    });
    ```
 
@@ -211,8 +209,6 @@ title: 'Testing Lab 5: Container Components'
    +      MOCK_PROJECTS.length
    +    );
    +  });
-
-
    });
 
    ```
