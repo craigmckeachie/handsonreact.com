@@ -38,10 +38,6 @@ title: 'Testing Lab 3: More Component Testing'
        handleEdit = jest.fn();
        render(<ProjectCard project={project} onEdit={handleEdit} />);
      });
-
-     it('renders without crashing', () => {
-       expect(screen).toBeDefined();
-     });
    });
    ```
 
@@ -77,10 +73,6 @@ title: 'Testing Lab 3: More Component Testing'
            <ProjectCard project={project} onEdit={handleEdit} />
    +      </MemoryRouter>
        );
-     });
-
-     it('renders without crashing', () => {
-       expect(screen).toBeDefined();
      });
    });
    ```
@@ -123,10 +115,6 @@ title: 'Testing Lab 3: More Component Testing'
            <ProjectCard project={project} onEdit={handleEdit} />
          </MemoryRouter>
        );
-     });
-
-     it('renders without crashing', () => {
-       expect(screen).toBeDefined();
      });
 
    +  it('renders project properly', () => {
