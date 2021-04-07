@@ -110,7 +110,6 @@ title: 'Lab 16: Form Validation'
      onCancel,
    }) {
    ...
-
      const handleChange = (event) => {
        const { type, name, value, checked } = event.target;
        // if input type is checkbox use checked
@@ -137,7 +136,6 @@ title: 'Lab 16: Form Validation'
        });
    +    setErrors(() => validate(updatedProject));
      };
-
 
      return (
        ...
