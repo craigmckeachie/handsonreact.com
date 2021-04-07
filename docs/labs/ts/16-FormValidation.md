@@ -110,37 +110,36 @@ title: 'Lab 16: Form Validation'
    }: ProjectFormProps) {
    ...
 
-     const handleChange = (event: any) => {
-       const { type, name, value, checked } = event.target;
-       // if input type is checkbox use checked
-       // otherwise it's type is text, number etc. so use value
-       let updatedValue = type === 'checkbox' ? checked : value;
+   const handleChange = (event: any) => {
+     const { type, name, value, checked } = event.target;
+     // if input type is checkbox use checked
+     // otherwise it's type is text, number etc. so use value
+     let updatedValue = type === 'checkbox' ? checked : value;
 
-       //if input type is number convert the updatedValue string to a number
-       if (type === 'number') {
-         updatedValue = Number(updatedValue);
-       }
-       const change = {
-         [name]: updatedValue,
-       };
-
-       let updatedProject: Project;
-       // need to do functional update b/c
-       // the new project state is based on the previous project state
-       // so we can keep the project properties that aren't being edited like project.id
-       // the spread operator (...) is used to
-       // spread the previous project properties and the new change
-       setProject((p) => {
-         updatedProject = new Project({ ...p, ...change });
-         return updatedProject;
-       });
-   +    setErrors(() => validate(updatedProject));
+     //if input type is number convert the updatedValue string to a number
+     if (type === 'number') {
+       updatedValue = Number(updatedValue);
+     }
+     const change = {
+       [name]: updatedValue,
      };
 
+     let updatedProject: Project;
+     // need to do functional update b/c
+     // the new project state is based on the previous project state
+     // so we can keep the project properties that aren't being edited like project.id
+     // the spread operator (...) is used to
+     // spread the previous project properties and the new change
+     setProject((p) => {
+       updatedProject = new Project({ ...p, ...change });
+       return updatedProject;
+     });
+   + setErrors(() => validate(updatedProject));
+   };
 
-     return (
-       ...
-     );
+   return (
+     ...
+   );
    }
 
    export default ProjectForm;
