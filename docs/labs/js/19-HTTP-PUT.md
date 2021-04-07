@@ -12,7 +12,7 @@ title: 'Lab 19: HTTP PUT'
 
 1. **Implement** a **method** in the API object to do a **PUT** (update).
 
-   #### `src\projects\ProjectAPI.js`
+   #### `src\projects\projectAPI.js`
 
    ```diff
    ...
@@ -46,7 +46,7 @@ title: 'Lab 19: HTTP PUT'
    #### `src\projects\ProjectsPage.js`
 
    ```diff
-   import { Project } from './Project';
+   + import { Project } from './Project';
    ...
    function ProjectsPage() {
      ...

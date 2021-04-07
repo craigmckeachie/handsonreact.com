@@ -12,10 +12,10 @@ title: 'Lab 19: HTTP PUT'
 
 1. **Implement** a **method** in the API object to do a **PUT** (update).
 
-   #### `src\projects\ProjectAPI.ts`
+   #### `src\projects\projectAPI.ts`
 
    ```diff
-   import { Project } from './Project';
+   + import { Project } from './Project';
    ...
 
    const projectAPI = {
