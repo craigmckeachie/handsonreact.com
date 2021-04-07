@@ -145,6 +145,7 @@ function ProjectsPage() {
 //    projectAPI
 //      .get(1)
 //      .then((data) => {
+//        setError(null);
 //        setLoading(false);
 //        setProjects(data);
 //      })
@@ -160,6 +161,7 @@ function ProjectsPage() {
 +      setLoading(true);
 +      try {
 +        const data = await projectAPI.get(1);
++        setError(null);
 +        setProjects(data);
 +      } catch (e) {
 +        setError(e.message);
