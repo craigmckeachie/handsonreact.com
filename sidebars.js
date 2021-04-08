@@ -257,5 +257,31 @@ module.exports = {
         ],
       },
     ],
+    Gatsby: [
+      {
+        Concepts: [
+          'gatsby/concepts/00-Overview',
+          'gatsby/concepts/01-Tooling',
+          'gatsby/concepts/02-Components',
+          'gatsby/concepts/03-Styling',
+          'gatsby/concepts/04-Data',
+          'gatsby/concepts/05-CSSGrid',
+          'gatsby/concepts/06-Flexbox',
+          'gatsby/concepts/07-BuildDeployAudit',
+          'gatsby/concepts/08-GraphQL',
+        ],
+        Labs: [
+          'gatsby/labs/00-Overview',
+          'gatsby/labs/01-Tooling',
+          'gatsby/labs/02-Components',
+          'gatsby/labs/03-Styling',
+          'gatsby/labs/04-Data',
+          'gatsby/labs/05-CSSGrid',
+          'gatsby/labs/06-Flexbox',
+          'gatsby/labs/07-BuildDeployAudit',
+          'gatsby/labs/08-GraphQL',
+        ],
+      },
+    ],
   },
 };
