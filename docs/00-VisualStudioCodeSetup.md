@@ -40,7 +40,7 @@ If you have existing `USER SETTINGS` you will want to **add** the following sett
   "editor.fontLigatures": true,
   "editor.multiCursorModifier": "alt",
   "editor.formatOnSave": true,
-  "workbench.iconTheme": "material-icon-theme",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "emmet.includeLanguages": {
     "typescript": "html",
     "javascript": "javascriptreact"
