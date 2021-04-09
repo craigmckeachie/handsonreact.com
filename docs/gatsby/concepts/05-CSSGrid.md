@@ -1,5 +1,5 @@
 ---
-title: "CSS Grid"
+title: 'CSS Grid'
 ---
 
 ## What is a Grid?
@@ -53,3 +53,11 @@ CSS Grid Layout (aka “Grid”), is a two-dimensional grid-based layout system 
 - Feature Detection
 - Prefixed rules for Internet Explorer
 - Progressive Enhancement
+
+## Reference
+
+- [Visualize all the grid properties](https://grid.malven.co/)
+- [Video: CSS Grid in 100 Seconds](https://www.youtube.com/watch?v=uuOXPWCh-6o)
+- [CSS Tricks: Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [CSS Grid Illustrations](https://dev.to/joyshaheb/css-grid-cheat-sheet-illustrated-in-2021-1a3)
+- [CSS Grid CheatSheet](https://devhints.io/css-grid)
