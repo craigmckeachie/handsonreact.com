@@ -1,4 +1,6 @@
-# Utility-First CSS: Tailwind
+---
+title: 'Utility-First CSS: Tailwind'
+---
 
 Tailwind is a utility-first CSS framework for rapidly building custom user interfaces. This guide will show you how to get started with Gatsby and Tailwind CSS.
 
@@ -30,12 +32,12 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {}
+    extend: {},
   },
   variants: {
-    extend: {}
+    extend: {},
   },
-  plugins: []
+  plugins: [],
 };
 ```
 
@@ -46,8 +48,8 @@ It will also create a `postcss.config.js` file that includes tailwindcss and aut
 module.exports = {
   plugins: {
     tailwindcss: {},
-    autoprefixer: {}
-  }
+    autoprefixer: {},
+  },
 };
 ```
 
@@ -166,10 +168,10 @@ There are other solutions to this problem like using `React Helment` but I think
 #### `src\components\layout.js`
 
 ```js
-import React from "react";
-import Footer from "./footer";
-import Header from "./header";
-import "../styles/global.css";
+import React from 'react';
+import Footer from './footer';
+import Header from './header';
+import '../styles/global.css';
 
 export default function Layout({ children }) {
   return (
@@ -189,24 +191,24 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {}
+    extend: {},
   },
   variants: {
     extend: {
-      borderWidth: ["hover"],
-      borderStyle: ["hover"],
-      borderColor: ["hover"]
-    }
+      borderWidth: ['hover'],
+      borderStyle: ['hover'],
+      borderColor: ['hover'],
+    },
   },
-  plugins: []
+  plugins: [],
 };
 ```
 
 #### `src\components\header.js`
 
 ```js
-import { Link } from "gatsby";
-import React from "react";
+import { Link } from 'gatsby';
+import React from 'react';
 
 export const NavLink = ({ children, to }) => {
   return (
@@ -234,7 +236,7 @@ export default function Header() {
 #### `src\components\footer.js`
 
 ```js
-import React from "react";
+import React from 'react';
 
 export const FooterLink = ({ children, to }) => {
   return (
@@ -264,7 +266,7 @@ export default function Footer() {
 #### `src\components\page-title.js`
 
 ```js
-import React from "react";
+import React from 'react';
 
 export const PageTitle = ({ children }) => {
   return <h1 className="py-6 text-2xl text-gray-600">{children}</h1>;
@@ -274,9 +276,9 @@ export const PageTitle = ({ children }) => {
 #### `src\pages\index.js`
 
 ```js
-import React from "react";
-import Layout from "../components/layout";
-import { PageTitle } from "../components/page-title";
+import React from 'react';
+import Layout from '../components/layout';
+import { PageTitle } from '../components/page-title';
 
 export default function Home() {
   return (
@@ -300,9 +302,9 @@ export default function Home() {
 #### `src\pages\about.js`
 
 ```js
-import React from "react";
-import Layout from "../components/layout";
-import { PageTitle } from "../components/page-title";
+import React from 'react';
+import Layout from '../components/layout';
+import { PageTitle } from '../components/page-title';
 
 export default function About() {
   return (
@@ -322,9 +324,9 @@ export default function About() {
 ```
 
 ```js
-import React from "react";
-import Layout from "../components/layout";
-import { PageTitle } from "../components/page-title";
+import React from 'react';
+import Layout from '../components/layout';
+import { PageTitle } from '../components/page-title';
 
 export default function NotFound() {
   return (

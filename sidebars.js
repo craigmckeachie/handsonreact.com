@@ -275,6 +275,7 @@ module.exports = {
           'gatsby/labs/01-Tooling',
           'gatsby/labs/02-Components',
           'gatsby/labs/03-Styling',
+          'gatsby/labs/03a-Utility-First-Styling',
           'gatsby/labs/04-Data',
           'gatsby/labs/05-CSSGrid',
           'gatsby/labs/06-Flexbox',
