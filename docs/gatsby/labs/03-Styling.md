@@ -1,5 +1,5 @@
 ---
-title: "Styling"
+title: 'Styling'
 ---
 
 ## Global Styles
@@ -13,8 +13,8 @@ title: "Styling"
    ```css
    body {
      background-color: #f3f4f6;
-     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-       Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+       Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
    }
    ```
 
@@ -71,7 +71,6 @@ We are going to use `CSS Modules` to modularize our CSS just as we have modulari
    import React from "react"
    import Footer from "./footer"
    import Header from "./header"
-   import "./layout.css"
    + import * as styles from "./layout.module.css"
 
    export default function Layout({ children }) {
@@ -119,9 +118,9 @@ We are going to use `CSS Modules` to modularize our CSS just as we have modulari
    #### `src\components\header.js`
 
    ```js
-   import { Link } from "gatsby";
-   import React from "react";
-   import * as styles from "./header.module.css";
+   import { Link } from 'gatsby';
+   import React from 'react';
+   import * as styles from './header.module.css';
 
    export default function Header() {
      return (
@@ -167,8 +166,8 @@ We are going to use `CSS Modules` to modularize our CSS just as we have modulari
    #### `src\components\footer.js`
 
    ```js
-   import React from "react";
-   import * as styles from "./footer.module.css";
+   import React from 'react';
+   import * as styles from './footer.module.css';
 
    export default function Footer() {
      return (
@@ -216,7 +215,7 @@ _Install_
 
    ```js
    module.exports = {
-     plugins: [`gatsby-plugin-emotion`]
+     plugins: [`gatsby-plugin-emotion`],
    };
    ```
 
@@ -225,9 +224,9 @@ _Install_
    #### `src\components\header.js`
 
    ```js
-   import { Link } from "gatsby";
-   import React from "react";
-   import styled from "@emotion/styled";
+   import { Link } from 'gatsby';
+   import React from 'react';
+   import styled from '@emotion/styled';
 
    const NavLink = styled(Link)`
      margin-left: 5px;
@@ -274,23 +273,23 @@ _Install_
    #### `src\components\header.js`
 
    ```js
-   import { Link } from "gatsby";
-   import React from "react";
-   import { css } from "@emotion/react";
+   import { Link } from 'gatsby';
+   import React from 'react';
+   import { css } from '@emotion/react';
 
-   const NavLink = props => (
+   const NavLink = (props) => (
      <Link
        css={{
-         marginLeft: "5px",
-         marginRight: "5px",
-         padding: "10px",
-         color: "#4b5563",
-         textDecoration: "none",
-         fontSize: "1.25rem",
-         "&:hover": {
-           color: "#1f2937",
-           border: "1px solid #1f2937"
-         }
+         marginLeft: '5px',
+         marginRight: '5px',
+         padding: '10px',
+         color: '#4b5563',
+         textDecoration: 'none',
+         fontSize: '1.25rem',
+         '&:hover': {
+           color: '#1f2937',
+           border: '1px solid #1f2937',
+         },
        }}
        {...props}
      />
@@ -300,9 +299,9 @@ _Install_
      return (
        <header
          css={{
-           paddingTop: "20px",
-           paddingBottom: "20px",
-           borderBottom: "1px solid #4b5563"
+           paddingTop: '20px',
+           paddingBottom: '20px',
+           borderBottom: '1px solid #4b5563',
          }}
        >
          <nav>

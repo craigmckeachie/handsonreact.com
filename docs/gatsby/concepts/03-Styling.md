@@ -1,5 +1,5 @@
 ---
-title: "Styling"
+title: 'Styling'
 ---
 
 ## Global Styles
@@ -11,8 +11,8 @@ _You will need to create the styles directory._
 ```css
 body {
   background-color: #f3f4f6;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 ```
 
@@ -57,7 +57,6 @@ return (
    import React from "react"
    import Footer from "./footer"
    import Header from "./header"
-   import "./layout.css"
    + import * as styles from "./layout.module.css"
 
    export default function Layout({ children }) {
@@ -93,16 +92,16 @@ npm install gatsby-plugin-emotion @emotion/react @emotion/styled
 
 ```js
 module.exports = {
-  plugins: [`gatsby-plugin-emotion`]
+  plugins: [`gatsby-plugin-emotion`],
 };
 ```
 
 #### `src\components\header.js`
 
 ```js
-import { Link } from "gatsby";
-import React from "react";
-import styled from "@emotion/styled";
+import { Link } from 'gatsby';
+import React from 'react';
+import styled from '@emotion/styled';
 
 const NavLink = styled(Link)`
   margin-left: 5px;

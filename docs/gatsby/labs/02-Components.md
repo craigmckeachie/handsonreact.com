@@ -1,5 +1,5 @@
 ---
-title: "Components"
+title: 'Components'
 ---
 
 ## Pages
@@ -9,7 +9,7 @@ title: "Components"
     #### `src\pages\index.js`
 
     ```js
-    import React from "react";
+    import React from 'react';
 
     export default function Home() {
       return (
@@ -26,7 +26,7 @@ title: "Components"
     #### `src\pages\about.js`
 
     ```js
-    import React from "react";
+    import React from 'react';
 
     export default function About() {
       return (
@@ -60,8 +60,7 @@ title: "Components"
    #### `src\components\layout.js`
 
    ```js
-   import React from "react";
-   import "./layout.css";
+   import React from 'react';
 
    export default function Layout({ children }) {
      return <div>{children}</div>;
@@ -118,7 +117,7 @@ title: "Components"
    _You will need to create the components directory._
 
    ```js
-   import React from "react";
+   import React from 'react';
 
    export default function Header() {
      return (
@@ -134,7 +133,7 @@ title: "Components"
    #### `src\components\footer.js`
 
    ```js
-   import React from "react";
+   import React from 'react';
 
    export default function Footer() {
      return (
@@ -158,7 +157,6 @@ title: "Components"
    import React from "react"
    import Footer from "./footer"
    import Header from "./header"
-   import "./layout.css"
 
    export default function Layout({ children }) {
    return (
