@@ -1,5 +1,5 @@
 ---
-title: "GraphQL"
+title: 'GraphQL'
 ---
 
 ```
@@ -671,101 +671,6 @@ fragment CustomerDetails on Customer {
         "username": "gjanson",
         "checkoutHistory": []
       },
-  ...
-  }
-}
-```
-
-## x
-
-1. Query
-
-```js
-
-```
-
-2. Result
-
-```json
-{
-
-
-  ...
-  }
-}
-```
-
-## x
-
-1. Query
-
-```js
-
-```
-
-2. Result
-
-```json
-{
-
-
-  ...
-  }
-}
-```
-
-## x
-
-1. Query
-
-```js
-
-```
-
-2. Result
-
-```json
-{
-
-
-  ...
-  }
-}
-```
-
-## x
-
-1. Query
-
-```js
-
-```
-
-2. Result
-
-```json
-{
-
-
-  ...
-  }
-}
-```
-
-## x
-
-1. Query
-
-```js
-
-```
-
-2. Result
-
-```json
-{
-
-
   ...
   }
 }
