@@ -165,4 +165,16 @@ title: 'Images'
     ...
     ```
 
-4.  If time permits, replace the main `<img>` in the about page (`src\pages\about.js`) with a `<StaticImage>` from the Gatsby image plugin using the last step as an example.
+4.  In `header.js`, style the navigation to the right and the logo to the left using flexbox.
+
+    #### `src\components\header.js`
+
+    ```js
+    <header className="... flex flex-row justify-start ">
+    ```
+
+    ```js
+    <nav className="... flex flex-row  justify-end">
+    ```
+
+5.  If time permits, replace the main `<img>` in the about page (`src\pages\about.js`) with a `<StaticImage>` from the Gatsby image plugin using the last step as an example.
