@@ -14,6 +14,8 @@ On this page, you'll learn in detail about how to query a GraphQL server.
 
 At its simplest, GraphQL is about asking for specific fields on objects. Let's start by looking at a very simple query and the result we get when we run it:
 
+#### Query
+
 ```graphql
 {
   hero {
@@ -22,13 +24,31 @@ At its simplest, GraphQL is about asking for specific fields on objects. Let's s
 }
 ```
 
+#### Result
+
+```json
+{
+  "data": {
+    "hero": {
+      "name": "R2-D2"
+    }
+  }
+}
+```
+
+<!-- #### Variables
+
+```json
+
+``` -->
+
 You can see immediately that the query has exactly the same shape as the result. This is essential to GraphQL, because you always get back what you expect, and the server knows exactly what fields the client is asking for.
 
 The field `name` returns a `String` type, in this case the name of the main hero of Star Wars, `"R2-D2"`.
 
-> Oh, one more thing - the query above is _interactive_. That means you can change it as you like and see the new result. Try adding an `appearsIn` field to the `hero` object in the query, and see the new result.
-
 In the previous example, we just asked for the name of our hero which returned a String, but fields can also refer to Objects. In that case, you can make a _sub-selection_ of fields for that object. GraphQL queries can traverse related objects and their fields, letting clients fetch lots of related data in one request, instead of making several roundtrips as one would need in a classic REST architecture.
+
+#### Query
 
 ```graphql
 {
@@ -42,11 +62,36 @@ In the previous example, we just asked for the name of our hero which returned a
 }
 ```
 
+#### Result
+
+```json
+{
+  "data": {
+    "hero": {
+      "name": "R2-D2",
+      "friends": [
+        {
+          "name": "Luke Skywalker"
+        },
+        {
+          "name": "Han Solo"
+        },
+        {
+          "name": "Leia Organa"
+        }
+      ]
+    }
+  }
+}
+```
+
 Note that in this example, the `friends` field returns an array of items. GraphQL queries look the same for both single items or lists of items, however we know which one to expect based on what is indicated in the schema.
 
 ## Arguments
 
 If the only thing we could do was traverse objects and their fields, GraphQL would already be a very useful language for data fetching. But when you add the ability to pass arguments to fields, things get much more interesting.
+
+#### Query
 
 ```graphql
 {
@@ -57,7 +102,22 @@ If the only thing we could do was traverse objects and their fields, GraphQL wou
 }
 ```
 
+#### Result
+
+```json
+{
+  "data": {
+    "human": {
+      "name": "Luke Skywalker",
+      "height": 1.72
+    }
+  }
+}
+```
+
 In a system like REST, you can only pass a single set of arguments - the query parameters and URL segments in your request. But in GraphQL, every field and nested object can get its own set of arguments, making GraphQL a complete replacement for making multiple API fetches. You can even pass arguments into scalar fields, to implement data transformations once on the server, instead of on every client separately.
+
+#### Query
 
 ```graphql
 {
@@ -68,13 +128,26 @@ In a system like REST, you can only pass a single set of arguments - the query p
 }
 ```
 
-Arguments can be of many different types. In the above example, we have used an Enumeration type, which represents one of a finite set of options (in this case, units of length, either `METER` or `FOOT`). GraphQL comes with a default set of types, but a GraphQL server can also declare its own custom types, as long as they can be serialized into your transport format.
+#### Result
 
-[Read more about the GraphQL type system here.](/learn/schema)
+```json
+{
+  "data": {
+    "human": {
+      "name": "Luke Skywalker",
+      "height": 5.6430448
+    }
+  }
+}
+```
+
+Arguments can be of many different types. In the above example, we have used an Enumeration type, which represents one of a finite set of options (in this case, units of length, either `METER` or `FOOT`). GraphQL comes with a default set of types, but a GraphQL server can also declare its own custom types, as long as they can be serialized into your transport format.
 
 ## Aliases
 
 If you have a sharp eye, you may have noticed that, since the result object fields match the name of the field in the query but don't include arguments, you can't directly query for the same field with different arguments. That's why you need _aliases_ - they let you rename the result of a field to anything you want.
+
+#### Query
 
 ```graphql
 {
@@ -87,6 +160,21 @@ If you have a sharp eye, you may have noticed that, since the result object fiel
 }
 ```
 
+#### Result
+
+```json
+{
+  "data": {
+    "empireHero": {
+      "name": "Luke Skywalker"
+    },
+    "jediHero": {
+      "name": "R2-D2"
+    }
+  }
+}
+```
+
 In the above example, the two `hero` fields would have conflicted, but since we can alias them to different names, we can get both results in one request.
 
 ## Fragments
@@ -94,6 +182,8 @@ In the above example, the two `hero` fields would have conflicted, but since we 
 Let's say we had a relatively complicated page in our app, which lets us look at two heroes side by side, along with their friends. You can imagine that such a query could quickly get complicated, because we would need to repeat the fields at least once - one for each side of the comparison.
 
 That's why GraphQL includes reusable units called _fragments_. Fragments let you construct sets of fields, and then include them in queries where you need to. Here's an example of how you could solve the above situation using fragments:
+
+#### Query
 
 ```graphql
 {
@@ -114,11 +204,55 @@ fragment comparisonFields on Character {
 }
 ```
 
+#### Result
+
+```json
+{
+  "data": {
+    "leftComparison": {
+      "name": "Luke Skywalker",
+      "appearsIn": ["NEWHOPE", "EMPIRE", "JEDI"],
+      "friends": [
+        {
+          "name": "Han Solo"
+        },
+        {
+          "name": "Leia Organa"
+        },
+        {
+          "name": "C-3PO"
+        },
+        {
+          "name": "R2-D2"
+        }
+      ]
+    },
+    "rightComparison": {
+      "name": "R2-D2",
+      "appearsIn": ["NEWHOPE", "EMPIRE", "JEDI"],
+      "friends": [
+        {
+          "name": "Luke Skywalker"
+        },
+        {
+          "name": "Han Solo"
+        },
+        {
+          "name": "Leia Organa"
+        }
+      ]
+    }
+  }
+}
+```
+
 You can see how the above query would be pretty repetitive if the fields were repeated. The concept of fragments is frequently used to split complicated application data requirements into smaller chunks, especially when you need to combine lots of UI components with different fragments into one initial data fetch.
 
 ### Using variables inside fragments
 
 It is possible for fragments to access variables declared in the query or mutation. See [variables](#variables).
+
+#### Query
 
 ```graphql
 query HeroComparison($first: Int = 3) {
@@ -143,11 +277,68 @@ fragment comparisonFields on Character {
 }
 ```
 
+#### Result
+
+```json
+{
+  "data": {
+    "leftComparison": {
+      "name": "Luke Skywalker",
+      "friendsConnection": {
+        "totalCount": 4,
+        "edges": [
+          {
+            "node": {
+              "name": "Han Solo"
+            }
+          },
+          {
+            "node": {
+              "name": "Leia Organa"
+            }
+          },
+          {
+            "node": {
+              "name": "C-3PO"
+            }
+          }
+        ]
+      }
+    },
+    "rightComparison": {
+      "name": "R2-D2",
+      "friendsConnection": {
+        "totalCount": 3,
+        "edges": [
+          {
+            "node": {
+              "name": "Luke Skywalker"
+            }
+          },
+          {
+            "node": {
+              "name": "Han Solo"
+            }
+          },
+          {
+            "node": {
+              "name": "Leia Organa"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
 ## Operation name
 
 Up until now, we have been using a shorthand syntax where we omit both the `query` keyword and the query name, but in production apps it's useful to use these to make our code less ambiguous.
 
 Here’s an example that includes the keyword `query` as _operation type_ and `HeroNameAndFriends` as _operation name_ :
+
+#### Query
 
 ```graphql
 query HeroNameAndFriends {
@@ -155,6 +346,29 @@ query HeroNameAndFriends {
     name
     friends {
       name
+    }
+  }
+}
+```
+
+#### Result
+
+```json
+{
+  "data": {
+    "hero": {
+      "name": "R2-D2",
+      "friends": [
+        {
+          "name": "Luke Skywalker"
+        },
+        {
+          "name": "Han Solo"
+        },
+        {
+          "name": "Leia Organa"
+        }
+      ]
     }
   }
 }
@@ -183,13 +397,45 @@ When we start working with variables, we need to do three things:
 
 Here's what it looks like all together:
 
+#### Variables
+
+```json
+{
+  "episode": "JEDI"
+}
+```
+
+#### Query
+
 ```graphql
-# { "graphiql": true, "variables": { "episode": "JEDI" } }
 query HeroNameAndFriends($episode: Episode) {
   hero(episode: $episode) {
     name
     friends {
       name
+    }
+  }
+}
+```
+
+#### Result
+
+```json
+{
+  "data": {
+    "hero": {
+      "name": "R2-D2",
+      "friends": [
+        {
+          "name": "Luke Skywalker"
+        },
+        {
+          "name": "Han Solo"
+        },
+        {
+          "name": "Leia Organa"
+        }
+      ]
     }
   }
 }
@@ -211,6 +457,8 @@ To learn more about the syntax for these variable definitions, it's useful to le
 
 Default values can also be assigned to the variables in the query by adding the default value after the type declaration.
 
+#### Query
+
 ```graphql
 query HeroNameAndFriends($episode: Episode = JEDI) {
   hero(episode: $episode) {
@@ -230,6 +478,17 @@ We discussed above how variables enable us to avoid doing manual string interpol
 
 Let's construct a query for such a component:
 
+#### Variables
+
+```json
+{
+  "episode": "JEDI",
+  "withFriends": false
+}
+```
+
+#### Query
+
 ```graphql
 # { "graphiql": true, "variables": { "episode": "JEDI", "withFriends": false } }
 query Hero($episode: Episode, $withFriends: Boolean!) {
@@ -237,6 +496,18 @@ query Hero($episode: Episode, $withFriends: Boolean!) {
     name
     friends @include(if: $withFriends) {
       name
+    }
+  }
+}
+```
+
+#### Result
+
+```json
+{
+  "data": {
+    "hero": {
+      "name": "R2-D2"
     }
   }
 }
@@ -259,12 +530,39 @@ In REST, any request might end up causing some side-effects on the server, but b
 
 Just like in queries, if the mutation field returns an object type, you can ask for nested fields. This can be useful for fetching the new state of an object after an update. Let's look at a simple example mutation:
 
+#### Variables
+
+```json
+{
+  "ep": "JEDI",
+  "review": {
+    "stars": 5,
+    "commentary": "This is a great movie!"
+  }
+}
+```
+
+#### Query
+
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI", "review": { "stars": 5, "commentary": "This is a great movie!" } } }
 mutation CreateReviewForEpisode($ep: Episode!, $review: ReviewInput!) {
   createReview(episode: $ep, review: $review) {
     stars
     commentary
+  }
+}
+```
+
+#### Result
+
+```json
+{
+  "data": {
+    "createReview": {
+      "stars": 5,
+      "commentary": "This is a great movie!"
+    }
   }
 }
 ```
@@ -287,6 +585,16 @@ Like many other type systems, GraphQL schemas include the ability to define inte
 
 If you are querying a field that returns an interface or a union type, you will need to use _inline fragments_ to access data on the underlying concrete type. It's easiest to see with an example:
 
+#### Variables
+
+```json
+{
+  "ep": "JEDI"
+}
+```
+
+#### Query
+
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI" } }
 query HeroForEpisode($ep: Episode!) {
@@ -302,6 +610,19 @@ query HeroForEpisode($ep: Episode!) {
 }
 ```
 
+#### Result
+
+```json
+{
+  "data": {
+    "hero": {
+      "name": "R2-D2",
+      "primaryFunction": "Astromech"
+    }
+  }
+}
+```
+
 In this query, the `hero` field returns the type `Character`, which might be either a `Human` or a `Droid` depending on the `episode` argument. In the direct selection, you can only ask for fields that exist on the `Character` interface, such as `name`.
 
 To ask for a field on the concrete type, you need to use an _inline fragment_ with a type condition. Because the first fragment is labeled as `... on Droid`, the `primaryFunction` field will only be executed if the `Character` returned from `hero` is of the `Droid` type. Similarly for the `height` field for the `Human` type.
@@ -311,6 +632,8 @@ Named fragments can also be used in the same way, since a named fragment always 
 ### Meta fields
 
 Given that there are some situations where you don't know what type you'll get back from the GraphQL service, you need some way to determine how to handle that data on the client. GraphQL allows you to request `__typename`, a meta field, at any point in a query to get the name of the object type at that point.
+
+#### Query
 
 ```graphql
 {
@@ -329,6 +652,29 @@ Given that there are some situations where you don't know what type you'll get b
 }
 ```
 
+#### Result
+
+```json
+{
+  "data": {
+    "search": [
+      {
+        "__typename": "Human",
+        "name": "Han Solo"
+      },
+      {
+        "__typename": "Human",
+        "name": "Leia Organa"
+      },
+      {
+        "__typename": "Starship",
+        "name": "TIE Advanced x1"
+      }
+    ]
+  }
+}
+```
+
 In the above query, `search` returns a union type that can be one of three options. It would be impossible to tell apart the different types from the client without the `__typename` field.
 
 GraphQL services provide a few meta fields, the rest of which are used to expose the [Introspection](../introspection/) system.
@@ -336,4 +682,7 @@ GraphQL services provide a few meta fields, the rest of which are used to expose
 ## Reference
 
 [Gatsby Documentation: GraphQL Concepts](https://www.gatsbyjs.com/docs/conceptual/graphql-concepts/)
-[GrappQL Queries](https://graphql.org/learn/queries/)
+
+## Source
+
+[These examples were taken from the GraphQL Documentation](https://graphql.org/learn/queries/)
