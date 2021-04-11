@@ -267,12 +267,30 @@ title: 'CSS Grid'
    ```
 
 5. View the site and verify the new layout.
+6. Remove the quote below the image on the home page as it is now in the aside. You will need to add a `top-margin` to the paragraph below the image...use Tailwind utility class.
 
 ### Using Tailwind Utility Classes
 
 In this section we are going to achieve the same CSS grid using tailwind utility classes instead of custom CSS.
 
-1. Extend Tailwind's theme to define `grid-columns-layout` and `grid-rows-layout` classes with the desired 2 column, 3 row layout.
+1. Comment out the existing CSS grid styles.
+
+   #### `src\styles\global.css`
+
+   ```css
+   /* .container {
+     display: grid;
+     grid-template-columns: 1fr 20em;
+     grid-template-rows: 6em 1fr 6em;
+   }
+   
+   header,
+   footer {
+     grid-column: 1/3;
+   } */
+   ```
+
+2. Extend Tailwind's theme to define `grid-columns-layout` and `grid-rows-layout` classes with the desired 2 column, 3 row layout.
 
    #### `tailwind.config.js`
 
@@ -302,38 +320,42 @@ In this section we are going to achieve the same CSS grid using tailwind utility
    }
    ```
 
-1. Add those new utility classes and the grid class to the layout.
+3. Add those new utility classes and the grid class to the layout.
 
-   #### `src\components\layout.js`
+> Be sure to remove `p-2`, `w-auto`, `border-box`
 
-   ```diff
-   ...
-   export default function Layout({ children }) {
-     return (
-   -     <div className="p-2 mx-auto container w-auto border-box">
-   +    <div className="container mx-auto grid grid-cols-layout grid-rows-layout">
-         <Header />
-         <main>{children}</main>
-         <aside>
-           <figure className="p-6 shadow-sm rounded-md  bg-gray-300  my-6">
-             <blockquote className="text-xl text-gray-600 ">
-               "We here at Acme Inc. understand that it is better to leverage
-               efficiently than to benchmark extensibly."
-             </blockquote>
-             <figcaption>
-               -Anders Reinfeld, <em>CEO</em>
-             </figcaption>
-           </figure>
-         </aside>
-         <Footer />
-       </div>
-     )
-   }
-   ```
+#### `src\components\layout.js`
 
-1. Add the `col-start-1` and `col-end-3` utility classes from Tailwind to the `header.js` and `footer.js`
+```diff
+...
+export default function Layout({ children }) {
+  return (
+-     <div className="p-2 mx-auto container w-auto border-box">
++    <div className="container mx-auto grid grid-cols-layout grid-rows-layout">
+      <Header />
+      <main>{children}</main>
+      <aside>
+        <figure className="p-6 shadow-sm rounded-md  bg-gray-300  my-6">
+          <blockquote className="text-xl text-gray-600 ">
+            "We here at Acme Inc. understand that it is better to leverage
+            efficiently than to benchmark extensibly."
+          </blockquote>
+          <figcaption>
+            -Anders Reinfeld, <em>CEO</em>
+          </figcaption>
+        </figure>
+      </aside>
+      <Footer />
+    </div>
+  )
+}
+```
+
+5. Add the `col-start-1` and `col-end-3` utility classes from Tailwind to the `header.js` and `footer.js`
 
    #### `src\components\header.js`
+
+   > Add any additional utitlity classes to the header that are shown below if they don't already exist
 
    ```diff
    ...
@@ -353,8 +375,6 @@ In this section we are going to achieve the same CSS grid using tailwind utility
        </header>
      )
    }
-
-
    ```
 
    #### `src\components\footer.js`
@@ -375,7 +395,7 @@ In this section we are going to achieve the same CSS grid using tailwind utility
    }
    ```
 
-1. If time permits, add a CSS transform to the aside in `layout.js`.
+6. If time permits, add a CSS transform to the aside in `layout.js`.
 
    #### `src\components\layout.js`
 

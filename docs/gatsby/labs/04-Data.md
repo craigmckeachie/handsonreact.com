@@ -1,5 +1,5 @@
 ---
-title: "Data"
+title: 'Data'
 ---
 
 ## Query Site MetaData
@@ -151,10 +151,10 @@ title: "Data"
    #### `src\pages\files.js`
 
    ```js
-   import { graphql } from "gatsby";
-   import React from "react";
-   import Layout from "../components/layout";
-   import { PageTitle } from "../components/page-title";
+   import { graphql } from 'gatsby';
+   import React from 'react';
+   import Layout from '../components/layout';
+   import { PageTitle } from '../components/page-title';
 
    const Th = ({ children }) => {
      return (
@@ -186,7 +186,7 @@ title: "Data"
              </tr>
            </thead>
            <tbody>
-             {data.allFile.nodes.map(file => (
+             {data.allFile.nodes.map((file) => (
                <tr key={file.id}>
                  <Td>{file.relativePath}</Td>
                  <Td>{file.prettySize}</Td>
@@ -284,10 +284,10 @@ title: "Data"
    #### `src\pages\index.html`
 
    ```js
-   import { graphql } from "gatsby";
-   import React from "react";
-   import Layout from "../components/layout";
-   import { PageTitle } from "../components/page-title";
+   import { graphql } from 'gatsby';
+   import React from 'react';
+   import Layout from '../components/layout';
+   import { PageTitle } from '../components/page-title';
 
    export default function Home({ data }) {
      return (
@@ -377,7 +377,7 @@ title: "Data"
 
    ```js
    exports.onCreateNode = ({ node, getNode }) => {
-     if (node.internal.type === "MarkdownRemark") {
+     if (node.internal.type === 'MarkdownRemark') {
        console.log(`Node created of type: ${node.internal.type}`);
        const fileNode = getNode(node.parent);
        console.log(fileNode.relativePath);
@@ -400,13 +400,13 @@ title: "Data"
    #### `gatsby-node.js`
 
    ```js
-   const { createFilePath } = require("gatsby-source-filesystem");
+   const { createFilePath } = require('gatsby-source-filesystem');
 
    exports.onCreateNode = ({ node, getNode, actions }) => {
      const { createNodeField } = actions;
-     if (node.internal.type === "MarkdownRemark") {
+     if (node.internal.type === 'MarkdownRemark') {
        const path = createFilePath({ node, getNode, basePath: `pages` });
-       createNodeField({ node, name: "path", value: path });
+       createNodeField({ node, name: 'path', value: path });
      }
    };
    ```
@@ -508,9 +508,9 @@ _We can test this in a minute but first we need to create the template we refere
     #### `src\templates\article.js`
 
     ```js
-    import React from "react";
-    import Layout from "../components/layout";
-    import { PageTitle } from "../components/page-title";
+    import React from 'react';
+    import Layout from '../components/layout';
+    import { PageTitle } from '../components/page-title';
 
     export default function Article() {
       return (
@@ -626,7 +626,8 @@ _We can test this in a minute but first we need to create the template we refere
             <h2 className="text-xl">Featured Articles</h2>
             <hr className="border-gray-400 pb-4" />
             {data.allMarkdownRemark.edges.map(({ node }) => (
-              <div className="py-2">
+    -          <div className="py-2">
+    +          <div key={node.frontmatter.id} className="py-2">
     -            <a className="hover:underline" href="">
     +            <Link
                   className="hover:underline"
