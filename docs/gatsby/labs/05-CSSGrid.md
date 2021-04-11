@@ -59,7 +59,7 @@ title: 'CSS Grid'
        <meta charset="UTF-8" />
        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-       <link rel="stylesheet" href="../common/display.css" />
+       <!-- <link rel="stylesheet" href="./display.css" /> -->
        <link rel="stylesheet" href="./layout.css" />
        <title>Example A</title>
      </head>
@@ -158,6 +158,18 @@ title: 'CSS Grid'
 
 1. Remove the sidebar nav and change the column layout to only be 2 columns.
 
+   #### `index.html`
+
+   ```html
+   <body>
+     <header>Header</header>
+     <!-- <nav>Side Nav</nav> -->
+     <main>Main</main>
+     <aside>Aside</aside>
+     <footer>Footer</footer>
+   </body>
+   ```
+
    #### `layout.css`
 
    ```css
@@ -166,7 +178,14 @@ title: 'CSS Grid'
      grid-template-columns: auto 15em;
      grid-template-rows: 5em auto 5em;
    }
+
+   header,
+   footer {
+     grid-column: 1/3;
+   }
    ```
+
+   > Be sure to stretch the header and footer across 3 columns instead of 4.
 
 ## Applying to Acme
 
