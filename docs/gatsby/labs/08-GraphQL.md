@@ -6,7 +6,7 @@ title: 'GraphQL'
 http://pet-library.moonhighway.com/
 ```
 
-GraphQL Playground
+> Uses GraphQL Playground
 
 ## Send a Query with GraphQL Playground
 
@@ -172,11 +172,9 @@ query {
 }
 ```
 
-## x
+## Aliasing Fields
 
-1. Aliasing Fields
-
-Duplicate field names will need to be aliased.
+1. Duplicate field names will need to be aliased.
 
 ```js
 query {
@@ -266,7 +264,7 @@ query($category: PetCategory, $status: PetStatus){
 }
 ```
 
-## x
+## By Customer
 
 1. Query
 
@@ -350,7 +348,7 @@ query{
 ```js
 query {
   availablePets: totalPets(status: AVAILABLE)
-  checkedOutPets: totalPets(status: CHECKOUT)
+  checkedOutPets: totalPets(status: CHECKEDOUT)
   dogs: allPets(category: DOG, status: AVAILABLE) {
     name
     weight
@@ -365,7 +363,7 @@ query {
   allCustomers {
     name
     username
-    dataCreated
+    dateCreated
     checkoutHistory {
       pet {
         name
@@ -383,7 +381,7 @@ query {
 ```js
 query {
   availablePets: totalPets(status: AVAILABLE)
-  checkedOutPets: totalPets(status: CHECKOUT)
+  checkedOutPets: totalPets(status: CHECKEDOUT)
   dogs: allPets(category: DOG, status: AVAILABLE) {
     name
     weight
@@ -401,7 +399,7 @@ query {
   allCustomers {
     name
     username
-    dataCreated
+    dateCreated
     checkoutHistory {
       pet {
         name
@@ -417,7 +415,7 @@ query {
 ### Queries with Operation Names
 
 ```js
-query PetPage{
+query PetPage {
   availablePets: totalPets(status: AVAILABLE)
   checkedOutPets: totalPets(status: CHECKEDOUT)
   dogs: allPets(category: DOG, status: AVAILABLE) {
@@ -452,13 +450,18 @@ query CustomerPage{
 
 1. Result
 
+#### CustomerPage
+
 ```json
 {
-
-
-  ...
-  }
-}
+  "data": {
+    "totalCustomers": 121,
+    "allCustomers": [
+      {
+        "name": "John Bronson",
+        "username": "jbronson",
+        "dateCreated": "2019-03-24T02:19:49.025Z",
+        "checkoutHistory": [
 ```
 
 ## Mutation
@@ -502,19 +505,19 @@ mutation ($input: CreateAccountInput!) {
 }
 ```
 
-## x
+## Authenticate a User
 
-1. Authenticate a User
+1. Mutation
 
 ```js
-query {
+query user {
   me {
     name
     username
   }
 }
 
-mutation {
+mutation login{
   logIn(username: "jfranco" password: "abc123") {
     customer {
       name
