@@ -13,19 +13,19 @@ title: 'Images'
    import React from "react"
    import Layout from "../components/layout"
    import { PageTitle } from "../components/page-title"
-   + import homePagePhoto from "../../static/home-page-photo.jpeg"
+   + import homePagePhoto from "../images/home-page-photo.jpeg"
 
    export default function Home({ data }) {
    return (
        <Layout>
        <PageTitle>Home</PageTitle>
-       <img
-           className="rounded-md shadow-md"
-           style={{ width: "600px", height: "300px" }}
-   -        src="https://source.unsplash.com/600x300/?corporate,office,building"
+   -    <img src="https://source.unsplash.com/600x300/?house" alt="house" />
+   +    <img
+   +        className="rounded-md shadow-md"
+   +        style={{ width: "600px", height: "300px" }}
    +        src={homePagePhoto}
-           alt="corporate,office,building"
-       />
+   +        alt="corporate,office,building"
+   +    />
        ...
        <p className="mt-6">
        ...
@@ -45,19 +45,20 @@ title: 'Images'
    import React from "react"
    import Layout from "../components/layout"
    import { PageTitle } from "../components/page-title"
-   + import aboutPhoto from "../../static/about-photo.png"
+   + import aboutPhoto from "../images/about-photo.png"
 
    export default function About() {
    return (
        <Layout>
        <PageTitle>About</PageTitle>
-       <img
-           className="rounded-md shadow-md"
-           style={{ width: "600px", height: "300px" }}
-   -        src="https://source.unsplash.com/600x300/?corporate,building"
+   +    <img
+   +        className="rounded-md shadow-md"
+   +        style={{ width: "600px", height: "300px" }}
    +        src={aboutPhoto}
-           alt="corporate building"
-       />
+   +        alt="corporate building"
+   +    />
+   -   <p>
+   +   <p className="mt-6">
        ...
        </Layout>
    )
@@ -67,7 +68,14 @@ title: 'Images'
 
 3. Import the logo image into the header component and display it.
 
+   First remove the `bottom-padding` on the `header` element (`pb-10`).
+
    #### `src\components\header.js`
+
+   ```diff
+   -  <header className="pt-5 col-start-1 col-end-3 border-b-2 border-solid border-gray-600">
+   +  <header className="pt-5 col-start-1 col-end-3 border-b-2 border-solid border-gray-600 pb-10">
+   ```
 
    ```diff
    import React from "react"
@@ -89,7 +97,7 @@ title: 'Images'
        }
    `)
    return (
-       <header className="col-start-1 col-end-3  border-b-2 border-solid border-gray-200 flex flex-row justify-start ">
+       <header className="col-start-1 col-end-3 border-b-2 border-solid border-gray-200 flex flex-row justify-start ">
    -      <Link to="/" className="text-4xl mx-4 flex justify-self-start">
    -        {data.site.siteMetadata.title}
    -      </Link>
@@ -103,6 +111,18 @@ title: 'Images'
    }
 
    ```
+
+4. Remove the `background-color` on the `body` element because the logo background is white. We could have given the logo a transparent background but this will work for now.
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+- body {
+-   @apply bg-gray-100;
+- }
+```
 
 ## Using the Gatsby Image plugin
 
@@ -170,11 +190,11 @@ title: 'Images'
     #### `src\components\header.js`
 
     ```js
-    <header className="... flex flex-row justify-start ">
+    <header className="... flex flex-row justify-start pr-80 ">
     ```
 
     ```js
-    <nav className="... flex flex-row  justify-end">
+    <nav className="... flex flex-row  justify-end min-w-full">
     ```
 
 5.  If time permits, replace the main `<img>` in the about page (`src\pages\about.js`) with a `<StaticImage>` from the Gatsby image plugin using the last step as an example.
