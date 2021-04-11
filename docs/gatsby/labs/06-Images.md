@@ -114,15 +114,17 @@ title: 'Images'
 
 4. Remove the `background-color` on the `body` element because the logo background is white. We could have given the logo a transparent background but this will work for now.
 
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+   #### `src\styles\global.css`
 
-- body {
--   @apply bg-gray-100;
-- }
-```
+   ```diff
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+
+   - body {
+   -   @apply bg-gray-100;
+   - }
+   ```
 
 ## Using the Gatsby Image plugin
 
@@ -166,6 +168,9 @@ title: 'Images'
 
     ```diff
     ...
+    - import homePagePhoto from "../images/home-page-photo.jpeg"
+    + import { StaticImage } from "gatsby-plugin-image"
+    ...
     <PageTitle>Home</PageTitle>
     - <img
     - className="rounded-md shadow-md"
@@ -185,7 +190,9 @@ title: 'Images'
     ...
     ```
 
-4.  In `header.js`, style the navigation to the right and the logo to the left using flexbox.
+4.  Throttle the network in Chrome DevTools's Network tab to see a blurred home page image initially load.
+    > Try some other placeholder settings [from the documentation](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image/#placeholder).
+5.  In `header.js`, style the navigation to the right and the logo to the left using flexbox.
 
     #### `src\components\header.js`
 
@@ -197,4 +204,4 @@ title: 'Images'
     <nav className="... flex flex-row  justify-end min-w-full">
     ```
 
-5.  If time permits, replace the main `<img>` in the about page (`src\pages\about.js`) with a `<StaticImage>` from the Gatsby image plugin using the last step as an example.
+6.  If time permits, replace the main `<img>` in the about page (`src\pages\about.js`) with a `<StaticImage>` from the Gatsby image plugin using the last step as an example.
