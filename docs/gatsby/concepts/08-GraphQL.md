@@ -581,7 +581,7 @@ This means that if we send two `incrementCredits` mutations in one request, the 
 
 ## Inline Fragments
 
-Like many other type systems, GraphQL schemas include the ability to define interfaces and union types. [Learn about them in the schema guide.](/learn/schema/#interfaces)
+Like many other type systems, GraphQL schemas include the ability to define interfaces and union types.
 
 If you are querying a field that returns an interface or a union type, you will need to use _inline fragments_ to access data on the underlying concrete type. It's easiest to see with an example:
 
@@ -677,7 +677,7 @@ Given that there are some situations where you don't know what type you'll get b
 
 In the above query, `search` returns a union type that can be one of three options. It would be impossible to tell apart the different types from the client without the `__typename` field.
 
-GraphQL services provide a few meta fields, the rest of which are used to expose the [Introspection](../introspection/) system.
+GraphQL services provide a few meta fields, the rest of which are used to expose the Introspection system.
 
 ## Reference
 
