@@ -237,7 +237,10 @@ function Home() {
                   <li>
                     If you would like to use this material to conduct your own
                     training or workshop please contact us at{' '}
-                    <a href="https://www.funnyant.com/contact">funnyant.com</a>.
+                    <a target="_blank" href="https://www.funnyant.com/contact">
+                      funnyant.com
+                    </a>
+                    .
                   </li>
                 </ul>
               </div>
