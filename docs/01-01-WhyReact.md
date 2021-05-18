@@ -75,7 +75,7 @@ React is built on top of timeless web standard technology including JavaScript, 
 
 Subsequently, learning and getting better at React is really just becoming better at web development. This includes deeply understanding web standards which are technologies that seem to never go out of style.
 
----
+<!-- ---
 
 <div id="video-container">
   <p>
@@ -84,4 +84,4 @@ Subsequently, learning and getting better at React is really just becoming bette
         <img id="playVideo" height="30px" width="50px" src={useBaseUrl('img/play-arrow.svg')}/>    
     </a>
   </p>
-</div>
+</div> -->

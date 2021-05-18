@@ -22,13 +22,13 @@ The architecture is component-based and allows you that allow you to create new 
 
 > React makes it painless to create interactive UIs on top of web standards.
 
----
+<!-- ---
 
 <div id="video-container">
   <p>
     <a  href="https://courses.funnyant.com/courses/1063133/lectures/28665274?wvideo=tgg91ummzv">
         <img  src="https://cdn.filestackcontent.com/BqILIRS2xlAK7509lYQR" width={800} height={450} style={{width: 800, height: 450}} />
-        <img id="playVideo" height="30px" width="50px" src={useBaseUrl('img/play-arrow.svg')}/>    
+        <img id="playVideo" height="30px" width="50px" src={useBaseUrl('img/play-arrow.svg')}/>
     </a>
   </p>
-</div>
+</div> -->
