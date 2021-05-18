@@ -6,28 +6,145 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
-const features = [
-  {
-    title: 'Feature Name 1',
-    imageUrl: 'img/hands-on-react.png',
-    description: <>Feature Description</>,
-  },
-];
+// const features = [
+//   {
+//     title: 'Feature Name 1',
+//     imageUrl: 'img/hands-on-react.png',
+//     description: <>Feature Description</>,
+//   },
+// ];
 
-function Feature({ imageUrl, title, description }) {
-  const imgUrl = useBaseUrl(imageUrl);
-  return (
-    <div className={clsx('col col--4', styles.feature)}>
-      {imgUrl && (
-        <div className="text--center">
-          <img className={styles.featureImage} src={imgUrl} alt={title} />
-        </div>
-      )}
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </div>
-  );
-}
+// function Feature({ imageUrl, title, description }) {
+//   const imgUrl = useBaseUrl(imageUrl);
+//   return (
+//     <div className={clsx('col col--4', styles.feature)}>
+//       {imgUrl && (
+//         <div className="text--center">
+//           <img className={styles.featureImage} src={imgUrl} alt={title} />
+//         </div>
+//       )}
+//       <h3>{title}</h3>
+//       <p>{description}</p>
+//     </div>
+//   );
+// }
+
+// function Home() {
+//   const context = useDocusaurusContext();
+//   const { siteConfig = {} } = context;
+//   return (
+//     <Layout
+//       title={`${siteConfig.title}`}
+//       description="Free course to help you learn React by writing code."
+//     >
+//       <header className={clsx('hero hero--primary', styles.heroBanner)}>
+//         <div className="container">
+//           <iframe
+//             type="text/html"
+//             width={560}
+//             height={315}
+//             src="https://www.youtube.com/embed/VATwnEzWvgk?rel=0"
+//             frameBorder={0}
+//             modestbranding={1}
+//           />
+
+//           <h1 className="hero__title">{siteConfig.title}</h1>
+//           <p className="hero__subtitle">{siteConfig.tagline}</p>
+
+//           <div className={styles.buttons}>
+//             <Link
+//               className={clsx(
+//                 'button button--outline button--secondary button--lg',
+//                 styles.getStarted
+//               )}
+//               to={useBaseUrl('docs/')}
+//             >
+//               Start Learning
+//             </Link>
+//           </div>
+//         </div>
+//       </header>
+//       <main>
+//         <section className={styles.features}>
+//           <div className="container">
+//             <div className="row">
+//               <div className={clsx('col col--4', styles.feature)}>
+//                 {/* <div className="text--center">
+//                   <img className={styles.featureImage} src="" alt="" />
+//                 </div> */}
+//                 <h3>Free</h3>
+
+//                 <ul>
+//                   <li>
+//                     All written material for the course is free and can be used
+//                     for individual self-paced learning
+//                   </li>
+//                   <li>Code along, No Slides</li>
+//                   <li>
+//                     To get the experience of private training, purchase the
+//                     training videos
+//                   </li>
+//                 </ul>
+//               </div>
+//               <div className={clsx('col col--4', styles.feature)}>
+//                 <h3>Up to Date</h3>
+
+//                 <ul>
+//                   <li>Focused on Function components with Hooks</li>
+//                   <li>Option to use TypeScript</li>
+//                   <li>Alternatives to Redux State Management</li>
+//                   <li>
+//                     React Testing Library instead of Enzyme to test components
+//                   </li>
+//                 </ul>
+//               </div>
+//               <div className={clsx('col col--4', styles.feature)}>
+//                 <h3>Step-by-Step lab directions</h3>
+
+//                 <ul>
+//                   <li>
+//                     No pausing video and rewinding to figure out what you missed
+//                   </li>
+//                   <li>Includes finished code after every lab</li>
+//                   <li>Option to use TypeScript or JavaScript</li>
+//                 </ul>
+//               </div>
+//               <div className={clsx('col col--4', styles.feature)}>
+//                 <h3>Prerequisite Topics Covered</h3>
+//                 <ul>
+//                   <li>New JavaScript Language Features</li>
+//                   <li>TypeScript Quickstart</li>
+//                   <li>npm (package manager)</li>
+//                 </ul>
+//               </div>
+//               <div className={clsx('col col--4', styles.feature)}>
+//                 <h3>Comprehensive</h3>
+//                 <ul>
+//                   <li>
+//                     In addition to the fundamental React topics, the course
+//                     includes advanced topics
+//                   </li>
+//                   <li>State Management</li>
+//                   <li>Testing, Performance</li>
+//                 </ul>
+//               </div>
+//               <div className={clsx('col col--4', styles.feature)}>
+//                 <h3>Email Course</h3>
+//                 <ul>
+//                   <li>Send one email every working day</li>
+//                   <li>One lesson or lab</li>
+//                   <li>30 minutes to complete</li>
+//                   <li>Opt In</li>
+//                 </ul>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//         <section></section>
+//       </main>
+//     </Layout>
+//   );
+// }
 
 function Home() {
   const context = useDocusaurusContext();
@@ -39,15 +156,6 @@ function Home() {
     >
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <iframe
-            type="text/html"
-            width={560}
-            height={315}
-            src="https://www.youtube.com/embed/VATwnEzWvgk?rel=0"
-            frameBorder={0}
-            modestbranding={1}
-          />
-
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
 
@@ -72,17 +180,14 @@ function Home() {
                 {/* <div className="text--center">
                   <img className={styles.featureImage} src="" alt="" />
                 </div> */}
-                <h3>Free</h3>
+                <h3>Hands-On</h3>
 
                 <ul>
+                  <li>Code along demos, no slides</li>
+                  <li>Build an application in class</li>
                   <li>
-                    All written material for the course is free and can be used
-                    for individual self-paced learning
-                  </li>
-                  <li>Code along, No Slides</li>
-                  <li>
-                    To get the experience of private training, purchase the
-                    training videos
+                    Specific computer setup directions for students or
+                    preconfigured virtual environments
                   </li>
                 </ul>
               </div>
@@ -90,9 +195,9 @@ function Home() {
                 <h3>Up to Date</h3>
 
                 <ul>
-                  <li>Focused on Function components with Hooks</li>
+                  <li>Focused on function components with Hooks</li>
                   <li>Option to use TypeScript</li>
-                  <li>Alternatives to Redux State Management</li>
+                  <li>Redux & alternatives to Redux State Management</li>
                   <li>
                     React Testing Library instead of Enzyme to test components
                   </li>
@@ -102,9 +207,7 @@ function Home() {
                 <h3>Step-by-Step lab directions</h3>
 
                 <ul>
-                  <li>
-                    No pausing video and rewinding to figure out what you missed
-                  </li>
+                  <li>Students can work at their own pace</li>
                   <li>Includes finished code after every lab</li>
                   <li>Option to use TypeScript or JavaScript</li>
                 </ul>
@@ -129,12 +232,13 @@ function Home() {
                 </ul>
               </div>
               <div className={clsx('col col--4', styles.feature)}>
-                <h3>Email Course</h3>
+                <h3>Licensing</h3>
                 <ul>
-                  <li>Send one email every working day</li>
-                  <li>One lesson or lab</li>
-                  <li>30 minutes to complete</li>
-                  <li>Opt In</li>
+                  <li>
+                    If you would like to use this material to conduct your own
+                    training or workshop please contact us at{' '}
+                    <a href="https://www.funnyant.com/contact">funnyant.com</a>.
+                  </li>
                 </ul>
               </div>
             </div>
