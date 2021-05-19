@@ -53,6 +53,7 @@ title: 'Testing Lab 5: Container Components'
    ```
    PASS  src/projects/__tests__/ProjectsPage-test.tsx
    ```
+   > ! Check to make sure the `delay` function used to delay the backend query and display the loading indicator has been removed in `projectAPI.js`. The delay call causes the `msw` library to throw an error.
 
 ### Test the Loading Indicator Displays
 
