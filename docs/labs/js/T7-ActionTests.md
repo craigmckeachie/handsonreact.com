@@ -95,68 +95,6 @@ title: 'Testing Lab 7: Action Tests'
 
 ### Test Success and Failure
 
-1. Test that an error is returned when loading projects fails.
-
-   #### `src/projects/state/__tests__/projectActions-test.js`
-
-   ```diff
-   import configureMockStore from 'redux-mock-store';
-   import ReduxThunk from 'redux-thunk';
-   import { initialAppState } from '../../../state';
-   import { loadProjects } from '../projectActions';
-   import {
-     LOAD_PROJECTS_REQUEST,
-     LOAD_PROJECTS_SUCCESS,
-     LOAD_PROJECTS_FAILURE
-   } from '../projectTypes';
-   import { projectAPI } from '../../projectAPI';
-   import { MOCK_PROJECTS } from '../../MockProjects';
-   jest.mock('../../projectAPI');
-
-   const middlewares = [ReduxThunk];
-   const mockStoreCreator = configureMockStore(middlewares);
-
-   describe('Project Actions', () => {
-     let store: any;
-
-     beforeEach(() => {
-       store = mockStoreCreator(initialAppState);
-     });
-
-   +  test('should return error', () => {
-   +    projectAPI.get = jest
-   +      .fn(
-   +        // leave this commented initially
-   +        // projectAPI.get
-   +      )
-   +      .mockImplementationOnce(() => {
-   +        return Promise.reject('failed');
-   +      });
-   +
-   +    const expectedActions = [
-   +      { type: LOAD_PROJECTS_REQUEST },
-   +      {
-   +        type: LOAD_PROJECTS_FAILURE,
-   +        payload: 'failed'
-   +      }
-   +    ];
-   +
-   +    return store.dispatch(loadProjects(1)).then(() => {
-   +      const actions = store.getActions();
-   +      expect(actions).toEqual(expectedActions);
-   +    });
-   +  });
-
-   });
-
-   ```
-
-1. The new test should pass.
-
-   ```shell
-    PASS  src/projects/state/__tests__/projectActions-test.js
-   ```
-
 1. Attempt to test that the projects load successfully by adding the code.
 
    #### `src/projects/state/__tests__/projectActions-test.js`
@@ -226,70 +164,69 @@ title: 'Testing Lab 7: Action Tests'
    });
    ```
 
-1. The **test** **fails** with the error below because no default mock implementation is set for the `get` method to revert back to after calling `mockImplementationOnce` executes once for the error test case.
+1. The test should pass.
 
+   ```shell
+   PASS  src/projects/state/__tests__/projectActions-test.js
    ```
-   TypeError: Cannot read property 'then' of undefined
-   ```
 
-1. Uncomment the line below to set the default mock implementation back to the method defined in `src\projects\__mocks__\projectAPI.js`.
-
-   > Be sure that projectAPI.get is inside the .fn() (`.fn(projectAPI.get)`).
+1. Test that an error is returned when loading projects fails.
 
    #### `src/projects/state/__tests__/projectActions-test.js`
 
    ```diff
-   ...
+   import configureMockStore from 'redux-mock-store';
+   import ReduxThunk from 'redux-thunk';
+   import { initialAppState } from '../../../state';
+   import { loadProjects } from '../projectActions';
+   import {
+     LOAD_PROJECTS_REQUEST,
+     LOAD_PROJECTS_SUCCESS,
+     LOAD_PROJECTS_FAILURE
+   } from '../projectTypes';
+   import { projectAPI } from '../../projectAPI';
+   import { MOCK_PROJECTS } from '../../MockProjects';
+   jest.mock('../../projectAPI');
+
+   const middlewares = [ReduxThunk];
+   const mockStoreCreator = configureMockStore(middlewares);
+
    describe('Project Actions', () => {
-     let store;
+     let store: any;
 
      beforeEach(() => {
        store = mockStoreCreator(initialAppState);
      });
 
-     test('should return error', () => {
-       projectAPI.get = jest
-         .fn(
-           // leave this commented initially
-   -       // projectAPI.get
-   +       projectAPI.get
-         )
-         .mockImplementationOnce(() => {
-           return Promise.reject('failed');
-         });
+   +  test('should return error', () => {
+   +    projectAPI.get = jest
+   +      .fn(
+   +        // leave this commented initially
+   +        // projectAPI.get
+   +      )
+   +      .mockImplementationOnce(() => {
+   +        return Promise.reject('failed');
+   +      });
+   +
+   +    const expectedActions = [
+   +      { type: LOAD_PROJECTS_REQUEST },
+   +      {
+   +        type: LOAD_PROJECTS_FAILURE,
+   +        payload: 'failed'
+   +      }
+   +    ];
+   +
+   +    return store.dispatch(loadProjects(1)).then(() => {
+   +      const actions = store.getActions();
+   +      expect(actions).toEqual(expectedActions);
+   +    });
+   +  });
 
-       const expectedActions = [
-         { type: LOAD_PROJECTS_REQUEST },
-         {
-           type: LOAD_PROJECTS_FAILURE,
-           payload: 'failed'
-         }
-       ];
-
-       return store.dispatch(loadProjects(1)).then(() => {
-         const actions = store.getActions();
-         expect(actions).toEqual(expectedActions);
-       });
-     });
-
-     test('should load projects successfully', () => {
-       const expectedActions = [
-         { type: LOAD_PROJECTS_REQUEST },
-         {
-           type: LOAD_PROJECTS_SUCCESS,
-           payload: { projects: MOCK_PROJECTS, page: 1 }
-         }
-       ];
-
-       return store.dispatch(loadProjects(1)).then(() => {
-         const actions = store.getActions();
-         expect(actions).toEqual(expectedActions);
-       });
-     });
    });
+
    ```
 
-1. All tests including the `'should load projects successfully'` should now pass.
+1. All tests should now pass.
 
    ```shell
    PASS  src/projects/state/__tests__/projectActions-test.js
