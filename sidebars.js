@@ -268,7 +268,7 @@ module.exports = {
           'gatsby/concepts/05-CSSGrid',
           'gatsby/concepts/06-Images',
           'gatsby/concepts/07-BuildDeployAudit',
-          'gatsby/concepts/08-GraphQL',
+          // 'gatsby/concepts/08-GraphQL',
         ],
         Labs: [
           'gatsby/labs/00-Overview',
@@ -280,7 +280,7 @@ module.exports = {
           'gatsby/labs/05-CSSGrid',
           'gatsby/labs/06-Images',
           'gatsby/labs/07-BuildDeployAudit',
-          'gatsby/labs/08-GraphQL',
+          // 'gatsby/labs/08-GraphQL',
         ],
       },
     ],
