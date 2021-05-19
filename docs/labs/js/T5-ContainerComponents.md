@@ -54,6 +54,36 @@ title: 'Testing Lab 5: Container Components'
    PASS  src/projects/__tests__/ProjectsPage-test.js
    ```
 
+> ! Check to make sure the `delay` function used to delay the backend query and display the loading indicator has been removed in `projectAPI.js`. The delay call causes the `msw` library to throw an error.
+
+#### `projects\projectAPI.js`
+
+```diff
+const projectAPI = {
+find(id) {
+   return fetch(`${url}/${id}`).then(checkStatus).then(parseJSON);
+},
+
+get(page = 1, limit = pageSize) {
+   return fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`)
+-      .then(delay(1000))
+      .then(checkStatus)
+      .then(parseJSON)
+      .then((projects) => {
+      return projects.map((p) => {
+         return new Project(p);
+      });
+      })
+      .catch((error) => {
+      console.log('log client error ' + error);
+      throw new Error(
+         'There was an error retrieving the projects. Please try again.'
+      );
+      });
+},
+...
+```
+
 ### Test the Loading Indicator Displays
 
 1. Test that the loading indicator displays when the component initially renders.
