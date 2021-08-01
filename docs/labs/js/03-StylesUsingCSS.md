@@ -53,7 +53,7 @@ title: 'Lab 3: Styles Using CSS'
 ### Apply CSS
 
 1. **Open** and **delete** the contents of `app.css`
-2. Open the file `app.js`.
+2. Open the file `App.js`.
 3. Delete the `JSX` returned and replace with the `HTML` as shown below.
 
    #### src\App.js
