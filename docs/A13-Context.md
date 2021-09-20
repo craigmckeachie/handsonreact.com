@@ -29,8 +29,6 @@ const themes = {
   },
 };
 
-const ThemeContext = React.createContext(themes.light);
-
 function App() {
   const [themeName, setThemeName] = React.useState('light');
   const currentTheme = themes[themeName];
