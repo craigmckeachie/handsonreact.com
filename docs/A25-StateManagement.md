@@ -25,9 +25,9 @@ slug: /state-management
 - React Context has a easier to understand API than Redux
 - Using Redux Toolkit can significantly reduce the amount of _boilerplate_ code in Redux
 - Using TypeScript with Redux provides strong typing advantages but further increases the amount of _boilerplate_ code
-- Implementing Redux functionality with React Context often often results in eventually recreating Redux
+- Implementing Redux functionality with React Context often results in eventually recreating Redux
 - Consider using libraries that focus on the specific kind of state that is most challenging, network state, such as React Query and SWR.
-- The React Query and SWR APIs ar similar to the popular Apollo Client library for GraphQL but works with REST APIs as well as GraphQL APIs
+- The React Query and SWR APIs are similar to the popular Apollo Client library for GraphQL but works with REST APIs as well as GraphQL APIs
 - Consider libraries which give you the basic functionality of Redux with a simpler API like Zustand or Easy Peasy
 - [npm Trends Chart comparing SWR, React Query, Zustand, Easy Peasy](https://www.npmtrends.com/swr-vs-react-query-vs-zustand-vs-easy-peasy)
 
@@ -50,8 +50,7 @@ Good use cases for Redux include:
 
 > From Managing React State: Pluralsight Course by Cory House
 
-1. Does in belong in
-   Does it belong in the URL? (current page, current record, sorting, scroll location...)
+1. Does in belong in the URL? (current page, current record, sorting, scroll location...)
    - Keep URL-related state in the URL.
 2. Want to persist data across sessions or make data available offline?
    - Consider web storage (localStorage, IndexedDB, etc)
