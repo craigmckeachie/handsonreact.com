@@ -139,7 +139,6 @@ title: 'Lab 14: Component Communication through Multiple Levels'
    import React, { Fragment } from 'react';
    import { MOCK_PROJECTS } from './MockProjects';
    import ProjectList from './ProjectList';
-   + import { Project } from './Project';
 
    function ProjectsPage() {
    +  const saveProject = (project) => {

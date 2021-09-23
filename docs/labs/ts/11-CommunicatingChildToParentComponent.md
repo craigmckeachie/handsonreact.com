@@ -4,7 +4,7 @@ title: 'Lab 11: Communicating from Child to Parent Component'
 
 ## Objectives
 
-- [ ] In a child compoonent, accept a function as a prop and invoke it
+- [ ] In a child component, accept a function as a prop and invoke it
 - [ ] In a parent component, implement a function and pass it as a prop to a child component
 
 ## Steps
