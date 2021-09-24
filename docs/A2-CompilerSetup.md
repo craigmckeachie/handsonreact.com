@@ -47,32 +47,22 @@ code . //opens Visual Studio Code
 
 4. Create a config file named `.babelrc` in the root of your project with this content:
 
-   ```json
-   {
-     "presets": [
-       [
-         "@babel/preset-env",
-         {
-           "useBuiltIns": "entry",
-           "corejs": 3
-         }
-       ]
-     ],
-     "plugins": ["@babel/plugin-proposal-class-properties"]
-   }
-   ```
+```json
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": 3
+      }
+    ]
+  ],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
+}
+```
 
-5. Create a file named `.browserslistrc` in the root of your project with this content:
-
-   ```
-   > 0.25%
-   not dead
-   ```
-
-6. To see which browsers this configuration supports run the following command:
-   ```
-   npx browserslist
-   ```
+> `targets` refers to the target environment your code will run in; in our use case it will be `node` (not a browser)
 
 ### Run Babel
 
