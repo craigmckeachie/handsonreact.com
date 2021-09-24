@@ -53,11 +53,8 @@ code . //opens Visual Studio Code
        [
          "@babel/preset-env",
          {
-           "useBuiltIns": "usage",
-           "corejs": 3,
-           "targets": {
-             "node": "10"
-           }
+           "useBuiltIns": "entry",
+           "corejs": 3
          }
        ]
      ],
@@ -65,7 +62,17 @@ code . //opens Visual Studio Code
    }
    ```
 
-> `targets` refers to the target environment your code will run in; in our use case it will be `node` (not a browser)
+5. Create a file named `.browserslistrc` in the root of your project with this content:
+
+   ```
+   > 0.25%
+   not dead
+   ```
+
+6. To see which browsers this configuration supports run the following command:
+   ```
+   npx browserslist
+   ```
 
 ### Run Babel
 
