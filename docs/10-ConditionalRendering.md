@@ -345,6 +345,8 @@ function DropdownMenu() {
     </div>
   );
 }
+
+ReactDOM.render(<DropdownMenu />, document.getElementById('root'));
 ```
 
 It works because in JavaScript, true && expression always evaluates to expression, and false && expression always evaluates to false.

@@ -199,7 +199,8 @@ If the new state is computed using the previous state, you can pass a function t
 
 ```js
 function Counter({ initialCount }) {
-  const [count, setCount] = useState(initialCount);
+  const [count, setCount] = React.useState(initialCount);
+
   return (
     <>
       Count: {count}
@@ -207,10 +208,15 @@ function Counter({ initialCount }) {
       <button onClick={() => setCount((prevCount) => prevCount - 1)}>
         Decrement
       </button>
-      <button onClick={() => setCount((prevCount) => prevCount + 1)}>Increment</button>
+      <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+        Increment
+      </button>
+      {/* <button onClick={() => setCount(count + 1)}>Increment</button> */}
     </>
   );
 }
+
+ReactDOM.render(<Counter initialCount={0} />, document.getElementById('root'));
 ```
 
 The ”Increment” and ”Decrement” buttons use the functional form, because the updated value is based on the previous value. But the “Reset” button uses the normal form, because it always sets the count back to the initial value.
