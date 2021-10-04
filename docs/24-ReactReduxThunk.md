@@ -255,7 +255,7 @@ const store = Redux.createStore(
 
 // UI ---------------------------------
 function List(props) {
-  const { items, onRemove, onUpdate, loading, error } = props;
+  const { items, loading, error } = props;
   const [editingItem, setEditingItem] = React.useState(null);
   const dispatch = ReactRedux.useDispatch();
 
@@ -277,7 +277,7 @@ function List(props) {
         {items.map((item) => (
           <li key={item.id}>
             {item === editingItem ? (
-              <Form item={item} onSubmit={onUpdate} onCancel={handleCancel} />
+              <Form item={item} onCancel={handleCancel} />
             ) : (
               <p>
                 <span>{item.name}</span>

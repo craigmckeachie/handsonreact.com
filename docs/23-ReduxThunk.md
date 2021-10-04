@@ -166,7 +166,7 @@ var ReduxThunk = window.ReduxThunk.default;
 const store = Redux.createStore(reducer, Redux.applyMiddleware(ReduxThunk));
 
 function logState() {
-  console.log(JSON.stringify(store.getState()));
+  console.log(JSON.stringify(store.getState(), null, ' '));
 }
 
 store.subscribe(logState);
@@ -423,7 +423,7 @@ const store = Redux.createStore(
 );
 
 function logState() {
-  console.log(JSON.stringify(store.getState()));
+  console.log(JSON.stringify(store.getState(), null, ' '));
 }
 
 store.subscribe(logState);

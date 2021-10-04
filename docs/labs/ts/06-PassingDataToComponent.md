@@ -12,7 +12,7 @@ title: 'Lab 6: Passing Data to a Component'
 ### Create a reusable list component
 
 1. **Create** the **file** `src\projects\ProjectList.tsx`
-2. **Implement** a `ProjectList` **class component** that meets the following specifications:
+2. **Implement** a `ProjectList` **function component** that meets the following specifications:
 
    1. Takes a `projects` array as a `prop`.
       > You will need to create an interface to define the properties that come into the component.
