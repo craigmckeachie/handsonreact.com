@@ -126,7 +126,6 @@ Tools with similar scope include:
 >
 > - `toBe()` is shallow equality
 > - `toEqual()` is deep equality
-> - [Here is an example](https://jestjs.io/docs/en/expect.html#toequalvalue)
 
 - spies/mock functions: jest.fn()
 
@@ -208,6 +207,18 @@ export function add(a, b) {
 
 3. Mock the actual implementation and return the expected values.
 
+#### `rc/math.test.js`
+
+```diff
+import { add } from './math';
++ jest.mock('./math');
+
+test('add numbers', () => {
+  expect(add(1, 1)).toEqual(2);
+  expect(add(2, 2)).toEqual(4);
+});
+```
+
 > Notice we are able to return values regardless of the inputs because we are mocking the module.
 
 #### console output
@@ -253,7 +264,8 @@ To solve this we can mock not only the module but the `add` function as follows:
 
    ```diff
    import { add } from './math';
-   - jest.mock('./math');
+   jest.mock('./math');
+
    test('add numbers', () => {
    +  add.mockReturnValueOnce(2);
    +  add.mockReturnValueOnce(4);
@@ -306,7 +318,7 @@ With our current implementation if we call the `add` function a third time we ge
          at Object.toEqual (src/math.test.js:8:20)
    ```
 
-3. Define a default implementation for our mock function.
+3. Define a default implementation for our mock function. Below we define a default implementation to always return `42`.
 
    #### `src\math.test.js`
 
@@ -329,8 +341,6 @@ With our current implementation if we call the `add` function a third time we ge
    ```shell
    PASS  src/math.test.js
    ```
-
-Below we define a default implementation to always return `42`.
 
 > [To learn more about mock functions vistit the official documentation](https://jestjs.io/docs/en/mock-functions).
 
@@ -477,7 +487,10 @@ You can replace `it()` with `xit()` (or `test()` with `xtest()`) to temporarily 
 - If the query supplied is not good consider that the markup in your app is not accessible and endevour to learn more about accessibility.
   > Even if you don't care about accessibility your tests will become more reliable and less brittle by embracing it.
 - Prefer ByRole
-- Understand the difference between find versus get methods
+  - [More details on which query to use can be found here](https://testing-library.com/docs/queries/about#priority).
+- Understand the difference between `find` versus `get` methods.
+  - `find` awaits, `get` doesn't
+  - [Queries](https://testing-library.com/docs/react-testing-library/cheatsheet#queries)
 - async await
 - React Testing Library does not encourage you to mock child components so often you are writing integration tests instead of unit tests.
 - Test components that use APIs with `msw`
