@@ -101,11 +101,11 @@ Tools with similar scope include:
 
   ```js
   describe('suite name', () => {
-    test1('test1 name', () => {
+    test('test1 name', () => {
       //implement test
     });
 
-    test2('test2 name', () => {
+    test('test2 name', () => {
       //implement test
     });
   });
