@@ -106,10 +106,10 @@ title: 'Testing Lab 1: Your First Component Test'
    ```js
    import React from 'react';
    import { render, screen } from '@testing-library/react';
-   import App from './App';
+   import HomePage from './HomePage';
 
    test('renders home heading', () => {
-     render(<App />);
+     render(<HomePage />);
      expect(screen.getByRole('heading')).toHaveTextContent('Home');
    });
    ```

@@ -488,6 +488,7 @@ You can replace `it()` with `xit()` (or `test()` with `xtest()`) to temporarily 
   > Even if you don't care about accessibility your tests will become more reliable and less brittle by embracing it.
 - Prefer ByRole
   - [More details on which query to use can be found here](https://testing-library.com/docs/queries/about#priority).
+  - > Note: Be sure to click on the button not the text of the button to get the correct query ByRole on the [testing-playground.com](https://testing-playground.com/).
 - Understand the difference between `find` versus `get` methods.
   - `find` awaits, `get` doesn't
   - [Queries](https://testing-library.com/docs/react-testing-library/cheatsheet#queries)

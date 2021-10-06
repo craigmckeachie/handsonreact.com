@@ -28,8 +28,8 @@ slug: /state-management
 - Implementing Redux functionality with React Context often often results in eventually recreating Redux
 - Consider using libraries that focus on the specific kind of state that is most challenging, network state, such as React Query and SWR.
 - The React Query and SWR APIs ar similar to the popular Apollo Client library for GraphQL but works with REST APIs as well as GraphQL APIs
-- Consider libraries which give you the basic functionality of Redux with a simpler API like Zustand or Easy Peasy
-- [npm Trends Chart comparing SWR, React Query, Zustand, Easy Peasy](https://www.npmtrends.com/swr-vs-react-query-vs-zustand-vs-easy-peasy)
+- Consider libraries which give you the basic functionality of Redux with a simpler API like [Recoil](https://recoiljs.org/), [Zustand](https://zustand.surge.sh/) or [Easy Peasy](https://easy-peasy.vercel.app/)
+- [npm Trends Chart comparing SWR, React Query, Recoil, Zustand, Easy Peasy](https://www.npmtrends.com/easy-peasy-vs-react-query-vs-swr-vs-zustand-vs-recoil)
 
 ## Examples
 
@@ -44,14 +44,13 @@ Good use cases for Redux include:
 - A count of something that displays in a header or sidebar (likes, upvotes, active projects, items in shopping cart, unread messages)
   - Again, this often can be done by having a common parent component but sometimes it might be too far removed from where you are updating this information
 - Steps in a workflow or wizard that share data (although this can easily be done by storing the shared data in a parent component)
-- Collaboritive software where multiple users can work on the same document at the same time (Google Docs, Google Sheets etc...)
+- Collaborative software where multiple users can work on the same document at the same time (Google Docs, Google Sheets etc...)
 
 ## Deciding How to Handle State
 
 > From Managing React State: Pluralsight Course by Cory House
 
-1. Does in belong in
-   Does it belong in the URL? (current page, current record, sorting, scroll location...)
+1. Does it belong in the URL? (current page, current record, sorting, scroll location...)
    - Keep URL-related state in the URL.
 2. Want to persist data across sessions or make data available offline?
    - Consider web storage (localStorage, IndexedDB, etc)
