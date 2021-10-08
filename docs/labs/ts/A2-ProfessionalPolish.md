@@ -10,7 +10,7 @@ The finished solution code for this optional lab is available in the `makeover` 
 
 1. Add a splash screen and the associated styles.
 
-- Copy `/react-course/concepts/assets/logo-splash-screen.svg` into `keeptrack\public\assets`
+- Copy [logo-splash-screen.svg](https://github.com/craigmckeachie/react-course/blob/master/concepts/assets/logo-splash-screen.svg) into `keeptrack\public\assets`
 
 #### public\index.html
 
