@@ -181,6 +181,7 @@ module.exports = {
           'labs/js/20-RouterBasics',
           'labs/js/21-RouteParameters',
           'labs/js/21a-RouterTransitions',
+          'labs/js/21b-SplashScreen',
           'labs/js/22-BuildAndDeploy',
           'labs/js/23-ReduxInstall',
           'labs/js/24-ReduxActionsReducer',
