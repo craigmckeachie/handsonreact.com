@@ -19,7 +19,22 @@ A re-render can only be triggered if a component’s state has changed. The stat
 
 Component changed? Re-render. Parent changed? Re-render. Section of props that doesn't actually impact the view changed? Re-render.
 
-### Component Render Demo (optional)
+### Summary
+
+- **Default Behavior**: **Changing state**
+  - results in that component and **all descendants** being re-rendered.
+- **Default Behavior**: **Changing state that updates a prop in a child**
+  - results in **that component and all descendants** re-rendered.
+- Override shouldComponentUpdate: return true
+  - results in that component and all descendants being re-rendered.
+- Override shouldComponentUpdate: return false
+  - results in no re-renders (current component and all descendants).
+- Override shouldComponentUpdate: see if props changed and only then return true.
+  - Change value prop in Parent and child will re-render first time (when value changes) but not subsequent times because value prop remains the same (true).
+- PureComponent: comment out shouldComponentUpdate and make ChildA a PureComponent
+  - Change value prop in Parent and child will re-render first time (when value changes) but not subsequent times because value prop remains the same (true).
+
+### Component Render Demo
 
 #### styles.css
 
@@ -57,7 +72,8 @@ class GrandchildA extends Component {
   }
 }
 
-class ChildA extends PureComponent {
+// class ChildA extends PureComponent {
+class ChildA extends Component {
   state = { value: false };
   handleClick = () => {
     this.setState({ value: false });
@@ -71,6 +87,7 @@ class ChildA extends PureComponent {
     return (
       <div className="box">
         <h2>Child A</h2>
+        <p>Prop passed from parent? {this.props.value}</p>
         <LastRendered />
         <button onClick={this.handleClick}>Change State</button>
         <GrandchildA></GrandchildA>
@@ -99,12 +116,18 @@ class Parent extends Component {
   handleStateClick = () => {
     this.setState({ value: true });
   };
+
+  handleClick = () => {
+    console.log('clicked');
+  };
+
   render() {
     return (
       <div className="box">
         <h1>Parent</h1>
         <LastRendered />
         <button onClick={this.handleStateClick}>Change State</button>
+        <button onClick={this.handleClick}>Do Nothing</button>
         <ChildA value={this.state.value} />
         <br />
         <ChildB />
@@ -231,11 +254,12 @@ Steps:
 1. **Open** Chrome DevTools and switch to the `console`.
 1. Type in the add textbox to add an item and then click the add button.
 1. Notice that every item in the list re-renders even though you only added one item.
-1. Commment out the `ListItem` component.
-1. Uncomment the `ListItem` component below the original wrapped in a `React.memo` function.
-1. Refresh your browser.
-1. Once again type in the add textbox to add an item and then click the add button.
-1. Notice that only one item in the list re-renders since the other `ListItem`'s are the same. You have successfully eliminated a wasted render.
+   > Note: Updating or removing an item also causes everything to re-render.
+2. Commment out the `ListItem` component.
+3. Uncomment the `ListItem` component below the original wrapped in a `React.memo` function.
+4. Refresh your browser.
+5. Once again type in the add textbox to add an item and then click the add button.
+6. Notice that only one item in the list re-renders since the other `ListItem`'s are the same. You have successfully eliminated some wasted renders.
 
    > The same issue of every item re-rendering actually existing when editing or removing an item. We have now fixed all of these wasted renders. If time permits feel free to change back to the non memoized implemention of `ListItem` to see the wasted renders.
 
