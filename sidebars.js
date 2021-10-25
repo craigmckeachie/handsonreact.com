@@ -137,7 +137,6 @@ module.exports = {
       'A16-Security',
       'A23-Performance',
       'A9-Styling',
-      // 'A14-Animations',
     ],
     Redux: [
       '21-Redux',
@@ -187,7 +186,8 @@ module.exports = {
           'labs/js/23-ReduxInstall',
           'labs/js/24-ReduxActionsReducer',
           'labs/js/25-ReduxWithReact',
-          'labs/js/26-ReactQuery',
+          'labs/js/26-CustomHooks',
+          'labs/js/27-ReactQuery',
           'labs/js/T1-FirstComponentTests',
           'labs/js/T2-SnapshotTests',
           'labs/js/T3-MoreTestingComponents',
