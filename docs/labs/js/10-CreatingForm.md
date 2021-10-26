@@ -22,7 +22,7 @@ title: 'Lab 10: Creating a Form to Edit Your Data'
    ```
 
 2. Create the file `src\projects\ProjectForm.js`.
-3. Implement a `ProjectForm` **class** component that meets the following specifications:
+3. Implement a `ProjectForm` **function** component that meets the following specifications:
 
    - Paste the HTML below into the render method of the `ProjectForm` and use your editor and the link below to identify the changes needed to the `HTML` to make it `JSX`.
 
