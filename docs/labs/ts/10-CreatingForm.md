@@ -94,7 +94,7 @@ title: 'Lab 10: Creating a Form to Edit Your Data'
    ...
    + import ProjectForm from './ProjectForm';
    ...
-   function ProjectList ({ projects }) {
+   function ProjectList ({ projects }: ProjectListProps) {
        const items = projects.map(project => (
          <div key={project.id} className="cols-sm">
            <ProjectCard project={project}></ProjectCard>

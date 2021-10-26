@@ -28,13 +28,11 @@ title: 'Lab 9: Responding to an Event'
 
    ```html
    ...
-   <p>
-     Budget...
-     <button className=" bordered">
-       <span className="icon-edit "></span>
-       Edit
-     </button>
-   </p>
+   <p>Budget...</p>
+   <button className=" bordered">
+     <span className="icon-edit "></span>
+     Edit
+   </button>
    ```
 
 3. **Verify** the **button** **displays** in your browser.

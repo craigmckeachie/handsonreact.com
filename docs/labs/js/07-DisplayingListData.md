@@ -29,7 +29,7 @@ title: 'Lab 7: Displaying List Data'
 ```diff
 ...
 
-function ProjectList({ projects }: ProjectListProps) {
+function ProjectList({ projects }) {
 -  return <pre>{JSON.stringify(projects, null, ' ')}</pre>;
 +  return (
 +    <ul className="row">

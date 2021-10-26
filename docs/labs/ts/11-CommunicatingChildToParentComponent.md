@@ -53,7 +53,7 @@ title: 'Lab 11: Communicating from Child to Parent Component'
    #### `src\projects\ProjectList.tsx`
 
    ```diff
-    function ProjectList ({ projects }) {
+    function ProjectList ({ projects }: ProjectListProps) {
    +   const handleEdit = (project: Project) => {
    +     console.log(project);
    +   };
