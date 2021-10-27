@@ -208,10 +208,22 @@ function Counter({ initialCount }) {
       <button onClick={() => setCount((prevCount) => prevCount - 1)}>
         Decrement
       </button>
-      <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+      <button
+        onClick={() => {
+          setCount(count + 1);
+          // setCount(count + 1);
+        }}
+      >
         Increment
       </button>
-      {/* <button onClick={() => setCount(count + 1)}>Increment</button> */}
+      <button
+        onClick={() => {
+          setCount((prevCount) => prevCount + 1);
+          // setCount(prevCount => prevCount + 1);
+        }}
+      >
+        Increment (Functional Updater)
+      </button>
     </>
   );
 }
