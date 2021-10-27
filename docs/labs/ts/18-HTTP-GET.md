@@ -97,7 +97,7 @@ title: 'Lab 18: HTTP GET'
     function ProjectsPage() {
       const [projects, setProjects] = useState<Project[]>(MOCK_PROJECTS);
    +  const [loading, setLoading] = useState(false);
-   +  const [error, setError] = useState(undefined);
+   +  const [error, setError] = useState(null);
    ...
    }
    ```
@@ -163,7 +163,7 @@ function ProjectsPage() {
 +        const data = await projectAPI.get(1);
 +        setError(null);
 +        setProjects(data);
-+      } catch (e) {
++      } catch (e: any) {
 +        setError(e.message);
 +      } finally {
 +        setLoading(false);
@@ -193,7 +193,7 @@ function ProjectsPage() {
    function ProjectsPage() {
      const [projects, setProjects] = useState<Project[]>([]);
      const [loading, setLoading] = useState(false);
-     const [error, setError] = useState(undefined);
+     const [error, setError] = useState(null);
 
      ...
 
@@ -261,7 +261,7 @@ function ProjectsPage() {
    function ProjectsPage() {
      const [projects, setProjects] = useState<Project[]>([]);
      const [loading, setLoading] = useState(false);
-     const [error, setError] = useState(undefined);
+     const [error, setError] = useState(null);
 
      ...
 
@@ -358,7 +358,7 @@ function ProjectsPage() {
    function ProjectsPage() {
      const [projects, setProjects] = useState<Project[]>([]);
      const [loading, setLoading] = useState(false);
-     const [error, setError] = useState(undefined);
+     const [error, setError] = useState(null);
    + const [currentPage, setCurrentPage] = useState(1);
      ...
    }
