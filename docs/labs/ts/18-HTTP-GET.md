@@ -161,7 +161,7 @@ function ProjectsPage() {
 +      setLoading(true);
 +      try {
 +        const data = await projectAPI.get(1);
-+        setError(null);
++        setError('');
 +        setProjects(data);
 +      }
 +       catch (e) {
