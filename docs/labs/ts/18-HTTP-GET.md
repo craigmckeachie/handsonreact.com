@@ -97,7 +97,7 @@ title: 'Lab 18: HTTP GET'
     function ProjectsPage() {
       const [projects, setProjects] = useState<Project[]>(MOCK_PROJECTS);
    +  const [loading, setLoading] = useState(false);
-   +  const [error, setError] = useState(null);
+   +  const [error, setError] = useState<string>("");
    ...
    }
    ```
@@ -137,7 +137,7 @@ import React, { Fragment, useState,
 function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(undefined);
+  const [error, setError] = useState<string>("");
 
 // Approach 1: using promise then
 //  useEffect(() => {
@@ -163,9 +163,12 @@ function ProjectsPage() {
 +        const data = await projectAPI.get(1);
 +        setError(null);
 +        setProjects(data);
-+      } catch (e: any) {
-+        setError(e.message);
-+      } finally {
++      }
++       catch (e) {
++        if (e instanceof Error) {
++          setError(e.message);
++        }
++        } finally {
 +        setLoading(false);
 +      }
 +    }
@@ -193,7 +196,7 @@ function ProjectsPage() {
    function ProjectsPage() {
      const [projects, setProjects] = useState<Project[]>([]);
      const [loading, setLoading] = useState(false);
-     const [error, setError] = useState(null);
+       const [error, setError] = useState<string>("");
 
      ...
 
@@ -261,7 +264,7 @@ function ProjectsPage() {
    function ProjectsPage() {
      const [projects, setProjects] = useState<Project[]>([]);
      const [loading, setLoading] = useState(false);
-     const [error, setError] = useState(null);
+     const [error, setError] = useState<string>("");
 
      ...
 
@@ -358,7 +361,7 @@ function ProjectsPage() {
    function ProjectsPage() {
      const [projects, setProjects] = useState<Project[]>([]);
      const [loading, setLoading] = useState(false);
-     const [error, setError] = useState(null);
+     const [error, setError] = useState<string>("");
    + const [currentPage, setCurrentPage] = useState(1);
      ...
    }
