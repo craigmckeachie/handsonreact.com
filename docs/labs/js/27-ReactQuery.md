@@ -143,7 +143,7 @@ import * as serviceWorker from './serviceWorker';
 +  return useMutation((project) => projectAPI.put(project), {
 +    onSuccess: () => queryClient.invalidateQueries('projects'),
 +  });
- }
++ }
 ```
 
 2. Update the `ProjectsPage` to use the updated hook.
@@ -356,7 +356,7 @@ function ProjectsPage() {
 +          <button type="button" className="bordered medium" onClick={onCancel}>
 +            cancel
 +          </button>
-         </div>
++         </div>
 -      )}
 -      <label htmlFor="isActive">Active?</label>
 -      <input
@@ -416,5 +416,3 @@ function ProjectList({ projects, onSave }) {
 ```
 
 ### &#10004; You have completed Lab 27
-
-> Solution code available in branch `react-query-working`
