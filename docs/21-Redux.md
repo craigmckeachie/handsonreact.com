@@ -292,7 +292,7 @@ npm start
 
 ### Debugging & Time Traveling Demo
 
-1. Install the [Redux DevTools Extension in Chrome by following these directions](http://extension.remotedev.io/)
+1. Install the [Redux DevTools Extension in Chrome by following these directions](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 2. Configure your store to use the extension
 
 ```js
