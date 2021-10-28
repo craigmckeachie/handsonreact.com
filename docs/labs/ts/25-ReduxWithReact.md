@@ -19,7 +19,7 @@ title: 'Lab 25: Redux with React'
 
    ```diff
    - import React, { useState, useEffect } from 'react';
-   - import React, { useEffect } from 'react';
+   + import React, { useEffect } from 'react';
    import ProjectList from './ProjectList';
    import { Project } from './Project';
    + import { useSelector, useDispatch } from 'react-redux';
