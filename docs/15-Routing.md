@@ -326,7 +326,7 @@ const movies = [
 3. Create a `Movies` component to list movies
 
 ```js
-function Movies(props) {
+function MoviesList(props) {
   const movieListItems = props.movies.map((movie) => (
     <li key={movie.id}>
       <Link to={`${props.match.url}/${movie.id}`}>{movie.name}</Link>
@@ -371,7 +371,6 @@ function Movies(props) {
 
 ```js
 function MovieDetail(props) {
-  const path = props.match.path;
   const movieId = Number(props.match.params.id);
   const movie = movies.find((movie) => movie.id === movieId);
 
@@ -395,7 +394,7 @@ function MovieDetail(props) {
 
   <Route exact
     path="/movies"
-    render={props => <Movies {...props} movies={movies} />}
+    render={props => <MoviesList {...props} movies={movies} />}
   />
 + <Route path={`/movies/:id`} component={MovieDetail} />
 </div>
