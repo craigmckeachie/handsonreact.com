@@ -246,7 +246,7 @@ function deleteItem(item) {
 }
 
 //store
-var ReduxThunk = window.ReduxThunk.default;
+var ReduxThunk = window.ReduxThunk;
 const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;
 const store = Redux.createStore(
   reducer,
@@ -601,7 +601,7 @@ function deleteItem(item) {
 }
 
 //store
-var ReduxThunk = window.ReduxThunk.default;
+var ReduxThunk = window.ReduxThunk;
 const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;
 const store = Redux.createStore(
   reducer,

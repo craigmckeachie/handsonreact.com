@@ -162,7 +162,7 @@ function loadPhotos() {
   };
 }
 
-var ReduxThunk = window.ReduxThunk.default;
+var ReduxThunk = window.ReduxThunk;
 const store = Redux.createStore(reducer, Redux.applyMiddleware(ReduxThunk));
 
 function logState() {
@@ -401,7 +401,7 @@ function deletePhoto(photoId) {
   };
 }
 
-var ReduxThunk = window.ReduxThunk.default;
+var ReduxThunk = window.ReduxThunk;
 
 //when we just needed Redux DevTools extension enabled but no middleware
 // function enableDevTools() {
