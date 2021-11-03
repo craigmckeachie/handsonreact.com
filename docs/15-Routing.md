@@ -596,6 +596,153 @@ function Movies({ movies: allMovies, location, match }) {
 
 4. Refresh the browser and notice that the movie detail now shows below the movie list after clicking a movie link.
 
+## React Router version 5
+
+In React Router version 5 some hooks have been added which have significantly improved the API. The version 4 syntax is still supported (backwards compatible) when using version 5. Below is an example of how the example we have used throughout this section updated for version 5.
+
+In summary:
+- Components can be nested inside a `Route` component instead of using the `Component` property
+- Hooks have been added including a  `useParams`  to make it easier to access parameters
+
+```js
+const {
+  BrowserRouter: Router,
+  Route,
+  Link,
+  Prompt,
+  Switch,
+  Redirect,
+  NavLink,
+  useParams,
+} = window.ReactRouterDOM;
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Contact() {
+  return <h2>Contact</h2>;
+}
+
+class Movie {
+  constructor(id, name, description, type) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.type = type;
+  }
+}
+
+const movies = [
+  new Movie(
+    1,
+    ' Titanic',
+    'A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.',
+    'Drama'
+  ),
+  new Movie(
+    2,
+    ' E.T. the Extra-Terrestrial',
+    'A troubled child summons the courage to help a friendly alien escape Earth and return to his home world.',
+    'Fantasy'
+  ),
+  new Movie(
+    3,
+    'The Wizard of Oz',
+    // tslint:disable-next-line:max-line-length
+    'Dorothy Gale is swept away from a farm in Kansas to a magical land of Oz in a tornado and embarks on a quest with her new friends to see the Wizard who can help her return home in Kansas and help her friends as well.',
+    'Fantasy'
+  ),
+  new Movie(
+    4,
+    'Star Wars: Episode IV - A New Hope ',
+    // tslint:disable-next-line:max-line-length
+    'Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire/`s world-destroying battle-station while also attempting to rescue Princess Leia from the evil Darth Vader.',
+    'Action'
+  ),
+];
+
+function MoviesList(props) {
+  const movieListItems = props.movies.map((movie) => (
+    <li key={movie.id}>
+      <Link to={`movies/${movie.id}`}>{movie.name}</Link>
+    </li>
+  ));
+  return (
+    <div>
+      <h2>Movies</h2>
+      <ul>{movieListItems}</ul>
+    </div>
+  );
+}
+
+function MovieDetail() {
+  const { id } = useParams();
+  const movieId = Number(id);
+  const movie = movies.find((movie) => movie.id === movieId);
+
+  return (
+    <div>
+      <h2>Movie Detail</h2>
+      <h3>{movie.name}</h3>
+      <p>{movie.description}</p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <NavLink exact to="/">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/about">About</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
+            <li>
+              <NavLink to="/movies">Movies</NavLink>
+            </li>
+          </ul>
+        </nav>
+
+        <div className="container">
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/about/">
+            <About />
+          </Route>
+          <Route path="/contact/">
+            <Contact />
+          </Route>
+          <Route exact path="/movies">
+            <MoviesList movies={movies} />
+          </Route>
+
+          <Route path={`/movies/:id`}>
+            <MovieDetail />
+          </Route>
+        </div>
+      </div>
+    </Router>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
 <!-- ## Redirects (Auth)
 
 ## Static vs Dynamic Routes

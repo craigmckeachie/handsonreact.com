@@ -666,6 +666,39 @@ In React, an `<input type="file" />` is always an uncontrolled component because
 
 You should use the File API to interact with the files. The following example shows how to create a ref to the DOM node to access file(s) in a submit handler:
 
+#### Function Component Example
+
+```js
+const { useRef } = React;
+
+function FileInput() {
+  const fileInput = null;
+  const fileInput = useRef(null);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(fileInput.current);
+    if (!fileInput) return;
+    alert(`Selected file - ${fileInput.current.files[0].name}`);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Upload file:
+        <input type="file" ref={fileInput} />
+      </label>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+ReactDOM.render(<FileInput />, document.getElementById('root'));
+```
+
+#### Class Component Example
+
 ```js
 class FileInput extends React.Component {
   constructor(props) {
