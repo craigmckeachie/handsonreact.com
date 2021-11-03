@@ -770,6 +770,7 @@ li {
 li {
   list-style: none;
   border-bottom: 1px solid #ddd;
+  padding: 0.25rem;
 }
 
 span {
@@ -784,6 +785,31 @@ button {
 
 form {
   margin: 15px;
+}
+
+input {
+  border: 1px solid darkgray;
+}
+
+html {
+  font-size: large;
+}
+
+h2 {
+  font-size: x-large;
+  padding-bottom: 1rem;
+}
+
+h3 {
+  font-size: large;
+  padding-bottom: 1rem;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  width: 50%;
 }
 ```
 

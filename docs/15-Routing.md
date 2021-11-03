@@ -93,6 +93,10 @@ nav ul li:after {
 nav ul li:last-child:after {
   content: '';
 }
+
+.active {
+  background-color: #bee5eb;
+}
 ```
 
 2. Try this code
@@ -601,8 +605,9 @@ function Movies({ movies: allMovies, location, match }) {
 In React Router version 5 some hooks have been added which have significantly improved the API. The version 4 syntax is still supported (backwards compatible) when using version 5. Below is an example of how the example we have used throughout this section updated for version 5.
 
 In summary:
+
 - Components can be nested inside a `Route` component instead of using the `Component` property
-- Hooks have been added including a  `useParams`  to make it easier to access parameters
+- Hooks have been added including a `useParams` to make it easier to access parameters
 
 ```js
 const {
