@@ -72,7 +72,7 @@ title: 'Lab 21: Route Parameters'
    ```diff
    + import { Link } from 'react-router-dom';
    ...
-   <section className="section dark">
+     <section className="section dark">
    +  <Link to={'/projects/' + project.id}>
        <h5 className="strong">
        <strong>{project.name}</strong>
@@ -80,17 +80,17 @@ title: 'Lab 21: Route Parameters'
        <p>{formatDescription(project.description)}</p>
        <p>Budget : {project.budget.toLocaleString()}</p>
    +  </Link>
-   <button
+     <button
        type="button"
        className=" bordered"
        onClick={() => {
        handleEditClick(project);
        }}
-   >
+      >
        <span className="icon-edit "></span>
        Edit
-   </button>
-   </section>
+     </button>
+     </section>
    ...
    ```
 
