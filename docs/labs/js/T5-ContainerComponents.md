@@ -171,6 +171,7 @@ get(page = 1, limit = pageSize) {
    + import { rest } from 'msw';
    + import { setupServer } from 'msw/node';
    + import { url as projectsUrl } from '../projectAPI';
+   + import { MOCK_PROJECTS } from '../MockProjects';
 
    + // declare which API requests to mock
    + const server = setupServer(
