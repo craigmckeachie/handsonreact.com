@@ -131,6 +131,7 @@ module.exports = {
       'A17-OtherHooks',
       'A13-Context',
       'A25-StateManagement',
+      '26-ReactQuery',
       '25-Testing',
       'A13-RenderProps',
       'A13-HigherOrderComponents',

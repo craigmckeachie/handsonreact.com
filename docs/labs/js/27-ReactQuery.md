@@ -258,10 +258,6 @@ function ProjectsPage() {
 +    saveProject(project);
    };
 
-   function handleChange(event) {
-@@ -68,68 +71,71 @@ function ProjectForm({ project: initialProject, onSave, onCancel }) {
-   }
-
    return (
 -    <form className="input-group vertical" onSubmit={handleSubmit}>
 -      <label htmlFor="name">Project Name</label>
@@ -405,7 +401,8 @@ function ProjectList({ projects, onSave }) {
            ) : (
              <ProjectCard project={project} onEdit={handleEdit} />
            )}
-@@ -36,7 +32,6 @@ function ProjectList({ projects, onSave }) {
+        ...
+  }
 
  ProjectList.propTypes = {
    projects: PropTypes.arrayOf(PropTypes.instanceOf(Project)).isRequired,

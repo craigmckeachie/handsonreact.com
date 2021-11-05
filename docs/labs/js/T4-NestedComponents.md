@@ -87,10 +87,7 @@ title: 'Testing Lab 4: Nested Components'
    +    expect(screen.getAllByRole('link')).toHaveLength(MOCK_PROJECTS.length);
    +    expect(screen.getAllByRole('button')).toHaveLength(MOCK_PROJECTS.length);
    +  });
-
-
-   });
-
+      });
    ```
 
 1. Verify the test passes.
