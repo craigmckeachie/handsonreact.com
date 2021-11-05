@@ -17,7 +17,7 @@ title: 'Testing Lab 1: Your First Component Test'
 
 1.  **Open** a `command prompt` (Windows) or `terminal` (Mac).
 1.  Change the **current directory** to `code\keeptrack`.
-1.  You probably **DON'T need to DO the steps below** but they are listed for completeness.
+<!-- 1.  You probably **DON'T need to DO the steps below** but they are listed for completeness.
 
     > If you recently created your React project using **Create React App** then the following steps to install **React Testing Library** will have been done for you when the project was created.
 
@@ -44,7 +44,7 @@ title: 'Testing Lab 1: Your First Component Test'
       // react-testing-library renders your components to document.body,
       // this adds jest-dom's custom assertions
       import '@testing-library/jest-dom/extend-expect';
-      ```
+      ``` -->
 
 1.  **Run** _one_ of the following commands to run the tests:
 
