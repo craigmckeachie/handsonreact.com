@@ -84,13 +84,21 @@ slug: /computer-setup
 
     > Each download comes with a free 30-day trial.
 
-1. `Google Chrome` browser.
+5. `Google Chrome` browser.
    - **Visit** [http://www.google.com/chrome/](http://www.google.com/chrome/) to **install**.
      > Any recent version will work for the class.
    - Also, any other browsers that you plan to support
 2. **Internet access in the classroom is required** because attendees will download additional software packages and material from github.com as part of the class. This can be confirmed by following these steps.
+
    - **Visit**: https://github.com/facebook/react/
    - **Verify** the **page** **loads** successfully on your company's network.
+s
+3. You will need to have a **Git** installed. To verify it is installed open a terminal or command-prompt and run the command:
+   ```
+   git --version
+   ```
+   - Any version should work.
+   - Here is a link to a [page describing the process for installing git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) if you need to install it.
 
 ---
 
