@@ -10,10 +10,10 @@ slug: /computer-setup
 1. A **recent** version of **Windows** (7 or later), **macOS**, or **Linux**, with:
    - _current system updates_
    - at least `4 GB` of `RAM`
-2. **Node.js** installed, a recent **10.x, 12.x, or 14.x LTS** version.
+2. **Node.js** installed, a recent **10.x, 12.x, 14.x, or 16.x LTS** version.
 
    - **Visit** [http://nodejs.org/](http://nodejs.org/).
-   - **Click** the `14.15.[x] LTS Recommended For Most Users` (or similar) **green button on the left** to **download** the **installer** file.
+   - **Click** the `16.13.[x] LTS Recommended For Most Users` (or similar) **green button on the left** to **download** the **installer** file.
    - **Run** the **installer**, accepting all _default_ _settings_.
    - After installation, **confirm** that the `Path` environment variable on your computer has been modified to include the path for `node` and `npm` by following these steps.
      - **Open** a `command prompt` (Windows) or `terminal` (Mac).
@@ -24,7 +24,7 @@ slug: /computer-setup
        npm -v
        ```
      - **Verify** the **version** of each program is **returned**.
-   - Please **DO use** `Node` `10.x`, `12.x`, or `14.x` (Long Term Support (LTS)) versions for this class.
+   - Please **DO use** `Node` `10.x`, `12.x`, `14.x`, or `16.x` (Long Term Support (LTS)) versions for this class.
    - Please **DO NOT use** `Node 8.x` or `11.x`, `13.x` or `15.x` for this class.
    - If you are using one of the older or experimental versions of `Node.js` listed above, uninstall it and reinstall a recent **LTS** version.
      - [How to remove Node.js from Windows](https://stackoverflow.com/a/20711410/48175)
@@ -64,14 +64,14 @@ slug: /computer-setup
 
    > Students may use any IDE/editor that they are comfortable with using.
 
-   - We **recommend** **Visual Studio Code**.
+- We **recommend** **Visual Studio Code**.
 
-     - It is **free**, **cross-platform** has a **small** download, and is a **quick** install.
-     - **Visit** [code.visualstudio.com](https://code.visualstudio.com/) to **install**.
+  - It is **free**, **cross-platform** has a small download, and is a quick install.
+  - **Visit** [code.visualstudio.com](https://code.visualstudio.com/) to **install**.
 
-       > Don't confuse Visual Studio Code with the heavier Visual Studio IDE used for .NET development.
+    > Don't confuse Visual Studio Code with the heavier Visual Studio IDE used for .NET development.
 
-     - Please [follow these directions](./00-VisualStudioCodeSetup.md) to configure Visual Studio Code for the course.
+  > **Configure Visual Studio Code** for the course by [following these directions](./00-VisualStudioCodeSetup.md).
 
 - **WebStorm** or **IntelliJ IDEA Ultimate** both made by `JetBrains` are also great choices.
 
@@ -84,11 +84,11 @@ slug: /computer-setup
 
     > Each download comes with a free 30-day trial.
 
-5. `Google Chrome` browser.
+1. `Google Chrome` browser.
    - **Visit** [http://www.google.com/chrome/](http://www.google.com/chrome/) to **install**.
      > Any recent version will work for the class.
    - Also, any other browsers that you plan to support
-6. **Internet access in the classroom is required** because attendees will download additional software packages and material from github.com as part of the class. This can be confirmed by following these steps.
+2. **Internet access in the classroom is required** because attendees will download additional software packages and material from github.com as part of the class. This can be confirmed by following these steps.
    - **Visit**: https://github.com/facebook/react/
    - **Verify** the **page** **loads** successfully on your company's network.
 
