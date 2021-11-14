@@ -16,9 +16,10 @@ slug: /hooks
 - Before hooks, function components had two feature limitations:
   - couldn't have state
   - couldn't have lifecycle events
-- After hooks, function components became feature equivalent to class components
+- After hooks, function components became more capable than class components
   - can have state (useState hook)
   - can handle lifecycle events (useEffect hook)
+  - can reuse stateful logic with `Custom Hooks`
 
 ## Why Hooks?
 

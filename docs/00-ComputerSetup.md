@@ -93,7 +93,7 @@ slug: /computer-setup
    - **Visit**: https://github.com/facebook/react/
    - **Verify** the **page** **loads** successfully on your company's network.
 s
-3. You will need to have a **Git** installed. To verify it is installed open a terminal or command-prompt and run the command:
+3. You will need to have **Git** installed. To verify it is installed open a terminal or command-prompt and run the command:
    ```
    git --version
    ```

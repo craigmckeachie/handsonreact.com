@@ -5,7 +5,7 @@ sidebar_label: Side Effects & Lifecyle
 slug: /side-effects-lifecyle
 ---
 
-## Side Effects
+## Side Effects (in function components)
 
 Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effects. Whether or not you’re used to calling these operations “side effects” (or just “effects”), you’ve likely performed them in your components before.
 
@@ -62,7 +62,43 @@ function Clock() {
 ReactDOM.render(<Clock />, document.getElementById('root'));
 ```
 
-## Lifecycle
+### Common Use Case
+
+Here is the the common use case example we saw in the state section. It has been updated to loadData after the initial rendering of the component.
+
+```js
+const { useState } = React;
+
+function App() {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+  function loadData() {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setData([1, 2, 3, 4]);
+    }, 3000);
+  }
+
+  //works but unnecessarily verbose
+  // React.useEffect(() => {
+  //   loadData();
+  // }, []);
+
+  React.useEffect(loadData, []);
+
+  return (
+    <>
+      {loading && <p>Loading...</p>}
+      <pre>{JSON.stringify(data, null, ' ')}</pre>
+    </>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+## Lifecycle (in class components)
 
 ### What are Lifecycle Methods
 

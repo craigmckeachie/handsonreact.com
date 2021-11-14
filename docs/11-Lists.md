@@ -141,8 +141,6 @@ const data = [
 ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
 ```
 
-Notice that we've kept the key close to the loop and did not encapsulate it in the item component. We'll talk about `keys` in lists and why we did that in the next section.
-
 ## Keys
 
 1. Remove the key property on the `FruitListItem` as shown below:
@@ -262,6 +260,10 @@ When you are first learning to map an array into React elements or components as
 As you get more comfortable in JSX using map directly in the return statement in JSX as shown below can be useful.
 
 ```js
+function FruitListItem(props) {
+  return <li>{props.fruit.name}</li>;
+}
+
 function FruitList(props) {
   return (
     <ul>
@@ -271,9 +273,17 @@ function FruitList(props) {
     </ul>
   );
 }
-```
 
-> Be careful not to overuse this approach as it can be harder to read, write, and maintain.
+const data = [
+  { id: 1, name: 'apple' },
+  { id: 2, name: 'orange' },
+  { id: 3, name: 'blueberry' },
+  { id: 4, name: 'banana' },
+  { id: 5, name: 'kiwi' },
+];
+
+ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
+```
 
 ## Reference
 

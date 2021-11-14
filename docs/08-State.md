@@ -259,9 +259,11 @@ function Counter({ initialCount }) {
 ReactDOM.render(<Counter initialCount={0} />, document.getElementById('root'));
 ```
 
-The ”Increment” and ”Decrement” buttons use the functional form, because the updated value is based on the previous value. But the “Reset” button uses the normal form, because it always sets the count back to the initial value.
+The ”Increment” and ”Increment Function Update” buttons use the two different forms of updating state. This is not an issue until you set state repeatedly. The issue arises because React does state updates asyncronously and can batch them to improve rendering performance.
 
-If your update function returns the exact same value as the current state, the subsequent rerender will be skipped completely.
+### How to be sure a setState call has completed?
+
+Use a `useEffect` hook with a dependency on the the state variable that is changing. We will learn about `useEffect` in the next chapter.
 
 ## State in Class Components
 
