@@ -67,7 +67,7 @@ ReactDOM.render(<Clock />, document.getElementById('root'));
 Here is the the common use case example we saw in the state section. It has been updated to loadData after the initial rendering of the component.
 
 ```js
-const { useState } = React;
+const { useState, useEffect } = React;
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -85,7 +85,7 @@ function App() {
   //   loadData();
   // }, []);
 
-  React.useEffect(loadData, []);
+  useEffect(loadData, []);
 
   return (
     <>
