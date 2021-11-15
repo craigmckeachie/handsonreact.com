@@ -87,6 +87,8 @@ title: 'Lab 3: Styles Using CSS'
    +    </blockquote>
      );
    }
+
+   export default App;
    ```
 
 4. Open the file `src\index.css`
