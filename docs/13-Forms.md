@@ -317,6 +317,100 @@ function ContactUsForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    const isValid = !departmentError && !messageError && !agreedToTermsError;
+    if (!isValid) {
+      return;
+    }
+    console.log('submitting', stateToString());
+  }
+
+  React.useEffect(() => {
+    validate();
+  }, [department, message, agreedToTerms]);
+
+  function validate() {
+    setDepartmentError(null);
+    setMessageError(null);
+    setAgreedToTermsError(null);
+    if (department === '') {
+      setDepartmentError('Department is required.');
+    }
+    if (message === '') {
+      setMessageError('Message is required.');
+    }
+    if (agreedToTerms === false) {
+      setAgreedToTermsError('You must agree to the terms and conditions.');
+    }
+  }
+
+  function stateToString() {
+    return JSON.stringify(
+      {
+        department,
+        message,
+        agreedToTerms,
+        departmentError,
+        messageError,
+        agreedToTermsError,
+      },
+      null,
+      ' '
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <select
+        name="department"
+        value={department}
+        onChange={(e) => setDepartment(e.target.value)}
+      >
+        <option value="">Select...</option>
+        <option value="hr">Human Resources</option>
+        <option value="pr">Public Relations</option>
+        <option value="support">Support</option>
+      </select>
+      <br />
+      {departmentError && <p className="alert">{departmentError}</p>}
+      <br />
+      <textarea
+        name="message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        cols="30"
+        rows="10"
+      />
+      <br />
+      {messageError && <p className="alert">{messageError}</p>}
+      <input
+        type="checkbox"
+        name="agreedToTerms"
+        checked={agreedToTerms}
+        onChange={(e) => setAgreedToTerms(e.target.checked)}
+      />
+      I agree to the terms and conditions.
+      <br />
+      {agreedToTermsError && <p className="alert">{agreedToTermsError}</p>}
+      <button>Send</button>
+    </form>
+  );
+}
+
+ReactDOM.render(<ContactUsForm />, document.getElementById('root'));
+```
+
+<!-- ```js
+function ContactUsForm() {
+  const [department, setDepartment] = React.useState('');
+  const [message, setMessage] = React.useState('');
+  const [agreedToTerms, setAgreedToTerms] = React.useState(false);
+  const [departmentError, setDepartmentError] = React.useState(null);
+  const [messageError, setMessageError] = React.useState(null);
+  const [agreedToTermsError, setAgreedToTermsError] = React.useState(null);
+
+  function handleSubmit(event) {
+    event.preventDefault();
     if (!validate()) {
       return;
     }
@@ -437,7 +531,7 @@ function ContactUsForm() {
 }
 
 ReactDOM.render(<ContactUsForm />, document.getElementById('root'));
-```
+``` -->
 
 Some things to notice in the code above:
 
