@@ -21,7 +21,7 @@ CSS Grid Layout (aka “Grid”), is a two-dimensional grid-based layout system 
 - Grid tracks
 - Grid areas
 
-  > [Visualize these by looking at this cheatsheet](https://css-tricks.com/snippets/css/complete-guide-grid/#important-terminology)
+  > [Visualize these by looking at this cheatsheet](https://css-tricks.com/snippets/css/complete-guide-grid/#aa-important-terminology)
 
 - [Gaps](https://css-tricks.com/snippets/css/complete-guide-grid/#column-gaprow-gapgrid-column-gapgrid-row-gap)
 

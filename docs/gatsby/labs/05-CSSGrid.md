@@ -1,5 +1,5 @@
 ---
-title: 'CSS Grid'
+title: "CSS Grid"
 ---
 
 ## CSS Grid Example
@@ -13,7 +13,7 @@ title: 'CSS Grid'
 
    ```css
    * {
-     font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+     font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
      font-weight: 600;
      box-sizing: border-box;
    }
@@ -102,6 +102,24 @@ title: 'CSS Grid'
    }
    ```
 
+1. Create Gaps between the grid cells so it is easier to visualize the grid.
+
+   #### `layout.css`
+
+   ```diff
+   html,
+   body {
+     height: 100%;
+   }
+
+   body {
+     display: grid;
+     grid-template-columns: 1 1 1;
+     grid-template-rows: 1 1 1;
+   + grid-gap: 20px;
+   }
+   ```
+
 1. Stretch the header and footer across all three columns.
 
    #### `layout.css`
@@ -139,20 +157,6 @@ title: 'CSS Grid'
      display: grid;
      grid-template-columns: 15em auto 15em;
      grid-template-rows: 5em auto 5em;
-   }
-   ```
-
-1. Set the max-width of the body element so you can see the background.
-
-   #### `layout.css`
-
-   ```diff
-   body {
-   display: grid;
-   grid-template-columns: 15em auto 15em;
-   grid-template-rows: 5em auto 5em;
-   +  margin: auto;
-   +  max-width: 80em;
    }
    ```
 

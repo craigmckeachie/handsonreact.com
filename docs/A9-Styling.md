@@ -2,7 +2,7 @@
 id: A9-Styling
 title: Styling
 sidebar_label: Styling
-slug: /stylsg
+slug: /styles
 ---
 
 Components can be styled using CSS classes or inline styles as you would in when using plain HTML and CSS without React.
@@ -83,13 +83,13 @@ Components can be styled using CSS classes or inline styles as you would in when
      );
    }
 
-   ReactDOM.render(<Alert />, document.getElementById('root'));
+   ReactDOM.render(<Alert />, document.getElementById("root"));
    ```
 
 5. Modify the component to take an `Alert` `type` prop to dynamically set the type of alert
 
    ```js
-   function Alert({ type = 'info' }) {
+   function Alert({ type = "info" }) {
      const alertClasses = `alert alert-${type}`;
      return (
        <div className="container">
@@ -98,7 +98,7 @@ Components can be styled using CSS classes or inline styles as you would in when
      );
    }
 
-   ReactDOM.render(<Alert type="danger" />, document.getElementById('root'));
+   ReactDOM.render(<Alert type="danger" />, document.getElementById("root"));
    ```
 
 6. Set the alert type as shown above and confirm it is working
