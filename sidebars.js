@@ -154,6 +154,7 @@ module.exports = {
       "A5-Promises",
       "A3-ECMAScriptReact",
       "F01-CSSGrid",
+      "F02-FlexBox",
     ],
     Resources: ["A24-UIComponents", "A20-Resources"],
     Labs: [
