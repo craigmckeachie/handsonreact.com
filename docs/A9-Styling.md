@@ -145,6 +145,14 @@ Using the `style` attribute as the primary means of styling elements is generall
    ReactDOM.render(<Alert type="danger" />, document.getElementById('root'));
    ```
 
+## Classnames Library
+
+A simple JavaScript utility for conditionally joining className(s) together.
+
+This library used to be part of React and has been pulled out into a library that can be extremely helpful.
+
+- [Adding and Removing CSS Classes Library](https://www.npmjs.com/package/classnames#usage-with-reactjs)
+
 ## CSS in JS
 
 #### What is CSS-in-JS?
@@ -160,16 +168,149 @@ _Note that this functionality is not a part of React, but provided by third-part
 
 Read a comparison of CSS-in-JS libraries [here](https://github.com/MicheleBertoli/css-in-js).
 
-## Classnames Library
+## Styled Components
 
-A simple JavaScript utility for conditionally joining className(s) together.
+1.  Installation
 
-This library used to be part of React and has been pulled out into a library that can be extremely helpful.
+    ```sh
+    npm install styled-components
+    ```
 
-- [Adding and Removing CSS Classes Library](https://www.npmjs.com/package/classnames#usage-with-reactjs)
+    #### `index.html`
+
+    ```html
+    <body>
+      <div id="root"></div>
+      <script src="/node_modules/react/umd/react.development.js"></script>
+      <script src="/node_modules/react-dom/umd/react-dom.development.js"></script>
+      <script src="/node_modules/react-is/umd/react-is.development.js"></script>
+      <script src="/node_modules/@babel/standalone/babel.min.js"></script>
+      <script src="/node_modules/styled-components/dist/styled-components.min.js"></script>
+      <script type="text/babel" src="/main.js"></script>
+    </body>
+    ```
+
+    #### `main.js`
+
+    ```js
+    const { styled } = window;
+    ```
+
+1.  Before styled components. Global styles in `styles.css`
+
+    #### `main.js`
+
+    ```js
+    function Alert() {
+      return <div className="alert alert-danger">danger</div>;
+    }
+
+    ReactDOM.render(<Alert />, document.getElementById("root"));
+    ```
+
+    #### `styles.css`
+
+    ```css
+    .alert {
+      position: relative;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+    }
+
+    .alert-danger {
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+    }
+    ```
+
+1.  With styled components
+
+    ```js
+    const { styled } = window;
+    const StyledAlert = styled.div`
+      position: relative;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+    `;
+
+    const StyledAlertDanger = styled(StyledAlert)`
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+    `;
+
+    function Alert() {
+      return <StyledAlertDanger>danger</StyledAlertDanger>;
+    }
+
+    ReactDOM.render(<Alert />, document.getElementById("root"));
+    ```
+
+1.  With variants:
+
+    ```js
+    const { styled } = window;
+
+    const StyledAlert = styled.div`
+      position: relative;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+    `;
+
+    const StyledAlertDanger = styled(StyledAlert)`
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+    `;
+
+    const StyledAlertInfo = styled(StyledAlert)`
+      color: #0c5460;
+      background-color: #d1ecf1;
+      border-color: #bee5eb;
+    `;
+
+    function Alert() {
+      return <StyledAlertInfo>danger</StyledAlertInfo>;
+    }
+
+    ReactDOM.render(<Alert />, document.getElementById("root"));
+    ```
+
+1.  With variants driven by props:
+
+    ```js
+    const StyledAlertVariant = styled(StyledAlert)`
+      color: ${(props) => props.color};
+      background-color: ${(props) => props.backgroundColor};
+      border-color: ${(props) => props.borderColor};
+    `;
+
+    function Alert() {
+      return (
+        <StyledAlertVariant
+          color="white"
+          backgroundColor="lightblue"
+          borderColor="black"
+        >
+          variant
+        </StyledAlertVariant>
+      );
+    }
+
+    ReactDOM.render(<Alert />, document.getElementById("root"));
+    ```
 
 ## Reference
 
 - [See also FAQ: Styling and CSS](https://reactjs.org/docs/faq-styling.html)
 - [style attribute](https://reactjs.org/docs/dom-elements.html#style)
 - [How to CSS Style in React](https://www.robinwieruch.de/react-css-styling)
+- [Styled Components: Installation](https://styled-components.com/docs/basics#installation)
+- [Styled Components: Getting Started ](https://styled-components.com/docs/basics#getting-started)
