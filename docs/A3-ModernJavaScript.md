@@ -479,43 +479,6 @@ If you don't need an item just skip that item in the assignment.
     Craig D. McKeachie
     ```
 
-<!-- ## Object.assign()
-
-1.  **If** you are **using** the **TypeScript** compiler (`tsc`), you will need to update your TypeScript configuration as shown below before doing this excercise.
-
-```diff
-{
-  "compilerOptions": {
-    /* Basic Options */
-    "target": "es5" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */,
-    "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */,
-+    "lib": [
-+      "dom",
-+      "es2015"
-    ]
-    ...
-  }
-```
-
-> The `es2015` adds `.assign` on the base JavaScript type of `object`. The `dom` also has to be added to use `console.log` which worked previously because is the default lab included with TypeScript.
-
-2.  Code
-
-```js
-let o1 = { a: 1, b: 1, c: 1 };
-let o2 = { b: 2, c: 2 };
-let o3 = { c: 3 };
-
-let obj = Object.assign({}, o1, o2, o3);
-console.log(obj);
-```
-
-2.  Result
-
-```
-{ a: 1, b: 2, c: 3 }
-``` -->
-
 ## Object Initializer
 
 1.  Code
