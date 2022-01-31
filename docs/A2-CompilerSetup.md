@@ -11,7 +11,7 @@ slug: /compiler-setup
   - `tsc` (TypeScript compiler)
   - `babel` (Babel compiler)
 - Compiles
-  - newer language features written in TypeScript or `ES2015` and beyond
+  - newer language features of TypeScript or `ES2015` and beyond
   - to earlier versions of JavaScript (commonly `ES5`) that are supported in web browsers (where the application will be running)
 - The compilation is often more specificaly referred to as **transpilation**.
 
@@ -41,28 +41,33 @@ code . //opens Visual Studio Code
 
    ```
    npm init -y
-   npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/plugin-proposal-class-properties
-   npm install --save @babel/polyfill core-js@3
+   npm install --save-dev @babel/core @babel/cli @babel/preset-env
    ```
 
-4. Create a config file named `.babelrc` in the root of your project with this content:
+4. Create a config file named `babel.config.json` in the root of your project with this content:
 
-```json
-{
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "entry",
-        "corejs": 3
-      }
-    ]
-  ],
-  "plugins": ["@babel/plugin-proposal-class-properties"]
-}
-```
+   #### `babel.config.json`
 
-> `targets` refers to the target environment your code will run in; in our use case it will be `node` (not a browser)
+   ```json
+   {
+     "presets": ["@babel/preset-env"]
+   }
+   ```
+
+5. Create a config file name `.browserslistrc` in the root of the project with the following content. This file defines what browsers we will support in our application.
+
+   `.browserslistrc`
+
+   ```
+   > 0.25%,
+   not dead
+   ```
+
+6. Run the following command to see which browsers will be supported.
+
+   ```sh
+   npx browserslist
+   ```
 
 ### Run Babel
 
@@ -70,7 +75,7 @@ code . //opens Visual Studio Code
 2.  Add the following code:
 
 ```js
-const greeting = 'hello';
+const greeting = "hello";
 console.log(greeting);
 ```
 
@@ -164,9 +169,9 @@ npx tsc --init
 
    ```js
    function greeter(name) {
-     console.log('Hi ' + name);
+     console.log("Hi " + name);
    }
-   greeter('Ben');
+   greeter("Ben");
    ```
 
 3. Run the command
