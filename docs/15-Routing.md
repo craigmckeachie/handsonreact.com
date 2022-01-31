@@ -40,8 +40,6 @@ There are two versions:
    +   <script src="/node_modules/react-router/umd/react-router.development.js"></script>
    +   <script src="/node_modules/react-router-dom/umd/react-router-dom.development.js"></script>
 
-
-
        <script src="/node_modules/@babel/standalone/babel.min.js"></script>
        <script src="/node_modules/axios/dist/axios.min.js"></script>
        <script type="text/babel" src="/main.js"></script>
@@ -527,13 +525,13 @@ https://medium.com/@khwsc1/step-by-step-guide-of-simple-routing-transition-effec
 ## Code Splitting
 -->
 
-- [Reach Router](https://reach.tech/router/)
 - [List of all React Routers](https://reactjs.org/community/routing.html)
 - [React Router](https://github.com/ReactTraining/react-router)
+- [Upgrading from v5](https://reactrouter.com/docs/en/v6/upgrading/v5)
 - [React Router 4 changes](https://css-tricks.com/react-router-4/)
 - [Next.js](https://nextjs.org/)
 - [Change in React Router 4 and 5 from Earlier Versions](https://www.reddit.com/r/reactjs/comments/8lgmmo/router5_or_reactrouter_4/)
-- [Pass Props to Components](https://tylermcginnis.com/react-router-pass-props-to-components/)
+- [Reach Router (now merged back into React Router)](https://reach.tech/router/)
 
 <!--
 https://medium.com/@jordan.eckowitz/reach-router-react-routing-made-easy-aac7b46cd53c

@@ -2,7 +2,7 @@
 id: 15-Routing
 title: Routing
 sidebar_label: Routing
-slug: /routing
+slug: /routing-v4
 ---
 
 ## Overview
@@ -87,11 +87,11 @@ nav ul li {
 }
 
 nav ul li:after {
-  content: ' | ';
+  content: " | ";
 }
 
 nav ul li:last-child:after {
-  content: '';
+  content: "";
 }
 
 .active {
@@ -152,7 +152,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 2. Change the Link tags to NavLink tags
@@ -300,29 +300,29 @@ class Movie {
 const movies = [
   new Movie(
     1,
-    ' Titanic',
-    'A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.',
-    'Drama'
+    " Titanic",
+    "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+    "Drama"
   ),
   new Movie(
     2,
-    ' E.T. the Extra-Terrestrial',
-    'A troubled child summons the courage to help a friendly alien escape Earth and return to his home world.',
-    'Fantasy'
+    " E.T. the Extra-Terrestrial",
+    "A troubled child summons the courage to help a friendly alien escape Earth and return to his home world.",
+    "Fantasy"
   ),
   new Movie(
     3,
-    'The Wizard of Oz',
+    "The Wizard of Oz",
     // tslint:disable-next-line:max-line-length
-    'Dorothy Gale is swept away from a farm in Kansas to a magical land of Oz in a tornado and embarks on a quest with her new friends to see the Wizard who can help her return home in Kansas and help her friends as well.',
-    'Fantasy'
+    "Dorothy Gale is swept away from a farm in Kansas to a magical land of Oz in a tornado and embarks on a quest with her new friends to see the Wizard who can help her return home in Kansas and help her friends as well.",
+    "Fantasy"
   ),
   new Movie(
     4,
-    'Star Wars: Episode IV - A New Hope ',
+    "Star Wars: Episode IV - A New Hope ",
     // tslint:disable-next-line:max-line-length
-    'Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire/`s world-destroying battle-station while also attempting to rescue Princess Leia from the evil Darth Vader.',
-    'Action'
+    "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire/`s world-destroying battle-station while also attempting to rescue Princess Leia from the evil Darth Vader.",
+    "Action"
   ),
 ];
 ```
@@ -476,7 +476,7 @@ Modify the `Movies` component to filter by movie type (genre).
    function Movies({ movies: allMovies, location, match }) {
      let movies = [];
      let queryParams = new URLSearchParams(location.search);
-     let type = queryParams.get('type');
+     let type = queryParams.get("type");
      if (type) {
        movies = allMovies.filter((movie) => movie.type === type);
      } else {
@@ -492,17 +492,17 @@ Modify the `Movies` component to filter by movie type (genre).
          <nav>
            <ul>
              <li>
-               <Link to={{ pathname: '/movies', search: '?type=Drama' }}>
+               <Link to={{ pathname: "/movies", search: "?type=Drama" }}>
                  Drama
                </Link>
              </li>
              <li>
-               <Link to={{ pathname: '/movies', search: '?type=Fantasy' }}>
+               <Link to={{ pathname: "/movies", search: "?type=Fantasy" }}>
                  Fantasy
                </Link>
              </li>
              <li>
-               <Link to={{ pathname: '/movies', search: '?type=Action' }}>
+               <Link to={{ pathname: "/movies", search: "?type=Action" }}>
                  Action
                </Link>
              </li>
@@ -645,29 +645,29 @@ class Movie {
 const movies = [
   new Movie(
     1,
-    ' Titanic',
-    'A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.',
-    'Drama'
+    " Titanic",
+    "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+    "Drama"
   ),
   new Movie(
     2,
-    ' E.T. the Extra-Terrestrial',
-    'A troubled child summons the courage to help a friendly alien escape Earth and return to his home world.',
-    'Fantasy'
+    " E.T. the Extra-Terrestrial",
+    "A troubled child summons the courage to help a friendly alien escape Earth and return to his home world.",
+    "Fantasy"
   ),
   new Movie(
     3,
-    'The Wizard of Oz',
+    "The Wizard of Oz",
     // tslint:disable-next-line:max-line-length
-    'Dorothy Gale is swept away from a farm in Kansas to a magical land of Oz in a tornado and embarks on a quest with her new friends to see the Wizard who can help her return home in Kansas and help her friends as well.',
-    'Fantasy'
+    "Dorothy Gale is swept away from a farm in Kansas to a magical land of Oz in a tornado and embarks on a quest with her new friends to see the Wizard who can help her return home in Kansas and help her friends as well.",
+    "Fantasy"
   ),
   new Movie(
     4,
-    'Star Wars: Episode IV - A New Hope ',
+    "Star Wars: Episode IV - A New Hope ",
     // tslint:disable-next-line:max-line-length
-    'Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire/`s world-destroying battle-station while also attempting to rescue Princess Leia from the evil Darth Vader.',
-    'Action'
+    "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire/`s world-destroying battle-station while also attempting to rescue Princess Leia from the evil Darth Vader.",
+    "Action"
   ),
 ];
 
@@ -745,7 +745,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 <!-- ## Redirects (Auth)
