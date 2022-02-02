@@ -1,5 +1,5 @@
 ---
-title: 'Lab 20: Router Basics'
+title: "Lab 20: Router Basics"
 ---
 
 ## Objectives
@@ -19,7 +19,7 @@ title: 'Lab 20: Router Basics'
    #### `src\home\HomePage.js`
 
    ```jsx
-   import React from 'react';
+   import React from "react";
 
    function HomePage() {
      return <h2>Home</h2>;
@@ -51,7 +51,7 @@ title: 'Lab 20: Router Basics'
    import './App.css';
    import ProjectsPage from './projects/ProjectsPage';
 
-   + import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+   + import { BrowserRouter as Router, Routes, Route, NavLink} from 'react-router-dom';
    + import HomePage from './home/HomePage';
 
      function App() {
@@ -64,10 +64,10 @@ title: 'Lab 20: Router Basics'
    +  return (
    +    <Router>
    +      <div className="container">
-   +        <Switch>
-   +          <Route path="/" exact component={HomePage} />
-   +          <Route path="/projects" exact component={ProjectsPage} />
-   +        </Switch>
+   +        <Routes>
+   +          <Route path="/" element={<HomePage />} />
+   +          <Route path="/projects" element={<ProjectsPage />} />
+   +        </Routes>
    +      </div>
    +    </Router>
    +  );
@@ -110,7 +110,7 @@ title: 'Lab 20: Router Basics'
    +          <span className="icon-home"></span>
    +          Home
    +        </NavLink>
-   +        <NavLink to="/projects/" className="button rounded">
+   +        <NavLink to="/projects" className="button rounded">
    +          Projects
    +        </NavLink>
    +      </header>
@@ -127,11 +127,6 @@ title: 'Lab 20: Router Basics'
    ```
 
    > You can make any `<a>` tag a `<NavLink>` and add the `to` property to set the `href`.
-
-   > You need exact in both home NavLink and Route.
-   >
-   > - `exact` in the `NavLink` keeps Home and Projects from being active(highlighted at the same time)
-   > - `exact` in the Route keeps `/projects` from showing Home and the projects list when going to projects route (it shows both without Switch)
 
 3. **Verify** the **routes** are working by the **following these steps**:
 
