@@ -1,5 +1,5 @@
 ---
-title: 'Lab 21: Route Parameters'
+title: "Lab 21: Route Parameters"
 ---
 
 ## Objectives
@@ -57,7 +57,7 @@ title: 'Lab 21: Route Parameters'
            <Switch>
              <Route path="/" exact component={HomePage} />
              <Route path="/projects" exact component={ProjectsPage} />
-   +          <Route path="/projects/:id" component={ProjectPage} />
+   +           <Route path="/projects/:id" element={<ProjectPage />} />
            </Switch>
          </div>
        </Router>

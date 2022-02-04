@@ -115,10 +115,7 @@ title: "Lab 20: Router Basics"
    +        </NavLink>
    +      </header>
           <div className="container">
-            <Switch>
-              <Route path="/" exact component={HomePage} />
-              <Route path="/projects" exact component={ProjectsPage} />
-            </Switch>
+            ...
           </div>
        </Router>
      );
