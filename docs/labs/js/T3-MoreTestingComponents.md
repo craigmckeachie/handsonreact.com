@@ -1,5 +1,5 @@
 ---
-title: 'Testing Lab 3: More Component Testing'
+title: "Testing Lab 3: More Component Testing"
 ---
 
 ## Objectives
@@ -20,24 +20,42 @@ title: 'Testing Lab 3: More Component Testing'
    #### `src\projects\__tests__\ProjectCard-test.js`
 
    ```js
-   import { render, screen } from '@testing-library/react';
-   import React from 'react';
-   import { Project } from '../Project';
-   import ProjectCard from '../ProjectCard';
+   import { render, screen } from "@testing-library/react";
+   import React from "react";
+   import { Project } from "../Project";
+   import ProjectCard from "../ProjectCard";
 
-   describe('<ProjectCard />', () => {
+   describe("<ProjectCard />", () => {
      let project;
      let handleEdit;
      beforeEach(() => {
        project = new Project({
          id: 1,
-         name: 'Mission Impossible',
-         description: 'This is really difficult',
+         name: "Mission Impossible",
+         description: "This is really difficult",
          budget: 100,
        });
        handleEdit = jest.fn();
        render(<ProjectCard project={project} onEdit={handleEdit} />);
      });
+   });
+   ```
+
+1. Add the test below.
+
+   #### `src\projects\__tests__\ProjectCard-test.js`
+
+   ```js
+   test("should do something", () => {
+     expect(
+       screen.getByRole("heading", {
+         name: /mission impossible/i,
+       })
+     ).toHaveTextContent(project.name);
+     expect(
+       screen.getByText(/this is really difficult\.\.\./i)
+     ).toHaveTextContent(project.description);
+     screen.getByText(/budget : 100/i);
    });
    ```
 
