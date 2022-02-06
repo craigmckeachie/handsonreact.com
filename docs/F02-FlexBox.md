@@ -20,7 +20,7 @@ title: "Flexbox"
 
 > Right Click> Inspect (Open DevTools) > Click `flex` button next to element
 
-> Styles Pane > Click icon next to `display:flew` style to open editor
+> Styles Pane > Click icon next to `display:flex` style to open editor
 
 Reference: [New CSS flexbox debugging tools](https://developer.chrome.com/blog/new-in-devtools-90/#flexbox)
 
