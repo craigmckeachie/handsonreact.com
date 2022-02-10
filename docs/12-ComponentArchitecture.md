@@ -54,24 +54,20 @@ function App() {
   return <Parent />;
 }
 
-class Parent extends React.Component {
-  state = {
-    words: '',
+function Parent() {
+  const [words, setWords] = React.useState("");
+
+  const handleClick = () => {
+    setWords("Did you do your homework?");
   };
 
-  handleClick = () => {
-    this.setState({ words: 'Did you do your homework?' });
-  };
-
-  render() {
-    return (
-      <div>
-        <h1>Parent</h1>
-        <button onClick={this.handleClick}>Ask</button>
-        <Child hears={this.state.words} />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h1>Parent</h1>
+      <button onClick={handleClick}>Ask</button>
+      <Child hears={words} />
+    </div>
+  );
 }
 
 function Child(props) {
@@ -83,7 +79,7 @@ function Child(props) {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 **Child to Parent** communication is passing a function as a property into a component. The function is later invoked in the child but executed in the context of the parent.
@@ -95,8 +91,8 @@ function App() {
 
 function Parent() {
   const handleRequest = (request) => {
-    if (request.includes('car')) {
-      alert('No');
+    if (request.includes("car")) {
+      alert("No");
     }
   };
 
@@ -109,7 +105,7 @@ function Parent() {
 }
 function Child(props) {
   const handleClick = () => {
-    props.onRequest('Can I have the car?');
+    props.onRequest("Can I have the car?");
   };
 
   return (
@@ -120,7 +116,7 @@ function Child(props) {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 #### Additional Communication Patterns
@@ -169,7 +165,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 ### Class Component Example
@@ -206,7 +202,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 The React documentation summarizes it best:
