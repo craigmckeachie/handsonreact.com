@@ -18,6 +18,11 @@ React is one of the most popular JavaScript libraries currently so in this overv
 
 ## Adoption
 
+StackOverflow.com 2021 Survey of 65,000 developers:
+
+- [Most Popular Web Frameworks](https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-web-frameworks)
+- [Most Loved/Dreaded/Wanted Web Frameworks](https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-web-frameworks)
+
 StackOverflow.com 2020 Survey of 65,000 developers:
 
 - [Most Popular Web Frameworks](https://insights.stackoverflow.com/survey/2020#technology-web-frameworks)
@@ -30,7 +35,7 @@ StackOverflow.com 2019 Survey of 90,000 developers:
 
 Looking at this chart from npm trends (npm is the most popular package manager for JavaScript) it becomes clear that both React has extremely strong adoption.
 
-![npm trends chart of javascript frameworks](https://user-images.githubusercontent.com/1474579/94379000-6f5ba380-00fb-11eb-848a-91f012b33232.png)
+![npm trends chart of javascript frameworks](https://user-images.githubusercontent.com/1474579/153309408-57d42bd2-7477-40a3-9918-021bf4c9100c.png)
 
 [View interactive chart online](https://www.npmtrends.com/@angular/core-vs-react-vs-vue)
 
@@ -81,7 +86,7 @@ Subsequently, learning and getting better at React is really just becoming bette
   <p>
     <a  href="https://courses.funnyant.com/courses/hands-on-react/lectures/28665275?wvideo=xh5cfjfsge">
         <img  src="https://cdn.filestackcontent.com/HrvYt2XtRu2H3xh4bG6i" width={800} height={450} style={{width: 800, height: 450}} />
-        <img id="playVideo" height="30px" width="50px" src={useBaseUrl('img/play-arrow.svg')}/>    
+        <img id="playVideo" height="30px" width="50px" src={useBaseUrl('img/play-arrow.svg')}/>
     </a>
   </p>
 </div> -->

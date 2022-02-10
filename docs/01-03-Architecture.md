@@ -18,6 +18,7 @@ In particular, it's valuable to understand how JavaScript application architectu
 - ASP.NET
 - Ruby on Rails
 - PHP (Laravel, CodeIgniter)
+- Python (Django)
 
 ![Server-side web app architecture](https://user-images.githubusercontent.com/1474579/65373190-30715300-dc48-11e9-8343-84fa96372e1b.png)
 
