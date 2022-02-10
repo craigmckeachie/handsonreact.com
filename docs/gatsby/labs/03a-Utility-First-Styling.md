@@ -1,5 +1,5 @@
 ---
-title: 'Utility-First CSS: Tailwind'
+title: "Utility-First CSS: Tailwind"
 ---
 
 Tailwind is a utility-first CSS framework for rapidly building custom user interfaces. This guide will show you how to get started with Gatsby and Tailwind CSS.
@@ -21,7 +21,7 @@ npm install -D gatsby-plugin-postcss tailwindcss@latest postcss@latest autoprefi
 Next, generate your tailwind.config.js and postcss.config.js files:
 
 ```shell
-npx tailwindcss init -p
+npx tailwindcss init
 ```
 
 This will create a minimal tailwind.config.js file at the root of your project:
@@ -29,28 +29,35 @@ This will create a minimal tailwind.config.js file at the root of your project:
 ```js
 // tailwind.config.js
 module.exports = {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
+  content: [],
   theme: {
-    extend: {},
-  },
-  variants: {
     extend: {},
   },
   plugins: [],
 };
 ```
 
-It will also create a `postcss.config.js` file that includes tailwindcss and autoprefixer already configured:
+Add some content glob patterns so Tailwind will know what files to search in for utility-class usage.
+
+```diff
+// tailwind.config.js
+module.exports = {
+-  content: [],
++  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+Create a `postcss.config.js` file at the root of the project and require tailwindcss:
 
 ```js
 // postcss.config.js
-module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-};
+module.exports = () => ({
+  plugins: [require("tailwindcss")],
+});
 ```
 
 ### 3. Enable gatsby-plugin-postcss
@@ -83,7 +90,7 @@ Tailwind will swap these directives out at build-time with all of the styles it 
 
 #### `src\components\layout.js`
 
-_Note: no changes need to be made I'm just calling out the import mentioned above._
+> Note: no changes need to be made I'm just calling out the import mentioned above.\_
 
 ```diff
 import React from "react"
@@ -99,7 +106,7 @@ export default function Layout({ children }) {
 
 ### Configure your Editor (VS Code)
 
-Install the VS Code extension [Tailwind CSS IntelliSense by Brad Cornes](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss). You can search for it on the extensions panel and then click install. Alternatively, click the link above and click install a couple times.
+Install the VS Code extension [Tailwind CSS IntelliSense by Tailwind Labs](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss). You can search for it on the extensions panel and then click install. Alternatively, click the link above and click install a couple times.
 
 Open the command palette `View > Command Palette` and type `settings` and then choose `Preferences: Open Settings (JSON)`
 
@@ -119,7 +126,7 @@ Add these settings:
   },
   "tailwindCSS.emmetCompletions": true,
 
-   ...// more settings
+
 }
 ```
 
@@ -127,6 +134,7 @@ Open the command palette `View > Command Palette` and type `reload` and then cho
 
 ### Using Tailwind's Utility-First Workflow
 
+1. Remove any existing styles in `global.css`.
 1. Let's start by adding the background color back that we removed from `global.css` when we setup Tailwind.
 
 #### `src\styles\global.css`
@@ -168,10 +176,10 @@ There are other solutions to this problem like using `React Helment` but I think
 #### `src\components\layout.js`
 
 ```js
-import React from 'react';
-import Footer from './footer';
-import Header from './header';
-import '../styles/global.css';
+import React from "react";
+import Footer from "./footer";
+import Header from "./header";
+import "../styles/global.css";
 
 export default function Layout({ children }) {
   return (
@@ -184,31 +192,11 @@ export default function Layout({ children }) {
 }
 ```
 
-#### `tailwind.config.js`
-
-```js
-module.exports = {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {
-      borderWidth: ['hover'],
-      borderStyle: ['hover'],
-      borderColor: ['hover'],
-    },
-  },
-  plugins: [],
-};
-```
-
 #### `src\components\header.js`
 
 ```js
-import { Link } from 'gatsby';
-import React from 'react';
+import { Link } from "gatsby";
+import React from "react";
 
 export const NavLink = ({ children, to }) => {
   return (
@@ -236,7 +224,7 @@ export default function Header() {
 #### `src\components\footer.js`
 
 ```js
-import React from 'react';
+import React from "react";
 
 export const FooterLink = ({ children, to }) => {
   return (
@@ -266,7 +254,7 @@ export default function Footer() {
 #### `src\components\page-title.js`
 
 ```js
-import React from 'react';
+import React from "react";
 
 export const PageTitle = ({ children }) => {
   return <h1 className="py-6 text-2xl text-gray-600">{children}</h1>;
@@ -276,9 +264,9 @@ export const PageTitle = ({ children }) => {
 #### `src\pages\index.js`
 
 ```js
-import React from 'react';
-import Layout from '../components/layout';
-import { PageTitle } from '../components/page-title';
+import React from "react";
+import Layout from "../components/layout";
+import { PageTitle } from "../components/page-title";
 
 export default function Home() {
   return (
@@ -302,9 +290,9 @@ export default function Home() {
 #### `src\pages\about.js`
 
 ```js
-import React from 'react';
-import Layout from '../components/layout';
-import { PageTitle } from '../components/page-title';
+import React from "react";
+import Layout from "../components/layout";
+import { PageTitle } from "../components/page-title";
 
 export default function About() {
   return (
@@ -323,10 +311,12 @@ export default function About() {
 }
 ```
 
+#### `src\pages\404.js`
+
 ```js
-import React from 'react';
-import Layout from '../components/layout';
-import { PageTitle } from '../components/page-title';
+import React from "react";
+import Layout from "../components/layout";
+import { PageTitle } from "../components/page-title";
 
 export default function NotFound() {
   return (

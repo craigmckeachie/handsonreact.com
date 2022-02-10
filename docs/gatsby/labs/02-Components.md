@@ -1,5 +1,5 @@
 ---
-title: 'Components'
+title: "Components"
 ---
 
 ## Pages
@@ -9,7 +9,7 @@ title: 'Components'
     #### `src\pages\index.js`
 
     ```js
-    import React from 'react';
+    import React from "react";
 
     export default function Home() {
       return (
@@ -26,7 +26,7 @@ title: 'Components'
     #### `src\pages\about.js`
 
     ```js
-    import React from 'react';
+    import React from "react";
 
     export default function About() {
       return (
@@ -55,12 +55,13 @@ title: 'Components'
 
 ### Layout Component
 
+1. Create a `components` directory under `src`.
 1. Create a layout component for shared layout.
 
    #### `src\components\layout.js`
 
    ```js
-   import React from 'react';
+   import React from "react";
 
    export default function Layout({ children }) {
      return <div>{children}</div>;
@@ -75,14 +76,16 @@ title: 'Components'
 
    ```diff
    import React from "react"
-   import Layout from "../components/layout"
+   + import Layout from "../components/layout"
 
    export default function Home() {
    return (
+   -   <>
    +      <Layout>
        <h1>Home</h1>
        <img src="https://source.unsplash.com/600x300/?house" alt="house" />
    +      </Layout>
+   -   </>
    )
    }
 
@@ -117,7 +120,7 @@ title: 'Components'
    _You will need to create the components directory._
 
    ```js
-   import React from 'react';
+   import React from "react";
 
    export default function Header() {
      return (
@@ -133,7 +136,7 @@ title: 'Components'
    #### `src\components\footer.js`
 
    ```js
-   import React from 'react';
+   import React from "react";
 
    export default function Footer() {
      return (
@@ -155,8 +158,8 @@ title: 'Components'
 
    ```diff
    import React from "react"
-   import Footer from "./footer"
-   import Header from "./header"
+   + import Footer from "./footer"
+   + import Header from "./header"
 
    export default function Layout({ children }) {
    return (
