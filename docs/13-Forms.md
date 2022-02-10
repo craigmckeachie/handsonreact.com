@@ -24,7 +24,7 @@ Below is an example of what a controlled component would like like in a function
 
 ```js
 function ExampleForm() {
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState("");
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -38,7 +38,7 @@ function ExampleForm() {
   );
 }
 
-ReactDOM.render(<ExampleForm />, document.getElementById('root'));
+ReactDOM.render(<ExampleForm />, document.getElementById("root"));
 ```
 
 3. Refresh your browser
@@ -75,7 +75,7 @@ Below is an example of what a controlled component would look like in a class co
 ```js
 class ExampleForm extends React.Component {
   state = {
-    value: '',
+    value: "",
   };
 
   handleChange = (event) => {
@@ -96,7 +96,7 @@ class ExampleForm extends React.Component {
   }
 }
 
-ReactDOM.render(<ExampleForm />, document.getElementById('root'));
+ReactDOM.render(<ExampleForm />, document.getElementById("root"));
 ```
 
 ## Submitting
@@ -109,8 +109,8 @@ Handling the submission of the form using the same concepts we learning previous
 
 ```js
 function LoginForm() {
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -136,7 +136,7 @@ function LoginForm() {
   );
 }
 
-ReactDOM.render(<LoginForm />, document.getElementById('root'));
+ReactDOM.render(<LoginForm />, document.getElementById("root"));
 ```
 
 ### Class Component Example
@@ -144,8 +144,8 @@ ReactDOM.render(<LoginForm />, document.getElementById('root'));
 ```js
 class LoginForm extends React.Component {
   state = {
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   };
 
   handleChange = (event) => {
@@ -179,7 +179,7 @@ class LoginForm extends React.Component {
   }
 }
 
-ReactDOM.render(<LoginForm />, document.getElementById('root'));
+ReactDOM.render(<LoginForm />, document.getElementById("root"));
 ```
 
 ## Controlling other Types of HTML Form Elements
@@ -189,14 +189,14 @@ The following example of a contact us form demonstrates how controlling other HT
 ```js
 class ContactUsForm extends React.Component {
   state = {
-    department: '',
-    message: '',
+    department: "",
+    message: "",
     agreedToTerms: false,
   };
 
   handleChange = (event) => {
     const { type, name, value, checked } = event.target;
-    const updatedValue = type === 'checkbox' ? checked : value;
+    const updatedValue = type === "checkbox" ? checked : value;
     this.setState({ [name]: updatedValue });
   };
 
@@ -237,13 +237,13 @@ class ContactUsForm extends React.Component {
         I agree to the terms and conditions.
         <br />
         <button>Send</button>
-        <pre>{JSON.stringify(this.state, null, ' ')}</pre>
+        <pre>{JSON.stringify(this.state, null, " ")}</pre>
       </form>
     );
   }
 }
 
-ReactDOM.render(<ContactUsForm />, document.getElementById('root'));
+ReactDOM.render(<ContactUsForm />, document.getElementById("root"));
 ```
 
 Notice that although these HTML form fields set their value differently:
@@ -308,8 +308,8 @@ Below is an example of some basic validation implemented in our Contact Us form.
 
 ```js
 function ContactUsForm() {
-  const [department, setDepartment] = React.useState('');
-  const [message, setMessage] = React.useState('');
+  const [department, setDepartment] = React.useState("");
+  const [message, setMessage] = React.useState("");
   const [agreedToTerms, setAgreedToTerms] = React.useState(false);
   const [departmentError, setDepartmentError] = React.useState(null);
   const [messageError, setMessageError] = React.useState(null);
@@ -322,7 +322,7 @@ function ContactUsForm() {
     if (!isValid) {
       return;
     }
-    console.log('submitting', stateToString());
+    console.log("submitting", stateToString());
   }
 
   React.useEffect(() => {
@@ -333,14 +333,14 @@ function ContactUsForm() {
     setDepartmentError(null);
     setMessageError(null);
     setAgreedToTermsError(null);
-    if (department === '') {
-      setDepartmentError('Department is required.');
+    if (department === "") {
+      setDepartmentError("Department is required.");
     }
-    if (message === '') {
-      setMessageError('Message is required.');
+    if (message === "") {
+      setMessageError("Message is required.");
     }
     if (agreedToTerms === false) {
-      setAgreedToTermsError('You must agree to the terms and conditions.');
+      setAgreedToTermsError("You must agree to the terms and conditions.");
     }
   }
 
@@ -355,7 +355,7 @@ function ContactUsForm() {
         agreedToTermsError,
       },
       null,
-      ' '
+      " "
     );
   }
 
@@ -397,7 +397,7 @@ function ContactUsForm() {
   );
 }
 
-ReactDOM.render(<ContactUsForm />, document.getElementById('root'));
+ReactDOM.render(<ContactUsForm />, document.getElementById("root"));
 ```
 
 Some things to notice in the code above:
@@ -414,8 +414,8 @@ Some things to notice in the code above:
 ```js
 class ContactUsForm extends React.Component {
   state = {
-    department: '',
-    message: '',
+    department: "",
+    message: "",
     agreedToTerms: false,
     departmentValidationMessage: null,
     messageValidationMessage: null,
@@ -424,7 +424,7 @@ class ContactUsForm extends React.Component {
 
   handleChange = (event) => {
     const { type, name, value, checked } = event.target;
-    const updatedValue = type === 'checkbox' ? checked : value;
+    const updatedValue = type === "checkbox" ? checked : value;
     this.setState({ [name]: updatedValue });
   };
 
@@ -462,15 +462,15 @@ class ContactUsForm extends React.Component {
       agreedToTermsValidationMessage: null,
     });
     if (!department) {
-      this.setState({ departmentValidationMessage: 'Department is required.' });
+      this.setState({ departmentValidationMessage: "Department is required." });
     }
     if (!message) {
-      this.setState({ messageValidationMessage: 'A message is required.' });
+      this.setState({ messageValidationMessage: "A message is required." });
     }
     if (agreedToTerms === false) {
       this.setState({
         agreedToTermsValidationMessage:
-          'You must agree to the terms and conditions.',
+          "You must agree to the terms and conditions.",
       });
     }
   }
@@ -519,13 +519,13 @@ class ContactUsForm extends React.Component {
           <p className="alert">{this.state.agreedToTermsValidationMessage}</p>
         )}
         <button>Send</button>
-        <pre>{JSON.stringify(this.state, null, ' ')}</pre>
+        <pre>{JSON.stringify(this.state, null, " ")}</pre>
       </form>
     );
   }
 }
 
-ReactDOM.render(<ContactUsForm />, document.getElementById('root'));
+ReactDOM.render(<ContactUsForm />, document.getElementById("root"));
 ```
 
 ## Uncontrolled Components
@@ -555,7 +555,7 @@ function ExampleForm() {
     </form>
   );
 }
-ReactDOM.render(<ExampleForm />, document.getElementById('root'));
+ReactDOM.render(<ExampleForm />, document.getElementById("root"));
 ```
 
 #### Setting defaultValue
@@ -612,7 +612,7 @@ class ExampleForm extends React.Component {
     );
   }
 }
-ReactDOM.render(<ExampleForm />, document.getElementById('root'));
+ReactDOM.render(<ExampleForm />, document.getElementById("root"));
 ```
 
 ### File Input Example
@@ -633,8 +633,7 @@ You should use the File API to interact with the files. The following example sh
 const { useRef } = React;
 
 function FileInput() {
-  const fileInput = null;
-  const fileInput = useRef(null);
+  const fileInput = useRef();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -655,7 +654,7 @@ function FileInput() {
   );
 }
 
-ReactDOM.render(<FileInput />, document.getElementById('root'));
+ReactDOM.render(<FileInput />, document.getElementById("root"));
 ```
 
 #### Class Component Example
@@ -686,7 +685,7 @@ class FileInput extends React.Component {
   }
 }
 
-ReactDOM.render(<FileInput />, document.getElementById('root'));
+ReactDOM.render(<FileInput />, document.getElementById("root"));
 ```
 
 See the reference links below for a more complete example of a file upload component in React.
@@ -724,7 +723,7 @@ button,
 input,
 textarea,
 li {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
 }
 
@@ -791,7 +790,7 @@ h3 {
 
 ```js
 function ID() {
-  return '_' + Math.random().toString(36).substr(2, 9);
+  return "_" + Math.random().toString(36).substr(2, 9);
 }
 
 class Item {
@@ -802,9 +801,9 @@ class Item {
 }
 
 const initialItems = [
-  new Item(ID(), 'First Item'),
-  new Item(ID(), 'Second Item'),
-  new Item(ID(), 'Third Item'),
+  new Item(ID(), "First Item"),
+  new Item(ID(), "Second Item"),
+  new Item(ID(), "Third Item"),
 ];
 
 function ListItem({ item, onEdit, onRemove }) {
@@ -844,7 +843,7 @@ function List({ items, onRemove, onUpdate }) {
 }
 
 function Form({ item, onSubmit, onCancel, buttonValue }) {
-  const [inputValue, setInputValue] = React.useState(item.name || '');
+  const [inputValue, setInputValue] = React.useState(item.name || "");
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -859,7 +858,7 @@ function Form({ item, onSubmit, onCancel, buttonValue }) {
     };
 
     onSubmit(submittedItem);
-    setInputValue('');
+    setInputValue("");
   };
 
   const handleCancel = (event) => {
@@ -870,7 +869,7 @@ function Form({ item, onSubmit, onCancel, buttonValue }) {
   return (
     <form onSubmit={handleFormSubmit}>
       <input value={inputValue} onChange={handleChange} />
-      <button>{buttonValue || 'Save'}</button>
+      <button>{buttonValue || "Save"}</button>
       {onCancel && (
         <a href="#" onClick={handleCancel}>
           cancel
@@ -919,7 +918,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 ### Solution (using Class Components)
@@ -932,7 +931,7 @@ button,
 input,
 textarea,
 li {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
 }
 
@@ -973,7 +972,7 @@ form {
 
 ```js
 function ID() {
-  return '_' + Math.random().toString(36).substr(2, 9);
+  return "_" + Math.random().toString(36).substr(2, 9);
 }
 
 class Item {
@@ -984,9 +983,9 @@ class Item {
 }
 
 const initialItems = [
-  new Item(ID(), 'First Item'),
-  new Item(ID(), 'Second Item'),
-  new Item(ID(), 'Third Item'),
+  new Item(ID(), "First Item"),
+  new Item(ID(), "Second Item"),
+  new Item(ID(), "Third Item"),
 ];
 
 class ListItem extends React.Component {
@@ -1042,7 +1041,7 @@ class List extends React.Component {
 
 class Form extends React.Component {
   state = {
-    inputValue: this.props.item.name || '',
+    inputValue: this.props.item.name || "",
   };
 
   handleChange = (event) => {
@@ -1058,7 +1057,7 @@ class Form extends React.Component {
     };
 
     this.props.onSubmit(item);
-    this.setState({ inputValue: '' });
+    this.setState({ inputValue: "" });
   };
 
   handleCancel = (event) => {
@@ -1070,7 +1069,7 @@ class Form extends React.Component {
     return (
       <form onSubmit={this.handleFormSubmit}>
         <input value={this.state.inputValue} onChange={this.handleChange} />
-        <button>{this.props.buttonValue || 'Save'}</button>
+        <button>{this.props.buttonValue || "Save"}</button>
         {this.props.onCancel && (
           <a href="#" onClick={this.handleCancel}>
             cancel
@@ -1136,7 +1135,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 ## Reference
