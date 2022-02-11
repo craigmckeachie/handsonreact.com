@@ -12,6 +12,7 @@ title: "CSS Grid"
    #### `src\components\footer.js`
 
    ```diff
+   ...
    export default function Footer() {
      return (
    -    <div>
@@ -33,6 +34,8 @@ title: "CSS Grid"
    #### `src\components\layout.js`
 
    ```js
+   ...
+
    export default function Layout({ children }) {
      return (
        <div className="p-2 mx-auto container w-auto border-box">
