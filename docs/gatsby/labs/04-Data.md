@@ -1,5 +1,5 @@
 ---
-title: 'Data'
+title: "Data"
 ---
 
 ## Query Site MetaData
@@ -151,10 +151,10 @@ title: 'Data'
    #### `src\pages\files.js`
 
    ```js
-   import { graphql } from 'gatsby';
-   import React from 'react';
-   import Layout from '../components/layout';
-   import { PageTitle } from '../components/page-title';
+   import { graphql } from "gatsby";
+   import React from "react";
+   import Layout from "../components/layout";
+   import { PageTitle } from "../components/page-title";
 
    const Th = ({ children }) => {
      return (
@@ -259,19 +259,15 @@ title: 'Data'
 3. Query the contents of your articles from the markdown files and transform them to HTML.
 
    ```json
-   query {
+   query  {
      allMarkdownRemark {
-       totalCount
-       edges {
-         node {
-           frontmatter {
-             id
-             slug
-             title
-           }
-           html
-           timeToRead
-           excerpt
+       nodes {
+         timeToRead
+         excerpt
+         frontmatter {
+           slug
+           id
+           title
          }
        }
      }
@@ -284,12 +280,14 @@ title: 'Data'
    #### `src\pages\index.html`
 
    ```js
-   import { graphql } from 'gatsby';
-   import React from 'react';
-   import Layout from '../components/layout';
-   import { PageTitle } from '../components/page-title';
+   import { graphql } from "gatsby";
+   import React from "react";
+   import Layout from "../components/layout";
+   import { PageTitle } from "../components/page-title";
 
    export default function Home({ data }) {
+     console.log(data);
+     console.log(data.nodes);
      return (
        <Layout>
          <PageTitle>Home</PageTitle>
@@ -315,8 +313,8 @@ title: 'Data'
          <div className="py-12">
            <h2 className="text-xl">Featured Articles</h2>
            <hr className="border-gray-400 pb-4" />
-           {data.allMarkdownRemark.edges.map(({ node }) => (
-             <div className="py-2">
+           {data.allMarkdownRemark.nodes.map((node) => (
+             <div key={node.frontmatter.id} className="py-2">
                <a className="hover:underline " href="">
                  <h3 className="text-sm text-gray-800 font-semibold tracking-wide uppercase">
                    {node.frontmatter.title}
@@ -333,16 +331,13 @@ title: 'Data'
    export const query = graphql`
      query {
        allMarkdownRemark {
-         totalCount
-         edges {
-           node {
-             frontmatter {
-               id
-               slug
-               title
-             }
-             timeToRead
-             excerpt
+         nodes {
+           timeToRead
+           excerpt
+           frontmatter {
+             slug
+             id
+             title
            }
          }
        }
@@ -352,257 +347,119 @@ title: 'Data'
 
 ## Create Pages from Data
 
-1. Create the file `gatsby-node.js` at the root of the project.
-2. Handle the create node event and log out the node.
+1. Create the directory `src\articles`.
+1. Create a file to tell gatsby what routes to dynamically generate: `src\articles\{MarkdownRemark.frontmatter__slug}.js`
+1. Create a directory at `src/templates`, and then add the following in a file named `src/templates/article.js`.
+1. In your browser, visit:
 
-   #### `gatsby-node.js`
+   ```
+   http://localhost:8000/nothing
+   ```
+
+   > This is the default 404 page in gatsby that displays all the site pages including the ones you just dynamically created.
+
+1. Scroll down to the bottom of the Gatsby.js development 404 page and you should see the following article pages were generated.
 
    ```js
-   exports.onCreateNode = ({ node }) => {
-     console.log(`Node created of type "${node.internal.type}"`);
-   };
-   ```
-
-3. Stop `gatsby develop` with `Ctrl+C` and start it again.
-
-   ```shell
-   Ctrl+C
-   gatsby develop
-   ```
-
-4. Note all the `Node create of type ...` logged to the console.
-5. Add an if statement to filter down to just `MarkdownRemark` nodes.
-
-   #### `gatsby-node.js`
-
-   ```js
-   exports.onCreateNode = ({ node, getNode }) => {
-     if (node.internal.type === 'MarkdownRemark') {
-       console.log(`Node created of type: ${node.internal.type}`);
-       const fileNode = getNode(node.parent);
-       console.log(fileNode.relativePath);
-     }
-   };
-   ```
-
-6. Restart the development server again.
-
-7. The generated paths for each file will now be logged to the console.
-
-   ```
    /articles/recontextualizing-extensibily/
-   /articles/determining-your-feature-set/
    /articles/your-budget-for-streamlining/
+   /articles/determining-your-feature-set/
    ```
 
-8. Use `createNodeField` to create a node we can use as the path.
+   > Note: If you click these page links at this point they will be broken.
 
-   #### `gatsby-node.js`
+1. Create the basics of a component to display an article but just hard-code a header.
+
+   #### `src\pages\articles\{MarkdownRemark.frontmatter__slug}.js`
 
    ```js
-   const { createFilePath } = require('gatsby-source-filesystem');
+   import React from "react";
+   import Layout from "../../components/layout";
+   import { PageTitle } from "../../components/page-title";
 
-   exports.onCreateNode = ({ node, getNode, actions }) => {
-     const { createNodeField } = actions;
-     if (node.internal.type === 'MarkdownRemark') {
-       const path = createFilePath({ node, getNode, basePath: `pages` });
-       createNodeField({ node, name: 'path', value: path });
-     }
-   };
+   export default function Article() {
+     return (
+       <Layout>
+         <PageTitle>Article Page</PageTitle>
+       </Layout>
+     );
+   }
    ```
 
-9. Restart the development server again.
-10. Open GraphiQL and run the query below and you should see a new path node.
+1. In your browser, visit:
 
-    ```json
-    {
-      allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              path
-            }
-          }
-        }
-      }
-    }
-    ```
+   ```
+   http://localhost:8000/nothing
+   ```
 
-11. Query the data for each of those paths by handling the createPages event.
+1. Click on of the article links and you should see the `Article Page` header displayed.
 
-    #### `gatsby-node.js`
+   ```
+   Article Page
+   ```
 
-    ```js
-    ...
-    exports.createPages = async ({ graphql, actions }) => {
+1. Write a query to find an article based on its slug/path.
 
-      const result = await graphql(`
-        query {
-          allMarkdownRemark {
-            edges {
-              node {
-                fields {
-                  path
-                }
-              }
-            }
-          }
-        }
-      `)
-      console.log(JSON.stringify(result, null, 4))
-    }
-    ```
+   #### Query
 
-12. Restart the development server again.
-13. You should see the path field being logged.
-14. Create a page for each path.
+```json
+sl
+```
 
-    #### `gatsby-node.js`
+#### Query Variables
 
-    ```diff
-    + const path = require(`path`)
-    const { createFilePath } = require("gatsby-source-filesystem")
+> Note the id below won't work, you'll have to use a prior query to find an id for your dev environment.
 
-    exports.onCreateNode = ({ node, getNode, actions }) => {
-      const { createNodeField } = actions
-      if (node.internal.type === "MarkdownRemark") {
-        const path = createFilePath({ node, getNode, basePath: `pages` })
-        createNodeField({ node, name: "path", value: path })
-      }
-    }
+```json
+{
+  "id": "b982e018-50e0-58f0-8ca6-3169483ab7c4"
+}
+```
 
-    exports.createPages = async ({ graphql, actions }) => {
-    +  const { createPage } = actions
-      const result = await graphql(`
-        query {
-          allMarkdownRemark {
-            edges {
-              node {
-                fields {
-                  path
-                }
-              }
-            }
-          }
-        }
-      `)
-    +  result.data.allMarkdownRemark.edges.forEach(({ node }) +=> {
-    +    createPage({
-    +      path: node.fields.path,
-    +      component: path.resolve(`./src/templates/article.+js`),
-    +      context: {
-    +        // Data passed to context is available
-    +        // in page queries as GraphQL variables.
-    +        slug: node.fields.path,
-    +      },
-    +    })
-    +  })
-    + }
-    ```
+1. Update the article component as follows:
 
-_We can test this in a minute but first we need to create the template we referenced in the above code._
+   - Add the query to find an article as page query
+   - Display the title of the article
+   - Display the `html` of the article
 
-14. Create a directory at `src/templates`, and then add the following in a file named `src/templates/article.js`.
-15. Create the basics of a component to display an article but just hard-code a header.
+   #### `src\components\article.js`
 
-    #### `src\templates\article.js`
+   ```diff
+   + import { graphql } from 'gatsby';
+   import React from 'react';
+   import Layout from '../components/layout';
+   import { PageTitle } from "../components/page-title"
 
-    ```js
-    import React from 'react';
-    import Layout from '../components/layout';
-    import { PageTitle } from '../components/page-title';
+   + export default function Article({ data }) {
+   +  const article = data.markdownRemark;
 
-    export default function Article() {
-      return (
-        <Layout>
-          <PageTitle>Article Page</PageTitle>
-        </Layout>
-      );
-    }
-    ```
+     return (
+       <Layout>
+   +      <PageTitle>{article.frontmatter.title}</PageTitle>
+   +      <div dangerouslySetInnerHTML={{ __html: article.html }} />
+       </Layout>
+     );
+   }
 
-16. Restart the development server again.
-17. In your browser, visit:
 
-    ```
-    http://localhost:8000/nothing
-    ```
+   +  export const query = graphql`
+   +   query {
+   +     allMarkdownRemark {
+   +       nodes {
+   +         timeToRead
+   +         excerpt
+   +         frontmatter {
+   +           slug
+   +           id
+   +           title
+   +         }
+   +       }
+   +     }
+   +   }
+   +  `
 
-    > This is the default 404 page in gatsby that displays all the site pages including the ones you just dynamically created.
-
-18. Click on of the article links and you should see the `Article Page` header displayed.
-
-    ```
-    Article Page
-    ```
-
-19. Write a query to find an article based on its slug/path.
-
-    #### Query
-
-    ```json
-    query ($path: String!) {
-      markdownRemark(fields: {path: {eq: $path}}) {
-        html
-        frontmatter {
-          id
-          title
-        }
-        fields {
-          path
-        }
-      }
-    }
-    ```
-
-    #### Query Variables
-
-    ```json
-    {
-      "path": "/articles/your-budget-for-streamlining/"
-    }
-    ```
-
-20. Update the article component as follows:
-
-    - Add the query to find an article as page query
-    - Display the title of the article
-    - Display the `html` of the article
-
-    #### `src\components\article.js`
-
-    ```js
-    + import { graphql } from 'gatsby';
-    import React from 'react';
-    import Layout from '../components/layout';
-    import { PageTitle } from "../components/page-title"
-
-    + export default function Article({ data }) {
-    +  const article = data.markdownRemark;
-
-      return (
-        <Layout>
-    +      <PageTitle>{article.frontmatter.title}</PageTitle>
-    +      <div dangerouslySetInnerHTML={{ __html: article.html }} />
-        </Layout>
-      );
-    }
-
-    + export const query = graphql`
-    +   query($path: String!) {
-    +     markdownRemark(fields: { path: { eq: $path } }) {
-    +       html
-    +       frontmatter {
-    +         id
-    +         title
-    +       }
-    +       fields {
-    +         path
-    +       }
-    +     }
-    +   }
-    + `
-    ```
+   }
+   ```
 
 <!-- 21. Improve the styles of the Article component. Below is an example. -->
 
@@ -626,13 +483,13 @@ _We can test this in a minute but first we need to create the template we refere
             <h2 className="text-xl">Featured Articles</h2>
             <hr className="border-gray-400 pb-4" />
             {data.allMarkdownRemark.edges.map(({ node }) => (
-    -          <div className="py-2">
-    +          <div key={node.frontmatter.id} className="py-2">
+
+              <div key={node.frontmatter.id} className="py-2">
     -            <a className="hover:underline" href="">
     +            <Link
-                  className="hover:underline"
-                  to={`articles${node.frontmatter.slug}`}
-                >
+    +              className="hover:underline"
+    +              to={`articles${node.frontmatter.slug}`}
+    +            >
                   <h3 className="text-sm text-gray-800 font-semibold tracking-wide uppercase">
                     {node.frontmatter.title}
                   </h3>
@@ -663,64 +520,6 @@ _We can test this in a minute but first we need to create the template we refere
         }
       }
     }
-    `
-    ```
-
-22. Alternatively, we could have update the query to return the path variable that we generated (which is the same as the slug except it includes the path).
-
-    ```diff
-    import { graphql, Link } from "gatsby"
-    import React from "react"
-    import Layout from "../components/layout"
-    import { PageTitle } from "../components/page-title"
-
-    export default function Home({ data }) {
-      return (
-        <Layout>
-          <PageTitle>Home</PageTitle>
-          ...
-          <div className="py-12">
-            <h2 className="text-xl">Featured Articles</h2>
-            <hr className="border-gray-400 pb-4" />
-            {data.allMarkdownRemark.edges.map(({ node }) => (
-              <div className="py-2">
-    -             <Link
-    -              className="hover:underline"
-    -              to={`articles${node.frontmatter.slug}`}
-    -              >
-    +            <Link className="hover:underline" to={node.fields.path}>
-                  <h3 className="text-sm text-gray-800 font-semibold tracking-wide uppercase">
-                    {node.frontmatter.title}
-                  </h3>
-                  <p className="">{node.excerpt}</p>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </Layout>
-      )
-    }
-
-    export const query = graphql`
-      query {
-        allMarkdownRemark {
-          totalCount
-          edges {
-            node {
-              frontmatter {
-                id
-    -            slug
-                title
-              }
-    +          fields {
-    +            path
-    +          }
-              timeToRead
-              excerpt
-            }
-          }
-        }
-      }
     `
     ```
 
