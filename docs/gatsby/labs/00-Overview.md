@@ -1,7 +1,7 @@
 ---
-title: 'Overview'
+title: "Overview"
 ---
 
 ## Solution Code
 
-[Available in git](https://github.com/craigmckeachie/gatsby-acme)
+[Available in git](https://github.com/craigmckeachie/acme-gatsby)
