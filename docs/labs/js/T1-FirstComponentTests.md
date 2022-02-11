@@ -113,35 +113,4 @@ title: "Testing Lab 1: Your First Component Test"
    PASS  src/home/HomePage.test.js
    ```
 
----
-
 ### &#10004; You have completed Testing Lab 1
-
-  <!-- 1.  You probably **DON'T need to DO the steps below** but they are listed for completeness.
-
-    > If you recently created your React project using **Create React App** then the following steps to install **React Testing Library** will have been done for you when the project was created.
-
-    - **Run** _one_ of the following sets of commands:
-
-      #### npm
-
-      ```shell
-      npm install --save @testing-library/react @testing-library/jest-dom
-      ```
-
-      #### Yarn
-
-      ```shell
-      yarn add @testing-library/react @testing-library/jest-dom
-      ```
-
-    - Create the file `src\setupTests.js`
-    - Add the following code to configure enzyme.
-
-      #### `src\setupTests.js`
-
-      ```js
-      // react-testing-library renders your components to document.body,
-      // this adds jest-dom's custom assertions
-      import '@testing-library/jest-dom/extend-expect';
-      ``` -->
