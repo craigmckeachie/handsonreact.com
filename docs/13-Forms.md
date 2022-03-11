@@ -314,7 +314,7 @@ ReactDOM.render(<ContactUsForm />, document.getElementById("root"));
 
 Notice that although these HTML form fields set their value differently:
 
-- `<textarea>value goes here<textarea>`
+- `<textarea>value goes here</textarea>`
 - The option with `selected` is selected.
   ```html
   <select name="department">
