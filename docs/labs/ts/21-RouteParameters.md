@@ -1,5 +1,5 @@
 ---
-title: 'Lab 21: Route Parameters'
+title: "Lab 21: Route Parameters"
 ---
 
 ## Objectives
@@ -18,17 +18,17 @@ title: 'Lab 21: Route Parameters'
    const projectAPI = {
    ...
 
-   +  find(id: number) {
+   +  find(id) {
    +    return fetch(`${url}/${id}`)
    +      .then(checkStatus)
    +      .then(parseJSON);
    +  },
    +
-    ...
+   ...
    };
    ```
 
-2. **Copy** the files `snip-master\labs\js\snippets\lab21\[ProjectPage.tsx and ProjectDetail.tsx]` into the `src\projects` directory.
+2. **Copy** the files `snip-master\labs\js\snippets\lab21\ProjectPage.tsx and ProjectDetail.tsx]` into the `src\projects` directory.
    > These files contain some pre-built components we will use in this lab. Take a moment to review the code in them.
 3. Add a route to display the `ProjectPage` (notice that we now have a `ProjectPage` and a `ProjectsPage` so be careful you are in the correct file).
 
@@ -57,7 +57,7 @@ title: 'Lab 21: Route Parameters'
            <Switch>
              <Route path="/" exact component={HomePage} />
              <Route path="/projects" exact component={ProjectsPage} />
-   +          <Route path="/projects/:id" component={ProjectPage} />
+   +           <Route path="/projects/:id" element={<ProjectPage />} />
            </Switch>
          </div>
        </Router>
@@ -86,7 +86,7 @@ title: 'Lab 21: Route Parameters'
        onClick={() => {
        handleEditClick(project);
        }}
-     >
+      >
        <span className="icon-edit "></span>
        Edit
      </button>
