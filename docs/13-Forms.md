@@ -699,13 +699,13 @@ You should use the File API to interact with the files. The following example sh
 const { useRef } = React;
 
 function FileInput() {
-  const fileInput = useRef();
+  const fileInput = useRef() as React.MutableRefObject<HTMLInputElement>;
 
-  function handleSubmit(event) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     console.log(fileInput.current);
     if (!fileInput) return;
-    alert(`Selected file - ${fileInput.current.files[0].name}`);
+    alert(`Selected file - ${fileInput.current!.files![0].name}`);
   }
 
   return (
