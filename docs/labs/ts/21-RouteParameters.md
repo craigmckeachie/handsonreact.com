@@ -45,7 +45,7 @@ title: "Lab 21: Route Parameters"
            <span className="logo">
              <img src="/assets/logo-3.svg" alt="logo" width="49" height="99" />
            </span>
-           <NavLink to="/" exact className="button rounded">
+           <NavLink to="/"  className="button rounded">
              <span className="icon-home"></span>
              Home
            </NavLink>
@@ -55,8 +55,8 @@ title: "Lab 21: Route Parameters"
          </header>
          <div className="container">
            <Switch>
-             <Route path="/" exact component={HomePage} />
-             <Route path="/projects" exact component={ProjectsPage} />
+             <Route path="/"  component={HomePage} />
+             <Route path="/projects"  component={ProjectsPage} />
    +           <Route path="/projects/:id" element={<ProjectPage />} />
            </Switch>
          </div>
