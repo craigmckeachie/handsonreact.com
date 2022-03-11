@@ -1,5 +1,5 @@
 ---
-title: 'Lab 18: HTTP GET'
+title: "Lab 18: HTTP GET"
 ---
 
 ## Objectives
@@ -26,17 +26,17 @@ title: 'Lab 18: HTTP GET'
     #### `src\projects\projectAPI.ts`
 
     ```ts
-    const baseUrl = 'http://localhost:4000';
+    const baseUrl = "http://localhost:4000";
     const url = `${baseUrl}/projects`;
 
     function translateStatusToErrorMessage(status: number) {
       switch (status) {
         case 401:
-          return 'Please login again.';
+          return "Please login again.";
         case 403:
-          return 'You do not have permission to view the project(s).';
+          return "You do not have permission to view the project(s).";
         default:
-          return 'There was an error retrieving the project(s). Please try again.';
+          return "There was an error retrieving the project(s). Please try again.";
       }
     }
 
@@ -74,9 +74,9 @@ title: 'Lab 18: HTTP GET'
           .then(checkStatus)
           .then(parseJSON)
           .catch((error: TypeError) => {
-            console.log('log client error ' + error);
+            console.log("log client error " + error);
             throw new Error(
-              'There was an error retrieving the projects. Please try again.'
+              "There was an error retrieving the projects. Please try again."
             );
           });
       },
@@ -269,7 +269,7 @@ function ProjectsPage() {
      ...
 
      return (
-     <Fragment>
+     <>
          <h1>Projects</h1>
 
    +      {error && (
@@ -293,7 +293,7 @@ function ProjectsPage() {
              <p>Loading...</p>
            </div>
          )}
-       </Fragment>
+       </>
      );
    }
 
@@ -326,7 +326,7 @@ function ProjectsPage() {
 
    1. **Change** the **URL** so the API endpoint cannot be reached.
 
-      #### `src\projects\projectAPI.tsx`
+      #### `src\projects\projectAPI.ts`
 
       ```diff
       const baseUrl = 'http://localhost:4000';
