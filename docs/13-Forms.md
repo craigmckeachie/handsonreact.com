@@ -43,7 +43,7 @@ ReactDOM.render(<ExampleForm />, document.getElementById("root"));
 
 3. Refresh your browser
 4. Type some text in the `input`
-5. Notice that this text immediately shows in `state` because we have written set the value and onChange properties to read and write from the parent component's surrounding state.
+5. Notice that this text immediately shows in `state` because we have written to set the value and onChange properties to read and write from the parent component's surrounding state.
 6. Update `handleChange` as follows
 
 ```diff
