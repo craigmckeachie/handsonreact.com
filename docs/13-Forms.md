@@ -606,9 +606,9 @@ When writing an `uncontrolled component` you use a `ref` to get form values from
 
 ```js
 function ExampleForm() {
-  const input = React.useRef(null);
+  const input = React.useRef<HTMLInputElement>(null);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(input.current);
     console.log(input.current.value);
