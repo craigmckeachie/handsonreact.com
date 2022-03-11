@@ -769,13 +769,12 @@ Below we continue to expand on the Items (CRUD) Demo to use forms and do additio
      - Note: since render needs to return one parent element you will need to wrap `<Form>` and `<List>` in an outer `<div>` or `<React.Fragment>`
    - read the value from the input when you click the add button
 1. Add a feature to update an item inline
-
-- Add an edit button to each item in the list
-- Display an input and a button inline in place of the item when they click edit
-- Save the update back into state in the app component
-
+   - Add an edit button to each item in the list
+   - Display an input and a button inline in place of the item when they click edit
+   - Save the update back into state in the app component
 1. Add a cancel link and use it to cancel out of editing mode.
-   See the finished solution code below:
+
+See the finished solution code below:
 
 ### Solution (using Function Components & Hooks)
 
