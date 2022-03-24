@@ -1,5 +1,5 @@
 ---
-title: 'Professional Polish'
+title: "Professional Polish"
 ---
 
 Use `lab25` as the starting point for these enhancements.
@@ -112,8 +112,8 @@ const projectAPI = {
 #### `src\projects\ProjectCardSkeleton.tsx`
 
 ```ts
-import React from 'react';
-import ContentLoader from 'react-content-loader';
+import React from "react";
+import ContentLoader from "react-content-loader";
 
 const ProjectCardSkeleton = (props: any) => (
   <ContentLoader
@@ -143,8 +143,8 @@ export default ProjectCardSkeleton;
 #### `src\projects\ProjectListSkeleton.tsx`
 
 ```ts
-import React from 'react';
-import ProjectCardSkeleton from './ProjectCardSkeleton';
+import React from "react";
+import ProjectCardSkeleton from "./ProjectCardSkeleton";
 
 const ProjectListSkeleton = () => {
   const numberOfItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -248,7 +248,7 @@ const projectAPI = {
    yarn add react-transition-group
    ```
 
-2. Move the `<Router>` component up one level to wrap the entire `App`. This is necessary for us to be able to access the new `useLocation` hook that is part of `react-router` at the point we use the `CSSTransition` and `Switch` components. We also get the `location` using the `useLocation` hook.
+2. Move the `<Router>` component up one level to wrap the entire `App`. This is necessary for us to be able to access the new `useLocation` hook that is part of `react-router` at the point we use the `CSSTransition` and `Routes` components. We also get the `location` using the `useLocation` hook.
 
    > You can't use any of the hooks from within the same component that puts the Router into the tree.
    > You need to move your BrowserRouter out of that component. It can go in the ReactDOM.render() call, for instance.
@@ -263,7 +263,7 @@ import {
 -  BrowserRouter as Router,
   Route,
   NavLink,
-  Switch,
+  Routes,
 +  useLocation,
 } from 'react-router-dom';
 
@@ -278,7 +278,7 @@ function App() {
         <span className="logo">
           <img src="/assets/logo-3.svg" alt="logo" width="49" height="99" />
         </span>
-        <NavLink to="/" exact className="button rounded">
+        <NavLink to="/" className="button rounded">
           <span className="icon-home"></span>
           Home
         </NavLink>
@@ -287,11 +287,11 @@ function App() {
         </NavLink>
       </header>
       <div className="container">
-        <Switch location={location}>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/projects" exact component={ProjectsPage} />
+        <Routes location={location}>
+          <Route path="/" component={HomePage} />
+          <Route path="/projects" component={ProjectsPage} />
           <Route path="/projects/:id" component={ProjectPage} />
-        </Switch>
+        </Routes>
       </div>
 -      </Router>
     </Provider>
@@ -318,7 +318,7 @@ ReactDOM.render(
 
 ```
 
-2. Wrap the `react-router`'s `Switch` component with a `TransitionGroup` and `CSSTransition` component from the `react-transition-group` library.
+2. Wrap the `react-router`'s `Routes` component with a `TransitionGroup` and `CSSTransition` component from the `react-transition-group` library.
 
 #### `src\App.tsx`
 
@@ -333,7 +333,7 @@ function App() {
         <span className="logo">
           <img src="/assets/logo-3.svg" alt="logo" width="49" height="99" />
         </span>
-        <NavLink to="/" exact className="button rounded">
+        <NavLink to="/"  className="button rounded">
           <span className="icon-home"></span>
           Home
         </NavLink>
@@ -344,12 +344,12 @@ function App() {
       <div className="container">
 +        <TransitionGroup>
 +          <CSSTransition key={location.key} classNames="fade" timeout={300}>
--           <Switch>
-+           <Switch location={location}>
-              <Route path="/" exact component={HomePage} />
-              <Route path="/projects" exact component={ProjectsPage} />
+-           <Routes>
++           <Routes location={location}>
+              <Route path="/" component={HomePage} />
+              <Route path="/projects" component={ProjectsPage} />
               <Route path="/projects/:id" component={ProjectPage} />
-            </Switch>
+            </Routes>
 +          </CSSTransition>
 +        </TransitionGroup>
       </div>

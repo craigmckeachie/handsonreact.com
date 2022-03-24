@@ -54,11 +54,11 @@ title: "Lab 21: Route Parameters"
            </NavLink>
          </header>
          <div className="container">
-           <Switch>
+           <Routes>
              <Route path="/"  component={HomePage} />
              <Route path="/projects"  component={ProjectsPage} />
    +           <Route path="/projects/:id" element={<ProjectPage />} />
-           </Switch>
+           </Routes>
          </div>
        </Router>
      );

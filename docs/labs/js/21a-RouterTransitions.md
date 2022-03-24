@@ -1,5 +1,5 @@
 ---
-title: 'Lab 21 a: Route Transitions'
+title: "Lab 21 a: Route Transitions"
 ---
 
 > This lab is optional and should only be done if time permits
@@ -27,7 +27,7 @@ title: 'Lab 21 a: Route Transitions'
    yarn add react-transition-group
    ```
 
-2. Move the `<Router>` component up one level to wrap the entire `App`. This is necessary for us to be able to access the new `useLocation` hook that is part of `react-router` at the point we use the `CSSTransition` and `Switch` components. We get the `location` using the `useLocation` hook.
+2. Move the `<Router>` component up one level to wrap the entire `App`. This is necessary for us to be able to access the new `useLocation` hook that is part of `react-router` at the point we use the `CSSTransition` and `Routes` components. We get the `location` using the `useLocation` hook.
 
    > You can't use any of the hooks from within the same component that puts the Router into the tree.
    > You need to move your BrowserRouter out of that component. It can go in the ReactDOM.render() call, for instance.
@@ -42,7 +42,7 @@ title: 'Lab 21 a: Route Transitions'
    -  BrowserRouter as Router,
    Route,
    NavLink,
-   Switch,
+   Routes,
    +  useLocation,
    } from 'react-router-dom';
 
@@ -57,7 +57,7 @@ title: 'Lab 21 a: Route Transitions'
            <span className="logo">
            <img src="/assets/logo-3.svg" alt="logo" width="49" height="99" />
            </span>
-           <NavLink to="/" exact className="button rounded">
+           <NavLink to="/" className="button rounded">
            <span className="icon-home"></span>
            Home
            </NavLink>
@@ -66,11 +66,11 @@ title: 'Lab 21 a: Route Transitions'
            </NavLink>
        </header>
        <div className="container">
-           <Switch location={location}>
-           <Route path="/" exact component={HomePage} />
-           <Route path="/projects" exact component={ProjectsPage} />
+           <Routes location={location}>
+           <Route path="/"  component={HomePage} />
+           <Route path="/projects" component={ProjectsPage} />
            <Route path="/projects/:id" component={ProjectPage} />
-           </Switch>
+           </Routes>
        </div>
    -      </Router>
        </Provider>
@@ -97,7 +97,7 @@ title: 'Lab 21 a: Route Transitions'
 
    ```
 
-3. Wrap the `react-router`'s `Switch` component with a `TransitionGroup` and `CSSTransition` component from the `react-transition-group` library.
+3. Wrap the `react-router`'s `Routes` component with a `TransitionGroup` and `CSSTransition` component from the `react-transition-group` library.
 
    #### `src\App.js`
 
@@ -112,7 +112,7 @@ title: 'Lab 21 a: Route Transitions'
            <span className="logo">
            <img src="/assets/logo-3.svg" alt="logo" width="49" height="99" />
            </span>
-           <NavLink to="/" exact className="button rounded">
+           <NavLink to="/" className="button rounded">
            <span className="icon-home"></span>
            Home
            </NavLink>
@@ -123,12 +123,12 @@ title: 'Lab 21 a: Route Transitions'
        <div className="container">
    +        <TransitionGroup>
    +          <CSSTransition key={location.key} classNames="fade"  timeout={{ enter: 400, exit: 200 }}>
-   -           <Switch>
-   +           <Switch location={location}>
-               <Route path="/" exact component={HomePage} />
-               <Route path="/projects" exact component={ProjectsPage} />
+   -           <Routes>
+   +           <Routes location={location}>
+               <Route path="/" component={HomePage} />
+               <Route path="/projects" component={ProjectsPage} />
                <Route path="/projects/:id" component={ProjectPage} />
-               </Switch>
+               </Routes>
    +          </CSSTransition>
    +        </TransitionGroup>
        </div>
