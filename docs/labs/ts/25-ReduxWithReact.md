@@ -164,6 +164,8 @@ title: "Lab 25: Redux with React"
 
 1. Refactor the Form component so it dispatches the `saveProject` action instead of receiving the function as a prop.
 
+   > Be sure to include the line to invoke the useDispatch hook as shown below `const dispatch = useDispatch();` in the next code block. If you don't your editor might implement an placeholder method named `dispatch` that throws an error.
+
    #### `src\projects\ProjectForm.tsx`
 
    ```diff
