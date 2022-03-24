@@ -1,5 +1,5 @@
 ---
-title: 'Lab 19: HTTP PUT'
+title: "Lab 19: HTTP PUT"
 ---
 
 ## Objectives
@@ -67,7 +67,9 @@ title: 'Lab 19: HTTP PUT'
    +       setProjects(updatedProjects);
    +     })
    +     .catch((e) => {
-   +       setError(e.message);
+   +        if (e instanceof Error) {
+   +         setError(e.message);
+   +        }
    +     });
      };
 

@@ -1,5 +1,5 @@
 ---
-title: 'Lab 25: Redux with React'
+title: "Lab 25: Redux with React"
 ---
 
 ## Objectives
@@ -28,7 +28,7 @@ title: 'Lab 25: Redux with React'
    function ProjectsPage() {
    -  const [projects, setProjects] = useState<Project[]>([]);
    -  const [loading, setLoading] = useState(false);
-   -  const [error, setError] = useState(undefined);
+   -  const [error, setError] = useState<string | undefined>(undefined);
    -  const [currentPage, setCurrentPage] = useState(1);
 
    +  const loading = useSelector(
@@ -77,7 +77,9 @@ title: 'Lab 25: Redux with React'
    -      })
    -      .catch((e) => {
    -        setLoading(false);
-   -        setError(e.message);
+   -         if (e instanceof Error) {
+   -             setError(e.message);
+   -        }
    -      });
    -  }, [currentPage]);
 
@@ -100,7 +102,9 @@ title: 'Lab 25: Redux with React'
    -        setProjects(updatedProjects);
    -      })
    -      .catch((e) => {
-   -        setError(e.message);
+   -         if (e instanceof Error) {
+   -             setError(e.message);
+   -        }
    -      });
    -  };
 
