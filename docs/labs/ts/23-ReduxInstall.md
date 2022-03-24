@@ -1,5 +1,5 @@
 ---
-title: 'Lab 23 Redux: Installation & Configuration'
+title: "Lab 23 Redux: Installation & Configuration"
 ---
 
 ## Objectives
@@ -12,7 +12,7 @@ title: 'Lab 23 Redux: Installation & Configuration'
 ### Install Redux
 
 1. **Open** a `command prompt` (Windows) or `terminal` (Mac).
-1. Change the **current directory** to `working\keeptrack`.
+1. Change the **current directory** to `keeptrack`.
 1. **Run** _one_ of the following sets of commands:
    #### npm
    ```shell
@@ -33,10 +33,10 @@ title: 'Lab 23 Redux: Installation & Configuration'
    #### `src\state.ts`
 
    ```ts
-   import { createStore, applyMiddleware } from 'redux';
-   import ReduxThunk from 'redux-thunk';
-   import { composeWithDevTools } from 'redux-devtools-extension';
-   import { combineReducers } from 'redux';
+   import { createStore, applyMiddleware } from "redux";
+   import ReduxThunk from "redux-thunk";
+   import { composeWithDevTools } from "redux-devtools-extension";
+   import { combineReducers } from "redux";
 
    const reducer = combineReducers({});
 
