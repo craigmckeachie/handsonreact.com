@@ -241,6 +241,8 @@ module.exports = {
           "labs/ts/23-ReduxInstall",
           "labs/ts/24-ReduxActionsReducer",
           "labs/ts/25-ReduxWithReact",
+          "labs/ts/26-CustomHooks",
+          "labs/ts/27-ReactQuery",
           "labs/ts/T1-FirstComponentTests",
           "labs/ts/T2-SnapshotTests",
           "labs/ts/T3-MoreTestingComponents",
