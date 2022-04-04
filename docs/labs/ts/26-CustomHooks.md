@@ -90,6 +90,8 @@ title: "Lab 26: Custom Hooks"
 
 3. Refactor the `ProjectsPage` component to remove the logic which is now in the hook and call the hook instead.
 
+> Be sure to open the `ProjectsPage.tsx` and not the singular `ProjectPage.tsx`
+
 #### `src\projects\ProjectsPage.ts`
 
 ```diff
@@ -188,8 +190,57 @@ export default ProjectsPage;
 ```
 
 3. Test the application to verify all functionality works as it did previously including:
+
    - Loading projects
    - Loading more projects (pagination)
    - Saving an updated project
+
+4. Test the application to verify the loading, saving and error messages are displaying.
+
+   - Add this line to test the loading spinner
+
+     #### `src\projects\projectAPI.ts`
+
+     ```diff
+       get(page = 1, limit = 20) {
+         return fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`)
+     +     .then(delay(2000))
+           .then(checkStatus)
+           .then(parseJSON)
+           .catch((error: TypeError) => {
+             console.log('log client error ' + error);
+             throw new Error(
+               'There was an error retrieving the projects. Please try again.'
+             );
+           });
+       },
+     ```
+
+   - Add this line to test the saving message
+
+     #### `src\projects\projectAPI.ts`
+
+     ```diff
+     put(project: Project) {
+       return fetch(`${url}/${project.id}`, {
+         method: 'PUT',
+         body: JSON.stringify(project),
+         headers: {
+           'Content-Type': 'application/json',
+         },
+       })
+     +   .then(delay(2000))
+         .then(checkStatus)
+         .then(parseJSON)
+         .catch((error: TypeError) => {
+           console.log('log client error ' + error);
+           throw new Error(
+             'There was an error updating the project. Please try again.'
+           );
+         });
+     },
+     ```
+
+     - Shut down your backend API to test the display of an error message
 
 ### &#10004; You have completed Lab 26
