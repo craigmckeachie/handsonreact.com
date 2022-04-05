@@ -69,26 +69,13 @@ git diff 9e548ac0ac4dd05c8e9778475a47351f6246f058..react-query-working -->
    #### `src/projects/ProjectsPage.tsx`
 
    ```diff
-   ...
-   <ProjectList projects={projects}
+     ...
+
+     <ProjectList projects={projects}
    - onSave={saveProject}
-   />
+     />
 
-   function ProjectList({ projects
-   - , onSave
-   }: ProjectListProps) {
-
-   ...
-   ```
-
-   ```diff
-   ...
-   <p>
-       <span className="icon-alert inverse "></span>
-       {error}
-   -   {savingError}
-   </p>
-   ...
+     ...
    ```
 
    #### `src/projects/ProjectList.tsx`
@@ -98,6 +85,16 @@ git diff 9e548ac0ac4dd05c8e9778475a47351f6246f058..react-query-working -->
      projects: Project[];
    -  onSave: (project: Project) => void;
    }
+   ```
+
+   ```diff
+   ...
+
+   function ProjectList({ projects
+   - , onSave
+   }: ProjectListProps) {
+
+   ...
    ```
 
    ```diff
@@ -144,143 +141,149 @@ git diff 9e548ac0ac4dd05c8e9778475a47351f6246f058..react-query-working -->
 1. **DELETE ALL** the **code** in `src/projects/projectHooks.ts`
 1. Add the following code. Notice that is significantly less code.
 
-#### `src/projects/projectHooks.ts`
+   #### `src/projects/projectHooks.ts`
 
-```ts
-import { useState } from "react";
-import { projectAPI } from "./projectAPI";
-import { useMutation, useQuery, useQueryClient } from "react-query";
-import { Project } from "./Project";
+   ```ts
+   import { useState } from "react";
+   import { projectAPI } from "./projectAPI";
+   import { useMutation, useQuery, useQueryClient } from "react-query";
+   import { Project } from "./Project";
 
-export function useProjects() {
-  const [page, setPage] = useState(0);
-  let queryInfo = useQuery(["projects", page], () => projectAPI.get(page + 1), {
-    keepPreviousData: true,
-    // staleTime: 5000,
-  });
-  console.log(queryInfo);
-  return { ...queryInfo, page, setPage };
-}
-```
+   export function useProjects() {
+     const [page, setPage] = useState(0);
+     let queryInfo = useQuery(
+       ["projects", page],
+       () => projectAPI.get(page + 1),
+       {
+         keepPreviousData: true,
+         // staleTime: 5000,
+       }
+     );
+     console.log(queryInfo);
+     return { ...queryInfo, page, setPage };
+   }
+   ```
 
 1. Update the `ProjectsPage.tsx` to use the React Query based custom hook.
 
-```tsx
-import React, { useEffect, useState } from "react";
-import { useProjects } from "./projectHooks";
-import ProjectList from "./ProjectList";
+   #### `src/projects/ProjectsPage.tsx`
 
-function ProjectsPage() {
-  const {
-    data,
-    isLoading,
-    error,
-    isError,
-    isFetching,
-    page,
-    setPage,
-    isPreviousData,
-  } = useProjects();
+   ```tsx
+   import React, { useEffect, useState } from "react";
+   import { useProjects } from "./projectHooks";
+   import ProjectList from "./ProjectList";
 
-  const handleMoreClick = () => {
-    setPage((currentPage) => currentPage + 1);
-  };
+   function ProjectsPage() {
+     const {
+       data,
+       isLoading,
+       error,
+       isError,
+       isFetching,
+       page,
+       setPage,
+       isPreviousData,
+     } = useProjects();
 
-  return (
-    <>
-      <h1>Projects</h1>
+     const handleMoreClick = () => {
+       setPage((currentPage) => currentPage + 1);
+     };
 
-      {data ? (
-        <>
-          {isFetching && <span className="toast">Refreshing...</span>}
-          <ProjectList projects={data} />
-          <div className="row">
-            <div className="col-sm-4">Current page: {page + 1}</div>
-            <div className="col-sm-4">
-              <div className="button-group right">
-                <button
-                  className="button "
-                  onClick={() => setPage((oldPage) => oldPage - 1)}
-                  disabled={page === 0}
-                >
-                  Previous
-                </button>
-                <button
-                  className="button"
-                  onClick={() => {
-                    if (!isPreviousData) {
-                      setPage((oldPage) => oldPage + 1);
-                    }
-                  }}
-                  disabled={data.length != 10}
-                >
-                  Next
-                </button>
-              </div>
-            </div>
-          </div>
-        </>
-      ) : isLoading ? (
-        <div className="center-page">
-          <span className="spinner primary"></span>
-          <p>Loading...</p>
-        </div>
-      ) : isError && error instanceof Error ? (
-        <div className="row">
-          <div className="card large error">
-            <section>
-              <p>
-                <span className="icon-alert inverse "></span>
-                {error.message}
-              </p>
-            </section>
-          </div>
-        </div>
-      ) : null}
-    </>
-  );
-}
+     return (
+       <>
+         <h1>Projects</h1>
 
-export default ProjectsPage;
+         {data ? (
+           <>
+             {isFetching && <span className="toast">Refreshing...</span>}
+             <ProjectList projects={data} />
+             <div className="row">
+               <div className="col-sm-4">Current page: {page + 1}</div>
+               <div className="col-sm-4">
+                 <div className="button-group right">
+                   <button
+                     className="button "
+                     onClick={() => setPage((oldPage) => oldPage - 1)}
+                     disabled={page === 0}
+                   >
+                     Previous
+                   </button>
+                   <button
+                     className="button"
+                     onClick={() => {
+                       if (!isPreviousData) {
+                         setPage((oldPage) => oldPage + 1);
+                       }
+                     }}
+                     disabled={data.length != 10}
+                   >
+                     Next
+                   </button>
+                 </div>
+               </div>
+             </div>
+           </>
+         ) : isLoading ? (
+           <div className="center-page">
+             <span className="spinner primary"></span>
+             <p>Loading...</p>
+           </div>
+         ) : isError && error instanceof Error ? (
+           <div className="row">
+             <div className="card large error">
+               <section>
+                 <p>
+                   <span className="icon-alert inverse "></span>
+                   {error.message}
+                 </p>
+               </section>
+             </div>
+           </div>
+         ) : null}
+       </>
+     );
+   }
 
-// return (
-//   <>
-//     <h1>Header</h1>
-//     {data ? (
-//       <p>data</p>
-//     ) : isLoading ? (
-//       <p>Loading...</p>
-//     ) : isError ? (
-//       <p>Error Message</p>
-//     ) : null}
-//   </>
-// );
-```
+   export default ProjectsPage;
 
-1. To make it easier to see the pagination change the page size to 10 records and delay the query to make it easier to see the loading indicator.
+   // return (
+   //   <>
+   //     <h1>Header</h1>
+   //     {data ? (
+   //       <p>data</p>
+   //     ) : isLoading ? (
+   //       <p>Loading...</p>
+   //     ) : isError ? (
+   //       <p>Error Message</p>
+   //     ) : null}
+   //   </>
+   // );
+   ```
 
-#### `src/projects/projectAPI.tsx`
+1. To make it easier to see the pagination change the page size to 10 records. Delay the query to make it easier to see the loading indicator.
 
-```diff
-const projectAPI = {
-  get(page = 1,
--  limit = 20
-+  limit = 10
-  ) {
-    return (
-      fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`)
-+        .then(delay(1000))
-        .then(checkStatus)
-        .then(parseJSON)
-        .catch((error: TypeError) => {
-          console.log('log client error ' + error);
-          throw new Error(
-            'There was an error retrieving the projects. Please try again.'
-          );
-        })
-    );
-  },
-```
+   #### `src/projects/projectAPI.tsx`
+
+   ```diff
+   const projectAPI = {
+     get(page = 1,
+   -  limit = 20
+   +  limit = 10
+     ) {
+       return (
+         fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`)
+   +        .then(delay(1000))
+           .then(checkStatus)
+           .then(parseJSON)
+           .catch((error: TypeError) => {
+             console.log('log client error ' + error);
+             throw new Error(
+               'There was an error retrieving the projects. Please try again.'
+             );
+           })
+       );
+     },
+   ```
 
 1. Test the projects page and verify that the initial load and pagination work.
 
@@ -288,42 +291,56 @@ const projectAPI = {
 
 1. Add the `useSaveProject` custom hook.
 
-### `src/projects/projectHooks.ts`
+   #### `src/projects/projectHooks.ts`
 
-```ts
-// existing code
-...
+   ```ts
+   // existing code
+   ...
 
-export function useSaveProject() {
-  const queryClient = useQueryClient();
-  return useMutation((project: Project) => projectAPI.put(project), {
-    onSuccess: () => queryClient.invalidateQueries('projects'),
-  });
-```
+   export function useSaveProject() {
+     const queryClient = useQueryClient();
+     return useMutation((project: Project) => projectAPI.put(project), {
+       onSuccess: () => queryClient.invalidateQueries('projects'),
+     });
+   }
+   ```
 
 1. Update the `ProjectForm` to use the `useSaveProject` hook.
 
-#### `src/projects/ProjectForm.tsx`
+   #### `src/projects/ProjectForm.tsx`
 
-```diff
-function ProjectForm({ project: initialProject,
-                       onCancel }: ProjectFormProps) {
+   ```diff
+   import React, { SyntheticEvent, useState } from 'react';
+   import { Project } from './Project';
+   + import { useSaveProject } from './projectHooks';
 
-...
+   ...
 
-+  const { mutate: saveProject, isLoading } = useSaveProject();
-  const handleSubmit = (event: SyntheticEvent) => {
-    event.preventDefault();
-    if (!isValid()) return;
-+   saveProject(project);
-  };
+   function ProjectForm({ project: initialProject,
+                         onCancel }: ProjectFormProps) {
 
-...
+   ...
 
-}
+   +  const { mutate: saveProject, isLoading } = useSaveProject();
+     const handleSubmit = (event: SyntheticEvent) => {
+       event.preventDefault();
+       if (!isValid()) return;
+   +   saveProject(project);
+     };
 
-export default ProjectForm;
-```
+   ...
+
+   return (
+       <form className="input-group vertical" onSubmit={handleSubmit}>
+   +      {isLoading && <span className="toast">Saving...</span>}
+         <label htmlFor="name">Project Name</label>
+
+   ...
+
+   }
+
+   export default ProjectForm;
+   ```
 
 1. Test the projects page. Edit a project and save it and verify the change works and you see the saving toast indicator near the bottom of the page.
 
