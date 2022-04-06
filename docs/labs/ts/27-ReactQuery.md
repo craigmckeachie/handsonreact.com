@@ -185,10 +185,6 @@ git diff 9e548ac0ac4dd05c8e9778475a47351f6246f058..react-query-working -->
        isPreviousData,
      } = useProjects();
 
-     const handleMoreClick = () => {
-       setPage((currentPage) => currentPage + 1);
-     };
-
      return (
        <>
          <h1>Projects</h1>
