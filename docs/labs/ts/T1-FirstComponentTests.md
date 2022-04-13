@@ -7,6 +7,7 @@ title: 'Testing Lab 1: Your First Component Test'
 - [ ] Install React Testing Library
 - [ ] Create Your First Component Test
 
+
 ## Steps
 
 > This lab is designed to start with the code after finishing:
@@ -14,6 +15,17 @@ title: 'Testing Lab 1: Your First Component Test'
 > **Lab 25: Redux with React**
 
 ### Install React Testing Library
+
+1. Make a new directory in your code directory `testing`.
+1. In that directory, download or clone the following branch to start testing.
+
+   ```
+   git clone https://github.com/craigmckeachie/keeptrack-ts/tree/lab25 keeptrack
+   ```
+
+   OR
+
+   Visit [this link](https://github.com/craigmckeachie/keeptrack-ts/tree/lab25) and click `Code > Download`
 
 1.  **Open** a `command prompt` (Windows) or `terminal` (Mac).
 1.  Change the **current directory** to `code\keeptrack`.
