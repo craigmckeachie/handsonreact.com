@@ -5,7 +5,7 @@ sidebar_label: Essential JavaScript for React
 slug: /essential-javascript-react
 ---
 
-## Setup
+<!-- ## Setup
 
 1. [Click this link](https://github.com/craigmckeachie/jsplay/archive/master.zip) to download the [JavaScript Playground](https://github.com/craigmckeachie/jsplay/archive/master.zip) repository from Github.
 2. Unzip the directory `jsplay-master`.
@@ -26,13 +26,11 @@ npm start
 
 ```
 Successfully compiled 1 file with Babel
-```
+``` -->
 
 ## Scope (var, let, const)
 
-### tldr;
-
-The following is an example of scope with a variable declared with `let`:
+Summary:
 
 ```js
 // myLetVariable is *not* visible out here
@@ -48,105 +46,105 @@ for (let myLetVariable = 0; myLetVariable < 5; myLetVariable++) {
 
 1. Code
 
-```js
-var numbers = [1, 2, 3, 4];
+   ```js
+   var numbers = [1, 2, 3, 4];
 
-for (var counter = 0; counter < numbers.length; counter++) {
-  console.log(numbers[counter]);
-}
+   for (var counter = 0; counter < numbers.length; counter++) {
+     console.log(numbers[counter]);
+   }
 
-console.log('at end: ' + counter);
-```
+   console.log("at end: " + counter);
+   ```
 
-2.  Result
+2. Result
 
-```zsh
-1
-2
-3
-4
-at end: 4
-```
+   ```zsh
+   1
+   2
+   3
+   4
+   at end: 4
+   ```
 
 ### let
 
 1.  Code
 
-```diff
-let numbers = [1, 2, 3, 4];
+    ```diff
+    let numbers = [1, 2, 3, 4];
 
-- for (var counter = 0; counter < numbers.length; counter++) {
-+ for (let counter = 0; counter < numbers.length; counter++) {
-  console.log(numbers[counter]);
-}
+    - for (var counter = 0; counter < numbers.length; counter++) {
+    + for (let counter = 0; counter < numbers.length; counter++) {
+      console.log(numbers[counter]);
+    }
 
-console.log('at end: ' + counter);
-```
+    console.log('at end: ' + counter);
+    ```
 
-2. Result
+2.  Result
 
-```sh
-console.log('at end: ' + counter);
-                         ^
+    ```sh
+    console.log('at end: ' + counter);
+                            ^
 
-ReferenceError: counter is not defined
-```
+    ReferenceError: counter is not defined
+    ```
 
 ### const
 
 1.  Code
 
-```js
-const a = 1;
-a = 2;
-```
+    ```js
+    const a = 1;
+    a = 2;
+    ```
 
 2.  Result
 
-```zsh
-TypeError: Assignment to constant variable.
-```
+    ```zsh
+    TypeError: Assignment to constant variable.
+    ```
 
 ## Arrow Functions
 
 1.  Code
 
-### Function
+    ### Using a function
 
-```js
-let numbers = [1, 2, 3, 4];
-//verbose
-numbers.forEach(function (n) {
-  console.log(n);
-});
-```
-
-2.  Result
-
-```zsh
-1
-2
-3
-4
-```
-
-### Arrow function
-
-1.  Code
-
-```js
-let numbers = [1, 2, 3, 4];
-numbers.forEach((n) => console.log(n));
-```
+    ```js
+    let numbers = [1, 2, 3, 4];
+    //verbose
+    numbers.forEach(function (n) {
+      console.log(n);
+    });
+    ```
 
 2.  Result
 
-```zsh
-1
-2
-3
-4
-```
+    ```zsh
+    1
+    2
+    3
+    4
+    ```
+
+    ### Using an arrow function
+
+3.  Code
+
+    ```js
+    let numbers = [1, 2, 3, 4];
+    numbers.forEach((n) => console.log(n));
+    ```
+
+4.  Result
+
+    ```zsh
+    1
+    2
+    3
+    4
+    ```
 
 ## Destructuring
 
@@ -154,70 +152,70 @@ numbers.forEach((n) => console.log(n));
 
 1.  Code
 
-```js
-let person = {
-  first: 'Thomas',
-  last: 'Edison',
-  age: 5,
-  twitter: '@tom',
-};
+    ```js
+    let person = {
+      first: "Thomas",
+      last: "Edison",
+      age: 5,
+      twitter: "@tom",
+    };
 
-let { first, last } = person;
-console.log(first);
-console.log(last);
-```
+    let { first, last } = person;
+    console.log(first);
+    console.log(last);
+    ```
 
 2.  Result
 
-```
-Thomas
-Edison
-```
+    ```
+    Thomas
+    Edison
+    ```
 
 Assignment is left to right with an object literal.
 
 1.  Code
 
-```js
-let person = {
-  first: 'Thomas',
-  last: 'Edison',
-  age: 5,
-  twitter: '@tom',
-};
+    ```js
+    let person = {
+      first: "Thomas",
+      last: "Edison",
+      age: 5,
+      twitter: "@tom",
+    };
 
-let { first: firstName, last: lastName } = person;
-console.log(firstName);
-console.log(lastName);
-```
+    let { first: firstName, last: lastName } = person;
+    console.log(firstName);
+    console.log(lastName);
+    ```
 
 2.  Result
 
-```
-Thomas
-Edison
-```
+    ```
+    Thomas
+    Edison
+    ```
 
 ### Arrays
 
 1.  Code
 
-```js
-let numbers = [1, 2, 3];
+    ```js
+    let numbers = [1, 2, 3];
 
-let [a, b, c] = numbers;
-console.log(a);
-console.log(b);
-console.log(c);
-```
+    let [a, b, c] = numbers;
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    ```
 
 2.  Result
 
-```
-1
-2
-3
-```
+    ```
+    1
+    2
+    3
+    ```
 
 ## Classes
 
@@ -235,8 +233,8 @@ console.log(c);
       }
     }
 
-    let person = new Person('Ron', 'Swanson');
-    console.log(person.first + ' ' + person.last);
+    let person = new Person("Ron", "Swanson");
+    console.log(person.first + " " + person.last);
     ```
 
     #### If using TypeScript (`tsc`) compiler:
@@ -251,15 +249,15 @@ console.log(c);
       }
     }
 
-    let person = new Person('Ron', 'Swanson');
-    console.log(person.first + ' ' + person.last);
+    let person = new Person("Ron", "Swanson");
+    console.log(person.first + " " + person.last);
     ```
 
 2.  Result:
 
-```zsh
-Ron Swanson
-```
+    ```zsh
+    Ron Swanson
+    ```
 
 ### Methods
 
@@ -274,11 +272,11 @@ Ron Swanson
         this.last = last;
       }
       getFullName() {
-        return this.first + ' ' + this.last;
+        return this.first + " " + this.last;
       }
     }
 
-    let person = new Person('Ron', 'Swanson');
+    let person = new Person("Ron", "Swanson");
     console.log(person.getFullName());
     ```
 
@@ -293,19 +291,19 @@ Ron Swanson
         this.last = last;
       }
       getFullName() {
-        return this.first + ' ' + this.last;
+        return this.first + " " + this.last;
       }
     }
 
-    let person = new Person('Ron', 'Swanson');
+    let person = new Person("Ron", "Swanson");
     console.log(person.getFullName());
     ```
 
 1.  Result:
 
-```zsh
-Ron Swanson
-```
+    ```zsh
+    Ron Swanson
+    ```
 
 ### Class Fields
 
@@ -319,129 +317,156 @@ This propsed feature is available in TypeScript without any additional configura
 
 3. Code:
 
-```js
-class Person {
-  first;
-  last;
-}
+   ```js
+   class Person {
+     first;
+     last;
+   }
 
-let person = new Person();
-person.first = 'Tom';
-person.last = 'Haverford';
+   let person = new Person();
+   person.first = "Tom";
+   person.last = "Haverford";
 
-console.log(person.first + ' ' + person.last);
-```
+   console.log(person.first + " " + person.last);
+   ```
 
-2.  Result:
+4. Result:
 
-```zsh
-Craig McKeachie
-```
+   ```zsh
+   Craig McKeachie
+   ```
 
 ## Modules
 
 ### First Module
 
-1.  Create file `src\my-module.js`
-2.  Add the following code to `src\my-module.js`
+1.  Create file `src\my-module.[js|ts]`
+2.  Add the following code to `src\my-module.[js|ts]`
 
-```js
-export function myFunction() {
-  return 'myFunction was run.';
-}
-```
+    ```js
+    export function myFunction() {
+      return "myFunction was run.";
+    }
+    ```
 
-3.  Code in `program.[js]`
+3.  Code in `program.[js|ts]`
 
-- Auto import doesn't work in JavaScript, you need to use TypeScript
+    - Auto import doesn't work in JavaScript, you need to use TypeScript
 
-```js
-import { myFunction } from './my-module';
-console.log(myFunction());
-```
+    ```js
+    import { myFunction } from "./my-module";
+    console.log(myFunction());
+    ```
 
-1.  Result
+4.  Result
 
-```
-myFunction was run.
-```
+    ```
+    myFunction was run.
+    ```
 
 ### Another Module
 
 1.  Code in `my-module.[js|ts]`
 
-```js
-//my-module.js
-export function myFunction() {
-  return 'myFunction was run.';
-}
+    ```js
+    export function myFunction() {
+      return "myFunction was run.";
+    }
 
-function myPrivateFunction() {
-  return 'myPrivateFunction was run.';
-}
+    function myPrivateFunction() {
+      return "myPrivateFunction was run.";
+    }
 
-let myObject = {
-  myName: "I can access myObject's name",
-  myMethod: function () {
-    return 'myMethod on myObject is running.';
-  },
-};
+    let myObject = {
+      myName: "I can access myObject's name",
+      myMethod: function () {
+        return "myMethod on myObject is running.";
+      },
+    };
 
-export { myObject };
+    export { myObject };
 
-export const myPrimitive = 55;
+    export const myPrimitive = 55;
 
-export class MyClass {
-  myClassMethod() {
-    return 'myClassMethod on myClass is running.';
-  }
-}
-```
+    export class MyClass {
+      myClassMethod() {
+        return "myClassMethod on myClass is running.";
+      }
+    }
+    ```
 
 2.  Code in `program.[js|ts]`
 
-```js
-import { myFunction, myObject, myPrimitive, MyClass } from './my-module';
+    ```js
+    import { myFunction, myObject, myPrimitive, MyClass } from "./my-module";
 
-console.log(myFunction());
+    console.log(myFunction());
 
-console.log(myObject.myName);
-console.log(myObject.myMethod());
+    console.log(myObject.myName);
+    console.log(myObject.myMethod());
 
-console.log(myPrimitive);
+    console.log(myPrimitive);
 
-let myClass = new MyClass();
-console.log(myClass.myClassMethod());
-```
+    let myClass = new MyClass();
+    console.log(myClass.myClassMethod());
+    ```
 
 3.  Result
 
-```
-myFunction was run.
-I can access myObject's name
-myMethod on myObject is running.
-55
-myClassMethod on myClass is running.
-```
+    ```
+    myFunction was run.
+    I can access myObject's name
+    myMethod on myObject is running.
+    55
+    myClassMethod on myClass is running.
+    ```
 
 ## Spread
 
 1.  Code
 
-```js
-function add(x, y, z) {
-  return x + y + z;
-}
+    #### `program.[js|ts]`
 
-// Pass each elem of array as argument
-console.log(add(...[1, 2, 3]));
-```
+    ```js
+    let person = {
+      first: "Thomas",
+      last: "Edison",
+      age: 5,
+      twitter: "@tom",
+    };
+
+    let anotherPerson = {
+      ...person,
+      age: 80,
+    };
+
+    console.log(anotherPerson);
+    ```
 
 2.  Result
 
-```sh
-6
-```
+    ```sh
+    { first: 'Thomas', last: 'Edison', age: 80, twitter: '@tom' }
+    ```
+
+3.  Code
+
+    #### `program.[js|ts]`
+
+    ```js
+    const numbers = [1, 2, 3, 4];
+    const moreNumbers = [...numbers, 5, 6, 7, 8];
+    console.log(moreNumbers);
+    ```
+
+4.  Result
+
+    ```sh
+    [
+      1, 2, 3, 4,
+      5, 6, 7, 8
+    ]
+    ```
 
 ## Array.map() method
 

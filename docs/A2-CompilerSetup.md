@@ -122,7 +122,7 @@ In a command-prompt or terminal
 
 ```
 npm init -y
-npm install typescript@3.1.6 --save-dev
+npm install typescript@4 --save-dev
 ```
 
 ### Configure TypeScript
@@ -143,7 +143,7 @@ npx tsc --init
 
 ### Setting the Compiler Strictness
 
-1. Open `tsconfig.json` and change the `strict` setting from `true` to `false`
+1. Open `tsconfig.json` and change the `strict` setting to `false`. Also, set `noEmitOnError` to `true`
 
    ```json
    /* Strict Type-Checking Options */
