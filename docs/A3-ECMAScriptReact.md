@@ -340,8 +340,8 @@ This propsed feature is available in TypeScript without any additional configura
 
 ### First Module
 
-1.  Create file `src\my-module.[js|ts]`
-2.  Add the following code to `src\my-module.[js|ts]`
+1.  Create file `src\my-module.js` or `.\my-module.ts`
+2.  Add the following code to `my-module.[js|ts]`
 
     ```js
     export function myFunction() {
