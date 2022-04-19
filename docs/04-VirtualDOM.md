@@ -36,4 +36,4 @@ React implements a browser-independent DOM system for performance and cross-brow
 
    ## Reference
 
-   [Illustration of React Virtual DOM](https://illustrated.dev/react-vdom)
+   [Illustration of React Virtual DOM](https://github.com/eggheadio/illustrated-dev/blob/master/content/explainers/react-vdom/index.mdx)

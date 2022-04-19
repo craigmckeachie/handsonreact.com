@@ -81,11 +81,11 @@ React.createElement(component, props, ...children);
 
     ```js
     React.createElement(
-      'ul',
+      "ul",
       null,
-      React.createElement('li', null, 'Home'),
-      React.createElement('li', null, 'About'),
-      React.createElement('li', null, 'Contact')
+      React.createElement("li", null, "Home"),
+      React.createElement("li", null, "About"),
+      React.createElement("li", null, "Contact")
     );
     ```
 
@@ -96,8 +96,8 @@ React.createElement(component, props, ...children);
     ```
 
     ```js
-    React.createElement('i', {
-      className: 'fas fa-plus',
+    React.createElement("i", {
+      className: "fas fa-plus",
     });
     ```
 
@@ -146,9 +146,9 @@ An expression can be created in JSX with curly braces. When you create an expres
 1. Create a logo object with path, name, and title properties and set attributes in JSX to each of those values as shown below.
 1. ```js
    const logo = {
-     name: 'React Logo',
-     title: 'React Logo',
-     path: './react-logo.png',
+     name: "React Logo",
+     title: "React Logo",
+     path: "./react-logo.png",
    };
 
    const element = <img src={logo.path} alt={logo.name} title={logo.title} />;
@@ -272,7 +272,7 @@ const element = (
 
 ## Reference
 
-[JSX Illustration](https://illustrated.dev/jsx)
+[JSX Illustration](https://github.com/eggheadio/illustrated-dev/blob/master/content/explainers/jsx/index.mdx)
 
 <!-- - Children
 - String Literals
