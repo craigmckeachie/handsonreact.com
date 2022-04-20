@@ -33,7 +33,7 @@ Handling events with **React elements** is very similar to handling events on **
    ```js
    //main.js
    function handleClick() {
-     console.log('clicked');
+     console.log("clicked");
    }
    ```
 3. Refresh the page in your browser
@@ -56,14 +56,14 @@ Handling events with **React elements** is very similar to handling events on **
 
    ```js
    function handleClick() {
-     console.log('clicked');
+     console.log("clicked");
    }
 
    function Button() {
      return <button onClick={handleClick()}>Click Me!</button>;
    }
 
-   ReactDOM.render(<Button />, document.getElementById('root'));
+   ReactDOM.render(<Button />, document.getElementById("root"));
    ```
 
 2. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
@@ -102,7 +102,7 @@ Handling events with **React elements** is very similar to handling events on **
      }
 
      handleClick() {
-       console.log('clicked');
+       console.log("clicked");
      }
 
      render() {
@@ -110,7 +110,7 @@ Handling events with **React elements** is very similar to handling events on **
      }
    }
 
-   ReactDOM.render(<Button />, document.getElementById('root'));
+   ReactDOM.render(<Button />, document.getElementById("root"));
    ```
 
    > Bind? The next section discusses why binding is necessary as well as alternative syntaxes that can be used to bind the event handler including which are considering the best practice.
@@ -176,7 +176,7 @@ This next section is about the different ways to do the binding.
   }
   ReactDOM.render(
     <ExplainBindingsComponent />,
-    document.getElementById('root')
+    document.getElementById("root")
   );
   ```
 
@@ -203,7 +203,7 @@ This next section is about the different ways to do the binding.
   }
   ReactDOM.render(
     <ExplainBindingsComponent />,
-    document.getElementById('root')
+    document.getElementById("root")
   );
   ```
 
@@ -232,7 +232,7 @@ This next section is about the different ways to do the binding.
   }
   ReactDOM.render(
     <ExplainBindingsComponent />,
-    document.getElementById('root')
+    document.getElementById("root")
   );
   ```
 
@@ -253,7 +253,7 @@ This next section is about the different ways to do the binding.
 
   ```js
   function ExplainBindingsComponent() {
-    const memberValue = 'test';
+    const memberValue = "test";
     function handleClick() {
       console.log(memberValue);
     }
@@ -266,7 +266,7 @@ This next section is about the different ways to do the binding.
   }
   ReactDOM.render(
     <ExplainBindingsComponent />,
-    document.getElementById('root')
+    document.getElementById("root")
   );
   ```
 
@@ -274,7 +274,7 @@ This next section is about the different ways to do the binding.
 
   ```js
   function ExplainBindingsComponent() {
-    const memberValue = 'test';
+    const memberValue = "test";
     const handleClick = () => {
       console.log(memberValue);
     };
@@ -287,7 +287,7 @@ This next section is about the different ways to do the binding.
   }
   ReactDOM.render(
     <ExplainBindingsComponent />,
-    document.getElementById('root')
+    document.getElementById("root")
   );
   ```
 
@@ -301,30 +301,39 @@ As we discussed earlier, we can't invoke a function when we subscribe to an even
 2. Paste the following code into `main.js`
 
    ```js
-   class Button extends React.Component {
-     constructor(props) {
-       super(props);
-       this.handleClick = this.handleClick.bind(this);
+   function FruitListItem(props) {
+     function handleClick(id) {
+       console.log(`removed ${id}`);
      }
 
-     handleClick(id) {
-       console.log('clicked on id ' + id);
-     }
-
-     render() {
-       const id = 12;
-       return <button onClick={this.handleClick(id)}>Click Me!</button>;
-     }
+     return <li onClick={handleClick(props.fruit.id)}>{props.fruit.name} </li>;
    }
 
-   const element = <Button />;
-   ReactDOM.render(element, document.getElementById('root'));
+   function FruitList(props) {
+     const fruitListItems = props.fruits.map((fruit) => (
+       <FruitListItem key={fruit.id} fruit={fruit} />
+     ));
+     return <ul>{fruitListItems}</ul>;
+   }
+
+   const data = [
+     { id: 1, name: "apple" },
+     { id: 2, name: "orange" },
+     { id: 3, name: "blueberry" },
+     { id: 4, name: "banana" },
+     { id: 5, name: "kiwi" },
+   ];
+
+   ReactDOM.render(
+     <FruitList fruits={data} />,
+     document.getElementById("root")
+   );
    ```
 
 3. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
 4. Refresh the page in your browser
-5. Click the button
-6. In the `Console` you should see the message: `clicked on id 12`
+5. In the `Console` notice that all items invoked the `handleClick` function when the page was loaded.
+6. Click any item on the list and note that `handleClick` is not called so no logging occurs in the `Console`.
 
    So how can we pass arguments to an event handler or callback?
 
@@ -332,52 +341,48 @@ There are two solutions to this problem:
 
 ### Using Arrow Functions
 
-1. Wrap `this.handleClick(12)` in an arrow function
+1. Wrap `handleClick` in an arrow function
 
    ```diff
-   class Button extends React.Component {
-   ...
+   function FruitListItem(props) {
+     function handleClick(id) {
+       console.log(`removed ${id}`);
+     }
 
-   handleClick(id) {
-       console.log('clicked on id ' + id);
+     return (
+   -    <li onClick={handleClick(props.fruit.id)}>{props.fruit.name} </li>
+   +    <li onClick={() => handleClick(props.fruit.id)}>{props.fruit.name} </li>
+     );
    }
 
-   render() {
-       const id= 12;
-       return (
-       <button
-   +        onClick={() => {
-   +          this.handleClick(id);
-   +        }}
-       >
-           Click Me!
-       </button>
-       );
+   function FruitList(props) {
+     const fruitListItems = props.fruits.map((fruit) => (
+       <FruitListItem key={fruit.id} fruit={fruit} />
+     ));
+     return <ul>{fruitListItems}</ul>;
    }
-   }
+
+   const data = [
+     { id: 1, name: 'apple' },
+     { id: 2, name: 'orange' },
+     { id: 3, name: 'blueberry' },
+     { id: 4, name: 'banana' },
+     { id: 5, name: 'kiwi' },
+   ];
+
+   ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
    ```
 
 ### Using Bind
 
 1. Use `Function.prototype.bind` to bind the function to the instance of the class.
 
-```diff
-class Button extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(id) {
-    console.log('clicked on id ' + id);
-  }
-
-  render() {
-    const id = 12;
-+    return <button onClick={this.handleClick.bind(this, id)}>Click Me!</button>;
-  }
-}
-```
+   ```diff
+     return (
+   -     <li onClick={() => handleClick(props.fruit.id)}>{props.fruit.name} </li>
+   +    <li onClick={handleClick.bind(this, props.fruit.id)}>{props.fruit.name}</li>
+     );
+   ```
 
 ### Reference
 
@@ -401,7 +406,7 @@ Handling events requires us to prevent the default browser behavior.
 
      handleClick(id, event) {
        event.preventDefault();
-       console.log('removing id: ' + id);
+       console.log("removing id: " + id);
      }
 
      render() {
@@ -420,7 +425,7 @@ Handling events requires us to prevent the default browser behavior.
    }
 
    const element = <RemoveLink />;
-   ReactDOM.render(element, document.getElementById('root'));
+   ReactDOM.render(element, document.getElementById("root"));
    ```
 
 3. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
@@ -442,7 +447,7 @@ Handling events requires us to prevent the default browser behavior.
 
      handleClick(id, event) {
        event.preventDefault();
-       console.log('removing id: ' + id);
+       console.log("removing id: " + id);
      }
 
      render() {
@@ -456,7 +461,7 @@ Handling events requires us to prevent the default browser behavior.
    }
 
    const element = <RemoveLink />;
-   ReactDOM.render(element, document.getElementById('root'));
+   ReactDOM.render(element, document.getElementById("root"));
    ```
 
 3. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
