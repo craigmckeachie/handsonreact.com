@@ -43,7 +43,7 @@ ReactDOM.render(<ExampleForm />, document.getElementById("root"));
 
 3. Refresh your browser
 4. Type some text in the `input`
-5. Notice that this text immediately shows in `state` because we have written set the value and onChange properties to read and write from the parent component's surrounding state.
+5. Notice that this text immediately shows in `state` because we have written to set the value and onChange properties to read and write from the parent component's surrounding state.
 6. Update `handleChange` as follows
 
 ```diff
@@ -314,7 +314,7 @@ ReactDOM.render(<ContactUsForm />, document.getElementById("root"));
 
 Notice that although these HTML form fields set their value differently:
 
-- `<textarea>value goes here<textarea>`
+- `<textarea>value goes here</textarea>`
 - The option with `selected` is selected.
   ```html
   <select name="department">
@@ -606,9 +606,9 @@ When writing an `uncontrolled component` you use a `ref` to get form values from
 
 ```js
 function ExampleForm() {
-  const input = React.useRef(null);
+  const input = React.useRef<HTMLInputElement>(null);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(input.current);
     console.log(input.current.value);
@@ -699,13 +699,13 @@ You should use the File API to interact with the files. The following example sh
 const { useRef } = React;
 
 function FileInput() {
-  const fileInput = useRef();
+  const fileInput = useRef() as React.MutableRefObject<HTMLInputElement>;
 
-  function handleSubmit(event) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     console.log(fileInput.current);
     if (!fileInput) return;
-    alert(`Selected file - ${fileInput.current.files[0].name}`);
+    alert(`Selected file - ${fileInput.current!.files![0].name}`);
   }
 
   return (
@@ -769,13 +769,12 @@ Below we continue to expand on the Items (CRUD) Demo to use forms and do additio
      - Note: since render needs to return one parent element you will need to wrap `<Form>` and `<List>` in an outer `<div>` or `<React.Fragment>`
    - read the value from the input when you click the add button
 1. Add a feature to update an item inline
-
-- Add an edit button to each item in the list
-- Display an input and a button inline in place of the item when they click edit
-- Save the update back into state in the app component
-
+   - Add an edit button to each item in the list
+   - Display an input and a button inline in place of the item when they click edit
+   - Save the update back into state in the app component
 1. Add a cancel link and use it to cancel out of editing mode.
-   See the finished solution code below:
+
+See the finished solution code below:
 
 ### Solution (using Function Components & Hooks)
 
