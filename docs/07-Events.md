@@ -398,76 +398,49 @@ Handling events requires us to prevent the default browser behavior.
 2. Paste the following code into `main.js`
 
    ```js
-   class RemoveLink extends React.Component {
-     constructor(props) {
-       super(props);
-       this.handleClick = this.handleClick.bind(this);
+   function FruitListItem(props) {
+     function handleClick(e, id) {
+       console.log(e);
+       console.log(`removed ${id}`);
      }
 
-     handleClick(id, event) {
-       event.preventDefault();
-       console.log("removing id: " + id);
-     }
-
-     render() {
-       const id = 12;
-       return (
-         <a
-           href="#"
-           onClick={(event) => {
-             this.handleClick(id, event);
-           }}
-         >
-           Click Me!
-         </a>
-       );
-     }
+     return (
+       <li onClick={(e) => handleClick(e, props.fruit.id)}>
+         {props.fruit.name}{" "}
+       </li>
+     );
    }
 
-   const element = <RemoveLink />;
-   ReactDOM.render(element, document.getElementById("root"));
+   function FruitList(props) {
+     const fruitListItems = props.fruits.map((fruit) => (
+       <FruitListItem key={fruit.id} fruit={fruit} />
+     ));
+     return <ul>{fruitListItems}</ul>;
+   }
+
+   const data = [
+     { id: 1, name: "apple" },
+     { id: 2, name: "orange" },
+     { id: 3, name: "blueberry" },
+     { id: 4, name: "banana" },
+     { id: 5, name: "kiwi" },
+   ];
+
+   ReactDOM.render(
+     <FruitList fruits={data} />,
+     document.getElementById("root")
+   );
    ```
 
 3. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
 4. Refresh the page in your browser
-5. Click the remove link
-6. In the `Console` you should see the message: `removed id 12`
+5. Click an item on the list
+6. In the `Console` you should see something similar to the following:
 
-### Using Bind
-
-1. Comment or remove all code from `main.js`
-2. Paste the following code into `main.js`
-
-   ```js
-   class RemoveLink extends React.Component {
-     constructor(props) {
-       super(props);
-       this.handleClick = this.handleClick.bind(this);
-     }
-
-     handleClick(id, event) {
-       event.preventDefault();
-       console.log("removing id: " + id);
-     }
-
-     render() {
-       const id = 12;
-       return (
-         <a href="#" onClick={this.handleClick.bind(this, id)}>
-           Click Me!
-         </a>
-       );
-     }
-   }
-
-   const element = <RemoveLink />;
-   ReactDOM.render(element, document.getElementById("root"));
-   ```
-
-3. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
-4. Refresh the page in your browser
-5. Click the remove link
-6. In the `Console` you should see the message: `removed id 12`
+```
+SyntheticBaseEvent {_reactName: 'onClick', _targetInst: null, type: 'click', nativeEvent: PointerEvent, target: li, …} main.js:4
+removed 2
+```
 
 > Note that with bind any further arguments including the event object is automatically forwarded.
 
