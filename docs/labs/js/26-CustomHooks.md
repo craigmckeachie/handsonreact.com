@@ -1,5 +1,5 @@
 ---
-title: 'Lab 26: Custom Hooks'
+title: "Lab 26: Custom Hooks"
 ---
 
 > This lab is optional and should only be done if time permits
@@ -19,72 +19,74 @@ title: 'Lab 26: Custom Hooks'
 
 2. Create a `projectHooks.js` file and add the following code.
 
-#### `src\projects\projectHooks.js`
+   #### `src\projects\projectHooks.js`
 
-```js
-import { useState, useEffect } from 'react';
-import { projectAPI } from './projectAPI';
-import { Project } from './Project';
+   ```js
+   import { useState, useEffect } from "react";
+   import { projectAPI } from "./projectAPI";
+   import { Project } from "./Project";
 
-export function useProjects() {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(undefined);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [saving, setSaving] = useState(false);
-  const [savingError, setSavingError] = useState(undefined);
+   export function useProjects() {
+     const [projects, setProjects] = useState([]);
+     const [loading, setLoading] = useState(false);
+     const [error, setError] = useState(undefined);
+     const [currentPage, setCurrentPage] = useState(1);
+     const [saving, setSaving] = useState(false);
+     const [savingError, setSavingError] = useState(undefined);
 
-  useEffect(() => {
-    async function loadProjects() {
-      setLoading(true);
-      try {
-        const data = await projectAPI.get(currentPage);
-        if (currentPage === 1) {
-          setProjects(data);
-        } else {
-          setProjects((projects) => [...projects, ...data]);
-        }
-      } catch (e) {
-        setError(e.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadProjects();
-  }, [currentPage]);
+     useEffect(() => {
+       async function loadProjects() {
+         setLoading(true);
+         try {
+           const data = await projectAPI.get(currentPage);
+           if (currentPage === 1) {
+             setProjects(data);
+           } else {
+             setProjects((projects) => [...projects, ...data]);
+           }
+         } catch (e) {
+           setError(e.message);
+         } finally {
+           setLoading(false);
+         }
+       }
+       loadProjects();
+     }, [currentPage]);
 
-  const saveProject = (project) => {
-    setSaving(true);
-    projectAPI
-      .put(project)
-      .then((updatedProject) => {
-        let updatedProjects = projects.map((p) => {
-          return p.id === project.id ? new Project(updatedProject) : p;
-        });
-        setProjects(updatedProjects);
-      })
-      .catch((e) => {
-        setSavingError(e.message);
-      })
-      .finally(() => setSaving(false));
-  };
+     const saveProject = (project) => {
+       setSaving(true);
+       projectAPI
+         .put(project)
+         .then((updatedProject) => {
+           let updatedProjects = projects.map((p) => {
+             return p.id === project.id ? new Project(updatedProject) : p;
+           });
+           setProjects(updatedProjects);
+         })
+         .catch((e) => {
+           setSavingError(e.message);
+         })
+         .finally(() => setSaving(false));
+     };
 
-  return {
-    projects,
-    loading,
-    error,
-    currentPage,
-    setCurrentPage,
-    saving,
-    savingError,
-    saveProject,
-  };
-}
-```
+     return {
+       projects,
+       loading,
+       error,
+       currentPage,
+       setCurrentPage,
+       saving,
+       savingError,
+       saveProject,
+     };
+   }
+   ```
 
-> Notice how this logic was directly lifted out of the `ProjectsPage` component.
+   > Notice how this logic was directly lifted out of the `ProjectsPage` component.
 
-2. Refactor the `ProjectsPage` component to remove the logic which is now in the hook and call the hook instead.
+3. Refactor the `ProjectsPage` component to remove the logic which is now in the hook and call the hook instead.
+
+> Be sure to open the `ProjectsPage.jsx` and not the singular `ProjectPage.jsx`
 
 #### `src\projects\ProjectsPage.js`
 
@@ -101,6 +103,9 @@ function ProjectsPage() {
 -  const [loading, setLoading] = useState(false);
 -  const [error, setError] = useState(undefined);
 -  const [currentPage, setCurrentPage] = useState(1);
+-  const [saving, setSaving] = useState(false);
+-  const [savingError, setSavingError] = useState(undefined);
+
 
 -  useEffect(() => {
 -    async function loadProjects() {
@@ -113,7 +118,7 @@ function ProjectsPage() {
 -          setProjects((projects) => [...projects, ...data]);
 -        }
 -      } catch (e) {
--        setError(e.message);
+-          setError(e.message);
 -      } finally {
 -        setLoading(false);
 -      }
@@ -145,9 +150,10 @@ function ProjectsPage() {
 -        setProjects(updatedProjects);
 -      })
 -      .catch((e) => {
--        setError(e.message);
+-          setError(e.message);
 -      });
 -  };
+
    return (
      <>
        <h1>Projects</h1>
@@ -173,9 +179,52 @@ export default ProjectsPage;
 
 ```
 
-3. Test the application to verify all functionality works as it did previously including:
-   - Loading projects
-   - Loading more projects (pagination)
-   - Saving an updated project
+4. Test the application to verify the loading, saving and error messages are displaying.
+
+   - Add this line to test the loading spinner
+
+     #### `src\projects\projectAPI.js`
+
+     ```diff
+       get(page = 1, limit = 20) {
+         return fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`)
+     +     .then(delay(2000))
+           .then(checkStatus)
+           .then(parseJSON)
+           .catch((error) => {
+             console.log('log client error ' + error);
+             throw new Error(
+               'There was an error retrieving the projects. Please try again.'
+             );
+           });
+       },
+     ```
+
+   - Add this line to test the saving message
+
+     #### `src\projects\projectAPI.js`
+
+     ```diff
+     put(project) {
+       return fetch(`${url}/${project.id}`, {
+         method: 'PUT',
+         body: JSON.stringify(project),
+         headers: {
+           'Content-Type': 'application/json',
+         },
+       })
+     +   .then(delay(2000))
+         .then(checkStatus)
+         .then(parseJSON)
+         .catch((error) => {
+           console.log('log client error ' + error);
+           throw new Error(
+             'There was an error updating the project. Please try again.'
+           );
+         });
+     },
+     ```
+
+     - Shut down your backend API to test the display of an error message
 
 ### &#10004; You have completed Lab 26

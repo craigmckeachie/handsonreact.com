@@ -189,12 +189,6 @@ export default ProjectsPage;
 
 ```
 
-3. Test the application to verify all functionality works as it did previously including:
-
-   - Loading projects
-   - Loading more projects (pagination)
-   - Saving an updated project
-
 4. Test the application to verify the loading, saving and error messages are displaying.
 
    - Add this line to test the loading spinner
