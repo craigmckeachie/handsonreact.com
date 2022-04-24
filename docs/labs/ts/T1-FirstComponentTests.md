@@ -1,12 +1,11 @@
 ---
-title: 'Testing Lab 1: Your First Component Test'
+title: "Testing Lab 1: Your First Component Test"
 ---
 
 ## Objectives
 
 - [ ] Install React Testing Library
 - [ ] Create Your First Component Test
-
 
 ## Steps
 
@@ -20,15 +19,16 @@ title: 'Testing Lab 1: Your First Component Test'
 1. In that directory, download or clone the following branch to start testing.
 
    ```
-   git clone https://github.com/craigmckeachie/keeptrack-ts/tree/lab25 keeptrack
+   git clone https://github.com/craigmckeachie/keeptrack-ts.git keeptrack
+   git checkout testing-start
    ```
 
    OR
 
-   Visit [this link](https://github.com/craigmckeachie/keeptrack-ts/tree/lab25) and click `Code > Download`
+   Visit [this link](https://github.com/craigmckeachie/keeptrack-ts/tree/testing-start) and click `Code > Download`
 
-1.  **Open** a `command prompt` (Windows) or `terminal` (Mac).
-1.  Change the **current directory** to `code\keeptrack`.
+1. **Open** a `command prompt` (Windows) or `terminal` (Mac).
+1. Change the **current directory** to `code\testing\keeptrack`.
 <!-- 1.  You probably **DON'T need to DO the steps below** but they are listed for completeness.
 
     > If you recently created your React project using **Create React App** then the following steps to install **React Testing Library** will have been done for you when the project was created.
@@ -58,55 +58,69 @@ title: 'Testing Lab 1: Your First Component Test'
       import '@testing-library/jest-dom/extend-expect';
       ``` -->
 
-1.  **Run** _one_ of the following commands to run the tests:
+1. **Run** _one_ of the following commands to install the project dependenciess:
 
-    #### npm
+   #### npm
 
-    ```shell
-    npm test
-    ```
+   ```shell
+   npm install
+   ```
 
-    #### Yarn
+   #### Yarn
 
-    ```shell
-    yarn test
-    ```
+   ```shell
+   yarn install
+   ```
 
-1.  Press `a` to run all tests.
-1.  Verify the test created by Create React App fails.
+1. **Run** _one_ of the following commands to run the tests:
 
-    ```shell
-    FAIL  src/App.test.tsx
-    Unable to find an element with the text: /learn react/i.
-    ```
+   #### npm
 
-1.  Open the file `src/App.test.tsx`
-1.  Update the test code.
+   ```shell
+   npm test
+   ```
 
-    ```diff
-    import React from 'react';
-    import { render } from '@testing-library/react';
-    import App from './App';
+   #### Yarn
 
-    - test('renders learn react link', () => {
-    -  const { getByText } = render(<App />);
-    -  const linkElement = getByText(/learn react/i);
-    -  expect(linkElement).toBeInTheDocument();
-    -});
+   ```shell
+   yarn test
+   ```
 
-    test('should render without crashing', () => {
-    render(<App />);
-    });
+1. Press `a` to run all tests.
+1. Verify the test created by Create React App fails.
 
-    ```
+   ```shell
+   FAIL  src/App.test.tsx
+   Unable to find an element with the text: /learn react/i.
+   ```
 
-    > Note: We will test the the content (as the generated test was) in a HomePage component test in the next step.
+1. Open the `keeptrack` directory in the editor of your choice and then open the file `src/App.test.tsx`
+1. Update the test code.
 
-1.  Verify the test now passes.
+   ```diff
+   import React from 'react';
+   import { render } from '@testing-library/react';
+   import App from './App';
 
-    ```
-    PASS  src/App.test.tsx
-    ```
+   - test('renders learn react link', () => {
+   -  const { getByText } = render(<App />);
+   -  const linkElement = getByText(/learn react/i);
+   -  expect(linkElement).toBeInTheDocument();
+   -});
+
+   + test('should render without crashing', () => {
+   + render(<App />);
+   + });
+
+   ```
+
+   > Note: We will test the the content (as the generated test was) in a HomePage component test in the next step.
+
+1. Verify the test now passes.
+
+   ```
+   PASS  src/App.test.tsx
+   ```
 
 ### Create Your First Component Test
 
@@ -116,13 +130,13 @@ title: 'Testing Lab 1: Your First Component Test'
    #### `src\home\HomePage.test.tsx`
 
    ```ts
-   import React from 'react';
-   import { render, screen } from '@testing-library/react';
-   import HomePage from './HomePage';
+   import React from "react";
+   import { render, screen } from "@testing-library/react";
+   import HomePage from "./HomePage";
 
-   test('renders home heading', () => {
+   test("renders home heading", () => {
      render(<HomePage />);
-     expect(screen.getByRole('heading')).toHaveTextContent('Home');
+     expect(screen.getByRole("heading")).toHaveTextContent("Home");
    });
    ```
 

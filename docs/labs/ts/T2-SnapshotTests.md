@@ -1,5 +1,5 @@
 ---
-title: 'Testing Lab 2: Snapshot Tests'
+title: "Testing Lab 2: Snapshot Tests"
 ---
 
 ## Objectives
@@ -37,14 +37,13 @@ title: 'Testing Lab 2: Snapshot Tests'
 
    ```diff
    import React from 'react';
-   import { shallow, ShallowWrapper } from 'enzyme';
    import HomePage from './HomePage';
    + import renderer from 'react-test-renderer';
 
    + describe('<HomePage />', () => {
 
      test('should render without crashing', () => {
-       render(<App />);
+       render(<HomePage />);
      });
 
    +  test('snapshot', () => {
@@ -62,23 +61,6 @@ title: 'Testing Lab 2: Snapshot Tests'
    ```
 
 1. **Open** `src\home\__snapshots__\HomePage.test.tsx.snap` and review the contents.
-
-1. Wrap your tests in a describe block to create a test suite.
-
-```diff
-
-+ describe('<HomePage/>', () => {
-    test('renders learn react link', () => {
-      render(<HomePage />);
-      expect(screen.getByRole('heading')).toHaveTextContent('Home');
-    });
-
-    test('snapshot', () => {
-      const tree = renderer.create(<HomePage />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-+ });
-```
 
 ---
 
