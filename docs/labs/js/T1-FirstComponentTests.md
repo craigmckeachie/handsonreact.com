@@ -19,13 +19,13 @@ title: "Testing Lab 1: Your First Component Test"
 1. In that directory, download or clone the following branch to start testing.
 
    ```
-   git clone https://github.com/craigmckeachie/keeptrack-ts.git keeptrack
+   git clone https://github.com/craigmckeachie/keeptrack-js.git keeptrack
    git checkout testing-start
    ```
 
    OR
 
-   Visit [this link](https://github.com/craigmckeachie/keeptrack-ts/tree/testing-start) and click `Code > Download`
+   Visit [this link](https://github.com/craigmckeachie/keeptrack-js/tree/testing-start) and click `Code > Download`
 
 1. **Open** a `command prompt` (Windows) or `terminal` (Mac).
 1. Change the **current directory** to `code\testing\keeptrack`.
