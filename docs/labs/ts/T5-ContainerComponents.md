@@ -1,5 +1,5 @@
 ---
-title: 'Testing Lab 5: Container Components'
+title: "Testing Lab 5: Container Components"
 ---
 
 ## Objectives
@@ -20,18 +20,18 @@ title: 'Testing Lab 5: Container Components'
    #### `src\projects\__tests__\ProjectsPage-test.tsx`
 
    ```tsx
-   import React from 'react';
-   import { MemoryRouter } from 'react-router-dom';
-   import { Provider } from 'react-redux';
-   import { store } from '../../state';
-   import ProjectsPage from '../ProjectsPage';
+   import React from "react";
+   import { MemoryRouter } from "react-router-dom";
+   import { Provider } from "react-redux";
+   import { store } from "../../state";
+   import ProjectsPage from "../ProjectsPage";
    import {
      render,
      screen,
      waitForElementToBeRemoved,
-   } from '@testing-library/react';
+   } from "@testing-library/react";
 
-   describe('<ProjectsPage />', () => {
+   describe("<ProjectsPage />", () => {
      function renderComponent() {
        render(
          <Provider store={store}>
@@ -42,7 +42,7 @@ title: 'Testing Lab 5: Container Components'
        );
      }
 
-     test('should render without crashing', () => {
+     test("should render without crashing", () => {
        renderComponent();
        expect(screen).toBeDefined();
      });
@@ -53,7 +53,7 @@ title: 'Testing Lab 5: Container Components'
    ```
    PASS  src/projects/__tests__/ProjectsPage-test.tsx
    ```
-   > ! Check to make sure the `delay` function used to delay the backend query and display the loading indicator has been removed in `projectAPI.js`. The delay call causes the `msw` library to throw an error.
+   > ! Check to make sure the `delay` function used to delay the backend query and display the loading indicator has been removed in `projectAPI.ts`. The delay call causes the `msw` library to throw an error.
 
 ### Test the Loading Indicator Displays
 
@@ -141,6 +141,7 @@ title: 'Testing Lab 5: Container Components'
    + import { rest } from 'msw';
    + import { setupServer } from 'msw/node';
    + import { url as projectsUrl } from '../projectAPI';
+   + import { MOCK_PROJECTS } from '../MockProjects';
 
    + // declare which API requests to mock
    + const server = setupServer(
@@ -246,8 +247,8 @@ title: 'Testing Lab 5: Container Components'
    +  // what find* methods are doing
    +  test('should display more button with get', async () => {
    +    renderComponent();
-   +    await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
-   +    expect(screen.getByRole('button', { name: /more/i })).+toBeInTheDocument();
+   +    await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
+   +    expect(screen.getByRole('button', { name: /more/i })).toBeInTheDocument();
    +  });
    });
 
