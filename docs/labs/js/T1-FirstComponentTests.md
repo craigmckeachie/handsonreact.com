@@ -19,22 +19,22 @@ title: "Testing Lab 1: Your First Component Test"
 1. In that directory, download or clone the following branch to start testing.
 
    ```
-   git clone https://github.com/craigmckeachie/keeptrack-js.git keeptrack
-   git checkout lab25
+   git clone https://github.com/craigmckeachie/keeptrack-ts.git keeptrack
+   git checkout testing-start
    ```
 
    OR
 
-   Visit [this link](https://github.com/craigmckeachie/keeptrack-js/tree/lab25) and click `Code > Download`
+   Visit [this link](https://github.com/craigmckeachie/keeptrack-ts/tree/testing-start) and click `Code > Download`
 
 1. **Open** a `command prompt` (Windows) or `terminal` (Mac).
-
 1. Change the **current directory** to `code\testing\keeptrack`.
-1. Run the command.
 
-   ### npm
+1. **Run** _one_ of the following commands to install the project dependenciess:
 
-   ```
+   #### npm
+
+   ```shell
    npm install
    ```
 
@@ -66,7 +66,7 @@ title: "Testing Lab 1: Your First Component Test"
    Unable to find an element with the text: /learn react/i.
    ```
 
-1. Open the file `src/App.test.js`
+1. Open the `keeptrack` directory in the editor of your choice and then open the file `src/App.test.js`
 1. Update the test code.
 
    ```diff
@@ -117,5 +117,7 @@ title: "Testing Lab 1: Your First Component Test"
    ```shell
    PASS  src/home/HomePage.test.js
    ```
+
+---
 
 ### &#10004; You have completed Testing Lab 1

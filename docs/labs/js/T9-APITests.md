@@ -1,5 +1,5 @@
 ---
-title: 'Testing Lab 9: API Tests'
+title: "Testing Lab 9: API Tests"
 ---
 
 ## Objectives
@@ -16,18 +16,18 @@ title: 'Testing Lab 9: API Tests'
    #### `src\projects\__tests__\projectAPI-test.js`
 
    ```js
-   import { MOCK_PROJECTS } from '../MockProjects';
-   import { projectAPI } from '../projectAPI';
+   import { MOCK_PROJECTS } from "../MockProjects";
+   import { projectAPI } from "../projectAPI";
 
-   describe('projectAPI', () => {
-     test('should return records', () => {
+   describe("projectAPI", () => {
+     test("should return records", () => {
        const response = new Response(undefined, {
          status: 200,
-         statusText: 'OK',
+         statusText: "OK",
        });
        response.json = () => Promise.resolve(MOCK_PROJECTS);
        jest
-         .spyOn(window, 'fetch')
+         .spyOn(window, "fetch")
          .mockImplementation(() => Promise.resolve(response));
 
        return projectAPI

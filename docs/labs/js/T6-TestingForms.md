@@ -1,62 +1,15 @@
 ---
-title: 'Testing Lab 6: Testing Forms'
+title: "Testing Lab 6: Testing Forms"
 ---
 
 ## Objectives
 
-- [ ] Update the User Event library
 - [ ] Update the Form to be more Accessible
 - [ ] Test Loading Data into the Form
 - [ ] Test Updating Form Values
 - [ ] Test Validation Rules
 
 ## Steps
-
-### Update the User Event library
-
-The `@testing-library/user-event` library is changing rapidly and the version that currently ships with **Create React App** is missing some methods we want to use during this lab so we are going to update the library before we begin.
-
-1. Update the `@testing-library/react` library by removing it from the `package.json`.
-
-   #### `\package.json`
-
-   ```diff
-   {
-     "name": "keeptrack",
-     "version": "0.1.0",
-     "private": true,
-     "dependencies": {
-       "@testing-library/jest-dom": "~4.2.4",
-       "@testing-library/react": "~9.5.0",
-   -    "@testing-library/user-event": "~7.2.1",
-       "@types/jest": "~24.9.1",
-       "@types/node": "~12.12.58",
-       "@types/react": "~16.9.49",
-       "@types/react-dom": "~16.9.8",
-       "react": "^16.13.1",
-       "react-dom": "^16.13.1",
-       "react-scripts": "3.4.3",
-       "typescript": "~3.7.5"
-     },
-   ```
-
-1. **Open** a `command prompt` (Windows) or `terminal` (Mac).
-1. Change the **current directory** to `code\keeptrack`.
-1. **Run** _one_ of the following sets of commands:
-
-   #### npm
-
-   ```shell
-   npm install @testing-library/user-event
-   ```
-
-   #### Yarn
-
-   ```shell
-   yarn add @testing-library/user-event
-   ```
-
-1. Verify the `@testing-library/user-event` is greater than or equal to `12.x.x`
 
 ### Update the Form to be more Accessible
 
@@ -161,16 +114,16 @@ One of the great benefits of using React Testing Library is that it helps us bui
    #### `src\projects\__tests__\ProjectForm-test.js`
 
    ```js
-   import React from 'react';
-   import { render, screen } from '@testing-library/react';
-   import { MemoryRouter } from 'react-router-dom';
-   import { Project } from '../Project';
-   import ProjectForm from '../ProjectForm';
-   import { Provider } from 'react-redux';
-   import { store } from '../../state';
-   import userEvent from '@testing-library/user-event';
+   import React from "react";
+   import { render, screen } from "@testing-library/react";
+   import { MemoryRouter } from "react-router-dom";
+   import { Project } from "../Project";
+   import ProjectForm from "../ProjectForm";
+   import { Provider } from "react-redux";
+   import { store } from "../../state";
+   import userEvent from "@testing-library/user-event";
 
-   describe('<ProjectForm />', () => {
+   describe("<ProjectForm />", () => {
      let project;
      let updatedProject;
      let handleCancel;
@@ -178,19 +131,7 @@ One of the great benefits of using React Testing Library is that it helps us bui
      let descriptionTextBox;
      let budgetTextBox;
 
-     beforeEach(() => {
-       project = new Project({
-         id: 1,
-         name: 'Mission Impossible',
-         description: 'This is really difficult',
-         budget: 100,
-       });
-       updatedProject = new Project({
-         name: 'Ghost Protocol',
-         description:
-           'Blamed for a terrorist attack on the Kremlin, Ethan Hunt (Tom Cruise) and the entire IMF agency...',
-       });
-       handleCancel = jest.fn();
+     const setup = () => {
        render(
          <Provider store={store}>
            <MemoryRouter>
@@ -199,20 +140,36 @@ One of the great benefits of using React Testing Library is that it helps us bui
          </Provider>
        );
 
-       nameTextBox = screen.getByRole('textbox', {
+       nameTextBox = screen.getByRole("textbox", {
          name: /project name/i,
        });
-       descriptionTextBox = screen.getByRole('textbox', {
+       descriptionTextBox = screen.getByRole("textbox", {
          name: /project description/i,
        });
-       budgetTextBox = screen.getByRole('spinbutton', {
+       budgetTextBox = screen.getByRole("spinbutton", {
          name: /project budget/i,
        });
+     };
+
+     beforeEach(() => {
+       project = new Project({
+         id: 1,
+         name: "Mission Impossible",
+         description: "This is really difficult",
+         budget: 100,
+       });
+       updatedProject = new Project({
+         name: "Ghost Protocol",
+         description:
+           "Blamed for a terrorist attack on the Kremlin, Ethan Hunt (Tom Cruise) and the entire IMF agency...",
+       });
+       handleCancel = jest.fn();
      });
 
-     test('should load project into form', () => {
+     test("should load project into form", () => {
+       setup();
        expect(
-         screen.getByRole('form', {
+         screen.getByRole("form", {
            name: /edit a project/i,
          })
        ).toHaveFormValues({
@@ -241,61 +198,34 @@ One of the great benefits of using React Testing Library is that it helps us bui
    ...
 
    describe('<ProjectForm />', () => {
-     let project;
-     let updatedProject;
-     let handleCancel;
-     let nameTextBox;
-     let descriptionTextBox;
-     let budgetTextBox;
+   ...
 
-     beforeEach(() => {
-       project = new Project({
-         id: 1,
-         name: 'Mission Impossible',
-         description: 'This is really difficult',
-         budget: 100,
-       });
-       updatedProject = new Project({
-         name: 'Ghost Protocol',
-         description:
-           'Blamed for a terrorist attack on the Kremlin, Ethan Hunt (Tom Cruise) and the entire IMF agency...',
-       });
-
-       ...
-       nameTextBox = screen.getByRole('textbox', {
-         name: /project name/i,
-       });
-       descriptionTextBox = screen.getByRole('textbox', {
-         name: /project description/i,
-       });
-       budgetTextBox = screen.getByRole('spinbutton', {
-         name: /project budget/i,
-       });
-     });
-
-   +  test('should accept input', () => {
-   +    userEvent.clear(nameTextBox);
-   +    userEvent.type(nameTextBox, updatedProject.name);
+   +  test('should accept input', async () => {
+   +    setup();
+   +    const user = userEvent.setup();
+   +    await user.clear(nameTextBox);
+   +    await user.type(nameTextBox, updatedProject.name);
    +    expect(nameTextBox).toHaveValue(updatedProject.name);
    +
-   +    userEvent.clear(descriptionTextBox);
-   +    userEvent.type(descriptionTextBox, updatedProject.description);
+   +    await user.clear(descriptionTextBox);
+   +    await user.type(descriptionTextBox, updatedProject.description);
    +    expect(descriptionTextBox).toHaveValue(updatedProject.description);
    +
-   +    userEvent.clear(budgetTextBox);
-   +    userEvent.type(budgetTextBox, updatedProject.budget.toString());
+   +    await user.clear(budgetTextBox);
+   +    await user.type(budgetTextBox, updatedProject.budget.toString());
    +    expect(budgetTextBox).toHaveValue(updatedProject.budget);
    +  });
 
    });
-
    ```
+
+````
 
 1. **Verify** the **test passes**.
 
    ```shell
     PASS  src/projects/__tests__/ProjectForm-test.js
-   ```
+````
 
 ### Test Validation Rules
 
@@ -310,30 +240,36 @@ One of the great benefits of using React Testing Library is that it helps us bui
      ...
 
    +  test('name should display required validation', async () => {
-   +    userEvent.clear(nameTextBox);
+   +    setup();
+   +    const user = userEvent.setup();
+   +    await user.clear(nameTextBox);
    +    expect(screen.getByRole('alert')).toBeInTheDocument();
    +  });
    +
    +  test('name should display minlength validation', async () => {
-   +    userEvent.clear(nameTextBox);
-   +    userEvent.type(nameTextBox, 'ab');
-   +    expect(screen.getByRole('alert')).toBeInTheDocument();
-   +    userEvent.type(nameTextBox, 'c');
+   +    setup();
+   +    const user = userEvent.setup();
+   +    await user.clear(nameTextBox);
+   +    await user.type(nameTextBox, 'ab');
+   +    await expect(screen.getByRole('alert')).toBeInTheDocument();
+   +    await user.type(nameTextBox, 'c');
    +    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
    +  });
+   +
    +  test('budget should display not 0 validation', async () => {
-   +    userEvent.clear(budgetTextBox);
-   +    userEvent.type(budgetTextBox, '0');
+   +    setup();
+   +    const user = userEvent.setup();
+   +    await user.clear(budgetTextBox);
+   +    await user.type(budgetTextBox, '0');
    +    expect(screen.getByRole('alert')).toBeInTheDocument();
-   +    userEvent.type(budgetTextBox, '1');
+   +    await user.type(budgetTextBox, '1');
    +    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
    +  });
 
    });
-
    ```
 
-1. **Verify** the **test passes**.
+1. **Verify** all **tests pass**.
 
    ```shell
     PASS  src/projects/__tests__/ProjectForm-test.js

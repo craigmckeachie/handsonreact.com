@@ -19,12 +19,14 @@ title: "Testing Lab 2: Snapshot Tests"
 
    ```shell
    npm i react-test-renderer --save-dev
+   npm i @types/react-test-renderer --save-dev
    ```
 
    #### Yarn
 
    ```shell
    yarn add react-test-renderer
+   yarn add @types/react-test-renderer --save-dev
    ```
 
 ### Create Your First Snapshot Test

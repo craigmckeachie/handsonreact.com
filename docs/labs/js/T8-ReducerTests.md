@@ -1,5 +1,5 @@
 ---
-title: 'Testing Lab 8: Reducer Tests'
+title: "Testing Lab 8: Reducer Tests"
 ---
 
 ## Objectives
@@ -16,15 +16,15 @@ title: 'Testing Lab 8: Reducer Tests'
    #### `src\projects\state\__tests__\projectReducer-test.js`
 
    ```js
-   import { projectReducer, initialProjectState } from '../projectReducer';
-   import { SAVE_PROJECT_SUCCESS } from '../projectTypes';
-   import { Project } from '../../Project';
-   import { MOCK_PROJECTS } from '../../MockProjects';
-   describe('project reducer', () => {
-     test('should update an existing project', () => {
+   import { projectReducer, initialProjectState } from "../projectReducer";
+   import { SAVE_PROJECT_SUCCESS } from "../projectTypes";
+   import { Project } from "../../Project";
+   import { MOCK_PROJECTS } from "../../MockProjects";
+   describe("project reducer", () => {
+     test("should update an existing project", () => {
        const project = MOCK_PROJECTS[0];
        const updatedProject = Object.assign(new Project(), project, {
-         name: project.name + ' updated',
+         name: project.name + " updated",
        });
        const currentState = { ...initialProjectState, projects: [project] };
        const updatedState = {

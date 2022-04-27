@@ -1,5 +1,5 @@
 ---
-title: 'Testing Lab 5: Container Components'
+title: "Testing Lab 5: Container Components"
 ---
 
 ## Objectives
@@ -20,18 +20,18 @@ title: 'Testing Lab 5: Container Components'
    #### `src\projects\__tests__\ProjectsPage-test.js`
 
    ```js
-   import React from 'react';
-   import { MemoryRouter } from 'react-router-dom';
-   import { Provider } from 'react-redux';
-   import { store } from '../../state';
-   import ProjectsPage from '../ProjectsPage';
+   import React from "react";
+   import { MemoryRouter } from "react-router-dom";
+   import { Provider } from "react-redux";
+   import { store } from "../../state";
+   import ProjectsPage from "../ProjectsPage";
    import {
      render,
      screen,
      waitForElementToBeRemoved,
-   } from '@testing-library/react';
+   } from "@testing-library/react";
 
-   describe('<ProjectsPage />', () => {
+   describe("<ProjectsPage />", () => {
      function renderComponent() {
        render(
          <Provider store={store}>
@@ -42,7 +42,7 @@ title: 'Testing Lab 5: Container Components'
        );
      }
 
-     test('should render without crashing', () => {
+     test("should render without crashing", () => {
        renderComponent();
        expect(screen).toBeDefined();
      });
@@ -53,36 +53,7 @@ title: 'Testing Lab 5: Container Components'
    ```
    PASS  src/projects/__tests__/ProjectsPage-test.js
    ```
-
-> ! Check to make sure the `delay` function used to delay the backend query and display the loading indicator has been removed in `projectAPI.js`. The delay call causes the `msw` library to throw an error.
-
-#### `projects\projectAPI.js`
-
-```diff
-const projectAPI = {
-find(id) {
-   return fetch(`${url}/${id}`).then(checkStatus).then(parseJSON);
-},
-
-get(page = 1, limit = pageSize) {
-   return fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`)
--      .then(delay(1000))
-      .then(checkStatus)
-      .then(parseJSON)
-      .then((projects) => {
-      return projects.map((p) => {
-         return new Project(p);
-      });
-      })
-      .catch((error) => {
-      console.log('log client error ' + error);
-      throw new Error(
-         'There was an error retrieving the projects. Please try again.'
-      );
-      });
-},
-...
-```
+   > ! Check to make sure the `delay` function used to delay the backend query and display the loading indicator has been removed in `projectAPI.js`. The delay call causes the `msw` library to throw an error.
 
 ### Test the Loading Indicator Displays
 
@@ -118,7 +89,6 @@ get(page = 1, limit = pageSize) {
    +    renderComponent();
    +    expect(screen.getByText(/loading/i)).toBeInTheDocument();
    +  });
-
    });
    ```
 
@@ -206,7 +176,6 @@ get(page = 1, limit = pageSize) {
       renderComponent();
       expect(screen.getByText(/loading/i)).toBeInTheDocument();
    });
-
    });
    ```
 
@@ -278,10 +247,9 @@ get(page = 1, limit = pageSize) {
    +  // what find* methods are doing
    +  test('should display more button with get', async () => {
    +    renderComponent();
-   +    await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
-   +    expect(screen.getByRole('button', { name: /more/i })).+toBeInTheDocument();
+   +    await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
+   +    expect(screen.getByRole('button', { name: /more/i })).toBeInTheDocument();
    +  });
-
    });
 
    ```
@@ -334,19 +302,3 @@ get(page = 1, limit = pageSize) {
 ---
 
 ### &#10004; You have completed Testing Lab 5
-
-<!--
-```
-"dependencies": {
-    "@testing-library/jest-dom": "~4.2.4",
-    "@testing-library/react": "~10.0.6",
-}
-npm install @testing-library/react
-
-```
-
-```
-https://stackoverflow.com/questions/61036156/react-typescript-testing-typeerror-mutationobserver-is-not-a-constructor
-npm i -D jest-environment-jsdom-sixteen
-"test": "react-scripts test --env=jest-environment-jsdom-sixteen"
-``` -->
