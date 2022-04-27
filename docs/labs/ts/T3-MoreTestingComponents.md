@@ -1,5 +1,5 @@
 ---
-title: 'Testing Lab 3: More Component Testing'
+title: "Testing Lab 3: More Component Testing"
 ---
 
 ## Objectives
@@ -19,33 +19,35 @@ title: 'Testing Lab 3: More Component Testing'
 
    #### `src\projects\__tests__\ProjectCard-test.tsx`
 
-   ```tsx
-   import { render, screen } from '@testing-library/react';
-   import React from 'react';
-   import { Project } from '../Project';
-   import ProjectCard from '../ProjectCard';
+```tsx
+import { render, screen } from "@testing-library/react";
+import React from "react";
+import { Project } from "../Project";
+import ProjectCard from "../ProjectCard";
 
-   describe('<ProjectCard />', () => {
-     let project: Project;
-     let handleEdit: jest.Mock;
-     beforeEach(() => {
-       project = new Project({
-         id: 1,
-         name: 'Mission Impossible',
-         description: 'This is really difficult',
-         budget: 100,
-       });
-       handleEdit = jest.fn();
-       render(<ProjectCard project={project} onEdit={handleEdit} />);
-     });
-   });
-   ```
+describe("<ProjectCard />", () => {
+  let project: Project;
+  let handleEdit: jest.Mock;
+  beforeEach(() => {
+    project = new Project({
+      id: 1,
+      name: "Mission Impossible",
+      description: "This is really difficult",
+      budget: 100,
+    });
+    handleEdit = jest.fn();
+  });
+
+  it("should initially render", () => {
+    render(<ProjectCard project={project} onEdit={handleEdit} />);
+  });
+});
+```
 
 1. Verify the test fails.
 
    ```shell
-   FAIL src/projects/__tests__/ProjectCard-test.tsx
-   Invariant failed: You should not use <Link> outside a <Router>
+   useHref() may be used only in the context of a <Router> component.
    ```
 
 1. Wrap the component in a `MemoryRouter`.
@@ -68,6 +70,9 @@ title: 'Testing Lab 3: More Component Testing'
          budget: 100,
        });
        handleEdit = jest.fn();
+     });
+
+     it('should initially render', () => {
        render(
    +      <MemoryRouter>
            <ProjectCard project={project} onEdit={handleEdit} />
@@ -75,9 +80,10 @@ title: 'Testing Lab 3: More Component Testing'
        );
      });
    });
+
    ```
 
-   > `<MemoryRouter>` - a `<Router>` that keeps the history of your "URL" in memory (does not read or write to the address bar). Useful in tests and non-browser environments like React Native.
+> `<MemoryRouter>` - is a `<Router>` that keeps the history of your "URL" in memory (does not read or write to the address bar). Useful in tests and non-browser environments like React Native.
 
 1. Verify the initial test now passes.
    ```shell
@@ -96,48 +102,61 @@ title: 'Testing Lab 3: More Component Testing'
 
    #### `src\projects\__tests__\ProjectCard-test.tsx`
 
-   ```diff
-   ...
+```diff
+...
 
-   describe('<ProjectCard />', () => {
-     let project: Project;
-     let handleEdit: jest.Mock;
-     beforeEach(() => {
-       project = new Project({
-         id: 1,
-         name: 'Mission Impossible',
-         description: 'This is really difficult',
-         budget: 100,
-       });
-       handleEdit = jest.fn();
-       render(
-         <MemoryRouter>
-           <ProjectCard project={project} onEdit={handleEdit} />
-         </MemoryRouter>
-       );
-     });
+describe('<ProjectCard />', () => {
+  let project: Project;
+  let handleEdit: jest.Mock;
+  beforeEach(() => {
+    project = new Project({
+      id: 1,
+      name: 'Mission Impossible',
+      description: 'This is really difficult',
+      budget: 100,
+    });
+    handleEdit = jest.fn();
+  });
 
-   +  it('renders project properly', () => {
-   +    expect(screen.getByRole('heading')).toHaveTextContent(project.name);
-   +    // screen.debug(document);
-   +    screen.getByText(/this is really difficult\.\.\./i);
-   +    screen.getByText(/budget : 100/i);
-   +  });
-   });
-   ```
+  it('should initially render', () => {
+    render(
+      <MemoryRouter>
+        <ProjectCard project={project} onEdit={handleEdit} />
+      </MemoryRouter>
+    );
+  });
+
++  it('renders project properly', () => {
++    render(
++      <MemoryRouter>
++        <ProjectCard project={project} onEdit={handleEdit} />
++      </MemoryRouter>
++    );
++    expect(screen.getByRole('heading')).toHaveTextContent(project.name);
++    // screen.debug(document);
++    screen.getByText(/this is really difficult\.\.\./i);
++    screen.getByText(/budget : 100/i);
++  });
+
+});
+
+
+```
 
 1. **Verify** the **test passes**.
    ```shell
    PASS  src/projects/__tests__/ProjectCard-test.tsx
+   ...
+    ✓ renders project properly
    ```
 
 ### Testing a Function Prop
 
 1. Open a command-prompt or terminal and run the following command to install `user-event` from the core testing library behind React testing library.
 
-```
-npm install --save-dev @testing-library/user-event @testing-library/dom
-```
+   ```
+   npm install --save-dev @testing-library/user-event @testing-library/dom
+   ```
 
 1. **Test** that the **handler prop** is called when edit is clicked.
 
@@ -162,29 +181,120 @@ npm install --save-dev @testing-library/user-event @testing-library/dom
          budget: 100,
        });
        handleEdit = jest.fn();
+     });
+
+     it('should initially render', () => {
        render(
          <MemoryRouter>
            <ProjectCard project={project} onEdit={handleEdit} />
          </MemoryRouter>
        );
      });
-     ...
-   +  it('handler called when edit clicked', () => {
+
+     it('renders project properly', () => {
+       render(
+         <MemoryRouter>
+           <ProjectCard project={project} onEdit={handleEdit} />
+         </MemoryRouter>
+       );
+       expect(screen.getByRole('heading')).toHaveTextContent(project.name);
+       // screen.debug(document);
+       screen.getByText(/this is really difficult\.\.\./i);
+       screen.getByText(/budget : 100/i);
+     });
+
+   +  it('handler called when edit clicked', async () => {
+   +    render(
+   +      <MemoryRouter>
+   +        <ProjectCard project={project} onEdit={handleEdit} />
+   +      </MemoryRouter>
+   +    );
    +    // this query works screen.getByText(/edit/i)
    +    // but using role is better
-   +    userEvent.click(
-   +      screen.getByRole('button')
-   +    );
+   +    const user = userEvent.setup();
+   +    await user.click(screen.getByRole('button', { name: /edit/i }));
    +    expect(handleEdit).toBeCalledTimes(1);
    +    expect(handleEdit).toBeCalledWith(project);
    +  });
    });
+
    ```
 
 1. **Verify** the **test passes**.
+
    ```shell
    PASS  src/projects/__tests__/ProjectCard-test.tsx
    ```
+
+1. Refactor the `ProjectCard-test.tsx` to use use a `setup` function to render the component at the start of each test.
+
+   ```tsx
+   import { render, screen } from "@testing-library/react";
+   import React from "react";
+   import { MemoryRouter } from "react-router-dom";
+   import { Project } from "../Project";
+   import ProjectCard from "../ProjectCard";
+   import userEvent from "@testing-library/user-event";
+   import renderer from "react-test-renderer";
+
+   describe("<ProjectCard />", () => {
+     let project: Project;
+     let handleEdit: jest.Mock;
+
+     const setup = () =>
+       render(
+         <MemoryRouter>
+           <ProjectCard project={project} onEdit={handleEdit} />
+         </MemoryRouter>
+       );
+
+     beforeEach(() => {
+       project = new Project({
+         id: 1,
+         name: "Mission Impossible",
+         description: "This is really difficult",
+         budget: 100,
+       });
+       handleEdit = jest.fn();
+     });
+
+     it("should initially render", () => {
+       setup();
+     });
+
+     it("renders project properly", () => {
+       setup();
+       expect(screen.getByRole("heading")).toHaveTextContent(project.name);
+       // screen.debug(document);
+       screen.getByText(/this is really difficult\.\.\./i);
+       screen.getByText(/budget : 100/i);
+     });
+
+     it("handler called when edit clicked", async () => {
+       setup();
+       // this query works screen.getByText(/edit/i)
+       // but using role is better
+       // eslint-disable-next-line testing-library/render-result-naming-convention
+       const user = userEvent.setup();
+       await user.click(screen.getByRole("button", { name: /edit/i }));
+       expect(handleEdit).toBeCalledTimes(1);
+       expect(handleEdit).toBeCalledWith(project);
+     });
+
+     test("snapshot", () => {
+       const tree = renderer
+         .create(
+           <MemoryRouter>
+             <ProjectCard project={project} onEdit={handleEdit} />
+           </MemoryRouter>
+         )
+         .toJSON();
+       expect(tree).toMatchSnapshot();
+     });
+   });
+   ```
+
+   > Why not just put the setup code in the `beforeEach`? See [this ESLint rule](https://github.com/testing-library/eslint-plugin-testing-library/blob/main/docs/rules/no-render-in-setup.md) for react-testing-library.
 
 ### Taking a Snapshot
 
