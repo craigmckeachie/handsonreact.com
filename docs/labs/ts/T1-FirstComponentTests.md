@@ -20,6 +20,7 @@ title: "Testing Lab 1: Your First Component Test"
 
    ```
    git clone https://github.com/craigmckeachie/keeptrack-ts.git keeptrack
+   cd keeptrack
    git checkout testing-start
    ```
 
