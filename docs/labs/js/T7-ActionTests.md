@@ -124,20 +124,20 @@ let store;
       store = mockStoreCreator(initialAppState);
     });
 
--  test('should load projects successfully', () => {
--     const expectedActions = [
--       { type: LOAD_PROJECTS_REQUEST },
--       {
--         type: LOAD_PROJECTS_SUCCESS,
--         payload: { projects: MOCK_PROJECTS, page: 1 }
--       }
--    ];
--
--     return store.dispatch(loadProjects(1)).then(() => {
--       const actions = store.getActions();
--       expect(actions).toEqual(expectedActions);
--     });
--  });
++  test('should load projects successfully', () => {
++     const expectedActions = [
++       { type: LOAD_PROJECTS_REQUEST },
++       {
++         type: LOAD_PROJECTS_SUCCESS,
++         payload: { projects: MOCK_PROJECTS, page: 1 }
++       }
++    ];
++
++     return store.dispatch(loadProjects(1)).then(() => {
++       const actions = store.getActions();
++       expect(actions).toEqual(expectedActions);
++     });
++  });
 
 });
 
