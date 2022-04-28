@@ -97,51 +97,51 @@ title: "Testing Lab 7: Action Tests"
 
 1. Attempt to test that the projects load successfully by adding the code.
 
-   #### `src/projects/state/__tests__/projectActions-test.js`
+#### `src/projects/state/__tests__/projectActions-test.js`
 
-   ```diff
-   import configureMockStore from 'redux-mock-store';
-   import ReduxThunk from 'redux-thunk';
-   import { initialAppState } from '../../../state';
-   import { loadProjects } from '../projectActions';
-   import {
-     LOAD_PROJECTS_REQUEST,
-     LOAD_PROJECTS_SUCCESS,
-     LOAD_PROJECTS_FAILURE
-   } from '../projectTypes';
-   import { projectAPI } from '../../projectAPI';
-   import { MOCK_PROJECTS } from '../../MockProjects';
-   jest.mock('../../projectAPI');
+```diff
+import configureMockStore from 'redux-mock-store';
+import ReduxThunk from 'redux-thunk';
+import { initialAppState } from '../../../state';
+import { loadProjects } from '../projectActions';
+import {
+  LOAD_PROJECTS_REQUEST,
+  LOAD_PROJECTS_SUCCESS,
+  LOAD_PROJECTS_FAILURE
+} from '../projectTypes';
+import { projectAPI } from '../../projectAPI';
+import { MOCK_PROJECTS } from '../../MockProjects';
+jest.mock('../../projectAPI');
 
-   const middlewares = [ReduxThunk];
-   const mockStoreCreator = configureMockStore(middlewares);
+const middlewares = [ReduxThunk];
+const mockStoreCreator = configureMockStore(middlewares);
 
 
-   describe('Project Actions', () => {
-   let store;
+describe('Project Actions', () => {
+let store;
 
-       beforeEach(() => {
-         store = mockStoreCreator(initialAppState);
-       });
+    beforeEach(() => {
+      store = mockStoreCreator(initialAppState);
+    });
 
-   -  test('should load projects successfully', () => {
-   -  const expectedActions = [
-   -       { type: LOAD_PROJECTS_REQUEST },
-   -       {
-   -         type: LOAD_PROJECTS_SUCCESS,
-   -         payload: { projects: MOCK_PROJECTS, page: 1 }
-   -       }
-   -  ];
-   -
-   -  return store.dispatch(loadProjects(1)).then(() => {
-   -       const actions = store.getActions();
-   -       expect(actions).toEqual(expectedActions);
-   -  });
-   -  });
+-  test('should load projects successfully', () => {
+-     const expectedActions = [
+-       { type: LOAD_PROJECTS_REQUEST },
+-       {
+-         type: LOAD_PROJECTS_SUCCESS,
+-         payload: { projects: MOCK_PROJECTS, page: 1 }
+-       }
+-    ];
+-
+-     return store.dispatch(loadProjects(1)).then(() => {
+-       const actions = store.getActions();
+-       expect(actions).toEqual(expectedActions);
+-     });
+-  });
 
-   });
+});
 
-   ```
+```
 
 2. All tests including the `'should load projects successfully'` should pass.
 
