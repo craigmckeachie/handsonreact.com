@@ -116,36 +116,38 @@ title: "Testing Lab 7: Action Tests"
    const middlewares = [ReduxThunk];
    const mockStoreCreator = configureMockStore(middlewares);
 
+
    describe('Project Actions', () => {
-     let store;
+   let store;
 
-     beforeEach(() => {
-       store = mockStoreCreator(initialAppState);
-     });
+       beforeEach(() => {
+         store = mockStoreCreator(initialAppState);
+       });
 
+   -  test('should load projects successfully', () => {
+   -  const expectedActions = [
+   -       { type: LOAD_PROJECTS_REQUEST },
+   -       {
+   -         type: LOAD_PROJECTS_SUCCESS,
+   -         payload: { projects: MOCK_PROJECTS, page: 1 }
+   -       }
+   -  ];
+   -
+   -  return store.dispatch(loadProjects(1)).then(() => {
+   -       const actions = store.getActions();
+   -       expect(actions).toEqual(expectedActions);
+   -  });
+   -  });
 
-   +  test('should load projects successfully', () => {
-   +    const expectedActions = [
-   +      { type: LOAD_PROJECTS_REQUEST },
-   +      {
-   +        type: LOAD_PROJECTS_SUCCESS,
-   +        payload: { projects: MOCK_PROJECTS, page: 1 }
-   +      }
-   +    ];
-   +
-   +    return store.dispatch(loadProjects(1)).then(() => {
-   +      const actions = store.getActions();
-   +      expect(actions).toEqual(expectedActions);
-   +    });
-   +  });
    });
+
    ```
 
 2. All tests including the `'should load projects successfully'` should pass.
 
-   ```shell
-   PASS  src/projects/state/__tests__/projectActions-test.js
-   ```
+```shell
+PASS  src/projects/state/__tests__/projectActions-test.js
+```
 
 3. Test that an error is returned when loading projects fails.
 
