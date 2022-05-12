@@ -1,5 +1,5 @@
 ---
-title: 'Lab 15: Form Values to State'
+title: "Lab 15: Form Values to State"
 ---
 
 ## Objectives
@@ -72,7 +72,7 @@ function ProjectForm({
   project: initialProject,
   onSave,
   onCancel,
-}: ProjectFormProps) {
+}) {
   const [project, setProject] = useState(initialProject);
   const handleSubmit = (event) => {
     event.preventDefault();
