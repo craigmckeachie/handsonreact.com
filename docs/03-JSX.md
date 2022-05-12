@@ -25,11 +25,8 @@ React.createElement(component, props, ...children);
     //    );
 
     const element = <div className="container">Hello World</div>;
+    ReactDOM.createRoot(rootElement).render(element);
     ```
-
-ReactDOM.createRoot(rootElement).render(element);
-
-````
 
 2.  But since a JSX compiler has not been configured if you try to run this code by opening or refreshing the index page in the your browser you will get the following error:
 
@@ -141,9 +138,10 @@ An expression can be created in JSX with curly braces. When you create an expres
 
 1. Copy the React logo from the `assets` folder into the root of your project `demos`.
 1. Update the element to be an image tag pointing to the logo.
+
    ```js
    const element = <img src="./react-logo.png" />;
-````
+   ```
 
 1. Refresh the page and the React logo should appear on the page.
 1. Create a logo object with path, name, and title properties and set attributes in JSX to each of those values as shown below.
@@ -189,21 +187,21 @@ The most common differences are shown below.
 
 1. You can nest multiple child elements.
 
-```js
-const element = (
-  <ul>
-    <li>
-      <a href="">a</a>
-    </li>
-    <li>
-      <a href="">b</a>
-    </li>
-    <li>
-      <a href="">c</a>
-    </li>
-  </ul>
-);
-```
+   ```js
+   const element = (
+     <ul>
+       <li>
+         <a href="">a</a>
+       </li>
+       <li>
+         <a href="">b</a>
+       </li>
+       <li>
+         <a href="">c</a>
+       </li>
+     </ul>
+   );
+   ```
 
 2. If you want your code formatting and indentation to line up you will want your opening tag on the next line after the variable declaration. Because JavaScript has automatic semi-colon insertion your code can break as shown below.
    ```js
@@ -283,3 +281,7 @@ const element = (
 - JavaScript Expressions as Children
 - Functions as Children
 - Booleans, Null, and Undefined are Ignored = -->
+
+```
+
+```
