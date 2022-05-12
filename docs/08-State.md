@@ -36,7 +36,7 @@ function Clock() {
   );
 }
 
-ReactDOM.render(<Clock />, document.getElementById('root'));
+ReactDOM.render(<Clock />, document.getElementById("root"));
 ```
 
 #### Setting `state`
@@ -140,7 +140,7 @@ In the above component, we have `age`, `fruit`, and `todos` as local variables, 
 ```js
 function handleOrangeClick() {
   // Similar to this.setState({ fruit: 'orange' })
-  setFruit('orange');
+  setFruit("orange");
 }
 ```
 
@@ -210,13 +210,13 @@ function App() {
   return (
     <>
       {loading && <p>Loading...</p>}
-      <pre>{JSON.stringify(data, null, ' ')}</pre>
+      <pre>{JSON.stringify(data, null, " ")}</pre>
       <button onClick={loadData}>Load Data</button>
     </>
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 ### Setting `state` using the current `state` or `props`
@@ -256,7 +256,7 @@ function Counter({ initialCount }) {
   );
 }
 
-ReactDOM.render(<Counter initialCount={0} />, document.getElementById('root'));
+ReactDOM.render(<Counter initialCount={0} />, document.getElementById("root"));
 ```
 
 The ”Increment” and ”Increment Function Update” buttons use the two different forms of updating state. This is not an issue until you set state repeatedly. The issue arises because React does state updates asyncronously and can batch them to improve rendering performance.
@@ -278,7 +278,7 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(<Clock />, document.getElementById('root'));
+ReactDOM.render(<Clock />, document.getElementById("root"));
 ```
 
 In React, you don’t manipulate the DOM directly, instead you simply update data (state) and let React react by updating the UI in all the needed places.
@@ -303,7 +303,7 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(<Clock />, document.getElementById('root'));
+ReactDOM.render(<Clock />, document.getElementById("root"));
 ```
 
 To make it easier to read and understand, the last example uses [class field declarations](https://github.com/tc39/proposal-class-fields) which is not an official feature of JavaScript but is currently a `Stage 3 proposal`.
@@ -344,7 +344,7 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(<Clock />, document.getElementById('root'));
+ReactDOM.render(<Clock />, document.getElementById("root"));
 ```
 
 ### Using State Correctly
@@ -377,7 +377,7 @@ There are three things you should know about setState().
      }
    }
 
-   ReactDOM.render(<Clock />, document.getElementById('root'));
+   ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
    ```
 
 2. State Updates are Merged
@@ -389,7 +389,7 @@ There are three things you should know about setState().
    class Clock extends React.Component {
      state = {
        time: new Date().toLocaleTimeString(),
-       buttonLabel: 'Refresh',
+       buttonLabel: "Refresh",
      };
 
      refresh = () => {
@@ -406,7 +406,7 @@ There are three things you should know about setState().
      }
    }
 
-   ReactDOM.render(<Clock />, document.getElementById('root'));
+   ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
    ```
 
 3. State Updates May Be Asynchronous

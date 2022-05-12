@@ -51,14 +51,14 @@ git diff 9e548ac0ac4dd05c8e9778475a47351f6246f058..react-query-working -->
 
     + const queryClient = new QueryClient();
 
-    ReactDOM.render(
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
       <React.StrictMode>
     +   <QueryClientProvider client={queryClient}>
           <App />
     +      <ReactQueryDevtools initialIsOpen={false} />
     +    </QueryClientProvider>
-      </React.StrictMode>,
-      document.getElementById('root')
+      </React.StrictMode>
     );
     ```
 

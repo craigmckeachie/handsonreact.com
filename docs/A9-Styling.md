@@ -83,7 +83,7 @@ Components can be styled using CSS classes or inline styles as you would in when
      );
    }
 
-   ReactDOM.render(<Alert />, document.getElementById("root"));
+   ReactDOM.createRoot(document.getElementById("root")).render(<Alert />);
    ```
 
 5. Modify the component to take an `Alert` `type` prop to dynamically set the type of alert
@@ -98,7 +98,9 @@ Components can be styled using CSS classes or inline styles as you would in when
      );
    }
 
-   ReactDOM.render(<Alert type="danger" />, document.getElementById("root"));
+   ReactDOM.createRoot(document.getElementById("root")).render(
+     <Alert type="danger" />
+   );
    ```
 
 6. Set the alert type as shown above and confirm it is working
@@ -142,7 +144,7 @@ Using the `style` attribute as the primary means of styling elements is generall
    );
    }
 
-   ReactDOM.render(<Alert type="danger" />, document.getElementById('root'));
+   ReactDOM.createRoot(document.getElementById('root')).render(<Alert type="danger" />);
    ```
 
 ## Classnames Library
@@ -205,7 +207,7 @@ Read a comparison of CSS-in-JS libraries [here](https://github.com/MicheleBertol
       return <div className="alert alert-danger">danger</div>;
     }
 
-    ReactDOM.render(<Alert />, document.getElementById("root"));
+    ReactDOM.createRoot(document.getElementById("root")).render(<Alert />);
     ```
 
     #### `styles.css`
@@ -248,7 +250,7 @@ Read a comparison of CSS-in-JS libraries [here](https://github.com/MicheleBertol
       return <StyledAlertDanger>danger</StyledAlertDanger>;
     }
 
-    ReactDOM.render(<Alert />, document.getElementById("root"));
+    ReactDOM.createRoot(document.getElementById("root")).render(<Alert />);
     ```
 
 1.  With variants:
@@ -280,7 +282,7 @@ Read a comparison of CSS-in-JS libraries [here](https://github.com/MicheleBertol
       return <StyledAlertInfo>danger</StyledAlertInfo>;
     }
 
-    ReactDOM.render(<Alert />, document.getElementById("root"));
+    ReactDOM.createRoot(document.getElementById("root")).render(<Alert />);
     ```
 
 1.  With variants driven by props:
@@ -304,7 +306,7 @@ Read a comparison of CSS-in-JS libraries [here](https://github.com/MicheleBertol
       );
     }
 
-    ReactDOM.render(<Alert />, document.getElementById("root"));
+    ReactDOM.createRoot(document.getElementById("root")).render(<Alert />);
     ```
 
 ## Reference

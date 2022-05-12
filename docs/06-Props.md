@@ -8,20 +8,23 @@ slug: /props
 `Props` is short for `properties`. When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object `props`.
 
 1. Create a `Greeter` component and render it
+
    ```js
    function Greeter() {
      return <h1>Hello</h1>;
    }
-   const element = <Greeter />;
-   ReactDOM.render(element, document.getElementById('root'));
+   ReactDOM.createRoot(document.getElementById("root")).render(<Greeter />);
    ```
+
 2. Add a `property (prop)` to the component
+
    ```js
    function Greeter(props) {
      return <h1>Hello, {props.name}</h1>;
    }
-   const element = <Greeter name="Joe" />;
-   ReactDOM.render(element, document.getElementById('root'));
+   ReactDOM.createRoot(document.getElementById("root")).render(
+     <Greeter name="Joe" />
+   );
    ```
 
 ## Read-only
@@ -50,8 +53,9 @@ function withdraw(account, amount) {
    +  props.name = 'Dave';
      return <h1>Hello, {props.name}</h1>;
    }
-   const element = <Greeter name="Joe" />;
-   ReactDOM.render(element, document.getElementById('root'));
+   ReactDOM.createRoot(document.getElementById("root")).render(
+     <Greeter name="Joe" />
+   );
    ```
 1. Open your browser's DevTools and you will receive the following error:
 
@@ -66,8 +70,9 @@ function withdraw(account, amount) {
    -  props.name = 'Dave';
      return <h1>Hello, {props.name}</h1>;
    }
-   const element = <Greeter name="Joe" />;
-   ReactDOM.render(element, document.getElementById('root'));
+   ReactDOM.createRoot(document.getElementById("root")).render(
+     <Greeter name="Joe" />
+   );
    ```
 1. The error will go away and the component will render again.
 
@@ -82,13 +87,13 @@ function withdraw(account, amount) {
    ```
 2. If you want to assign properties to a variable or an object property you need to use an expression and leave off the quotes.
    ```js
-   const person = { firstName: 'John' };
+   const person = { firstName: "John" };
    const element = <Greeter name={person.firstName} />;
    ```
 3. Renders: `Hello John`
 4. If you leave the quotes React takes you literally.
    ```js
-   const person = { firstName: 'John' };
+   const person = { firstName: "John" };
    const element = <Greeter name="{person.firstName}" />;
    ```
 5. Renders:

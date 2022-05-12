@@ -67,8 +67,8 @@ Gives you a reference to the dispatch function so you can dispatch actions and c
 ### Example
 
 ```js
-const INCREMENT = 'INCREMENT';
-const DECREMENT = 'DECREMENT';
+const INCREMENT = "INCREMENT";
+const DECREMENT = "DECREMENT";
 
 function increment() {
   return { type: INCREMENT };
@@ -109,7 +109,7 @@ const element = (
   </div>
 );
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 ReactDOM.render(element, rootElement);
 ```
 
@@ -136,8 +136,8 @@ The `connect` function takes two arguments, both optional:
 `connect` returns a new function that accepts the component to wrap, and that function returns the wrapper component.
 
 ```js
-import { connect } from 'react-redux';
-import { increment } from './counterActions';
+import { connect } from "react-redux";
+import { increment } from "./counterActions";
 
 function mapStateToProps(state) {
   return {
@@ -169,8 +169,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 ### Example
 
 ```js
-const INCREMENT = 'INCREMENT';
-const DECREMENT = 'DECREMENT';
+const INCREMENT = "INCREMENT";
+const DECREMENT = "DECREMENT";
 
 function increment() {
   return { type: INCREMENT };
@@ -230,7 +230,7 @@ const element = (
   </div>
 );
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 ReactDOM.render(element, rootElement);
 ```
 
@@ -335,15 +335,15 @@ export default connect(mapState, actions)(MyComponent);
 Wrapping your root application component in `<Provider>` and passing it the store reference makes that store available to all connected components in the component tree.
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
-import { store } from './store';
+import { store } from "./store";
 
 // App may be connected itself, and have connected
 // components deep inside its tree
-import App from './App';
+import App from "./App";
 
 ReactDOM.render(
   // Wrap your top-level component in <Provider>,
@@ -351,7 +351,7 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 ```
 
@@ -386,7 +386,7 @@ const store = createStore(counter);
 // 2) Subscribe to store updates
 store.subscribe(render);
 
-const valueEl = document.getElementById('value');
+const valueEl = document.getElementById("value");
 
 // 3. When the subscription callback runs:
 function render() {
@@ -404,8 +404,8 @@ function render() {
 render();
 
 // 5) Dispatch actions based on UI inputs
-document.getElementById('increment').addEventListener('click', () => {
-  store.dispatch({ type: 'INCREMENT' });
+document.getElementById("increment").addEventListener("click", () => {
+  store.dispatch({ type: "INCREMENT" });
 });
 ```
 
@@ -419,8 +419,8 @@ In this demo we are going to:
 
    ```js
    //action types
-   const INCREMENT = 'INCREMENT';
-   const DECREMENT = 'DECREMENT';
+   const INCREMENT = "INCREMENT";
+   const DECREMENT = "DECREMENT";
 
    //action creators
    function increment() {
@@ -514,7 +514,7 @@ const element = (
   </div>
 );
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 ReactDOM.render(element, rootElement);
 ```
 
@@ -567,7 +567,7 @@ ReactDOM.render(element, rootElement);
    //   );
 
    // const rootElement = document.getElementById('root');
-   // ReactDOM.render(element, rootElement);
+   //ReactDOM.createRoot(rootElement).render(element);
    ```
 
 6. Use `connect` to automatically create the container component.
@@ -597,15 +597,15 @@ ReactDOM.render(element, rootElement);
      </div>
    );
 
-   const rootElement = document.getElementById('root');
-   ReactDOM.render(element, rootElement);
+   const rootElement = document.getElementById("root");
+   ReactDOM.createRoot(rootElement).render(element);
    ```
 
 ### Final Code
 
 ```js
-const INCREMENT = 'INCREMENT';
-const DECREMENT = 'DECREMENT';
+const INCREMENT = "INCREMENT";
+const DECREMENT = "DECREMENT";
 
 function increment() {
   return { type: INCREMENT };
@@ -698,7 +698,7 @@ const element = (
   </div>
 );
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 ReactDOM.render(element, rootElement);
 
 // var store = Redux.createStore(reducer, enableDevTools());

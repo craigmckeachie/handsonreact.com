@@ -25,9 +25,11 @@ React.createElement(component, props, ...children);
     //    );
 
     const element = <div className="container">Hello World</div>;
-
-    ReactDOM.render(element, rootElement);
     ```
+
+ReactDOM.createRoot(rootElement).render(element);
+
+````
 
 2.  But since a JSX compiler has not been configured if you try to run this code by opening or refreshing the index page in the your browser you will get the following error:
 
@@ -114,7 +116,7 @@ An expression can be created in JSX with curly braces. When you create an expres
       const rootElement = document.getElementById('root');
     +  const name = 'Joe';
     +  const element = <div className="container">Hello {name}</div>;
-      ReactDOM.render(element, rootElement);
+     ReactDOM.createRoot(rootElement).render(element);
     </script>
     ```
 
@@ -132,7 +134,7 @@ An expression can be created in JSX with curly braces. When you create an expres
     +      Hello {person.first} {person.last}
         </div>
       );
-      ReactDOM.render(element, rootElement);
+     ReactDOM.createRoot(rootElement).render(element);
     ```
 
 ## Part 3 - Specifying Attributes with JSX
@@ -141,7 +143,8 @@ An expression can be created in JSX with curly braces. When you create an expres
 1. Update the element to be an image tag pointing to the logo.
    ```js
    const element = <img src="./react-logo.png" />;
-   ```
+````
+
 1. Refresh the page and the React logo should appear on the page.
 1. Create a logo object with path, name, and title properties and set attributes in JSX to each of those values as shown below.
 1. ```js

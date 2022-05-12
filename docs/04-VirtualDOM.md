@@ -11,7 +11,7 @@ React implements a browser-independent DOM system for performance and cross-brow
 
    ```js
    function renderElement() {
-     const rootElement = document.getElementById('root');
+     const rootElement = document.getElementById("root");
      const element = (
        <div className="post">
          <h1>My First Blog Post</h1>
@@ -23,7 +23,7 @@ React implements a browser-independent DOM system for performance and cross-brow
          </p>
        </div>
      );
-     ReactDOM.render(element, rootElement);
+     ReactDOM.createRoot(rootElement).render(element);
    }
    setInterval(renderElement, 1000);
    ```

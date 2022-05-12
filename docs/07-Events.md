@@ -63,7 +63,7 @@ Handling events with **React elements** is very similar to handling events on **
      return <button onClick={handleClick()}>Click Me!</button>;
    }
 
-   ReactDOM.render(<Button />, document.getElementById("root"));
+   ReactDOM.createRoot(document.getElementById("root")).render(<Button />);
    ```
 
 2. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
@@ -110,7 +110,7 @@ Handling events with **React elements** is very similar to handling events on **
      }
    }
 
-   ReactDOM.render(<Button />, document.getElementById("root"));
+   ReactDOM.createRoot(document.getElementById("root")).render(<Button />);
    ```
 
    > Bind? The next section discusses why binding is necessary as well as alternative syntaxes that can be used to bind the event handler including which are considering the best practice.
@@ -174,9 +174,9 @@ This next section is about the different ways to do the binding.
       );
     }
   }
-  ReactDOM.render(
-    <ExplainBindingsComponent />,
-    document.getElementById("root")
+
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <ExplainBindingsComponent />
   );
   ```
 
@@ -201,9 +201,8 @@ This next section is about the different ways to do the binding.
       );
     }
   }
-  ReactDOM.render(
-    <ExplainBindingsComponent />,
-    document.getElementById("root")
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <ExplainBindingsComponent />
   );
   ```
 
@@ -230,9 +229,8 @@ This next section is about the different ways to do the binding.
       );
     }
   }
-  ReactDOM.render(
-    <ExplainBindingsComponent />,
-    document.getElementById("root")
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <ExplainBindingsComponent />
   );
   ```
 
@@ -264,9 +262,9 @@ This next section is about the different ways to do the binding.
       </button>
     );
   }
-  ReactDOM.render(
-    <ExplainBindingsComponent />,
-    document.getElementById("root")
+
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <ExplainBindingsComponent />
   );
   ```
 
@@ -285,9 +283,8 @@ This next section is about the different ways to do the binding.
       </button>
     );
   }
-  ReactDOM.render(
-    <ExplainBindingsComponent />,
-    document.getElementById("root")
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <ExplainBindingsComponent />
   );
   ```
 
@@ -324,9 +321,8 @@ As we discussed earlier, we can't invoke a function when we subscribe to an even
      { id: 5, name: "kiwi" },
    ];
 
-   ReactDOM.render(
-     <FruitList fruits={data} />,
-     document.getElementById("root")
+   ReactDOM.createRoot(document.getElementById("root")).render(
+     <FruitList fruits={data} />
    );
    ```
 
@@ -370,7 +366,11 @@ There are two solutions to this problem:
      { id: 5, name: 'kiwi' },
    ];
 
-   ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
+   ReactDOM.createRoot(document.getElementById("root")).render(
+    <FruitList fruits={data} />
+   );
+
+
    ```
 
 ### Using Bind
@@ -426,9 +426,8 @@ Handling events requires us to prevent the default browser behavior.
      { id: 5, name: "kiwi" },
    ];
 
-   ReactDOM.render(
-     <FruitList fruits={data} />,
-     document.getElementById("root")
+   ReactDOM.createRoot(document.getElementById("root")).render(
+     <FruitList fruits={data} />
    );
    ```
 

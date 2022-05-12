@@ -79,11 +79,11 @@ In this part of the course we will create a `Hello World` application in vanilla
 8.  Add the following code to `demos/main.js`
 
     ```js
-    const rootElement = document.getElementById('root');
+    const rootElement = document.getElementById("root");
 
-    const element = document.createElement('div');
-    element.textContent = 'Hello World';
-    element.className = 'container';
+    const element = document.createElement("div");
+    element.textContent = "Hello World";
+    element.className = "container";
     rootElement.appendChild(element);
     ```
 
@@ -176,7 +176,7 @@ Hello World in JavaScript is not that different than it is in React. Let's updat
 3. Update the code to use React
 
    ```js
-   const rootElement = document.getElementById('root');
+   const rootElement = document.getElementById("root");
 
    // const element = document.createElement('div');
    // element.textContent = 'Hello World';
@@ -184,21 +184,21 @@ Hello World in JavaScript is not that different than it is in React. Let's updat
    // rootElement.appendChild(element);
 
    const element = React.createElement(
-     'div',
+     "div",
      {
-       className: 'container',
+       className: "container",
      },
-     'Hello World'
+     "Hello World"
    );
 
-   ReactDOM.render(element, rootElement);
+   ReactDOM.createRoot(rootElement).render(element);
    ```
 
-   > The method signature for createElement is as follows:
+> The method signature for createElement is as follows:
 
-   ```js
-   React.createElement(type, [props], [...children]);
-   ```
+```js
+React.createElement(type, [props], [...children]);
+```
 
 4. Log out the `React Element` to the console.
 
@@ -212,28 +212,30 @@ Hello World in JavaScript is not that different than it is in React. Let's updat
    );
 
    + console.log(element);
-
-   ReactDOM.render(element, rootElement);
    ```
+
+ReactDOM.createRoot(rootElement).render(element);
+
+````
 
 5. Open Chrome DevTools (F12 or fn+F12 on a laptop) to see the console output.
 
-   > Notice that the React element is just an object with a `props` property that holds an object. And the `props` object has three properties we are using to represent the HTML element: `type`, `children`, and `className`.
+> Notice that the React element is just an object with a `props` property that holds an object. And the `props` object has three properties we are using to represent the HTML element: `type`, `children`, and `className`.
 
 6. Instead of as the third parameter children (child elements-- even if just a text element as in this example) can be passed as part of the elements props (which is short for properties).
 
-   ```diff
-   const element = React.createElement(
-       'div',
-       {
-       className: 'container'
-   +       children: 'Hello World'
-   or
-   +       children: ['Hello World', 'Goodbye World']
-       },
-   -     'Hello World'
-   );
-   ```
+```diff
+const element = React.createElement(
+    'div',
+    {
+    className: 'container'
++       children: 'Hello World'
+or
++       children: ['Hello World', 'Goodbye World']
+    },
+-     'Hello World'
+);
+````
 
 > To summarize the `React.createElement` parameters are as follows.
 >
@@ -246,10 +248,10 @@ Hello World in JavaScript is not that different than it is in React. Let's updat
 ```js
 // Note: this structure is simplified
 const element = {
-  type: 'div',
+  type: "div",
   props: {
-    className: 'container',
-    children: 'Hello World',
+    className: "container",
+    children: "Hello World",
   },
 };
 ```

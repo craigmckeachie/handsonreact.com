@@ -30,7 +30,7 @@ title: "Lab 21 a: Route Transitions"
 2. Move the `<Router>` component up one level to wrap the entire `App`. This is necessary for us to be able to access the new `useLocation` hook that is part of `react-router` at the point we use the `CSSTransition` and `Routes` components. We get the `location` using the `useLocation` hook.
 
    > You can't use any of the hooks from within the same component that puts the Router into the tree.
-   > You need to move your BrowserRouter out of that component. It can go in the ReactDOM.render() call, for instance.
+   > You need to move your BrowserRouter out of that component. It can go in the root.render() call, for instance.
 
    > `React Transition Group` is **not an animation library** like `React-Motion`, it does not animate styles by itself. Instead it exposes transition stages, manages classes and group elements and manipulates the DOM in useful ways, making the implementation of actual visual transitions much easier.
 
@@ -86,13 +86,13 @@ title: "Lab 21 a: Route Transitions"
    ...
    + import { BrowserRouter as Router } from 'react-router-dom';
 
-   ReactDOM.render(
+   const root = ReactDOM.createRoot(document.getElementById('root'));
+   root.render(
    <React.StrictMode>
-   +    <Router>
-       <App />
-   +    </Router>
-   </React.StrictMode>,
-   document.getElementById('root')
+   +  <Router>
+        <App />
+   +  </Router>
+   </React.StrictMode>
    );
 
    ```

@@ -561,7 +561,7 @@ const Card = (props) => {
 +  )
 +}
 
-+ ReactDOM.render(<CardList />, mountNode);
++ ReactDOM.createRoot(mountNode.render(<CardList />);
 ```
 
 [Github API](https://api.github.com/)

@@ -48,7 +48,7 @@ npm install --save prop-types
 If you are using ES Modules you will need to import `PropTypes` in your `.js| .jsx` files:
 
 ```js
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 ```
 
 ## Usage
@@ -75,7 +75,7 @@ import PropTypes from 'prop-types';
    };
 
    const element = <Greeter name="Joe" />;
-   ReactDOM.render(element, document.getElementById('root'));
+   ReactDOM.createRoot(document.getElementById("root")).render(element);
    ```
 
 1. Change PropType to object.

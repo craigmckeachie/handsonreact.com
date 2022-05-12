@@ -47,10 +47,10 @@ Before making HTTP calls we need to [setup a backend following these directions]
 3. Try the following code in `main.js`:
 
    ```js
-   const okUrl = 'http://localhost:3000/photos?_page=1&_limit=100';
-   const notFoundErrorUrl = 'https://httpstat.us/404';
-   const forbiddenErrorUrl = 'https://httpstat.us/403';
-   const serverErrorUrl = 'https://httpstat.us/500';
+   const okUrl = "http://localhost:3000/photos?_page=1&_limit=100";
+   const notFoundErrorUrl = "https://httpstat.us/404";
+   const forbiddenErrorUrl = "https://httpstat.us/403";
+   const serverErrorUrl = "https://httpstat.us/500";
    // const urls here
 
    axios
@@ -81,8 +81,8 @@ Before making HTTP calls we need to [setup a backend following these directions]
 
 7. Try these other urls that also return errors and verify they are logged.
    ```js
-   const notFoundErrorUrl = 'https://httpstat.us/404';
-   const forbiddenErrorUrl = 'https://httpstat.us/403';
+   const notFoundErrorUrl = "https://httpstat.us/404";
+   const forbiddenErrorUrl = "https://httpstat.us/403";
    ```
 
 ## Fetch
@@ -240,8 +240,8 @@ fetch(serverErrorUrl)
 2. Try these other urls that also return errors and verify they are logged properly.
 
    ```js
-   const notFoundErrorUrl = 'https://httpstat.us/404';
-   const forbiddenErrorUrl = 'https://httpstat.us/403';
+   const notFoundErrorUrl = "https://httpstat.us/404";
+   const forbiddenErrorUrl = "https://httpstat.us/403";
    ```
 
 ## In React
@@ -274,10 +274,10 @@ If the data is returned successfully, we can use what we learned in the list sec
 1.  Try the following code in `main.js`
 
     ```js
-    const okUrl = 'http://localhost:3000/photos?_page=1&_limit=100';
-    const notFoundErrorUrl = 'https://httpstat.us/404';
-    const forbiddenErrorUrl = 'https://httpstat.us/403';
-    const serverErrorUrl = 'https://httpstat.us/500';
+    const okUrl = "http://localhost:3000/photos?_page=1&_limit=100";
+    const notFoundErrorUrl = "https://httpstat.us/404";
+    const forbiddenErrorUrl = "https://httpstat.us/403";
+    const serverErrorUrl = "https://httpstat.us/500";
 
     function PhotoList() {
       const [loading, setLoading] = React.useState(false);
@@ -285,8 +285,8 @@ If the data is returned successfully, we can use what we learned in the list sec
       const [error, setError] = React.useState(null);
 
       function toUserError(error) {
-        console.log('Call API to log the raw error. ', error);
-        return 'There was an error loading the photos.';
+        console.log("Call API to log the raw error. ", error);
+        return "There was an error loading the photos.";
       }
 
       React.useEffect(() => {
@@ -330,14 +330,14 @@ If the data is returned successfully, we can use what we learned in the list sec
       }
     }
 
-    ReactDOM.render(<PhotoList />, document.getElementById('root'));
+    ReactDOM.createRoot(document.getElementById("root")).render(<PhotoList />);
     ```
 
 1.  Try these other urls that return errors and verify they are logged properly.
     ```js
-    const notFoundErrorUrl = 'https://httpstat.us/404';
-    const forbiddenErrorUrl = 'https://httpstat.us/403';
-    const serverErrorUrl = 'https://httpstat.us/500';
+    const notFoundErrorUrl = "https://httpstat.us/404";
+    const forbiddenErrorUrl = "https://httpstat.us/403";
+    const serverErrorUrl = "https://httpstat.us/500";
     ```
 
 ### Class Component Example
@@ -345,10 +345,10 @@ If the data is returned successfully, we can use what we learned in the list sec
 1.  Try the following code in `main.js`
 
     ```js
-    const okUrl = 'http://localhost:3000/photos?_page=1&_limit=100';
-    const notFoundErrorUrl = 'https://httpstat.us/404';
-    const forbiddenErrorUrl = 'https://httpstat.us/403';
-    const serverErrorUrl = 'https://httpstat.us/500';
+    const okUrl = "http://localhost:3000/photos?_page=1&_limit=100";
+    const notFoundErrorUrl = "https://httpstat.us/404";
+    const forbiddenErrorUrl = "https://httpstat.us/403";
+    const serverErrorUrl = "https://httpstat.us/500";
 
     class PhotoList extends React.Component {
       state = {
@@ -376,8 +376,8 @@ If the data is returned successfully, we can use what we learned in the list sec
       }
 
       toUserError(error) {
-        console.log('Call API to log the raw error. ', error);
-        return 'There was an error loading the photos.';
+        console.log("Call API to log the raw error. ", error);
+        return "There was an error loading the photos.";
       }
 
       render() {
@@ -403,14 +403,14 @@ If the data is returned successfully, we can use what we learned in the list sec
       }
     }
 
-    ReactDOM.render(<PhotoList />, document.getElementById('root'));
+    ReactDOM.createRoot(document.getElementById("root")).render(<PhotoList />);
     ```
 
 1.  Try these other urls that return errors and verify they are logged properly.
     ```js
-    const notFoundErrorUrl = 'https://httpstat.us/404';
-    const forbiddenErrorUrl = 'https://httpstat.us/403';
-    const serverErrorUrl = 'https://httpstat.us/500';
+    const notFoundErrorUrl = "https://httpstat.us/404";
+    const forbiddenErrorUrl = "https://httpstat.us/403";
+    const serverErrorUrl = "https://httpstat.us/500";
     ```
 
 ### Reuse via API object
@@ -424,17 +424,17 @@ Review the examples below (using the fetch API). If time permits get the example
 ### Function Component Example with API Object
 
 ```js
-const baseUrl = 'http://localhost:3000';
+const baseUrl = "http://localhost:3000";
 const url = `${baseUrl}/photos`;
 
 function translateStatusToErrorMessage(status) {
   switch (status) {
     case 401:
-      return 'Please login again.';
+      return "Please login again.";
     case 403:
-      return 'You do not have permission to view the photos.';
+      return "You do not have permission to view the photos.";
     default:
-      return 'There was an error retrieving the photos. Please try again.';
+      return "There was an error retrieving the photos. Please try again.";
   }
 }
 
@@ -522,23 +522,23 @@ function PhotoList() {
   }
 }
 
-ReactDOM.render(<PhotoList />, document.getElementById('root'));
+ReactDOM.render(<PhotoList />, document.getElementById("root"));
 ```
 
 ### Class Component Example with API Object
 
 ```js
-const baseUrl = 'http://localhost:3000';
+const baseUrl = "http://localhost:3000";
 const url = `${baseUrl}/photos`;
 
 function translateStatusToErrorMessage(status) {
   switch (status) {
     case 401:
-      return 'Please login again.';
+      return "Please login again.";
     case 403:
-      return 'You do not have permission to view the photos.';
+      return "You do not have permission to view the photos.";
     default:
-      return 'There was an error retrieving the photos. Please try again.';
+      return "There was an error retrieving the photos. Please try again.";
   }
 }
 
@@ -630,7 +630,7 @@ class PhotoList extends React.Component {
   }
 }
 
-ReactDOM.render(<PhotoList />, document.getElementById('root'));
+ReactDOM.render(<PhotoList />, document.getElementById("root"));
 ```
 
 ## Fetch Mutations
@@ -638,19 +638,19 @@ ReactDOM.render(<PhotoList />, document.getElementById('root'));
 ### POST with Fetch
 
 ```js
-var url = 'http://localhost:3000/photos';
+var url = "http://localhost:3000/photos";
 var data = {
   albumId: 1,
-  title: 'Another Photo',
-  url: 'https://via.placeholder.com/600/b0f7cc',
-  thumbnailUrl: 'https://via.placeholder.com/150/b0f7cc',
+  title: "Another Photo",
+  url: "https://via.placeholder.com/600/b0f7cc",
+  thumbnailUrl: "https://via.placeholder.com/150/b0f7cc",
 };
 
 fetch(url, {
-  method: 'POST',
+  method: "POST",
   body: JSON.stringify(data),
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 })
   .then((response) => {
@@ -662,25 +662,25 @@ fetch(url, {
     return response;
   })
   .then((response) => response.json())
-  .then((response) => console.log('Success:', JSON.stringify(response)))
-  .catch((error) => console.error('Error:', error));
+  .then((response) => console.log("Success:", JSON.stringify(response)))
+  .catch((error) => console.error("Error:", error));
 ```
 
 ### PUT with Fetch
 
 ```js
-var okUrl = 'http://localhost:3000/photos/5001';
-const notFoundErrorUrl = 'http://localhost:3000/photos/10000000';
+var okUrl = "http://localhost:3000/photos/5001";
+const notFoundErrorUrl = "http://localhost:3000/photos/10000000";
 
 var data = {
-  title: 'Another Updated Photo',
+  title: "Another Updated Photo",
 };
 
 fetch(notFoundErrorUrl, {
-  method: 'PUT',
+  method: "PUT",
   body: JSON.stringify(data),
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 })
   .then((response) => {
@@ -688,17 +688,17 @@ fetch(notFoundErrorUrl, {
     return response;
   })
   .then((response) => response.json())
-  .then((response) => console.log('Success:', JSON.stringify(response)))
-  .catch((error) => console.error('Error:', error));
+  .then((response) => console.log("Success:", JSON.stringify(response)))
+  .catch((error) => console.error("Error:", error));
 ```
 
 ### DELETE with Fetch
 
 ```js
-var okUrl = 'http://localhost:3000/photos/5001';
+var okUrl = "http://localhost:3000/photos/5001";
 
 fetch(okUrl, {
-  method: 'DELETE',
+  method: "DELETE",
 })
   .then((response) => {
     console.log(response);
@@ -709,8 +709,8 @@ fetch(okUrl, {
     return response;
   })
   .then((response) => response.json())
-  .then((response) => console.log('Success:', JSON.stringify(response)))
-  .catch((error) => console.error('Error:', error));
+  .then((response) => console.log("Success:", JSON.stringify(response)))
+  .catch((error) => console.error("Error:", error));
 ```
 
 ## Axios Mutations
@@ -719,13 +719,13 @@ fetch(okUrl, {
 
 ```js
 axios({
-  method: 'post',
-  url: 'http://localhost:3000/photos',
+  method: "post",
+  url: "http://localhost:3000/photos",
   data: {
     albumId: 1,
-    title: 'New Photo',
-    url: 'https://via.placeholder.com/600/b0f7cc',
-    thumbnailUrl: 'https://via.placeholder.com/150/b0f7cc',
+    title: "New Photo",
+    url: "https://via.placeholder.com/600/b0f7cc",
+    thumbnailUrl: "https://via.placeholder.com/150/b0f7cc",
   },
 })
   .then((response) => response.data)
@@ -756,7 +756,7 @@ button,
 input,
 textarea,
 li {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
 }
 
@@ -797,17 +797,17 @@ form {
 
 ```js
 function ID() {
-  return '_' + Math.random().toString(36).substr(2, 9);
+  return "_" + Math.random().toString(36).substr(2, 9);
 }
 
 function translateStatusToErrorMessage(status) {
   switch (status) {
     case 401:
-      return 'Please login again.';
+      return "Please login again.";
     case 403:
-      return 'You do not have permission to view the items.';
+      return "You do not have permission to view the items.";
     default:
-      return 'There was an error retrieving the items. Please try again.';
+      return "There was an error retrieving the items. Please try again.";
   }
 }
 
@@ -841,7 +841,7 @@ class Item {
   }
 }
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = "http://localhost:3000";
 const url = `${baseUrl}/items`;
 
 // API ----------
@@ -858,10 +858,10 @@ const itemAPI = {
 
   add(item) {
     return fetch(`${url}`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(item),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then(checkStatus)
@@ -870,10 +870,10 @@ const itemAPI = {
 
   update(item) {
     return fetch(`${url}/${item.id}`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify(item),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then(checkStatus)
@@ -882,9 +882,9 @@ const itemAPI = {
 
   delete(id) {
     return fetch(`${url}/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then(checkStatus)
@@ -930,7 +930,7 @@ function List(props) {
 }
 
 function Form({ item, onSubmit, onCancel, buttonValue }) {
-  const [inputValue, setInputValue] = React.useState(item.name || '');
+  const [inputValue, setInputValue] = React.useState(item.name || "");
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -945,7 +945,7 @@ function Form({ item, onSubmit, onCancel, buttonValue }) {
     };
 
     onSubmit(submittedItem);
-    setInputValue('');
+    setInputValue("");
   };
 
   const handleCancel = (event) => {
@@ -956,7 +956,7 @@ function Form({ item, onSubmit, onCancel, buttonValue }) {
   return (
     <form onSubmit={handleFormSubmit}>
       <input value={inputValue} onChange={handleChange} />
-      <button>{buttonValue || 'Save'}</button>
+      <button>{buttonValue || "Save"}</button>
       {onCancel && (
         <a href="#" onClick={handleCancel}>
           cancel
@@ -1047,7 +1047,7 @@ function App() {
     </div>
   );
 }
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 ### Class Component Example
@@ -1071,7 +1071,7 @@ button,
 input,
 textarea,
 li {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
 }
 
@@ -1115,17 +1115,17 @@ function ID() {
   // Math.random should be unique because of its seeding algorithm.
   // Convert it to base 36 (numbers + letters), and grab the first 9 characters
   // after the decimal.
-  return '_' + Math.random().toString(36).substr(2, 9);
+  return "_" + Math.random().toString(36).substr(2, 9);
 }
 
 function translateStatusToErrorMessage(status) {
   switch (status) {
     case 401:
-      return 'Please login again.';
+      return "Please login again.";
     case 403:
-      return 'You do not have permission to view the items.';
+      return "You do not have permission to view the items.";
     default:
-      return 'There was an error retrieving the items. Please try again.';
+      return "There was an error retrieving the items. Please try again.";
   }
 }
 
@@ -1161,7 +1161,7 @@ class Item {
   }
 }
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = "http://localhost:3000";
 const url = `${baseUrl}/items`;
 
 // API ----------
@@ -1174,10 +1174,10 @@ const itemAPI = {
 
   add(item) {
     return fetch(`${url}`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(item),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then(checkStatus)
@@ -1186,10 +1186,10 @@ const itemAPI = {
 
   update(item) {
     return fetch(`${url}/${item.id}`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify(item),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then(checkStatus)
@@ -1198,9 +1198,9 @@ const itemAPI = {
 
   delete(id) {
     return fetch(`${url}/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then(checkStatus)
@@ -1258,7 +1258,7 @@ class List extends React.Component {
 
 class Form extends React.Component {
   state = {
-    inputValue: this.props.item.name || '',
+    inputValue: this.props.item.name || "",
   };
 
   handleChange = (event) => {
@@ -1274,7 +1274,7 @@ class Form extends React.Component {
     };
 
     this.props.onSubmit(item);
-    this.setState({ inputValue: '' });
+    this.setState({ inputValue: "" });
   };
 
   handleCancel = (event) => {
@@ -1286,7 +1286,7 @@ class Form extends React.Component {
     return (
       <form onSubmit={this.handleFormSubmit}>
         <input value={this.state.inputValue} onChange={this.handleChange} />
-        <button>{this.props.buttonValue || 'Save'}</button>
+        <button>{this.props.buttonValue || "Save"}</button>
         {this.props.onCancel && (
           <a href="#" onClick={this.handleCancel}>
             cancel
@@ -1384,7 +1384,7 @@ class App extends React.Component {
     return <Container />;
   }
 }
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 # Resources

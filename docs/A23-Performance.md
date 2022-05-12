@@ -118,7 +118,7 @@ class Parent extends Component {
   };
 
   handleClick = () => {
-    console.log('clicked');
+    console.log("clicked");
   };
 
   render() {
@@ -149,7 +149,7 @@ class App extends Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // Default Behavior: Changing state results in that component and all descendants being re-rendered.
 // Default Behavior: Changing state that updates a prop in a child results in that component and all descendants being re-rendered.
@@ -255,17 +255,17 @@ Steps:
 1. Type in the add textbox to add an item and then click the add button.
 1. Notice that every item in the list re-renders even though you only added one item.
    > Note: Updating or removing an item also causes everything to re-render.
-2. Commment out the `ListItem` component.
-3. Uncomment the `ListItem` component below the original wrapped in a `React.memo` function.
-4. Refresh your browser.
-5. Once again type in the add textbox to add an item and then click the add button.
-6. Notice that only one item in the list re-renders since the other `ListItem`'s are the same. You have successfully eliminated some wasted renders.
+1. Commment out the `ListItem` component.
+1. Uncomment the `ListItem` component below the original wrapped in a `React.memo` function.
+1. Refresh your browser.
+1. Once again type in the add textbox to add an item and then click the add button.
+1. Notice that only one item in the list re-renders since the other `ListItem`'s are the same. You have successfully eliminated some wasted renders.
 
    > The same issue of every item re-rendering actually existing when editing or removing an item. We have now fixed all of these wasted renders. If time permits feel free to change back to the non memoized implemention of `ListItem` to see the wasted renders.
 
 ```js
 function ID() {
-  return '_' + Math.random().toString(36).substr(2, 9);
+  return "_" + Math.random().toString(36).substr(2, 9);
 }
 
 class Item {
@@ -276,9 +276,9 @@ class Item {
 }
 
 const initialItems = [
-  new Item(ID(), 'First Item'),
-  new Item(ID(), 'Second Item'),
-  new Item(ID(), 'Third Item'),
+  new Item(ID(), "First Item"),
+  new Item(ID(), "Second Item"),
+  new Item(ID(), "Third Item"),
 ];
 
 class LastRendered extends React.Component {
@@ -346,7 +346,7 @@ function List({ items, onRemove, onUpdate }) {
 }
 
 function Form({ item, onSubmit, onCancel, buttonValue }) {
-  const [inputValue, setInputValue] = React.useState(item.name || '');
+  const [inputValue, setInputValue] = React.useState(item.name || "");
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
@@ -360,7 +360,7 @@ function Form({ item, onSubmit, onCancel, buttonValue }) {
     };
 
     onSubmit(submittedItem);
-    setInputValue('');
+    setInputValue("");
   };
 
   const handleCancel = (event) => {
@@ -373,7 +373,7 @@ function Form({ item, onSubmit, onCancel, buttonValue }) {
       <LastRendered />
       <form onSubmit={handleFormSubmit}>
         <input value={inputValue} onChange={handleChange} />
-        <button>{buttonValue || 'Save'}</button>
+        <button>{buttonValue || "Save"}</button>
         {onCancel && (
           <a href="#" onClick={handleCancel}>
             cancel
@@ -407,7 +407,7 @@ function Container() {
     setItems(filteredItems);
   };
 
-  console.log('Container');
+  console.log("Container");
   return (
     <div className="box">
       <LastRendered />
@@ -418,7 +418,7 @@ function Container() {
 }
 
 function App() {
-  console.log('App');
+  console.log("App");
   return (
     <div>
       <Container />
@@ -426,7 +426,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 ## `React.PureComponent` Demo
@@ -458,7 +458,7 @@ Steps:
 
 ```js
 function ID() {
-  return '_' + Math.random().toString(36).substr(2, 9);
+  return "_" + Math.random().toString(36).substr(2, 9);
 }
 
 class Item {
@@ -469,9 +469,9 @@ class Item {
 }
 
 const initialItems = [
-  new Item(ID(), 'First Item'),
-  new Item(ID(), 'Second Item'),
-  new Item(ID(), 'Third Item'),
+  new Item(ID(), "First Item"),
+  new Item(ID(), "Second Item"),
+  new Item(ID(), "Third Item"),
 ];
 
 class LastRendered extends React.Component {
@@ -579,7 +579,7 @@ class List extends React.Component {
 
 class Form extends React.Component {
   state = {
-    inputValue: this.props.item.name || '',
+    inputValue: this.props.item.name || "",
   };
 
   handleChange = (event) => {
@@ -595,7 +595,7 @@ class Form extends React.Component {
     };
 
     this.props.onSubmit(item);
-    this.setState({ inputValue: '' });
+    this.setState({ inputValue: "" });
   };
 
   handleCancel = (event) => {
@@ -609,7 +609,7 @@ class Form extends React.Component {
         <LastRendered />
         <form onSubmit={this.handleFormSubmit}>
           <input value={this.state.inputValue} onChange={this.handleChange} />
-          <button>{this.props.buttonValue || 'Save'}</button>
+          <button>{this.props.buttonValue || "Save"}</button>
           {this.props.onCancel && (
             <a href="#" onClick={this.handleCancel}>
               cancel
@@ -677,7 +677,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 ### FAQs
@@ -693,7 +693,8 @@ Remove the `<React.StrictMode>` tag as shown below and this behavior will go awa
 #### index.js
 
 ```diff
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
 -  <React.StrictMode>
     {app}
 -  </React.StrictMode>

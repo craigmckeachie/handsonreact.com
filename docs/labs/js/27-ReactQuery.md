@@ -48,14 +48,14 @@ title: "Lab 27: React Query Refactor"
 
     + const queryClient = new QueryClient();
 
-    ReactDOM.render(
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
       <React.StrictMode>
     +   <QueryClientProvider client={queryClient}>
           <App />
     +      <ReactQueryDevtools initialIsOpen={false} />
     +    </QueryClientProvider>
-      </React.StrictMode>,
-      document.getElementById('root')
+      </React.StrictMode>
     );
     ```
 

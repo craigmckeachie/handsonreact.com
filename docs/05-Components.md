@@ -18,8 +18,8 @@ Components let you split the UI into independent, reusable pieces, and think abo
    ```js
    const element = <div className="container">Hello Element</div>;
 
-   const rootElement = document.getElementById('root');
-   ReactDOM.render(element, rootElement);
+   const rootElement = document.getElementById("root");
+   ReactDOM.createRoot(rootElement).render(element);
    ```
 
 To make that element reusable we need to turn it into a component.
@@ -44,8 +44,8 @@ Function and class components are rendered the same way.
 1. Render the component by using the class or function name as the tag name. Initially, have the first letter lower be lowercased.
 
    ```js
-   const rootElement = document.getElementById('root');
-   ReactDOM.render(<helloWorld />, rootElement);
+   const root = ReactDOM.createRoot(document.getElementById("root"));
+   root.render(<helloWorld />);
    ```
 
 1. You will receive the following error.
@@ -68,8 +68,9 @@ Function and class components are rendered the same way.
    function HelloWorld() {
      return <div className="container">Hello Function Component</div>;
    }
-   const rootElement = document.getElementById('root');
-   ReactDOM.render(<HelloWorld />, rootElement);
+
+   const root = ReactDOM.createRoot(document.getElementById("root"));
+   root.render(<HelloWorld />);
    ```
 
    OR
@@ -78,9 +79,9 @@ Function and class components are rendered the same way.
    function HelloWorld() {
      return <div className="container">Hello Function Component</div>;
    }
-   const rootElement = document.getElementById('root');
+   const rootElement = document.getElementById("root");
    const element = <HelloWorld />;
-   ReactDOM.render(element, rootElement);
+   ReactDOM.createRoot(rootElement).render(element);
    ```
 
 1. The text will now display as shown below.
@@ -133,8 +134,9 @@ In order to get reuse this component we need another wrapping component to hold 
        </div>
      );
    }
-   const rootElement = document.getElementById('root');
-   ReactDOM.render(<App />, rootElement);
+
+   const root = ReactDOM.createRoot(document.getElementById("root"));
+   root.render(<App />);
    ```
 
 2. Result

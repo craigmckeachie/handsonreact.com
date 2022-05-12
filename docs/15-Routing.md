@@ -147,7 +147,7 @@ There are two versions:
      );
    }
 
-   ReactDOM.render(<App />, document.getElementById("root"));
+   ReactDOM.createRoot(document.getElementById('root')).render(<App />);   
    ```
 
 3. Change the Link tags to NavLink tags
