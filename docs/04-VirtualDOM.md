@@ -10,8 +10,10 @@ React implements a browser-independent DOM system for performance and cross-brow
 1. Replace the JavaScript code in `main.js` with the following:
 
    ```js
+   const rootElement = document.getElementById("root");
+   const root = ReactDOM.createRoot(rootElement);
+
    function renderElement() {
-     const rootElement = document.getElementById("root");
      const element = (
        <div className="post">
          <h1>My First Blog Post</h1>
@@ -23,7 +25,8 @@ React implements a browser-independent DOM system for performance and cross-brow
          </p>
        </div>
      );
-     ReactDOM.createRoot(rootElement).render(element);
+
+     root.render(element);
    }
    setInterval(renderElement, 1000);
    ```
