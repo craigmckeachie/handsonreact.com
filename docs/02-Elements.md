@@ -212,36 +212,33 @@ React.createElement(type, [props], [...children]);
    );
 
    + console.log(element);
+   ReactDOM.createRoot(rootElement).render(element);
    ```
-
-ReactDOM.createRoot(rootElement).render(element);
-
-````
 
 5. Open Chrome DevTools (F12 or fn+F12 on a laptop) to see the console output.
 
-> Notice that the React element is just an object with a `props` property that holds an object. And the `props` object has three properties we are using to represent the HTML element: `type`, `children`, and `className`.
+   > Notice that the React element is just an object with a `props` property that holds an object. And the `props` object has three properties we are using to represent the HTML element: `type`, `children`, and `className`.
 
 6. Instead of as the third parameter children (child elements-- even if just a text element as in this example) can be passed as part of the elements props (which is short for properties).
 
-```diff
-const element = React.createElement(
-    'div',
-    {
-    className: 'container'
-+       children: 'Hello World'
-or
-+       children: ['Hello World', 'Goodbye World']
-    },
--     'Hello World'
-);
-````
+   ```diff
+   const element = React.createElement(
+       'div',
+       {
+       className: 'container'
+   +       children: 'Hello World'
+   or
+   +       children: ['Hello World', 'Goodbye World']
+       },
+   -     'Hello World'
+   );
+   ```
 
-> To summarize the `React.createElement` parameters are as follows.
->
-> - Param 1: the element you want to create
-> - Param 2: an object that contains all the properties you want to be applied or set on that element
-> - Param 3: as a convenience, you can provide the children as any number of arguments after the props
+   > To summarize the `React.createElement` parameters are as follows.
+   >
+   > - Param 1: the element you want to create
+   > - Param 2: an object that contains all the properties you want to be applied or set on that element
+   > - Param 3: as a convenience, you can provide the children as any number of arguments after the props
 
 `React.createElement()` performs a few checks to help you write bug-free code but essentially it creates an object like this:
 
@@ -259,8 +256,6 @@ const element = {
 These objects are called `React elements`. You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
 
 ---
-
-<!-- <UnlockVideo title="React Elements" /> -->
 
 ## Reference
 
