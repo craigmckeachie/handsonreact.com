@@ -136,7 +136,7 @@ An expression can be created in JSX with curly braces. When you create an expres
 
 ## Part 3 - Specifying Attributes with JSX
 
-1. Copy the React logo from the `assets` folder into the root of your project `demos`.
+1. Download the React logo from [this site](https://brandslogos.com/r/react-logo/) into the root of your project `demos`.
 1. Update the element to be an image tag pointing to the logo.
 
    ```js
