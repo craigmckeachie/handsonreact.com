@@ -49,17 +49,17 @@ Traditionally in React, we’ve had two popular ways to share stateful logic bet
 ### Start: Function Component Example with API Object
 
 ```js
-const baseUrl = 'http://localhost:3000';
+const baseUrl = "http://localhost:3000";
 const url = `${baseUrl}/photos`;
 
 function translateStatusToErrorMessage(status) {
   switch (status) {
     case 401:
-      return 'Please login again.';
+      return "Please login again.";
     case 403:
-      return 'You do not have permission to view the photos.';
+      return "You do not have permission to view the photos.";
     default:
-      return 'There was an error retrieving the photos. Please try again.';
+      return "There was an error retrieving the photos. Please try again.";
   }
 }
 
@@ -147,23 +147,23 @@ function PhotoList() {
   }
 }
 
-ReactDOM.render(<PhotoList />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<PhotoList />);
 ```
 
 ### Complete: Function Component Example with API Object & Custom Hook
 
 ```js
-const baseUrl = 'http://localhost:3000';
+const baseUrl = "http://localhost:3000";
 const url = `${baseUrl}/photos`;
 
 function translateStatusToErrorMessage(status) {
   switch (status) {
     case 401:
-      return 'Please login again.';
+      return "Please login again.";
     case 403:
-      return 'You do not have permission to view the photos.';
+      return "You do not have permission to view the photos.";
     default:
-      return 'There was an error retrieving the photos. Please try again.';
+      return "There was an error retrieving the photos. Please try again.";
   }
 }
 
@@ -257,7 +257,7 @@ function PhotoList() {
   }
 }
 
-ReactDOM.render(<PhotoList />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<PhotoList />);
 ```
 
 ## Rules of Hooks

@@ -522,7 +522,7 @@ function PhotoList() {
   }
 }
 
-ReactDOM.render(<PhotoList />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<PhotoList />);
 ```
 
 ### Class Component Example with API Object
@@ -630,7 +630,7 @@ class PhotoList extends React.Component {
   }
 }
 
-ReactDOM.render(<PhotoList />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<PhotoList />);
 ```
 
 ## Fetch Mutations
@@ -1047,7 +1047,7 @@ function App() {
     </div>
   );
 }
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ### Class Component Example
@@ -1384,7 +1384,7 @@ class App extends React.Component {
     return <Container />;
   }
 }
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 # Resources

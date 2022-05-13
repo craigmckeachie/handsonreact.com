@@ -38,7 +38,7 @@ function ExampleForm() {
   );
 }
 
-ReactDOM.render(<ExampleForm />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<ExampleForm />);
 ```
 
 3. Refresh your browser
@@ -96,7 +96,7 @@ class ExampleForm extends React.Component {
   }
 }
 
-ReactDOM.render(<ExampleForm />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<ExampleForm />);
 ```
 
 ## Submitting
@@ -136,7 +136,7 @@ function LoginForm() {
   );
 }
 
-ReactDOM.render(<LoginForm />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<LoginForm />);
 ```
 
 ### Class Component Example
@@ -179,7 +179,7 @@ class LoginForm extends React.Component {
   }
 }
 
-ReactDOM.render(<LoginForm />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<LoginForm />);
 ```
 
 ## Controlling other Types of HTML Form Elements
@@ -247,7 +247,7 @@ function ContactUsForm() {
   );
 }
 
-ReactDOM.render(<ContactUsForm />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<ContactUsForm />);
 ```
 
 ### Class Component Example
@@ -309,7 +309,7 @@ class ContactUsForm extends React.Component {
   }
 }
 
-ReactDOM.render(<ContactUsForm />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<ContactUsForm />);
 ```
 
 Notice that although these HTML form fields set their value differently:
@@ -463,7 +463,7 @@ function ContactUsForm() {
   );
 }
 
-ReactDOM.render(<ContactUsForm />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<ContactUsForm />);
 ```
 
 Some things to notice in the code above:
@@ -591,7 +591,7 @@ class ContactUsForm extends React.Component {
   }
 }
 
-ReactDOM.render(<ContactUsForm />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<ContactUsForm />);
 ```
 
 ## Uncontrolled Components
@@ -621,7 +621,8 @@ function ExampleForm() {
     </form>
   );
 }
-ReactDOM.render(<ExampleForm />, document.getElementById("root"));
+
+ReactDOM.createRoot(document.getElementById("root")).render(<ExampleForm />);
 ```
 
 #### Setting defaultValue
@@ -678,7 +679,8 @@ class ExampleForm extends React.Component {
     );
   }
 }
-ReactDOM.render(<ExampleForm />, document.getElementById("root"));
+
+ReactDOM.createRoot(document.getElementById("root")).render(<ExampleForm />);
 ```
 
 ### File Input Example
@@ -720,7 +722,7 @@ function FileInput() {
   );
 }
 
-ReactDOM.render(<FileInput />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<FileInput />);
 ```
 
 #### Class Component Example
@@ -751,7 +753,7 @@ class FileInput extends React.Component {
   }
 }
 
-ReactDOM.render(<FileInput />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<FileInput />);
 ```
 
 See the reference links below for a more complete example of a file upload component in React.
@@ -984,7 +986,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ### Solution (using Class Components)
@@ -1201,7 +1203,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ## Reference
