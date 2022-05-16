@@ -137,8 +137,8 @@ For IE11:
 
 ```js
 // These must be the first lines in src/index.js
-import 'react-app-polyfill/ie11';
-import 'react-app-polyfill/stable';
+import "react-app-polyfill/ie11";
+import "react-app-polyfill/stable";
 
 // ...
 ```
@@ -162,8 +162,8 @@ This project setup uses [Webpack](https://webpack.js.org/) for handling all asse
 #### `Button.js`
 
 ```js
-import React, { Component } from 'react';
-import './Button.css'; // Tell Webpack that Button.js uses these styles
+import React, { Component } from "react";
+import "./Button.css"; // Tell Webpack that Button.js uses these styles
 
 class Button extends Component {
   render() {
@@ -195,12 +195,9 @@ yarn add react-router-dom
 
 This works for any library, not just `react-router-dom`.
 
-<!-- ## Configuration & Environment Variables
+## Uses Webpack
 
-https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables
-https://stackoverflow.com/questions/51024542/how-to-inject-api-server-url-when-deploying-react-frontend
-
-https://facebook.github.io/create-react-app/docs/proxying-api-requests-in-development -->
+As previously mentioned, Create React App internally uses WebPack to build your application. If you are curious, you can see [the WebPack configuration file in GitHub here](https://github.com/facebook/create-react-app/blob/main/packages/react-scripts/config/webpack.config.js).
 
 ## Reference
 
