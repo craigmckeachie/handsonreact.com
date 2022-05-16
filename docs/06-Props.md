@@ -20,10 +20,10 @@ slug: /props
 
    ```js
    function Greeter(props) {
-     return <h1>Hello, {props.name}</h1>;
+     return <h1>Hello, {props.first}</h1>;
    }
    ReactDOM.createRoot(document.getElementById("root")).render(
-     <Greeter name="Joe" />
+     <Greeter first="Joe" />
    );
    ```
 
@@ -50,34 +50,83 @@ function withdraw(account, amount) {
 1. Update the `Greeter` component to change its `props`
    ```diff
    function Greeter(props) {
-   +  props.name = 'Dave';
-     return <h1>Hello, {props.name}</h1>;
+   +  props.first = 'Dave';
+     return <h1>Hello, {props.first}</h1>;
    }
    ReactDOM.createRoot(document.getElementById("root")).render(
-     <Greeter name="Joe" />
+     <Greeter first="Joe" />
    );
    ```
 1. Open your browser's DevTools and you will receive the following error:
 
    ```sh
-   Uncaught TypeError: Cannot assign to read only property 'name' of object '#<Object>'
+   Uncaught TypeError: Cannot assign to read only property 'first' of object '#<Object>'
     at Greeter (<anonymous>:4:14)
    ```
 
 1. Remove the change to `props`
    ```diff
    function Greeter(props) {
-   -  props.name = 'Dave';
-     return <h1>Hello, {props.name}</h1>;
+   -  props.first = 'Dave';
+     return <h1>Hello, {props.first}</h1>;
    }
    ReactDOM.createRoot(document.getElementById("root")).render(
-     <Greeter name="Joe" />
+     <Greeter first="Joe" />
    );
    ```
 1. The error will go away and the component will render again.
 
 > Of course, application UIs are dynamic and change over time. In the next section, we will introduce a new concept of `state`. State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
 > Reference: [Components & Props](https://reactjs.org/docs/components-and-props.html)
+
+## Destructuring Props
+
+Destructuring Props is common and genernally considered a best practice in React as it makes the code easier to read and understand.
+It is more helpful as more properties are added
+The examples below evolve to demonstrate the advantages of the syntax when dealing with `props`.
+
+  ```js
+  function Greeter(props) {
+    return (
+      <h1>
+        Hello, {props.first} {props.last}
+      </h1>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <Greeter first="Srini" last="Kata" />
+  );
+  ```
+
+  ```js
+  function Greeter(props) {
+    // const first = props.first;
+    // const last = props.last;
+    const { first, last } = props;
+    return (
+      <h1>
+        Hello, {first} {last}
+      </h1>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <Greeter first="Srini" last="Kata" />
+  );
+  ```
+
+  ```js
+  function Greeter({ first, last }) {
+    // const { first, last } = props;
+    return (
+      <h1>
+        Hello, {first} {last}
+      </h1>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <Greeter first="Srini" last="Kata" />
+  );
+  ```
 
 ## String Literals vs. Expressions
 
