@@ -91,7 +91,7 @@ React doesn’t have opinions on how you put files into folders. That said there
   ```
 
   ```js
-  import Button from '../Button/Button';
+  import Button from "../Button/Button";
   ```
 
 - put component code in `[Component-Name]/index.js`
@@ -111,7 +111,7 @@ React doesn’t have opinions on how you put files into folders. That said there
   ```
 
   ```js
-  import Button from '../Button';
+  import Button from "../Button";
   ```
 
 * create an index.js (to make imports cleaner)?
@@ -134,11 +134,11 @@ React doesn’t have opinions on how you put files into folders. That said there
 
   ```js
   //index.js
-  export { default } from './Button';
+  export { default } from "./Button";
   ```
 
   ```js
-  import Button from '../Button';
+  import Button from "../Button";
   ```
 
   #### Pro/Con
@@ -146,12 +146,7 @@ React doesn’t have opinions on how you put files into folders. That said there
   - When every file is named index.js or style.css it can become difficult to navigate your code
   - `import Button from '../Button/Button';` is redundant
 
-4. How you should handle (where to put) container components?
-   - There is no clear guidance on this but here is an approach.
-     - components/component-name
-     - container
-       > See [File Layout that Considers Container & Redux Components](https://itnext.io/optimal-file-structure-for-react-applications-66287250b42) for more information
-5. If I use [Redux what should my file or code structure](https://redux.js.org/faq/code-structure) look like?
+4. If I use [Redux what should my file or code structure](https://redux.js.org/faq/code-structure) look like?
 
 ### Best Practices
 
@@ -171,7 +166,7 @@ Below are some best practices direct from the React documentation.
 
 ## Code Conventions (Style Guides)
 
-Here are links to popular React style guides.
+Here are links to public React style guides but unfortunately they were created at a time when class components were a best practice and have not been updated at the time of this writing.
 
 - [AirBnB React Style Guide](https://github.com/airbnb/javascript/tree/master/react)
 - [Khan Academy Style Guide](https://github.com/Khan/style-guides/blob/master/style/react.md)
@@ -191,7 +186,7 @@ See the documentation for [Create React App](https://facebook.github.io/create-r
 
 If you need to build a single-page React application that supports server-side rendering you should consider using [Next.js](https://nextjs.org/).
 
-If you need to use create a static React website you should consider using [Gatsby](https://www.gatsbyjs.org/)...a free and open source framework based on React that helps developers build blazing fast websites and apps.
+If you need to use create a static React website you should consider using `Next.js` or [Gatsby](https://www.gatsbyjs.org/)...a free and open source framework based on React that helps developers build blazing fast websites and apps.
 
 ## Reference
 
