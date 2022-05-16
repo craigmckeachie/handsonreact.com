@@ -9,7 +9,7 @@ slug: /components
 
 Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components.
 
-> Use the React DevTools in Chrome to inspect the application we will build during the labs and show the component hierarchy. Use the solution code from Lab 16.
+> Use the [`React DevTools extension`](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) in Chrome to inspect the application we will build during the labs and show the component hierarchy. Use the solution code from Lab 16.
 
 ## Creating an Element
 
@@ -92,25 +92,6 @@ Function and class components are rendered the same way.
 
    > The Babel compiler differentiates native DOM elements that it needs to create like `div` from components you create such as `HelloWorld` by looking for `PascalCase` instead of `lowerCase` elements.
 
-## Creating a Class Component
-
-Alternatively, you can reuse code by making a class and then you can create multiple instances of it. The `render` method on the class is similar to the function when we created a function component.
-
-1. Create a class with a `render` function that returns `JSX`.
-
-   ```js
-   class HelloWorld extends React.Component {
-     render() {
-       return <div className="container">Hello Class Component</div>;
-     }
-   }
-   ```
-
-1. The text will now display as shown below.
-   ```
-   Hello Class Component
-   ```
-
 ## Composing & Reuse
 
 In order to get reuse this component we need another wrapping component to hold multiple instances of our component.
@@ -118,10 +99,8 @@ In order to get reuse this component we need another wrapping component to hold 
 1. Create an `App` component and render multiple instances of `HelloWorld` inside of it.
 
    ```js
-   class HelloWorld extends React.Component {
-     render() {
-       return <div className="container">Hello World</div>;
-     }
+   function HelloWorld() {
+     return <div className="container">Hello Function Component</div>;
    }
 
    function App() {
@@ -159,12 +138,34 @@ In order to get reuse this component we need another wrapping component to hold 
    </App>
    ```
 
-4. Visit one or several of the following sites and view the components that make up the application using `React DevTools`.
-   - netflix.com
-   - instagram.com
-   - facebook.com
-   - airbnb.com
-   - dropbox.com
+## Creating a Class Component
+
+Alternatively, you can reuse code by making a class and then you can create multiple instances of it. The `render` method on the class is similar to the function when we created a function component.
+
+1. Create a class with a `render` function that returns `JSX`.
+
+   ```js
+   class HelloWorld extends React.Component {
+     render() {
+       return <div className="container">Hello Class Component</div>;
+     }
+   }
+   ```
+
+1. The text will now display as shown below.
+   ```
+   Hello Class Component
+   ```
+
+## Optional Exercise
+
+Visit one or several of the following sites and view the components that make up the application using [`React DevTools extension`](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en).
+
+- netflix.com
+- instagram.com
+- facebook.com
+- airbnb.com
+- dropbox.com
 
 ## Reference
 
