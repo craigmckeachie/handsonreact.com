@@ -76,14 +76,16 @@ function FruitList(props) {
 }
 
 const data = [
-  { id: 1, name: 'apple' },
-  { id: 2, name: 'orange' },
-  { id: 3, name: 'blueberry' },
-  { id: 4, name: 'banana' },
-  { id: 5, name: 'kiwi' },
+  { id: 1, name: "apple" },
+  { id: 2, name: "orange" },
+  { id: 3, name: "blueberry" },
+  { id: 4, name: "banana" },
+  { id: 5, name: "kiwi" },
 ];
 
-ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <FruitList fruits={data} />
+);
 ```
 
 Of course, you could do the above with more verbose code using a Array `forEach` or a `for` loop in JavaScript. I've included examples of each below. You will use mostly use the terser `map` but it might help your understanding to see the following equivalent code examples.
@@ -131,14 +133,16 @@ function FruitList(props) {
 }
 
 const data = [
-  { id: 1, name: 'apple' },
-  { id: 2, name: 'orange' },
-  { id: 3, name: 'blueberry' },
-  { id: 4, name: 'banana' },
-  { id: 5, name: 'kiwi' },
+  { id: 1, name: "apple" },
+  { id: 2, name: "orange" },
+  { id: 3, name: "blueberry" },
+  { id: 4, name: "banana" },
+  { id: 5, name: "kiwi" },
 ];
 
-ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <FruitList fruits={data} />
+);
 ```
 
 ## Keys
@@ -211,13 +215,15 @@ function FruitList(props) {
 }
 
 const data = [
-  { id: 1, name: 'apple' },
-  { id: 2, name: 'orange' },
-  { id: 3, name: 'blueberry' },
-  { id: 4, name: 'banana' },
-  { id: 5, name: 'kiwi' },
+  { id: 1, name: "apple" },
+  { id: 2, name: "orange" },
+  { id: 3, name: "blueberry" },
+  { id: 4, name: "banana" },
+  { id: 5, name: "kiwi" },
 ];
-ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <FruitList fruits={data} />
+);
 ```
 
 This example will still give the warning:
@@ -243,14 +249,16 @@ function FruitList(props) {
 }
 
 const data = [
-  { id: 1, name: 'apple' },
-  { id: 2, name: 'orange' },
-  { id: 3, name: 'blueberry' },
-  { id: 4, name: 'banana' },
-  { id: 5, name: 'kiwi' },
+  { id: 1, name: "apple" },
+  { id: 2, name: "orange" },
+  { id: 3, name: "blueberry" },
+  { id: 4, name: "banana" },
+  { id: 5, name: "kiwi" },
 ];
 
-ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <FruitList fruits={data} />
+);
 ```
 
 ## map() in JSX
@@ -275,14 +283,16 @@ function FruitList(props) {
 }
 
 const data = [
-  { id: 1, name: 'apple' },
-  { id: 2, name: 'orange' },
-  { id: 3, name: 'blueberry' },
-  { id: 4, name: 'banana' },
-  { id: 5, name: 'kiwi' },
+  { id: 1, name: "apple" },
+  { id: 2, name: "orange" },
+  { id: 3, name: "blueberry" },
+  { id: 4, name: "banana" },
+  { id: 5, name: "kiwi" },
 ];
 
-ReactDOM.render(<FruitList fruits={data} />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <FruitList fruits={data} />
+);
 ```
 
 ## Reference

@@ -110,7 +110,7 @@ const element = (
 );
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(element, rootElement);
+ReactDOM.createRoot(rootElement).render(element);
 ```
 
 ## The `connect` function
@@ -231,7 +231,7 @@ const element = (
 );
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(element, rootElement);
+ReactDOM.createRoot(rootElement).render(element);
 ```
 
 ### Writing `mapState` Functions
@@ -345,13 +345,12 @@ import { store } from "./store";
 // components deep inside its tree
 import App from "./App";
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   // Wrap your top-level component in <Provider>,
   // and pass in the store reference
   <Provider store={store}>
     <App />
-  </Provider>,
-  document.getElementById("root")
+  </Provider>
 );
 ```
 
@@ -515,7 +514,7 @@ const element = (
 );
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(element, rootElement);
+ReactDOM.createRoot(rootElement).render(element);
 ```
 
 3. Open the application in a browser: http://localhost:5000/
@@ -699,7 +698,7 @@ const element = (
 );
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(element, rootElement);
+ReactDOM.createRoot(rootElement).render(element);
 
 // var store = Redux.createStore(reducer, enableDevTools());
 

@@ -37,10 +37,9 @@ function Answer(props) {
   }
 }
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   // Try changing to isCorrect={false}
-  <Answer isCorrect={true} />,
-  document.getElementById('root')
+  <Answer isCorrect={true} />
 );
 ```
 
@@ -82,7 +81,7 @@ function DropdownMenu() {
   );
 }
 
-ReactDOM.render(<DropdownMenu />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
 ```
 
 #### Class Component Example
@@ -119,7 +118,7 @@ class DropdownMenu extends React.Component {
   }
 }
 
-ReactDOM.render(<DropdownMenu />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
 ```
 
 The above example renders nothing when `menu` is `null` or `undefined`. Understanding this is important to conditional rendering in React so we will explore it in more detail in the the next section.
@@ -189,14 +188,14 @@ class Page extends React.Component {
       <div>
         <WarningBanner warn={this.state.showWarning} />
         <button onClick={this.handleToggleClick}>
-          {this.state.showWarning ? 'Hide' : 'Show'}
+          {this.state.showWarning ? "Hide" : "Show"}
         </button>
       </div>
     );
   }
 }
 
-ReactDOM.render(<Page />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
 ```
 
 > It is preferred to handle the if logic in the parent component because lifecycle methods still run when you return null from a render function.
@@ -236,10 +235,9 @@ function Answer(props) {
   return isCorrect ? <CorrectAnswer /> : <IncorrectAnswer />;
 }
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   // Try changing to isCorrect={false}
-  <Answer isCorrect={true} />,
-  document.getElementById('root')
+  <Answer isCorrect={true} />
 );
 ```
 
@@ -281,7 +279,7 @@ class DropdownMenu extends React.Component {
   }
 }
 
-ReactDOM.render(<DropdownMenu />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
 ```
 
 When there isn't an `else` condition, the return of `null` becomes awkward and difficult to read. In the next section, we'll look at a solution to this the logical && operator.
@@ -320,7 +318,7 @@ class DropdownMenu extends React.Component {
   }
 }
 
-ReactDOM.render(<DropdownMenu />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
 ```
 
 #### Function Component Example (with hooks)
@@ -346,7 +344,7 @@ function DropdownMenu() {
   );
 }
 
-ReactDOM.render(<DropdownMenu />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
 ```
 
 It works because in JavaScript, true && expression always evaluates to expression, and false && expression always evaluates to false.

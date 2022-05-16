@@ -79,7 +79,7 @@ function Child(props) {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 **Child to Parent** communication is passing a function as a property into a component. The function is later invoked in the child but executed in the context of the parent.
@@ -116,7 +116,7 @@ function Child(props) {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 #### Additional Communication Patterns
@@ -165,7 +165,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ### Class Component Example
@@ -202,7 +202,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 The React documentation summarizes it best:
@@ -397,7 +397,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 The requirements are as follows:
@@ -508,7 +508,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 We will continue to enhance this demo in the remaining chapters. -->
@@ -533,7 +533,7 @@ const Card = props => {
   );
 };
 
-ReactDOM.render(<Card />, mountNode);
+ReactDOM.createRoot(mountNode).render(<Card />);
 ```
 
 ## Card List
@@ -596,7 +596,7 @@ const CardList = props => {
   );
 };
 
-ReactDOM.render(<CardList />, mountNode);
+ReactDOM.createRoot(document.getElementById("root")).render(<CardList />);
 ```
 
 Using Properties
@@ -630,7 +630,7 @@ const CardList = props => {
   );
 };
 
-ReactDOM.render(<CardList />, mountNode);
+ReactDOM.createRoot(document.getElementById("root")).render(<CardList />);
 ```
 
 Mapping over an array of data
@@ -673,7 +673,7 @@ const CardList = props => {
   );
 };
 
-ReactDOM.render(<CardList cards={data} />, mountNode);
+ReactDOM.createRoot(document.getElementById("root")).render(<CardList  cards={data} />);
 ```
 
 ## Add Form and App components
@@ -742,7 +742,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.createRoot(mountNode).render(<App />);
 ```
 
 ### Form Submission
@@ -919,7 +919,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.createRoot(mountNode).render(<App />);
 ``` -->
 
 ## Reference

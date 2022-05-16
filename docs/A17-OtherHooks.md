@@ -13,7 +13,7 @@ slug: /other-hooks
 
 ```js
 function ID() {
-  return '_' + Math.random().toString(36).substr(2, 9);
+  return "_" + Math.random().toString(36).substr(2, 9);
 }
 
 class Item {
@@ -23,7 +23,7 @@ class Item {
   }
 }
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = "http://localhost:3000";
 
 class ItemAPI {
   url = `${baseUrl}/items`;
@@ -38,10 +38,10 @@ class ItemAPI {
 
   add(item) {
     return fetch(`${this.url}`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(item),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then(this.checkStatus)
@@ -50,10 +50,10 @@ class ItemAPI {
 
   update(item) {
     return fetch(`${this.url}/${item.id}`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify(item),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then(this.checkStatus)
@@ -62,9 +62,9 @@ class ItemAPI {
 
   delete(id) {
     return fetch(`${this.url}/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then(this.checkStatus)
@@ -74,11 +74,11 @@ class ItemAPI {
   static translateStatusToErrorMessage(status) {
     switch (status) {
       case 401:
-        return 'Please login again.';
+        return "Please login again.";
       case 403:
-        return 'You do not have permission to view the items.';
+        return "You do not have permission to view the items.";
       default:
-        return 'There was an error retrieving the items. Please try again.';
+        return "There was an error retrieving the items. Please try again.";
     }
   }
 
@@ -111,18 +111,18 @@ class ItemAPI {
 // REDUX -------------------
 
 //action types
-const LOAD_ITEMS_REQUEST = 'LOAD_ITEMS_REQUEST';
-const LOAD_ITEMS_SUCCESS = 'LOAD_ITEMS_SUCCESS';
-const LOAD_ITEMS_FAILURE = 'LOAD_ITEMS_FAILURE';
-const ADD_ITEM_REQUEST = 'ADD_ITEM_REQUEST';
-const ADD_ITEM_SUCCESS = 'ADD_ITEM_SUCCESS';
-const ADD_ITEM_FAILURE = 'ADD_ITEM_FAILURE';
-const UPDATE_ITEM_REQUEST = 'UPDATE_ITEM_REQUEST';
-const UPDATE_ITEM_SUCCESS = 'UPDATE_ITEM_SUCCESS';
-const UPDATE_ITEM_FAILURE = 'UPDATE_ITEM_FAILURE';
-const DELETE_ITEM_REQUEST = 'DELETE_ITEM_REQUEST';
-const DELETE_ITEM_SUCCESS = 'DELETE_ITEM_SUCCESS';
-const DELETE_ITEM_FAILURE = 'DELETE_ITEM_FAILURE';
+const LOAD_ITEMS_REQUEST = "LOAD_ITEMS_REQUEST";
+const LOAD_ITEMS_SUCCESS = "LOAD_ITEMS_SUCCESS";
+const LOAD_ITEMS_FAILURE = "LOAD_ITEMS_FAILURE";
+const ADD_ITEM_REQUEST = "ADD_ITEM_REQUEST";
+const ADD_ITEM_SUCCESS = "ADD_ITEM_SUCCESS";
+const ADD_ITEM_FAILURE = "ADD_ITEM_FAILURE";
+const UPDATE_ITEM_REQUEST = "UPDATE_ITEM_REQUEST";
+const UPDATE_ITEM_SUCCESS = "UPDATE_ITEM_SUCCESS";
+const UPDATE_ITEM_FAILURE = "UPDATE_ITEM_FAILURE";
+const DELETE_ITEM_REQUEST = "DELETE_ITEM_REQUEST";
+const DELETE_ITEM_SUCCESS = "DELETE_ITEM_SUCCESS";
+const DELETE_ITEM_FAILURE = "DELETE_ITEM_FAILURE";
 
 //state (initial)
 const initialState = {
@@ -285,7 +285,7 @@ function List(props) {
 }
 
 function Form({ item, onCancel, buttonValue, dispatch }) {
-  const [inputValue, setInputValue] = React.useState(item.name || '');
+  const [inputValue, setInputValue] = React.useState(item.name || "");
   //   const dispatch = ReactRedux.useDispatch();
 
   const handleChange = (event) => {
@@ -309,7 +309,7 @@ function Form({ item, onCancel, buttonValue, dispatch }) {
       updateItem(submittedItem, dispatch);
     }
 
-    setInputValue('');
+    setInputValue("");
   };
 
   const handleCancel = (event) => {
@@ -320,7 +320,7 @@ function Form({ item, onCancel, buttonValue, dispatch }) {
   return (
     <form onSubmit={handleFormSubmit}>
       <input value={inputValue} onChange={handleChange} />
-      <button>{buttonValue || 'Save'}</button>
+      <button>{buttonValue || "Save"}</button>
       {onCancel && (
         <a href="#" onClick={handleCancel}>
           cancel
@@ -362,5 +362,5 @@ function App() {
     </div>
   );
 }
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```

@@ -18,7 +18,7 @@ A component with a render prop takes a function that returns a React element and
 ```js
 function Box(props) {
   return (
-    <div style={{ width: 100, height: 100, border: '1px solid black' }}>
+    <div style={{ width: 100, height: 100, border: "1px solid black" }}>
       {props.render && props.render()}
     </div>
   );
@@ -28,7 +28,7 @@ function App() {
   return <Box />;
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 2. Tell the box what you want to render inside it

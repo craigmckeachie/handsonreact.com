@@ -49,7 +49,7 @@ function App() {
   return <Outer />;
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ````
 
 ### Composition vs. HOCs
@@ -91,7 +91,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 > The downside of this approach is that a new component needs to get created for each suffix. This is not a problem in the example above because the components are simple (one line) but as components become more complex this can become more onerous.
@@ -116,10 +116,10 @@ function wrapper(Inner, value) {
   return Outer;
 }
 
-const InnerPeace = wrapper(Inner, 'Peace');
-const InnerCalm = wrapper(Inner, 'Calm');
-const InnerSelf = wrapper(Inner, 'Self');
-const InnerEarInfection = wrapper(Inner, 'Ear Infection');
+const InnerPeace = wrapper(Inner, "Peace");
+const InnerCalm = wrapper(Inner, "Calm");
+const InnerSelf = wrapper(Inner, "Self");
+const InnerEarInfection = wrapper(Inner, "Ear Infection");
 
 function App() {
   return (
@@ -132,7 +132,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ### Another Example
@@ -153,13 +153,13 @@ function withName(Greet, name) {
   return Wrapper;
 }
 
-const GreetWithName = withName(Greet, 'Riya');
+const GreetWithName = withName(Greet, "Riya");
 
 function App() {
   return <GreetWithName />;
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ### Use Cases

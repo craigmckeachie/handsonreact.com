@@ -20,17 +20,17 @@ When props need to be shared with most of a tree of components.
 ```jsx
 const themes = {
   light: {
-    foreground: '#000000',
-    background: '#eeeeee',
+    foreground: "#000000",
+    background: "#eeeeee",
   },
   dark: {
-    foreground: '#ffffff',
-    background: '#222222',
+    foreground: "#ffffff",
+    background: "#222222",
   },
 };
 
 function App() {
-  const [themeName, setThemeName] = React.useState('light');
+  const [themeName, setThemeName] = React.useState("light");
   const currentTheme = themes[themeName];
   return (
     <>
@@ -69,7 +69,7 @@ function ThemedButton({ theme }) {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 #### Using the Context API
@@ -77,19 +77,19 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```jsx
 const themes = {
   light: {
-    foreground: '#000000',
-    background: '#eeeeee',
+    foreground: "#000000",
+    background: "#eeeeee",
   },
   dark: {
-    foreground: '#ffffff',
-    background: '#222222',
+    foreground: "#ffffff",
+    background: "#222222",
   },
 };
 
 const ThemeContext = React.createContext(themes.light);
 
 function App() {
-  const [themeName, setThemeName] = React.useState('light');
+  const [themeName, setThemeName] = React.useState("light");
   const currentTheme = themes[themeName];
   return (
     <>
@@ -129,7 +129,7 @@ function ThemedButton() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ---
@@ -143,12 +143,12 @@ In the example below, the theme is a prop to all components in the tree.
 ```jsx
 const themes = {
   light: {
-    foreground: '#000000',
-    background: '#eeeeee',
+    foreground: "#000000",
+    background: "#eeeeee",
   },
   dark: {
-    foreground: '#ffffff',
-    background: '#222222',
+    foreground: "#ffffff",
+    background: "#222222",
   },
 };
 
@@ -187,7 +187,7 @@ class ThemedButton extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 #### Using the Context API
@@ -195,12 +195,12 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```js
 const themes = {
   light: {
-    foreground: '#000000',
-    background: '#eeeeee',
+    foreground: "#000000",
+    background: "#eeeeee",
   },
   dark: {
-    foreground: '#ffffff',
-    background: '#222222',
+    foreground: "#ffffff",
+    background: "#222222",
   },
 };
 
@@ -258,7 +258,7 @@ class ThemedButton extends React.Component {
 }
 // ThemedButton.contextType = ThemeContext;
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ## Reference

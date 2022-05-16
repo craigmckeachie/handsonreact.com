@@ -152,7 +152,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 2. Change the Link tags to NavLink tags
@@ -745,7 +745,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 <!-- ## Redirects (Auth)

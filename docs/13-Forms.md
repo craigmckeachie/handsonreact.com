@@ -1260,7 +1260,7 @@ class LoginForm extends React.Component {
   }
 }
 
-ReactDOM.render(<LoginForm />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<LoginForm />);
 ```
 
 3. Refresh your browser

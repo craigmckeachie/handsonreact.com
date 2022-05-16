@@ -149,7 +149,7 @@ class App extends Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 
 // Default Behavior: Changing state results in that component and all descendants being re-rendered.
 // Default Behavior: Changing state that updates a prop in a child results in that component and all descendants being re-rendered.
@@ -426,7 +426,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ## `React.PureComponent` Demo
@@ -677,7 +677,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ### FAQs
@@ -780,7 +780,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ```js
@@ -819,7 +819,8 @@ class Task extends React.PureComponent {
     return <div>{this.props.title}</div>;
   }
 }
-ReactDOM.render(<Test />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById('root')).render(<Test />);
+
 ```
 
 -->

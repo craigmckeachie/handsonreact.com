@@ -59,7 +59,7 @@ function Clock() {
   );
 }
 
-ReactDOM.render(<Clock />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
 ```
 
 ### Common Use Case
@@ -90,12 +90,12 @@ function App() {
   return (
     <>
       {loading && <p>Loading...</p>}
-      <pre>{JSON.stringify(data, null, ' ')}</pre>
+      <pre>{JSON.stringify(data, null, " ")}</pre>
     </>
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ## Lifecycle (in class components)
@@ -155,7 +155,7 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(<Clock />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
 ```
 
 ### Reference
