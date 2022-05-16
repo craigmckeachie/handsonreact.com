@@ -48,7 +48,7 @@ React.createElement(component, props, ...children);
 
     ```diff
     ...
-    <script src="/node_modules/react-dom/umd/react-dom.development.js"></script>
+      <script src="/node_modules/react-dom/umd/react-dom.development.js"></script>
     + <script src="/node_modules/@babel/standalone/babel.min.js"></script>
     - <script type="text/javascript" src="/main.js">
     + <script type="text/babel" src="/main.js">
@@ -88,18 +88,6 @@ React.createElement(component, props, ...children);
     );
     ```
 
-    Self-closing element:
-
-    ```js
-    <i className="fas fa-plus" />
-    ```
-
-    ```js
-    React.createElement("i", {
-      className: "fas fa-plus",
-    });
-    ```
-
     Paste [this Sign-In form](./snippets/bootstrap-form.jsx) into the [the online Babel compiler](https://babeljs.io/repl) to understand why you will want to use `JSX` as your HTML grows.
 
 ## Part 2 - Embedding Expressions in JSX
@@ -111,8 +99,8 @@ An expression can be created in JSX with curly braces. When you create an expres
     ```diff
     <script type="text/babel">
       const rootElement = document.getElementById('root');
-    +  const name = 'Joe';
-    +  const element = <div className="container">Hello {name}</div>;
+    +  const first = 'Joe';
+    +  const element = <div className="container">Hello {first}</div>;
      ReactDOM.createRoot(rootElement).render(element);
     </script>
     ```
@@ -136,7 +124,7 @@ An expression can be created in JSX with curly braces. When you create an expres
 
 ## Part 3 - Specifying Attributes with JSX
 
-1. Download the React logo from [this site](https://brandslogos.com/r/react-logo/) into the root of your project `demos`.
+1. Download the React logo from [this site](https://brandslogos.com/r/react-logo-1/) into the root of your project `demos` as `react-logo.png`.
 1. Update the element to be an image tag pointing to the logo.
 
    ```js
@@ -274,14 +262,3 @@ The most common differences are shown below.
 ## Reference
 
 [JSX Illustration](https://github.com/eggheadio/illustrated-dev/blob/master/content/explainers/jsx/index.mdx)
-
-<!-- - Children
-- String Literals
-- JSX Children
-- JavaScript Expressions as Children
-- Functions as Children
-- Booleans, Null, and Undefined are Ignored = -->
-
-```
-
-```

@@ -120,7 +120,7 @@ In this part of the course we will create a `Hello World` application in vanilla
       "description": "",
       "main": "index.js",
       "scripts": {
-    +  "start": "serve -s"
+    +  "start": "serve -s -p 5000"
       },
       "keywords": [],
       "author": "",
@@ -157,14 +157,6 @@ Hello World in JavaScript is not that different than it is in React. Let's updat
    ```shell
    npm install react react-dom --save
    ```
-
-   > About React version 17
-
-   - React 17 was released October 22nd 2020.
-   - There aren't any significant changes
-   - A new JSX transform was introduced
-   - With the new transform, you can use JSX without importing React
-   - The new transform was also implemented in the latest version of all the major React releases (16, 15, 0.14.x).
 
 2. Add the script tags to include `React` on the page. Place them just below the `root div` but before the `main.js` `script` tag
 
