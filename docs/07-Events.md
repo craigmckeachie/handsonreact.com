@@ -43,7 +43,7 @@ Handling events with **React elements** is very similar to handling events on **
 
    > Note: the Chrome browser will place a number next to the log message if it is logged multiple times. The number indicates the number of times the message has been logged.
 
-### In React: Function Component
+### In a React Function Component
 
 #### Setup
 
@@ -80,7 +80,170 @@ Handling events with **React elements** is very similar to handling events on **
 8. Click the button
 9. You should see `clicked` being logged to the console again
 
-### In React: Class Component
+## Passing Parameters
+
+Inside a loop (we'll learn about loops in the next section) it is common to want to pass a parameter to identify the item in the loop.
+
+As we discussed earlier, we can't invoke a function when we subscribe to an event with parenthesis `()` because that would cause the function to be immediately called.
+
+1. Comment or remove all code from `main.js`
+2. Paste the following code into `main.js`
+
+   ```js
+   function FruitListItem(props) {
+     function handleClick(id) {
+       console.log(`removed ${id}`);
+     }
+
+     return <li onClick={handleClick(props.fruit.id)}>{props.fruit.name} </li>;
+   }
+
+   function FruitList(props) {
+     const fruitListItems = props.fruits.map((fruit) => (
+       <FruitListItem key={fruit.id} fruit={fruit} />
+     ));
+     return <ul>{fruitListItems}</ul>;
+   }
+
+   const data = [
+     { id: 1, name: "apple" },
+     { id: 2, name: "orange" },
+     { id: 3, name: "blueberry" },
+     { id: 4, name: "banana" },
+     { id: 5, name: "kiwi" },
+   ];
+
+   ReactDOM.createRoot(document.getElementById("root")).render(
+     <FruitList fruits={data} />
+   );
+   ```
+
+3. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
+4. Refresh the page in your browser
+5. In the `Console` notice that all items invoked the `handleClick` function when the page was loaded.
+6. Click any item on the list and note that `handleClick` is not called so no logging occurs in the `Console`.
+
+   So how can we pass arguments to an event handler or callback?
+
+There are two solutions to this problem:
+
+### Using Arrow Functions
+
+1. Wrap `handleClick` in an arrow function
+
+   ```diff
+   function FruitListItem(props) {
+     function handleClick(id) {
+       console.log(`removed ${id}`);
+     }
+
+     return (
+   -    <li onClick={handleClick(props.fruit.id)}>{props.fruit.name} </li>
+   +    <li onClick={() => handleClick(props.fruit.id)}>{props.fruit.name} </li>
+     );
+   }
+
+   function FruitList(props) {
+     const fruitListItems = props.fruits.map((fruit) => (
+       <FruitListItem key={fruit.id} fruit={fruit} />
+     ));
+     return <ul>{fruitListItems}</ul>;
+   }
+
+   const data = [
+     { id: 1, name: 'apple' },
+     { id: 2, name: 'orange' },
+     { id: 3, name: 'blueberry' },
+     { id: 4, name: 'banana' },
+     { id: 5, name: 'kiwi' },
+   ];
+
+   ReactDOM.createRoot(document.getElementById("root")).render(
+    <FruitList fruits={data} />
+   );
+
+
+   ```
+
+### Using Bind
+
+1. Use `Function.prototype.bind` to bind the function to the instance of the class.
+
+   ```diff
+     return (
+   -     <li onClick={() => handleClick(props.fruit.id)}>{props.fruit.name} </li>
+   +    <li onClick={handleClick.bind(this, props.fruit.id)}>{props.fruit.name}</li>
+     );
+   ```
+
+### Reference
+
+[How do I pass a parameter to an event handler or callback?](https://reactjs.org/docs/faq-functions.html#how-do-i-pass-a-parameter-to-an-event-handler-or-callback)
+
+## Accessing Event Information
+
+Handling events requires us to prevent the default browser behavior.
+
+### Using Arrow Functions
+
+1. Comment or remove all code from `main.js`
+2. Paste the following code into `main.js`
+
+   ```js
+   function FruitListItem(props) {
+     function handleClick(e, id) {
+       console.log(e);
+       console.log(`removed ${id}`);
+     }
+
+     return (
+       <li onClick={(e) => handleClick(e, props.fruit.id)}>
+         {props.fruit.name}{" "}
+       </li>
+     );
+   }
+
+   function FruitList(props) {
+     const fruitListItems = props.fruits.map((fruit) => (
+       <FruitListItem key={fruit.id} fruit={fruit} />
+     ));
+     return <ul>{fruitListItems}</ul>;
+   }
+
+   const data = [
+     { id: 1, name: "apple" },
+     { id: 2, name: "orange" },
+     { id: 3, name: "blueberry" },
+     { id: 4, name: "banana" },
+     { id: 5, name: "kiwi" },
+   ];
+
+   ReactDOM.createRoot(document.getElementById("root")).render(
+     <FruitList fruits={data} />
+   );
+   ```
+
+3. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
+4. Refresh the page in your browser
+5. Click an item on the list
+6. In the `Console` you should see something similar to the following:
+
+```
+SyntheticBaseEvent {_reactName: 'onClick', _targetInst: null, type: 'click', nativeEvent: PointerEvent, target: li, …} main.js:4
+removed 2
+```
+
+> Note that with bind any further arguments including the event object is automatically forwarded.
+
+> Note: returning false does not prevent the default browser behavior as it does in vanilla JavaScript as shown in this example.
+
+### Synthetic Events
+
+The event object we are returned in the previous example is an imitation of but not actually the same as the `Event` object in the browsers' `Document Object Model (DOM)`.
+
+A `SyntheticEvent` is a cross-browser wrapper around the browser’s native event. It has the same interface as the browser’s native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+
+## Subscribing in a Class Component
 
 #### Setup
 
@@ -121,7 +284,7 @@ Handling events with **React elements** is very similar to handling events on **
 5. Click the button
 6. You should see `clicked` being logged to the console again.
 
-## Binding (the Event Handler)
+### Binding (the Event Handler)
 
 The event handler is a function that needs to get bound to the class instance if you are using class components instead of function components.
 
@@ -288,175 +451,7 @@ This next section is about the different ways to do the binding.
   );
   ```
 
-## Passing Parameters
-
-Inside a loop (we'll learn about loops in the next section) it is common to want to pass a parameter to identify the item in the loop.
-
-As we discussed earlier, we can't invoke a function when we subscribe to an event with parenthesis `()` because that would cause the function to be immediately called.
-
-1. Comment or remove all code from `main.js`
-2. Paste the following code into `main.js`
-
-   ```js
-   function FruitListItem(props) {
-     function handleClick(id) {
-       console.log(`removed ${id}`);
-     }
-
-     return <li onClick={handleClick(props.fruit.id)}>{props.fruit.name} </li>;
-   }
-
-   function FruitList(props) {
-     const fruitListItems = props.fruits.map((fruit) => (
-       <FruitListItem key={fruit.id} fruit={fruit} />
-     ));
-     return <ul>{fruitListItems}</ul>;
-   }
-
-   const data = [
-     { id: 1, name: "apple" },
-     { id: 2, name: "orange" },
-     { id: 3, name: "blueberry" },
-     { id: 4, name: "banana" },
-     { id: 5, name: "kiwi" },
-   ];
-
-   ReactDOM.createRoot(document.getElementById("root")).render(
-     <FruitList fruits={data} />
-   );
-   ```
-
-3. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
-4. Refresh the page in your browser
-5. In the `Console` notice that all items invoked the `handleClick` function when the page was loaded.
-6. Click any item on the list and note that `handleClick` is not called so no logging occurs in the `Console`.
-
-   So how can we pass arguments to an event handler or callback?
-
-There are two solutions to this problem:
-
-### Using Arrow Functions
-
-1. Wrap `handleClick` in an arrow function
-
-   ```diff
-   function FruitListItem(props) {
-     function handleClick(id) {
-       console.log(`removed ${id}`);
-     }
-
-     return (
-   -    <li onClick={handleClick(props.fruit.id)}>{props.fruit.name} </li>
-   +    <li onClick={() => handleClick(props.fruit.id)}>{props.fruit.name} </li>
-     );
-   }
-
-   function FruitList(props) {
-     const fruitListItems = props.fruits.map((fruit) => (
-       <FruitListItem key={fruit.id} fruit={fruit} />
-     ));
-     return <ul>{fruitListItems}</ul>;
-   }
-
-   const data = [
-     { id: 1, name: 'apple' },
-     { id: 2, name: 'orange' },
-     { id: 3, name: 'blueberry' },
-     { id: 4, name: 'banana' },
-     { id: 5, name: 'kiwi' },
-   ];
-
-   ReactDOM.createRoot(document.getElementById("root")).render(
-    <FruitList fruits={data} />
-   );
-
-
-   ```
-
-### Using Bind
-
-1. Use `Function.prototype.bind` to bind the function to the instance of the class.
-
-   ```diff
-     return (
-   -     <li onClick={() => handleClick(props.fruit.id)}>{props.fruit.name} </li>
-   +    <li onClick={handleClick.bind(this, props.fruit.id)}>{props.fruit.name}</li>
-     );
-   ```
-
-### Reference
-
-[How do I pass a parameter to an event handler or callback?](https://reactjs.org/docs/faq-functions.html#how-do-i-pass-a-parameter-to-an-event-handler-or-callback)
-
-## Accessing Event Information
-
-Handling events requires us to prevent the default browser behavior.
-
-### Using Arrow Functions
-
-1. Comment or remove all code from `main.js`
-2. Paste the following code into `main.js`
-
-   ```js
-   function FruitListItem(props) {
-     function handleClick(e, id) {
-       console.log(e);
-       console.log(`removed ${id}`);
-     }
-
-     return (
-       <li onClick={(e) => handleClick(e, props.fruit.id)}>
-         {props.fruit.name}{" "}
-       </li>
-     );
-   }
-
-   function FruitList(props) {
-     const fruitListItems = props.fruits.map((fruit) => (
-       <FruitListItem key={fruit.id} fruit={fruit} />
-     ));
-     return <ul>{fruitListItems}</ul>;
-   }
-
-   const data = [
-     { id: 1, name: "apple" },
-     { id: 2, name: "orange" },
-     { id: 3, name: "blueberry" },
-     { id: 4, name: "banana" },
-     { id: 5, name: "kiwi" },
-   ];
-
-   ReactDOM.createRoot(document.getElementById("root")).render(
-     <FruitList fruits={data} />
-   );
-   ```
-
-3. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
-4. Refresh the page in your browser
-5. Click an item on the list
-6. In the `Console` you should see something similar to the following:
-
-```
-SyntheticBaseEvent {_reactName: 'onClick', _targetInst: null, type: 'click', nativeEvent: PointerEvent, target: li, …} main.js:4
-removed 2
-```
-
-> Note that with bind any further arguments including the event object is automatically forwarded.
-
-> Note: returning false does not prevent the default browser behavior as it does in vanilla JavaScript as shown in this example.
-
-### Synthetic Events
-
-The event object we are returned in the previous example is an imitation of but not actually the same as the `Event` object in the browsers' `Document Object Model (DOM)`.
-
-A `SyntheticEvent` is a cross-browser wrapper around the browser’s native event. It has the same interface as the browser’s native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
-
-## Reference
-
-- [React Documentation: Handling Events](https://reactjs.org/docs/handling-events.html)
-- [React Documentation: Passing Functions to Components](https://reactjs.org/docs/faq-functions.html)
-
-## Binding (the Event Handler): Other Approaches to Avoid
+### Binding (the Event Handler): Other Approaches to Avoid
 
 - In the render method (to an instance of the class: this)
 
@@ -511,3 +506,8 @@ A `SyntheticEvent` is a cross-browser wrapper around the browser’s native even
   - Why?
     - Clutters constructor with business logic
     - Constructor only there to instantiate your class and initialize properties
+
+## Reference
+
+- [React Documentation: Handling Events](https://reactjs.org/docs/handling-events.html)
+- [React Documentation: Passing Functions to Components](https://reactjs.org/docs/faq-functions.html)
