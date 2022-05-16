@@ -45,29 +45,35 @@ npm install --save prop-types
 </html>
 ```
 
-If you are using ES Modules you will need to import `PropTypes` in your `.js| .jsx` files:
-
-```js
-import PropTypes from "prop-types";
-```
+> In Create React App, where you would be using ES Modules you will need to `import PropTypes from "prop-types;"` but you do not need to in this demonstration.
 
 ## Usage
 
-1. Add the following code:
+1. Add the following code with the `propTypes` declaration commented out and don't pass the required `name` prop as shown below:
 
    #### `main.js`
 
    ```js
-   //same with function components
+   function Greeter(props) {
+     return <h1>Hello, {props.name}</h1>;
+   }
 
-   // function Greeter(props) {
-   //   return <h1>Hello, {props.name}</h1>;
-   // }
+   // Greeter.propTypes = {
+   //  name: PropTypes.string.isRequired,
+   // };
 
-   class Greeter extends React.Component {
-     render() {
-       return <h1>Hello, {this.props.name}</h1>;
-     }
+   const element = <Greeter />;
+   ReactDOM.createRoot(document.getElementById("root")).render(element);
+   ```
+
+1. Notice it runs without an error.
+1. Uncomment the `propTypes` declaration.
+
+   #### `main.js`
+
+   ```js
+   function Greeter(props) {
+     return <h1>Hello, {props.name}</h1>;
    }
 
    Greeter.propTypes = {
@@ -78,23 +84,36 @@ import PropTypes from "prop-types";
    ReactDOM.createRoot(document.getElementById("root")).render(element);
    ```
 
-1. Change PropType to object.
+1. Notice you receive a helpful warning message in the console.
+1. Pass the `name` property the string `Srini`.
+
+   #### `main.js`
+
+   ```js
+   function Greeter(props) {
+     return <h1>Hello, {props.name}</h1>;
+   }
+
+   Greeter.propTypes = {
+     name: PropTypes.string.isRequired,
+   };
+
+   const element = <Greeter name="Srini" />;
+   ReactDOM.createRoot(document.getElementById("root")).render(element);
+   ```
+
+1. Notice the code works and runs without any warning messages.
+1. Pass the `name` property a number.
 
    #### `main.js`
 
    ```js
    ...
-   Greeter.propTypes = {
-   name: PropTypes.object.isRequired
-   };
+   const element = <Greeter name={1} />;
    ...
    ```
 
-1. You should receive the following warning in the browser `console`.
-   ```
-   Warning: Failed prop type: Invalid prop `name` of type `string` supplied to `Greeter`, expected `object`.
-       in Greeter
-   ```
+1. Notice you receive a helpful warning message in the console.
 
 ## Reference
 
