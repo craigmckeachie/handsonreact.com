@@ -20,82 +20,31 @@ State is local to the component (encapsulated) and should not be accessed outsid
 
 ### Using the `useState` Hook
 
-#### Defining `state`
-
 ##### main.js
 
 ```js
-function Clock() {
-  const [time, setTime] = React.useState(new Date().toLocaleTimeString());
-
-  return (
-    <div>
-      <p>{time}</p>
-      <button>Refresh</button>
-    </div>
-  );
+function addMinutes(date, minutes) {
+  //we multiply minutes by 60000 is to convert minutes to milliseconds
+  return new Date(date.getTime() + minutes * 60000);
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
-```
-
-#### Setting `state`
-
-##### main.js
-
-```diff
 function Clock() {
-  const [time, setTime] = React.useState(new Date().toLocaleTimeString());
+  const [time, setTime] = React.useState(new Date());
 
-+  const refresh = () => {
-+    setTime(new Date().toLocaleTimeString());
-+  };
-
-  return (
-    <div>
-      <p>{time}</p>
-      <button
-+      onClick={refresh}>
-      Refresh
-      </button>
-    </div>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
-```
-
-#### Remember not to set `state` directly, use the setter function returned by the hook.
-
-##### main.js
-
-```diff
-function Clock() {
-  const [time, setTime] = React.useState(new Date().toLocaleTimeString());
-
-  const refresh = () => {
-+   time = new Date().toLocaleTimeString(); //Uncaught Error: "time" is read-only
-
-    //do this instead
-    // setTime(new Date().toLocaleTimeString());
+  const handleClick = () => {
+    setTime(addMinutes(time, 10));
   };
 
   return (
     <div>
-      <p>{time}</p>
-      <button onClick={refresh}>Refresh</button>
+      <p>{time.toLocaleTimeString()}</p>
+      <button onClick={handleClick}>+ 10 Minutes</button>
     </div>
   );
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
 ```
-
-```shell
-VM98:11 Uncaught Error: "time" is read-only
-```
-
-### FAQs
 
 **What does calling useState do?**
 
@@ -113,13 +62,84 @@ It returns a pair of values: the current state and a function that updates it. T
 
 The syntax for `useState` is confusing at first because it uses **Array destructuring** to return a pair. Array destructuring is used because it allows the us to decide what the variable and setter function should be named.
 
-### Where to use `useState`
+## Setting `state`
 
-| In Classes    | With Hooks |
-| ------------- | ---------- |
-| this.setState | useState   |
+### Remember not to set `state` directly, use the setter function returned by the hook.
 
-> `useState` don’t work inside classes. But you can use function components with hooks instead of class components and `setState`.
+##### main.js
+
+```js
+function addMinutes(date, minutes) {
+  //we multiply minutes by 60000 is to convert minutes to milliseconds
+  return new Date(date.getTime() + minutes * 60000);
+}
+
+function Clock() {
+  let [time, setTime] = React.useState(new Date());
+
+  const handleClick = () => {
+    //doesn't update the DOM
+    time = addMinutes(time, 10);
+    //updates the DOM
+    // setTime(addMinutes(time, 10));
+  };
+
+  return (
+    <div>
+      <p>{time.toLocaleTimeString()}</p>
+      <button onClick={handleClick}>+ 10 Minutes</button>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
+```
+
+### Setting `state` based on prior state
+
+Setting `state` based on prior state requires passing a function to the updater function that returns the new value instead of just passing the new value.
+
+> So if the new state is computed using the previous state...pass a function to your updater function (setX function). The function will receive the previous value, and return an updated value.
+
+##### main.js
+
+```js
+function addMinutes(date, minutes) {
+  return new Date(date.getTime() + minutes * 60000);
+}
+
+function Clock() {
+  const [time, setTime] = React.useState(new Date());
+
+  const handleClick1 = () => {
+    setTime(addMinutes(time, 10));
+    setTime(addMinutes(time, 10));
+  };
+
+  const handleClick2 = () => {
+    setTime((previousTime) => addMinutes(previousTime, 10));
+    setTime((previousTime) => addMinutes(previousTime, 10));
+  };
+
+  return (
+    <div>
+      <p>{time.toLocaleTimeString()}</p>
+      <button onClick={handleClick1}>+ 10 Minutes</button>
+      <button onClick={handleClick2}>+ 10 Minutes</button>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
+```
+
+This is not an issue until you attempt to read state soon after you have set it (setting state repeatedly is an easy way to the issue). The issue arises because React does state updates asyncronously and can batch them to improve rendering performance.
+
+### How to be sure a setState call has completed?
+
+Use a `useEffect` hook with a dependency on the the state variable that is changing. We will learn about `useEffect` in the next chapter.
+
+## FAQs
 
 ### Using Multiple State Variables
 
@@ -191,7 +211,15 @@ function Box() {
 }
 ```
 
-### Common State Use Case
+### Where to use `useState`
+
+| In Classes    | With Hooks |
+| ------------- | ---------- |
+| this.setState | useState   |
+
+> `useState` don’t work inside classes. But you can use function components with hooks instead of class components and `setState`.
+
+## Common State Use Case
 
 ```js
 const { useState } = React;
@@ -219,11 +247,88 @@ function App() {
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
-### Setting `state` using the current `state` or `props`
+## State in Class Components
 
-#### Use a Functional update
+In React, you don’t manipulate the DOM directly, instead you simply update data (state) and let React react by updating the UI in all the needed places.
 
-If the new state is computed using the previous state, you can pass a function to setState. The function will receive the previous value, and return an updated value. Here’s an example of a counter component that uses both forms of setState:
+```js
+class Clock extends React.Component {
+  state = {
+    time: new Date().toLocaleTimeString(),
+  };
+
+  handleClick = () => {
+    this.setState({ time: new Date().toLocaleTimeString() });
+  };
+
+  render() {
+    return (
+      <div>
+        <p>{this.state.time}</p>
+        <button onClick={handleClick}>Refresh</button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
+```
+
+## Using State Correctly
+
+There are three things you should know about setState().
+
+1. Do Not Modify State Directly
+2. State Updates :
+
+- In class components, `setState` keeps previous state you do not change
+- In function components, the `useState` updater function `set...` does not keep previous state. It is overwritten.
+
+3. State Updates May Be Asynchronous
+
+   - React may batch multiple set...() calls into a single update for performance.
+
+   - Because `state` may be updated asynchronously (after an http request or a user action like clicking a button ), you should not rely on current state values for calculating the next state.
+
+## Data Flows Down
+
+Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn’t care whether it is defined as a function or a class.
+
+This is why state is often called local or encapsulated. It is not accessible to any component other than the one that owns and sets it.
+
+A component may choose to pass its state down as props to its child components:
+
+```js
+<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+```
+
+This also works for user-defined components:
+
+```js
+<FormattedDate date={this.state.date} />
+```
+
+The `FormattedDate` component would receive the `date` in its props and wouldn't know whether it came from the `Clock`'s state, from the `Clock`'s props, or was typed by hand:
+
+```js
+function FormattedDate(props) {
+  return <h2>It is {props.date.toLocaleTimeString()}.</h2>;
+}
+```
+
+This is commonly called a "top-down" or "unidirectional" data flow. Any state is always owned by some specific component, and any data or UI derived from that state can only affect components "below" them in the tree.
+
+If you imagine a component tree as a waterfall of props, each component's state is like an additional water source that joins it at an arbitrary point but also flows down.
+
+## Reference
+
+- [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+- [Glossary Definition: State](https://reactjs.org/docs/glossary.html#state)
+- [Using the State Hook](https://reactjs.org/docs/hooks-state.html)
+
+<!-- #### Use a Functional update
+
+ Here’s an example of a counter component that uses both forms of setState:
 
 ```js
 function Counter({ initialCount }) {
@@ -261,223 +366,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 ```
 
-The ”Increment” and ”Increment Function Update” buttons use the two different forms of updating state. This is not an issue until you set state repeatedly. The issue arises because React does state updates asyncronously and can batch them to improve rendering performance.
-
-### How to be sure a setState call has completed?
-
-Use a `useEffect` hook with a dependency on the the state variable that is changing. We will learn about `useEffect` in the next chapter.
-
-## State in Class Components
-
-```js
-class Clock extends React.Component {
-  state = {
-    time: new Date().toLocaleTimeString(),
-  };
-
-  render() {
-    return <div>{this.state.time}</div>;
-  }
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
-```
-
-In React, you don’t manipulate the DOM directly, instead you simply update data (state) and let React react by updating the UI in all the needed places.
-
-```js
-class Clock extends React.Component {
-  state = {
-    time: new Date().toLocaleTimeString(),
-  };
-
-  refresh = () => {
-    this.setState({ time: new Date().toLocaleTimeString() });
-  };
-
-  render() {
-    return (
-      <div>
-        <p>{this.state.time}</p>
-        <button onClick={this.refresh}>Refresh</button>
-      </div>
-    );
-  }
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
-```
-
-To make it easier to read and understand, the last example uses [class field declarations](https://github.com/tc39/proposal-class-fields) which is not an official feature of JavaScript but is currently a `Stage 3 proposal`.
-
-> Read the [TC39 Process](https://tc39.github.io/process-document/) to better understanding the ECMAScript standards process and what the stages mean.
-
-The example could be rewritten as follows to be ES6/ES2015 compliant.
-
-```js
-class Clock extends React.Component {
-  // state = {
-  //   time: new Date().toLocaleTimeString()
-  // };
-
-  // refresh = () => {
-  //   this.setState({ time: new Date().toLocaleTimeString() });
-  // };
-
-  constructor() {
-    super();
-    this.state = {
-      time: new Date().toLocaleTimeString(),
-    };
-    this.refresh = this.refresh.bind(this);
-  }
-
-  refresh() {
-    this.setState({ time: new Date().toLocaleTimeString() });
-  }
-
-  render() {
-    return (
-      <div>
-        <p>{this.state.time}</p>
-        <button onClick={this.refresh}>Refresh</button>
-      </div>
-    );
-  }
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
-```
-
-### Using State Correctly
-
-There are three things you should know about setState().
-
-1. Do Not Modify State Directly
-
-   ```js
-   class Clock extends React.Component {
-     state = {
-       time: new Date().toLocaleTimeString(),
-     };
-
-     refresh = () => {
-       // don't modify state directly
-       // this.state.time = new Date().toLocaleTimeString();
-
-       //instead call setState, React calls render after setState
-       this.setState({ time: new Date().toLocaleTimeString() });
-     };
-
-     render() {
-       return (
-         <div>
-           <p>{this.state.time}</p>
-           <button onClick={this.refresh}>Refresh</button>
-         </div>
-       );
-     }
-   }
-
-   ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
-   ```
-
-2. State Updates are Merged
-
-   - `setState` could be named please update these **parts** of state
-   - In the example below, the button label is still **Refresh** even after clicking the button that causes state to be set (but doesn't set the `buttonLabel`).
-
-   ```js
-   class Clock extends React.Component {
-     state = {
-       time: new Date().toLocaleTimeString(),
-       buttonLabel: "Refresh",
-     };
-
-     refresh = () => {
-       this.setState({ time: new Date().toLocaleTimeString() });
-     };
-
-     render() {
-       return (
-         <div>
-           <p>{this.state.time}</p>
-           <button onClick={this.refresh}>{this.state.buttonLabel}</button>
-         </div>
-       );
-     }
-   }
-
-   ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
-   ```
-
-3. State Updates May Be Asynchronous
-
-   - React may batch multiple setState() calls into a single update for performance.
-
-   - Because `this.props` and `this.state` may be updated asynchronously (after an http request or a user action like clicking a button ), you should not rely on their values for calculating the next state.
-
-   For example, this code may fail to update the counter:
-
-   ```js
-   // Wrong
-   this.setState({
-     counter: this.state.counter + this.props.increment,
-   });
-   ```
-
-   To fix it, use a second form of `setState()` that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:
-
-   ```js
-   // Correct
-   this.setState((state, props) => ({
-     counter: state.counter + props.increment,
-   }));
-   ```
-
-   We used an [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) above, but it also works with regular functions:
-
-   ```js
-   // Correct
-   this.setState(function (state, props) {
-     return {
-       counter: state.counter + props.increment,
-     };
-   });
-   ```
-
-## Data Flows Down
-
-Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn’t care whether it is defined as a function or a class.
-
-This is why state is often called local or encapsulated. It is not accessible to any component other than the one that owns and sets it.
-
-A component may choose to pass its state down as props to its child components:
-
-```js
-<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-```
-
-This also works for user-defined components:
-
-```js
-<FormattedDate date={this.state.date} />
-```
-
-The `FormattedDate` component would receive the `date` in its props and wouldn't know whether it came from the `Clock`'s state, from the `Clock`'s props, or was typed by hand:
-
-```js
-function FormattedDate(props) {
-  return <h2>It is {props.date.toLocaleTimeString()}.</h2>;
-}
-```
-
-This is commonly called a "top-down" or "unidirectional" data flow. Any state is always owned by some specific component, and any data or UI derived from that state can only affect components "below" them in the tree.
-
-If you imagine a component tree as a waterfall of props, each component's state is like an additional water source that joins it at an arbitrary point but also flows down.
-
-## Reference
-
-- [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
-- [Glossary Definition: State](https://reactjs.org/docs/glossary.html#state)
-- [Using the State Hook](https://reactjs.org/docs/hooks-state.html)
+The ”Increment” and ”Increment Function Update” buttons use the two different forms of updating state.  -->
