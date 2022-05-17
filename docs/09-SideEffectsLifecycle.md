@@ -35,7 +35,82 @@ The function it takes will be executed for you:
 | componentWillMount    | deprecated so no comparable hook                                           |
 | componentWillUpdate   | deprecated so no comparable hook                                           |
 
-### useEffect Simple Demo
+### Example (after first render only)
+
+Here is the the common use case example we saw in the state section. It has been updated to loadData after the initial rendering of the component.
+
+```js
+const { useState, useEffect } = React;
+
+function App() {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(null);
+  function loadData() {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setData([1, 2, 3, 4, 5]);
+    }, 1000);
+  }
+
+  useEffect(loadData, []);
+
+  return (
+    <>
+      {loading && <p>Loading...</p>}
+      {data && <pre>{JSON.stringify(data, null, 1)}</pre>}
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+```
+
+### Example (after first render AND subsequent renders caused by a change in a dependency)
+
+Here is the the common use case example we saw in the state section. It has been updated to loadData after the initial rendering of the component.
+
+```js
+const { useState, useEffect } = React;
+
+function App() {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(null);
+  const [page, setPage] = useState(1);
+  function loadData() {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      if (page === 1) {
+        setData([1, 2, 3, 4, 5]);
+      } else if (page === 2) {
+        setData([6, 7, 8, 9, 10]);
+      } else {
+        setData(null);
+      }
+    }, 1000);
+  }
+
+  useEffect(loadData, [page]);
+
+  function handleNext() {
+    setPage((currentPage) => currentPage + 1);
+  }
+
+  return (
+    <>
+      {loading && <p>Loading...</p>}
+      {data && <pre>{JSON.stringify(data, null, 1)}</pre>}
+      <span>Current Page: {page}</span>
+      <button onClick={handleNext}>Next</button>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+```
+
+### useEffect Cleanup Example
 
 ```js
 function Clock() {
@@ -60,42 +135,6 @@ function Clock() {
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
-```
-
-### Common Use Case
-
-Here is the the common use case example we saw in the state section. It has been updated to loadData after the initial rendering of the component.
-
-```js
-const { useState, useEffect } = React;
-
-function App() {
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
-  function loadData() {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setData([1, 2, 3, 4]);
-    }, 3000);
-  }
-
-  //works but unnecessarily verbose
-  // React.useEffect(() => {
-  //   loadData();
-  // }, []);
-
-  useEffect(loadData, []);
-
-  return (
-    <>
-      {loading && <p>Loading...</p>}
-      <pre>{JSON.stringify(data, null, " ")}</pre>
-    </>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ```
 
 ## Lifecycle (in class components)
