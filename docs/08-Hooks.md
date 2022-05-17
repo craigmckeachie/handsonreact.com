@@ -70,12 +70,29 @@ After learning that function components with hooks have become a best practice, 
 
 Hooks provide a more direct API to the React concepts you already know: props, **state**, context, refs, and **lifecycle**.
 
-| In Classes                         | With Hooks                   |
+| Class Components                   | Function Components          |
 | ---------------------------------- | ---------------------------- |
 | this.setState                      | useState                     |
 | Lifecycle Methods                  | useEffect                    |
 | createRef, ref                     | useRef, ref                  |
 | Context.Provider, Context.Consumer | Context.Provider, useContext |
+
+- Function Components
+
+  - useState
+  - useEffect
+  - useRef
+  - ~~this.setState~~
+  - ~~Lifecycle Methods (componentDidMount)~~
+  - ~~createRef~~
+
+- Class Components
+  - ~~useState~~
+  - ~~useEffect~~
+  - ~~useRef~~
+  - this.setState
+  - Lifecycle Methods (componentDidMount)
+  - createRef
 
 :::info
 
