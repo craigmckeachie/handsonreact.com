@@ -33,7 +33,7 @@ function ExampleForm() {
   return (
     <form>
       <input type="text" value={value} onChange={handleChange} />
-      <pre>{JSON.stringify(value)}</pre>
+      <pre>{value}</pre>
     </form>
   );
 }
@@ -108,7 +108,7 @@ Handling the submission of the form using the same concepts we learning previous
 ### Function Component Example
 
 ```js
-function LoginForm() {
+function SigninForm() {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -136,7 +136,7 @@ function LoginForm() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<LoginForm />);
+ReactDOM.createRoot(document.getElementById("root")).render(<SigninForm />);
 ```
 
 ### Class Component Example
@@ -334,7 +334,8 @@ These have all been standardized to be set using the value property when using R
 - Validating user input is not even discussed in the React documentation.
 - There are no specific features in React for validating forms.
 - React leaves this to job for external libraries.
-- Currently, the most popular React form validation library is [Formik](https://jaredpalmer.com/formik/).
+- Historically, the most popular React form validation library is [Formik](https://jaredpalmer.com/formik/).
+- More recently, the React form validation library [React Hook Form](https://react-hook-form.com/) has caught up to Formik and will likely soon pass it in popularity. If you are starting a new project a would recommend this library as it has better accessibility support.
 - Here is a discussion on reddit of whether a [Form Library is Necessary in React](https://www.reddit.com/r/reactjs/comments/5u66ce/necessary_to_use_a_form_library_in_react/)
 
 To help you decide whether a library would be helpful in your use case, it can be helpful to manually implement form validation at first in your React application.
@@ -606,17 +607,17 @@ When writing an `uncontrolled component` you use a `ref` to get form values from
 
 ```js
 function ExampleForm() {
-  const input = React.useRef(null);
+  const inputRef = React.useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(input.current);
-    console.log(input.current.value);
+    console.log(inputRef.current);
+    console.log(inputRef.current.value);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" ref={input} />
+      <input type="text" ref={inputRef} />
       <button>Submit</button>
     </form>
   );
@@ -634,7 +635,7 @@ Try initializing the value property on the input.
     <form onSubmit={handleSubmit}>
         <input
    +       value="initial value"
-          type="text" ref={input} />
+          type="text" ref={inputRef} />
         <button>Submit</button>
     </form>
    ```
@@ -648,7 +649,7 @@ Try initializing the value property on the input.
    <form onSubmit={handleSubmit}>
        <input
    +       defaultValue="initial value"
-         type="text" ref={input} />
+         type="text" ref={inputRef} />
        <button>Submit</button>
    </form>
    ```
@@ -662,18 +663,18 @@ Try initializing the value property on the input.
 
 ```js
 class ExampleForm extends React.Component {
-  input = React.createRef();
+  inputRef = React.createRef();
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.input.current);
-    console.log(this.input.current.value);
+    console.log(this.inputRef.current);
+    console.log(this.inputRef.current.value);
   };
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" ref={this.input} />
+        <input type="text" ref={this.inputRef} />
         <button>Submit</button>
       </form>
     );
