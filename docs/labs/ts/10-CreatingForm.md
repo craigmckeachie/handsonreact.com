@@ -1,5 +1,5 @@
 ---
-title: 'Lab 10: Creating a Form to Edit Your Data'
+title: "Lab 10: Creating a Form to Edit Your Data"
 ---
 
 ## Objectives
@@ -24,7 +24,7 @@ title: 'Lab 10: Creating a Form to Edit Your Data'
 2. Create the file `src\projects\ProjectForm.tsx`.
 3. Implement a `ProjectForm` **function** component that meets the following specifications:
 
-   - Paste the HTML below into the render method of the `ProjectForm` and use your editor and the link below to identify the changes needed to the `HTML` to make it `JSX`.
+   - Paste the HTML below into the `ProjectForm` and use your editor and the link below to identify the changes needed to the `HTML` to make it `JSX`.
 
      > [DOM Element vs JSX Element Differences](https://reactjs.org/docs/dom-elements.html#differences-in-attributes)
 
@@ -56,7 +56,7 @@ title: 'Lab 10: Creating a Form to Edit Your Data'
      #### src\projects\ProjectForm.tsx
 
      ```tsx
-     import React from 'react';
+     import React from "react";
 
      function ProjectForm() {
        return (
