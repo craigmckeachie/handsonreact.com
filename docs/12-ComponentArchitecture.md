@@ -217,17 +217,16 @@ The React documentation summarizes it best:
 
 ### Container (Smart) Components
 
-- Are concerned with how things work
-- Sets data into child component input properties
-- Receives events by subscribing to children
+- Are concerned with *how things work*
+- Provide the data and behavior to presentational or other container components
 - Loads and modifies data via calls to an API
+- May contain both presentational and container components\*\* inside but usually don’t have any DOM markup of their own except for some wrapping divs, and never have any styles
 - Also know as container components or controller components
 
 ### Presentation Components
 
-- Are concerned with how things look
-- Receive data via input properties from parent
-- Send events with information to their parent
+- Are concerned with *how things look*
+- Receive data and callbacks exclusively via props
 - Don’t specify how the data is loaded or changed
 - Also know as pure components or dumb components
 
