@@ -86,7 +86,7 @@ slug: /computer-setup
 
     > Don't confuse Visual Studio Code with the heavier Visual Studio IDE used for .NET development.
 
-  > **Configure Visual Studio Code** for the course by [following these directions](./00-VisualStudioCodeSetup.md).
+    > **Configure Visual Studio Code** for the course by [following these directions](./00-VisualStudioCodeSetup.md).
 
 - **WebStorm** or **IntelliJ IDEA Ultimate** both made by `JetBrains` are also great choices.
 
