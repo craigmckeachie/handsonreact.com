@@ -191,7 +191,7 @@ The most common differences are shown below.
    );
    ```
 
-2. If you want your code formatting and indentation to line up you will want your opening tag on the next line after the variable declaration. Because JavaScript has automatic semi-colon insertion your code can break as shown below.
+2. If you want your code formatting and indentation to line up, you will want your opening tag on the next line after the variable declaration. Because JavaScript has automatic semi-colon insertion your code can break as shown below.
    ```js
    const element = ;
     <ul>
