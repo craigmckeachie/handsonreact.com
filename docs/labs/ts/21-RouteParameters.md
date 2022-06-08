@@ -18,7 +18,7 @@ title: "Lab 21: Route Parameters"
    const projectAPI = {
    ...
 
-   +  find(id) {
+   +  find(id: number) {
    +    return fetch(`${url}/${id}`)
    +      .then(checkStatus)
    +      .then(parseJSON);
