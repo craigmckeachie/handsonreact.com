@@ -378,9 +378,14 @@ function ContactUsForm() {
   const [department, setDepartment] = React.useState("");
   const [message, setMessage] = React.useState("");
   const [agreedToTerms, setAgreedToTerms] = React.useState(false);
+
   const [departmentError, setDepartmentError] = React.useState(null);
   const [messageError, setMessageError] = React.useState(null);
   const [agreedToTermsError, setAgreedToTermsError] = React.useState(null);
+
+  const [departmentTouched, setDepartmentTouched] = React.useState(false);
+  const [messageTouched, setMessageTouched] = React.useState(false);
+  const [agreedToTermsTouched, setAgreedToTermsTouched] = React.useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -389,7 +394,7 @@ function ContactUsForm() {
     if (!isValid) {
       return;
     }
-    console.log("submitting", stateToString());
+    console.log("submitting", { department, message, agreedToTerms });
   }
 
   React.useEffect(() => {
@@ -414,12 +419,9 @@ function ContactUsForm() {
   function stateToString() {
     return JSON.stringify(
       {
-        department,
-        message,
-        agreedToTerms,
-        departmentError,
-        messageError,
-        agreedToTermsError,
+        values: { department, message, agreedToTerms },
+        errors: { departmentError, messageError, agreedToTermsError },
+        touched: { departmentTouched, messageTouched, agreedToTermsTouched },
       },
       null,
       " "
@@ -432,6 +434,7 @@ function ContactUsForm() {
         name="department"
         value={department}
         onChange={(e) => setDepartment(e.target.value)}
+        onBlur={(e) => setDepartmentTouched(true)}
       >
         <option value="">Select...</option>
         <option value="hr">Human Resources</option>
@@ -439,27 +442,36 @@ function ContactUsForm() {
         <option value="support">Support</option>
       </select>
       <br />
-      {departmentError && <p className="alert">{departmentError}</p>}
+      {departmentError && departmentTouched && (
+        <p className="alert">{departmentError}</p>
+      )}
       <br />
       <textarea
         name="message"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
+        onBlur={(e) => setMessageTouched(true)}
         cols="30"
         rows="10"
       />
       <br />
-      {messageError && <p className="alert">{messageError}</p>}
+      {messageError && messageTouched && (
+        <p className="alert">{messageError}</p>
+      )}
       <input
         type="checkbox"
         name="agreedToTerms"
         checked={agreedToTerms}
         onChange={(e) => setAgreedToTerms(e.target.checked)}
+        onBlur={(e) => setAgreedToTermsTouched(true)}
       />
       I agree to the terms and conditions.
       <br />
-      {agreedToTermsError && <p className="alert">{agreedToTermsError}</p>}
+      {agreedToTermsError && agreedToTermsTouched && (
+        <p className="alert">{agreedToTermsError}</p>
+      )}
       <button>Send</button>
+      <pre>{stateToString()}</pre>
     </form>
   );
 }
