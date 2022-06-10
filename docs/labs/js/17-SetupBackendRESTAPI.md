@@ -1,5 +1,5 @@
 ---
-title: 'Lab 17: Setup Backend REST API'
+title: "Lab 17: Setup Backend REST API"
 ---
 
 ## Objectives
@@ -13,7 +13,7 @@ title: 'Lab 17: Setup Backend REST API'
 ### Install the backend REST API server
 
 1. **Open** a `command prompt` (Windows) or `terminal` (Mac).
-1. Change the **current directory** to `working\keeptrack`.
+1. Change the **current directory** to `code\keeptrack`.
 1. **Run** _one_ of the following commands:
    #### npm
    ```shell
@@ -41,11 +41,11 @@ title: 'Lab 17: Setup Backend REST API'
     },
    }
    ```
-2. Copy the directory `labs\js\snippets\lab17\api` into the `working\keeptrack` directory.
+2. From the snippets repo that you downloaded in Lab 5 (might be in your downloads folder), copy the directory `snip-master\labs\js\snippets\lab17\api` into the `code\keeptrack` directory.
 
 ### Start the REST API server
 
-1. **In** a `command prompt` (Windows) or `terminal` (Mac) with the current **directory** set to `working\keeptrack`.
+1. **In** a `command prompt` (Windows) or `terminal` (Mac) with the current **directory** set to `code\keeptrack`.
 1. **Run** _one_ of the following commands:
    #### npm
    ```shell
