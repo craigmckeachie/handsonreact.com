@@ -21,7 +21,7 @@ slug: /react-typescript
 #### `src\Hello.tsx`
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 export interface Props {
   name: string;
@@ -30,7 +30,7 @@ export interface Props {
 
 function Hello({ name, enthusiasmLevel = 1 }: Props) {
   if (enthusiasmLevel <= 0) {
-    throw new Error('You could be a little more enthusiastic. :D');
+    throw new Error("You could be a little more enthusiastic. :D");
   }
 
   return (
@@ -47,11 +47,11 @@ export default Hello;
 // helpers
 
 function getExclamationMarks(numChars: number) {
-  return Array(numChars + 1).join('!');
+  return Array(numChars + 1).join("!");
 }
 ```
 
-3. Render `<Hello></Hello>` component in the App component.
+3. Render `<Hello />` component in the App component.
 
 #### `src\App.tsx`
 
@@ -78,7 +78,7 @@ const App: React.FC = () => {
 -          Learn React
 -        </a>
 -      </header>
-+      <Hello></Hello>
++      <Hello />
     </div>
   );
 };
@@ -126,7 +126,7 @@ Hello David!
 #### `src\Hello.tsx`
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 export interface Props {
   name: string;
@@ -138,7 +138,7 @@ class Hello extends React.Component<Props> {
     const { name, enthusiasmLevel = 1 } = this.props;
 
     if (enthusiasmLevel <= 0) {
-      throw new Error('You could be a little more enthusiastic. :D');
+      throw new Error("You could be a little more enthusiastic. :D");
     }
 
     return (
@@ -156,7 +156,7 @@ export default Hello;
 // helpers
 
 function getExclamationMarks(numChars: number) {
-  return Array(numChars + 1).join('!');
+  return Array(numChars + 1).join("!");
 }
 ```
 
@@ -169,7 +169,7 @@ function getExclamationMarks(numChars: number) {
 #### `src\Hello.tsx`
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 export interface Props {
   name: string;
@@ -194,7 +194,7 @@ class Hello extends React.Component<Props, State> {
     const { name } = this.props;
 
     if (this.state.currentEnthusiasm <= 0) {
-      throw new Error('You could be a little more enthusiastic. :D');
+      throw new Error("You could be a little more enthusiastic. :D");
     }
 
     return (
@@ -218,7 +218,7 @@ class Hello extends React.Component<Props, State> {
 export default Hello;
 
 function getExclamationMarks(numChars: number) {
-  return Array(numChars + 1).join('!');
+  return Array(numChars + 1).join("!");
 }
 ```
 
@@ -269,7 +269,7 @@ export default App;
 #### `src\Hello.tsx`
 
 ```tsx
-import React, { SyntheticEvent } from 'react';
+import React, { SyntheticEvent } from "react";
 
 export interface Props {
   name: string;
@@ -296,7 +296,7 @@ class Hello extends React.Component<Props, State> {
     const { name } = this.props;
 
     if (this.state.currentEnthusiasm <= 0) {
-      throw new Error('You could be a little more enthusiastic. :D');
+      throw new Error("You could be a little more enthusiastic. :D");
     }
 
     return (
@@ -320,7 +320,7 @@ class Hello extends React.Component<Props, State> {
 export default Hello;
 
 function getExclamationMarks(numChars: number) {
-  return Array(numChars + 1).join('!');
+  return Array(numChars + 1).join("!");
 }
 ```
 
