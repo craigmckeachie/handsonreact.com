@@ -165,17 +165,6 @@ There are two solutions to this problem:
 
    ```
 
-### Using Bind
-
-1. Use `Function.prototype.bind` to bind the function to the instance of the class.
-
-   ```diff
-     return (
-   -     <li onClick={() => handleClick(props.fruit.id)}>{props.fruit.name} </li>
-   +    <li onClick={handleClick.bind(this, props.fruit.id)}>{props.fruit.name}</li>
-     );
-   ```
-
 ### Reference
 
 [How do I pass a parameter to an event handler or callback?](https://reactjs.org/docs/faq-functions.html#how-do-i-pass-a-parameter-to-an-event-handler-or-callback)
