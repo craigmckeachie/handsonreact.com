@@ -17,6 +17,7 @@ slug: /ui-compoonents
 - HP: [Grommet](https://v2.grommet.io/)
 - Microsoft: [Fluent UI](https://developer.microsoft.com/en-us/fluentui)
 - Pinterest: [Gestalt](https://gestalt.netlify.app/)
+- Salesforce: [Lightning Design System for React](https://react.lightningdesignsystem.com/)
 
 <!-- @material-ui/core
 react-bootstrap
