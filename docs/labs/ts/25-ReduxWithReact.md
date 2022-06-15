@@ -43,7 +43,7 @@ title: "Lab 25: Redux with React"
    +  const currentPage = useSelector(
    +    (appState: AppState) => appState.projectState.page
    +  );
-   +  const dispatch = useDispatch();
+   +  const dispatch = useDispatch<ThunkDispatch<ProjectState, any, AnyAction>>();
 
    ...
    }
@@ -61,7 +61,7 @@ title: "Lab 25: Redux with React"
 
    function ProjectsPage() {
      ...
-     const dispatch = useDispatch();
+     const dispatch = useDispatch<ThunkDispatch<ProjectState, any, AnyAction>>();
 
    -  useEffect(() => {
    -    setLoading(true);
@@ -192,7 +192,7 @@ title: "Lab 25: Redux with React"
        budget: '',
      });
 
-   +  const dispatch = useDispatch();
+   +  const dispatch = useDispatch<ThunkDispatch<ProjectState, any, AnyAction>>();
 
      const handleSubmit = (event: SyntheticEvent) => {
        event.preventDefault();
