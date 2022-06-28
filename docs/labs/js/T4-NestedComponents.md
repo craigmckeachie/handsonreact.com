@@ -1,5 +1,5 @@
 ---
-title: "Testing Lab 4: Nested Components"
+title: 'Testing Lab 4: Nested Components'
 ---
 
 ## Objectives
@@ -13,78 +13,82 @@ title: "Testing Lab 4: Nested Components"
 
 ### Test Setup
 
+1. **Upgrade** the `@testing-library/user-event` library to version 14.
+   ```
+   npm install @testing-library/user-event@14
+   ```
 1. **Create** the **file** `src\projects\MockProjects.js`.
 1. **Add** the **mock** data below to the file.
 
    #### `src\projects\MockProjects.js`
 
    ```js
-   import { Project } from "./Project";
+   import { Project } from './Project';
 
    export const MOCK_PROJECTS = [
      new Project({
        id: 1,
-       name: "Johnson - Kutch",
+       name: 'Johnson - Kutch',
        description:
-         "Fully-configurable intermediate framework. Ullam occaecati libero laudantium nihil voluptas omnis.",
-       imageUrl: "/assets/placeimg_500_300_arch4.jpg",
+         'Fully-configurable intermediate framework. Ullam occaecati libero laudantium nihil voluptas omnis.',
+       imageUrl: '/assets/placeimg_500_300_arch4.jpg',
        contractTypeId: 3,
-       contractSignedOn: "2013-08-04T22:39:41.473Z",
+       contractSignedOn: '2013-08-04T22:39:41.473Z',
        budget: 54637,
        isActive: false,
      }),
      new Project({
        id: 2,
-       name: "Wisozk Group",
+       name: 'Wisozk Group',
        description:
-         "Centralized interactive application. Exercitationem nulla ut ipsam vero quasi enim quos doloribus voluptatibus.",
-       imageUrl: "/assets/placeimg_500_300_arch1.jpg",
+         'Centralized interactive application. Exercitationem nulla ut ipsam vero quasi enim quos doloribus voluptatibus.',
+       imageUrl: '/assets/placeimg_500_300_arch1.jpg',
        contractTypeId: 4,
-       contractSignedOn: "2012-08-06T21:21:31.419Z",
+       contractSignedOn: '2012-08-06T21:21:31.419Z',
        budget: 91638,
        isActive: true,
      }),
      new Project({
        id: 3,
-       name: "Denesik LLC",
+       name: 'Denesik LLC',
        description:
-         "Re-contextualized dynamic moratorium. Aut nulla soluta numquam qui dolor architecto et facere dolores.",
-       imageUrl: "/assets/placeimg_500_300_arch12.jpg",
+         'Re-contextualized dynamic moratorium. Aut nulla soluta numquam qui dolor architecto et facere dolores.',
+       imageUrl: '/assets/placeimg_500_300_arch12.jpg',
        contractTypeId: 6,
-       contractSignedOn: "2016-06-26T18:24:01.706Z",
+       contractSignedOn: '2016-06-26T18:24:01.706Z',
        budget: 29729,
        isActive: true,
      }),
      new Project({
        id: 4,
-       name: "Purdy, Keeling and Smitham",
+       name: 'Purdy, Keeling and Smitham',
        description:
-         "Innovative 6th generation model. Perferendis libero qui iusto et ullam cum sint molestias vel.",
-       imageUrl: "/assets/placeimg_500_300_arch5.jpg",
+         'Innovative 6th generation model. Perferendis libero qui iusto et ullam cum sint molestias vel.',
+       imageUrl: '/assets/placeimg_500_300_arch5.jpg',
        contractTypeId: 4,
-       contractSignedOn: "2013-05-26T01:10:42.344Z",
+       contractSignedOn: '2013-05-26T01:10:42.344Z',
        budget: 45660,
        isActive: true,
      }),
      new Project({
        id: 5,
-       name: "Kreiger - Waelchi",
+       name: 'Kreiger - Waelchi',
        description:
-         "Managed logistical migration. Qui quod praesentium accusamus eos hic non error modi et.",
-       imageUrl: "/assets/placeimg_500_300_arch12.jpg",
+         'Managed logistical migration. Qui quod praesentium accusamus eos hic non error modi et.',
+       imageUrl: '/assets/placeimg_500_300_arch12.jpg',
        contractTypeId: 2,
-       contractSignedOn: "2009-12-18T21:46:47.944Z",
+       contractSignedOn: '2009-12-18T21:46:47.944Z',
        budget: 81188,
        isActive: true,
      }),
      new Project({
        id: 6,
-       name: "Lesch - Waelchi",
+       name: 'Lesch - Waelchi',
        description:
-         "Profound mobile project. Rem consequatur laborum explicabo sint odit et illo voluptas expedita.",
-       imageUrl: "/assets/placeimg_500_300_arch1.jpg",
+         'Profound mobile project. Rem consequatur laborum explicabo sint odit et illo voluptas expedita.',
+       imageUrl: '/assets/placeimg_500_300_arch1.jpg',
        contractTypeId: 3,
-       contractSignedOn: "2016-09-23T21:27:25.035Z",
+       contractSignedOn: '2016-09-23T21:27:25.035Z',
        budget: 53407,
        isActive: false,
      }),
@@ -97,16 +101,16 @@ title: "Testing Lab 4: Nested Components"
    #### `src\projects\__tests__\ProjectList-test.js`
 
    ```js
-   import { render, screen } from "@testing-library/react";
-   import React from "react";
-   import { MemoryRouter } from "react-router-dom";
-   import ProjectList from "../ProjectList";
-   import { MOCK_PROJECTS } from "../MockProjects";
-   import userEvent from "@testing-library/user-event";
-   import { Provider } from "react-redux";
-   import { store } from "../../state";
+   import { render, screen } from '@testing-library/react';
+   import React from 'react';
+   import { MemoryRouter } from 'react-router-dom';
+   import ProjectList from '../ProjectList';
+   import { MOCK_PROJECTS } from '../MockProjects';
+   import userEvent from '@testing-library/user-event';
+   import { Provider } from 'react-redux';
+   import { store } from '../../state';
 
-   describe("<ProjectList />", () => {
+   describe('<ProjectList />', () => {
      beforeEach(() => {
        render(
          <Provider store={store}>
@@ -117,7 +121,7 @@ title: "Testing Lab 4: Nested Components"
        );
      });
 
-     test("should render without crashing", () => {
+     test('should render without crashing', () => {
        expect(screen).toBeDefined();
      });
    });
