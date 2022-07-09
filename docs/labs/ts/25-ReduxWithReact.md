@@ -1,5 +1,5 @@
 ---
-title: "Lab 25: Redux with React"
+title: 'Lab 25: Redux with React'
 ---
 
 ## Objectives
@@ -54,14 +54,18 @@ title: "Lab 25: Redux with React"
    #### `src\projects\ProjectsPage.tsx`
 
    ```diff
+   ...
    - import { Project } from './Project';
    - import { projectAPI } from './projectAPI';
 
    + import { loadProjects } from './state/projectActions';
+   + import { AnyAction } from 'redux';
+   + import { ThunkDispatch } from 'redux-thunk';
+   + import { ProjectState } from './state/projectTypes';
 
    function ProjectsPage() {
      ...
-     const dispatch = useDispatch<ThunkDispatch<ProjectState, any, AnyAction>>();
+   +  const dispatch = useDispatch<ThunkDispatch<ProjectState, any, AnyAction>>();
 
    -  useEffect(() => {
    -    setLoading(true);
@@ -170,9 +174,12 @@ title: "Lab 25: Redux with React"
 
    ```diff
    import React, { SyntheticEvent, useState } from 'react';
-   + import { useDispatch } from 'react-redux';
    import { Project } from './Project';
+   + import { useDispatch } from 'react-redux';
    + import { saveProject } from './state/projectActions';
+   + import { ThunkDispatch } from 'redux-thunk';
+   + import { ProjectState } from './state/projectTypes';
+   + import { AnyAction } from 'redux';
 
    interface ProjectFormProps {
      project: Project;

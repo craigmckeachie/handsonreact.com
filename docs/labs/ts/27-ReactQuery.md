@@ -1,5 +1,5 @@
 ---
-title: "Lab 27: React Query Refactor"
+title: 'Lab 27: React Query Refactor'
 ---
 
 <!--
@@ -45,7 +45,6 @@ git diff 9e548ac0ac4dd05c8e9778475a47351f6246f058..react-query-working -->
     import ReactDOM from 'react-dom';
     import './index.css';
     import App from './App';
-    import * as serviceWorker from './serviceWorker';
     +import { QueryClientProvider, QueryClient } from 'react-query';
     +import { ReactQueryDevtools } from 'react-query/devtools';
 
@@ -144,15 +143,15 @@ git diff 9e548ac0ac4dd05c8e9778475a47351f6246f058..react-query-working -->
    #### `src/projects/projectHooks.ts`
 
    ```ts
-   import { useState } from "react";
-   import { projectAPI } from "./projectAPI";
-   import { useMutation, useQuery, useQueryClient } from "react-query";
-   import { Project } from "./Project";
+   import { useState } from 'react';
+   import { projectAPI } from './projectAPI';
+   import { useMutation, useQuery, useQueryClient } from 'react-query';
+   import { Project } from './Project';
 
    export function useProjects() {
      const [page, setPage] = useState(0);
      let queryInfo = useQuery(
-       ["projects", page],
+       ['projects', page],
        () => projectAPI.get(page + 1),
        {
          keepPreviousData: true,
@@ -169,9 +168,9 @@ git diff 9e548ac0ac4dd05c8e9778475a47351f6246f058..react-query-working -->
    #### `src/projects/ProjectsPage.tsx`
 
    ```tsx
-   import React, { useEffect, useState } from "react";
-   import { useProjects } from "./projectHooks";
-   import ProjectList from "./ProjectList";
+   import React, { useEffect, useState } from 'react';
+   import { useProjects } from './projectHooks';
+   import ProjectList from './ProjectList';
 
    function ProjectsPage() {
      const {
