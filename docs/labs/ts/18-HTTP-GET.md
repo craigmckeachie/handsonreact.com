@@ -68,8 +68,12 @@ title: 'Lab 18: HTTP GET'
         }
 
         function convertToProjectModels(data: any[]): Project[] {
-          let projects: Project[] = data.map((item: any) => new Project(item));
+          let projects: Project[] = data.map(convertToProjectModel);
           return projects;
+        }
+
+        function convertToProjectModel(item: any): Project {
+          return new Project(item);
         }
 
         const projectAPI = {

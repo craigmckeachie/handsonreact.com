@@ -21,15 +21,120 @@ title: 'Lab 21: Route Parameters'
    +  find(id: number) {
    +    return fetch(`${url}/${id}`)
    +      .then(checkStatus)
-   +      .then(parseJSON);
+   +      .then(parseJSON)
+   +      .then(convertToProjectModel);
    +  },
    +
    ...
    };
    ```
 
-2. **Copy** the files `snip-master\labs\ts\snippets\lab21\ProjectPage.tsx and ProjectDetail.tsx]` into the `src\projects` directory.
-   > These files contain some pre-built components we will use in this lab. Take a moment to review the code in them.
+2. **Create** the files below and add the code for these pre-built components we will use in this lab. Take a moment to review the code in them.
+
+   #### `src\projects\ProjectDetail.tsx`
+
+   ```tsx
+   import React from 'react';
+   import { Project } from './Project';
+
+   interface ProjectDetailProps {
+     project: Project;
+   }
+   export default function ProjectDetail({ project }: ProjectDetailProps) {
+     return (
+       <div className="row">
+         <div className="col-sm-6">
+           <div className="card large">
+             <img
+               className="rounded"
+               src={project.imageUrl}
+               alt={project.name}
+             />
+             <section className="section dark">
+               <h3 className="strong">
+                 <strong>{project.name}</strong>
+               </h3>
+               <p>{project.description}</p>
+               <p>Budget : {project.budget}</p>
+
+               <p>Signed: {project.contractSignedOn.toLocaleDateString()}</p>
+               <p>
+                 <mark className="active">
+                   {' '}
+                   {project.isActive ? 'active' : 'inactive'}
+                 </mark>
+               </p>
+             </section>
+           </div>
+         </div>
+       </div>
+     );
+   }
+   ```
+
+   #### `src\projects\ProjectPage.tsx`
+
+   ```tsx
+   import React, { useEffect, useState } from 'react';
+   import { projectAPI } from './projectAPI';
+   import ProjectDetail from './ProjectDetail';
+   import { Project } from './Project';
+   import { useParams } from 'react-router-dom';
+
+   function ProjectPage(props: any) {
+     const [loading, setLoading] = useState(false);
+     const [project, setProject] = useState<Project | null>(null);
+     const [error, setError] = useState<string | null>(null);
+     const params = useParams();
+     const id = Number(params.id);
+
+     useEffect(() => {
+       setLoading(true);
+       projectAPI
+         .find(id)
+         .then((data) => {
+           setProject(data);
+           setLoading(false);
+         })
+         .catch((e) => {
+           setError(e);
+           setLoading(false);
+         });
+     }, [id]);
+
+     return (
+       <div>
+         <>
+           <h1>Project Detail</h1>
+
+           {loading && (
+             <div className="center-page">
+               <span className="spinner primary"></span>
+               <p>Loading...</p>
+             </div>
+           )}
+
+           {error && (
+             <div className="row">
+               <div className="card large error">
+                 <section>
+                   <p>
+                     <span className="icon-alert inverse "></span> {error}
+                   </p>
+                 </section>
+               </div>
+             </div>
+           )}
+
+           {project && <ProjectDetail project={project} />}
+         </>
+       </div>
+     );
+   }
+
+   export default ProjectPage;
+   ```
+
 3. Add a route to display the `ProjectPage` (notice that we now have a `ProjectPage` and a `ProjectsPage` so be careful you are in the correct file).
 
    #### `src\App.tsx`

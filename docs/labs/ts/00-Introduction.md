@@ -74,6 +74,6 @@ _This is a preview of the application you will build._
 
 - [Click this link to learn how to skip labs.](A1-SkippingLabs.md)
 
-### Snippets
+### Starter Files
 
-- [Click this link to visit the repository with the code snippets used in the labs.](https://github.com/craigmckeachie/snip)
+- [Click this link to visit the repository with the starter files used in the labs.](https://github.com/craigmckeachie/react-starter-files)

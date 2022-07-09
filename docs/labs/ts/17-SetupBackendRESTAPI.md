@@ -1,5 +1,5 @@
 ---
-title: "Lab 17: Setup Backend REST API"
+title: 'Lab 17: Setup Backend REST API'
 ---
 
 ## Objectives
@@ -41,7 +41,7 @@ title: "Lab 17: Setup Backend REST API"
     },
    }
    ```
-2. From the snippets repo that you downloaded in Lab 5 (might be in your downloads folder), copy the directory `snip-master\labs\ts\snippets\lab17\api` into the `code\keeptrack` directory.
+2. From the starter files repo that you downloaded in Lab 5 (might be in your downloads folder), copy the directory `api` into the `code\keeptrack` directory.
 
 ### Start the REST API server
 
