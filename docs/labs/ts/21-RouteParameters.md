@@ -1,5 +1,5 @@
 ---
-title: "Lab 21: Route Parameters"
+title: 'Lab 21: Route Parameters'
 ---
 
 ## Objectives
@@ -55,8 +55,8 @@ title: "Lab 21: Route Parameters"
          </header>
          <div className="container">
            <Routes>
-             <Route path="/"  component={HomePage} />
-             <Route path="/projects"  component={ProjectsPage} />
+             <Route path="/"  element={<HomePage />} />
+             <Route path="/projects"  element={<ProjectsPage /> } />
    +           <Route path="/projects/:id" element={<ProjectPage />} />
            </Routes>
          </div>
