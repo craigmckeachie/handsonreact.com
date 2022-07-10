@@ -267,7 +267,7 @@ git diff 9e548ac0ac4dd05c8e9778475a47351f6246f058..react-query-working -->
      ) {
        return (
          fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`)
-   +        .then(delay(1000))
+           .then(delay(2000))
            .then(checkStatus)
            .then(parseJSON)
            .catch((error: TypeError) => {

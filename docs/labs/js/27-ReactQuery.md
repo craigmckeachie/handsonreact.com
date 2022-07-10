@@ -1,5 +1,5 @@
 ---
-title: "Lab 27: React Query Refactor"
+title: 'Lab 27: React Query Refactor'
 ---
 
 ## Objectives
@@ -149,15 +149,15 @@ title: "Lab 27: React Query Refactor"
    #### `src/projects/projectHooks.js`
 
    ```js
-   import { useState } from "react";
-   import { projectAPI } from "./projectAPI";
-   import { useMutation, useQuery, useQueryClient } from "react-query";
-   import { Project } from "./Project";
+   import { useState } from 'react';
+   import { projectAPI } from './projectAPI';
+   import { useMutation, useQuery, useQueryClient } from 'react-query';
+   import { Project } from './Project';
 
    export function useProjects() {
      const [page, setPage] = useState(0);
      let queryInfo = useQuery(
-       ["projects", page],
+       ['projects', page],
        () => projectAPI.get(page + 1),
        {
          keepPreviousData: true,
@@ -174,9 +174,9 @@ title: "Lab 27: React Query Refactor"
    #### `src/projects/ProjectsPage.js`
 
    ```jsx
-   import React, { useEffect, useState } from "react";
-   import { useProjects } from "./projectHooks";
-   import ProjectList from "./ProjectList";
+   import React, { useEffect, useState } from 'react';
+   import { useProjects } from './projectHooks';
+   import ProjectList from './ProjectList';
 
    function ProjectsPage() {
      const {
@@ -273,7 +273,7 @@ title: "Lab 27: React Query Refactor"
      ) {
        return (
          fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`)
-   +        .then(delay(1000))
+           .then(delay(2000))
            .then(checkStatus)
            .then(parseJSON)
            .catch((error) => {

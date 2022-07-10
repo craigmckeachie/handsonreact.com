@@ -1,5 +1,5 @@
 ---
-title: "Lab 26: Custom Hooks"
+title: 'Lab 26: Custom Hooks'
 ---
 
 > This lab is optional and should only be done if time permits
@@ -22,9 +22,9 @@ title: "Lab 26: Custom Hooks"
    #### `src\projects\projectHooks.js`
 
    ```js
-   import { useState, useEffect } from "react";
-   import { projectAPI } from "./projectAPI";
-   import { Project } from "./Project";
+   import { useState, useEffect } from 'react';
+   import { projectAPI } from './projectAPI';
+   import { Project } from './Project';
 
    export function useProjects() {
      const [projects, setProjects] = useState([]);
@@ -198,31 +198,6 @@ export default ProjectsPage;
              );
            });
        },
-     ```
-
-   - Add this line to test the saving message
-
-     #### `src\projects\projectAPI.js`
-
-     ```diff
-     put(project) {
-       return fetch(`${url}/${project.id}`, {
-         method: 'PUT',
-         body: JSON.stringify(project),
-         headers: {
-           'Content-Type': 'application/json',
-         },
-       })
-     +   .then(delay(2000))
-         .then(checkStatus)
-         .then(parseJSON)
-         .catch((error) => {
-           console.log('log client error ' + error);
-           throw new Error(
-             'There was an error updating the project. Please try again.'
-           );
-         });
-     },
      ```
 
      - Shut down your backend API to test the display of an error message
