@@ -23,18 +23,314 @@ Component changed? Re-render. Parent changed? Re-render. Section of props that d
 
 - **Default Behavior**: **Changing state**
   - results in that component and **all descendants** being re-rendered.
-- **Default Behavior**: **Changing state that updates a prop in a child**
-  - results in **that component and all descendants** re-rendered.
-- Override shouldComponentUpdate: return true
-  - results in that component and all descendants being re-rendered.
-- Override shouldComponentUpdate: return false
-  - results in no re-renders (current component and all descendants).
-- Override shouldComponentUpdate: see if props changed and only then return true.
-  - Change value prop in Parent and child will re-render first time (when value changes) but not subsequent times because value prop remains the same (true).
-- PureComponent: comment out shouldComponentUpdate and make ChildA a PureComponent
-  - Change value prop in Parent and child will re-render first time (when value changes) but not subsequent times because value prop remains the same (true).
+- **Default Behavior**: **Update a prop in a component**
 
-### Component Render Demo
+  - results in **that component and all descendants** re-rendered.
+  - uses a strict equality check `===`
+
+  ```
+  const a = { "test": 1 };
+  const b = { "test": 1'};
+
+  console.log(a === b); // will be false
+
+  const c = a; // "c" is just a reference to "a"
+
+  console.log(a === c); // will be true
+  ```
+
+## Wasted Renders
+
+React has two phrases that run sequentially to update the UI.
+
+1. **Render Phase**
+
+   The "render phase" is where React compares a previous version of a Virtual DOM representing the UI with an updated version to figure out what if any changes need to be made.
+
+1. **Commit Phase**
+
+   The "commit phase" is where React actually changes the real DOM.
+
+As demonstrated in the Virtual DOM chapter React is very efficient about figuring out the minimal DOM operations to make in the "render phase" and batches them to make rendering the UI extremely performant.
+
+However, the "render phase" does take work and consumes resources and should not take place if it isn't needed. If all the components on the screen are constantly rendering when the don't need to this is a common source of eventual performance problems. We call this problem: "wasted renders".
+
+Wasted Renders can be fixed using:
+
+- `React.Memo` when using function components.
+- `React.PureComponent` when using class components.
+
+### `React.memo`
+
+```javascript
+const MyComponent = React.memo(function MyComponent(props) {
+  /* render using props */
+});
+```
+
+`React.memo` is a higher order component for function components and subsequently can only be used with function components.
+
+If your function component renders the same result given the same props, you can wrap it in a call to `React.memo` for a performance boost in some cases by memoizing the result. This means that React will skip rendering the component, and reuse the last rendered result.
+
+> `React.memo` only checks for prop changes. If your function component wrapped in `React.memo` has a `useState` or `useContext` Hook in its implementation, it will still rerender when state or context change.
+
+By default it will only shallowly compare complex objects in the props object. If you want control over the comparison, you can also provide a custom comparison function as the second argument.
+
+```javascript
+function MyComponent(props) {
+  /* render using props */
+}
+function areEqual(prevProps, nextProps) {
+  /*
+  return true if passing nextProps to render would return
+  the same result as passing prevProps to render,
+  otherwise return false
+  */
+}
+export default React.memo(MyComponent, areEqual);
+```
+
+This method only exists as a **performance optimization.** Do not rely on it to "prevent" a render, as this can lead to bugs.
+
+### `React.PureComponent`
+
+`React.PureComponent` is similar to `React.Component`. The difference between them is that `React.Component` doesn't implement `shouldComponentUpdate()`, but `React.PureComponent` implements it with a shallow prop and state comparison.
+
+If your React component's `render()` function renders the same result given the same props and state, you can use `React.PureComponent` for a performance boost in some cases.
+
+> Note
+>
+> `React.PureComponent`'s `shouldComponentUpdate()` only shallowly compares the objects. If these contain complex data structures, it may produce false-negatives for deeper differences. Only extend `PureComponent` when you expect to have simple props and state, or use `forceUpdate()` when you know deep data structures have changed. Or, consider using [immutable objects](https://facebook.github.io/immutable-js/) to facilitate fast comparisons of nested data.
+>
+> Furthermore, `React.PureComponent`'s `shouldComponentUpdate()` skips prop updates for the whole component subtree. Make sure all the children components are also "pure".
+
+---
+
+> Note
+>
+> Unlike the `shouldComponentUpdate()` method on class components, the `areEqual` function returns `true` if the props are equal and `false` if the props are not equal. This is the inverse from `shouldComponentUpdate`.
+
+## FAQs
+
+**What is memoization?**
+
+In computing, memoization or memoisation is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+
+**Why is my component rendering twice?**
+
+Remove the `<React.StrictMode>` tag as shown below and this behavior will go away however you may not want to remove it as it doesn't happen in production. For more information, see the [Strict Mode Documentation](https://reactjs.org/docs/strict-mode.html) or this stackoverflow question: [Strict Mode Rendering Twice](https://stackoverflow.com/questions/61254372/my-react-component-is-rendering-twice-because-of-strict-mode).
+
+#### index.js
+
+```diff
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+-  <React.StrictMode>
+    {app}
+-  </React.StrictMode>
+,
+  document.getElementById('root')
+);
+```
+
+---
+
+## `React.memo` Demo
+
+Run the demo below and open the console to observe some wasted renders.
+
+Steps:
+
+1. Before beginning the demos in this chapter add the following css class if it doesn't already exist.
+
+   #### styles.css
+
+   ```css
+   .box {
+     border: 1px dashed;
+     padding: 30px;
+   }
+   ```
+
+1. **Paste** the **code** below into `main.js`
+1. **Open** the application in a **browser**.
+1. **Open** Chrome DevTools and switch to the `console`.
+1. Type in the add textbox to add an item and then click the add button.
+1. Notice that every item in the list re-renders even though you only added one item.
+   > Note: Updating or removing an item also causes everything to re-render.
+1. Commment out the `ListItem` component.
+1. Uncomment the `ListItem` component below the original wrapped in a `React.memo` function.
+1. Refresh your browser.
+1. Once again type in the add textbox to add an item and then click the add button.
+1. Notice that only one item in the list re-renders since the other `ListItem`'s are the same. You have successfully eliminated some wasted renders.
+
+   > The same issue of every item re-rendering actually existing when editing or removing an item. We have now fixed all of these wasted renders. If time permits feel free to change back to the non memoized implemention of `ListItem` to see the wasted renders.
+
+```js
+function ID() {
+  return '_' + Math.random().toString(36).substr(2, 9);
+}
+
+class Item {
+  constructor(id, name) {
+    this.id = id;
+    this.name = name;
+  }
+}
+
+const initialItems = [
+  new Item(ID(), 'First Item'),
+  new Item(ID(), 'Second Item'),
+  new Item(ID(), 'Third Item'),
+];
+
+function LastRendered() {
+  return <p>Last Rendered: {new Date().toLocaleTimeString()}</p>;
+}
+
+function ListItem({ item, onEdit, onRemove }) {
+  return (
+    <div className="box">
+      <LastRendered />
+      <p>
+        <span>{item.name}</span>
+        <button onClick={() => onEdit(item)}>Edit</button>
+        <button onClick={() => onRemove(item)}>Remove</button>
+      </p>
+    </div>
+  );
+}
+
+// const ListItem = React.memo(
+//   function ListItem({ item, onEdit, onRemove }) {
+//     return (
+//       <div className="box">
+//         <LastRendered />
+//         <p>
+//           <span>{item.name}</span>
+//           <button onClick={() => onEdit(item)}>Edit</button>
+//           <button onClick={() => onRemove(item)}>Remove</button>
+//         </p>
+//       </div>
+//     );
+//   },
+//   (previous, next) => previous.item === next.item
+// );
+
+function List({ items, onRemove, onUpdate }) {
+  const [editingItem, setEditingItem] = React.useState(null);
+
+  const handleEdit = (item) => {
+    setEditingItem(item);
+  };
+
+  const handleCancel = () => {
+    setEditingItem(null);
+  };
+
+  return (
+    <div className="box">
+      <LastRendered />
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>
+            {item === editingItem ? (
+              <Form item={item} onSubmit={onUpdate} onCancel={handleCancel} />
+            ) : (
+              <ListItem item={item} onEdit={handleEdit} onRemove={onRemove} />
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Form({ item, onSubmit, onCancel, buttonValue }) {
+  const [inputValue, setInputValue] = React.useState(item.name || '');
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const submittedItem = {
+      id: item ? item.id : ID(),
+      name: inputValue,
+    };
+
+    onSubmit(submittedItem);
+    setInputValue('');
+  };
+
+  const handleCancel = (event) => {
+    event.preventDefault();
+    onCancel();
+  };
+
+  return (
+    <div className="box">
+      <LastRendered />
+      <form onSubmit={handleFormSubmit}>
+        <input value={inputValue} onChange={handleChange} />
+        <button>{buttonValue || 'Save'}</button>
+        {onCancel && (
+          <a href="#" onClick={handleCancel}>
+            cancel
+          </a>
+        )}
+      </form>
+    </div>
+  );
+}
+
+function Container() {
+  const [items, setItems] = React.useState([]);
+
+  React.useEffect(() => setItems(initialItems), []);
+
+  const addItem = (item) => {
+    setItems([...items, item]);
+  };
+
+  const updateItem = (updatedItem) => {
+    let updatedItems = items.map((item) => {
+      return item.id === updatedItem.id
+        ? Object.assign({}, item, updatedItem)
+        : item;
+    });
+    return setItems(updatedItems);
+  };
+
+  const removeItem = (removeThisItem) => {
+    const filteredItems = items.filter((item) => item.id != removeThisItem.id);
+    setItems(filteredItems);
+  };
+
+  return (
+    <div className="box">
+      <LastRendered />
+      <Form item="" onSubmit={addItem} buttonValue="Add" />
+      <List items={items} onRemove={removeItem} onUpdate={updateItem} />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <Container />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+```
+
+## Class Components
+
+### Class Component Render Demo
 
 #### styles.css
 
@@ -118,7 +414,7 @@ class Parent extends Component {
   };
 
   handleClick = () => {
-    console.log("clicked");
+    console.log('clicked');
   };
 
   render() {
@@ -149,7 +445,7 @@ class App extends Component {
   }
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
 // Default Behavior: Changing state results in that component and all descendants being re-rendered.
 // Default Behavior: Changing state that updates a prop in a child results in that component and all descendants being re-rendered.
@@ -159,277 +455,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 // PureComponent: comment out shouldComponentUpdate and make ChildA a PureComponent. Change value prop in Parent and child will re-render first time (when value changes) but not subsequent times because value prop remains the same (true).
 ```
 
-## Wasted Renders
-
-React has two phrases that run sequentially to update the UI.
-
-1. **Render Phase**
-
-   The "render phase" is where React compares a previous version of a Virtual DOM representing the UI with an updated version to figure out what if any changes need to be made.
-
-1. **Commit Phase**
-
-   The "commit phase" is where React actually changes the real DOM.
-
-As demonstrated in the Virtual DOM chapter React is very efficient about figuring out the minimal DOM operations to make in the "render phase" and batches them to make rendering the UI extremely performant.
-
-However, the "render phase" does take work and consumes resources and should not take place if it isn't needed. If all the components on the screen are constantly rendering when the don't need to this is a common source of eventual performance problems. We call this problem: "wasted renders".
-
-Wasted Renders can be fixed using:
-
-- `React.PureComponent` when using class components.
-- `React.Memo` when using function components.
-
-### `React.PureComponent`
-
-`React.PureComponent` is similar to `React.Component`. The difference between them is that `React.Component` doesn't implement `shouldComponentUpdate()`, but `React.PureComponent` implements it with a shallow prop and state comparison.
-
-If your React component's `render()` function renders the same result given the same props and state, you can use `React.PureComponent` for a performance boost in some cases.
-
-> Note
->
-> `React.PureComponent`'s `shouldComponentUpdate()` only shallowly compares the objects. If these contain complex data structures, it may produce false-negatives for deeper differences. Only extend `PureComponent` when you expect to have simple props and state, or use `forceUpdate()` when you know deep data structures have changed. Or, consider using [immutable objects](https://facebook.github.io/immutable-js/) to facilitate fast comparisons of nested data.
->
-> Furthermore, `React.PureComponent`'s `shouldComponentUpdate()` skips prop updates for the whole component subtree. Make sure all the children components are also "pure".
-
----
-
-### `React.memo`
-
-```javascript
-const MyComponent = React.memo(function MyComponent(props) {
-  /* render using props */
-});
-```
-
-`React.memo` is a higher order component. It's similar to `React.PureComponent` but for function components instead of classes.
-
-If your function component renders the same result given the same props, you can wrap it in a call to `React.memo` for a performance boost in some cases by memoizing the result. This means that React will skip rendering the component, and reuse the last rendered result.
-
-`React.memo` only checks for prop changes. If your function component wrapped in `React.memo` has a `useState` or `useContext` Hook in its implementation, it will still rerender when state or context change.
-
-By default it will only shallowly compare complex objects in the props object. If you want control over the comparison, you can also provide a custom comparison function as the second argument.
-
-```javascript
-function MyComponent(props) {
-  /* render using props */
-}
-function areEqual(prevProps, nextProps) {
-  /*
-  return true if passing nextProps to render would return
-  the same result as passing prevProps to render,
-  otherwise return false
-  */
-}
-export default React.memo(MyComponent, areEqual);
-```
-
-This method only exists as a **performance optimization.** Do not rely on it to "prevent" a render, as this can lead to bugs.
-
-> Note
->
-> Unlike the `shouldComponentUpdate()` method on class components, the `areEqual` function returns `true` if the props are equal and `false` if the props are not equal. This is the inverse from `shouldComponentUpdate`.
-
----
-
-## `React.memo` Demo
-
-Run the demo below and open the console to observe some wasted renders.
-
-Steps:
-
-1. Before beginning the demos in this chapter add the following css class if it doesn't already exist.
-
-   #### styles.css
-
-   ```css
-   .box {
-     border: 1px dashed;
-     padding: 30px;
-   }
-   ```
-
-1. **Paste** the **code** below into `main.js`
-1. **Open** the application in a **browser**.
-1. **Open** Chrome DevTools and switch to the `console`.
-1. Type in the add textbox to add an item and then click the add button.
-1. Notice that every item in the list re-renders even though you only added one item.
-   > Note: Updating or removing an item also causes everything to re-render.
-1. Commment out the `ListItem` component.
-1. Uncomment the `ListItem` component below the original wrapped in a `React.memo` function.
-1. Refresh your browser.
-1. Once again type in the add textbox to add an item and then click the add button.
-1. Notice that only one item in the list re-renders since the other `ListItem`'s are the same. You have successfully eliminated some wasted renders.
-
-   > The same issue of every item re-rendering actually existing when editing or removing an item. We have now fixed all of these wasted renders. If time permits feel free to change back to the non memoized implemention of `ListItem` to see the wasted renders.
-
-```js
-function ID() {
-  return "_" + Math.random().toString(36).substr(2, 9);
-}
-
-class Item {
-  constructor(id, name) {
-    this.id = id;
-    this.name = name;
-  }
-}
-
-const initialItems = [
-  new Item(ID(), "First Item"),
-  new Item(ID(), "Second Item"),
-  new Item(ID(), "Third Item"),
-];
-
-class LastRendered extends React.Component {
-  render() {
-    return <p>Last Rendered: {new Date().toLocaleTimeString()}</p>;
-  }
-}
-
-function ListItem({ item, onEdit, onRemove }) {
-  return (
-    <div className="box">
-      <LastRendered />
-      <p>
-        <span>{item.name}</span>
-        <button onClick={() => onEdit(item)}>Edit</button>
-        <button onClick={() => onRemove(item)}>Remove</button>
-      </p>
-    </div>
-  );
-}
-
-// const ListItem = React.memo(
-//   function ListItem({ item, onEdit, onRemove }) {
-//     return (
-//       <div className="box">
-//         <LastRendered />
-//         <p>
-//           <span>{item.name}</span>
-//           <button onClick={() => onEdit(item)}>Edit</button>
-//           <button onClick={() => onRemove(item)}>Remove</button>
-//         </p>
-//       </div>
-//     );
-//   },
-//   (previous, next) => previous.item === next.item
-// );
-
-function List({ items, onRemove, onUpdate }) {
-  const [editingItem, setEditingItem] = React.useState(null);
-
-  const handleEdit = (item) => {
-    setEditingItem(item);
-  };
-
-  const handleCancel = () => {
-    setEditingItem(null);
-  };
-
-  return (
-    <div className="box">
-      <LastRendered />
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            {item === editingItem ? (
-              <Form item={item} onSubmit={onUpdate} onCancel={handleCancel} />
-            ) : (
-              <ListItem item={item} onEdit={handleEdit} onRemove={onRemove} />
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function Form({ item, onSubmit, onCancel, buttonValue }) {
-  const [inputValue, setInputValue] = React.useState(item.name || "");
-
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    const submittedItem = {
-      id: item ? item.id : ID(),
-      name: inputValue,
-    };
-
-    onSubmit(submittedItem);
-    setInputValue("");
-  };
-
-  const handleCancel = (event) => {
-    event.preventDefault();
-    onCancel();
-  };
-
-  return (
-    <div className="box">
-      <LastRendered />
-      <form onSubmit={handleFormSubmit}>
-        <input value={inputValue} onChange={handleChange} />
-        <button>{buttonValue || "Save"}</button>
-        {onCancel && (
-          <a href="#" onClick={handleCancel}>
-            cancel
-          </a>
-        )}
-      </form>
-    </div>
-  );
-}
-
-function Container() {
-  const [items, setItems] = React.useState([]);
-
-  React.useEffect(() => setItems(initialItems), []);
-
-  const addItem = (item) => {
-    setItems([...items, item]);
-  };
-
-  const updateItem = (updatedItem) => {
-    let updatedItems = items.map((item) => {
-      return item.id === updatedItem.id
-        ? Object.assign({}, item, updatedItem)
-        : item;
-    });
-    return setItems(updatedItems);
-  };
-
-  const removeItem = (removeThisItem) => {
-    const filteredItems = items.filter((item) => item.id != removeThisItem.id);
-    setItems(filteredItems);
-  };
-
-  console.log("Container");
-  return (
-    <div className="box">
-      <LastRendered />
-      <Form item="" onSubmit={addItem} buttonValue="Add" />
-      <List items={items} onRemove={removeItem} onUpdate={updateItem} />
-    </div>
-  );
-}
-
-function App() {
-  console.log("App");
-  return (
-    <div>
-      <Container />
-    </div>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-```
-
-## `React.PureComponent` Demo
+### `React.PureComponent` Demo
 
 Run the demo below and open the console to observe some wasted renders.
 
@@ -458,7 +484,7 @@ Steps:
 
 ```js
 function ID() {
-  return "_" + Math.random().toString(36).substr(2, 9);
+  return '_' + Math.random().toString(36).substr(2, 9);
 }
 
 class Item {
@@ -469,9 +495,9 @@ class Item {
 }
 
 const initialItems = [
-  new Item(ID(), "First Item"),
-  new Item(ID(), "Second Item"),
-  new Item(ID(), "Third Item"),
+  new Item(ID(), 'First Item'),
+  new Item(ID(), 'Second Item'),
+  new Item(ID(), 'Third Item'),
 ];
 
 class LastRendered extends React.Component {
@@ -579,7 +605,7 @@ class List extends React.Component {
 
 class Form extends React.Component {
   state = {
-    inputValue: this.props.item.name || "",
+    inputValue: this.props.item.name || '',
   };
 
   handleChange = (event) => {
@@ -595,7 +621,7 @@ class Form extends React.Component {
     };
 
     this.props.onSubmit(item);
-    this.setState({ inputValue: "" });
+    this.setState({ inputValue: '' });
   };
 
   handleCancel = (event) => {
@@ -609,7 +635,7 @@ class Form extends React.Component {
         <LastRendered />
         <form onSubmit={this.handleFormSubmit}>
           <input value={this.state.inputValue} onChange={this.handleChange} />
-          <button>{this.props.buttonValue || "Save"}</button>
+          <button>{this.props.buttonValue || 'Save'}</button>
           {this.props.onCancel && (
             <a href="#" onClick={this.handleCancel}>
               cancel
@@ -677,30 +703,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-```
-
-### FAQs
-
-**What is memoization?**
-
-In computing, memoization or memoisation is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
-
-**Why is my component rendering twice?**
-
-Remove the `<React.StrictMode>` tag as shown below and this behavior will go away however you may not want to remove it as it doesn't happen in production. For more information, see the [Strict Mode Documentation](https://reactjs.org/docs/strict-mode.html) or this stackoverflow question: [Strict Mode Rendering Twice](https://stackoverflow.com/questions/61254372/my-react-component-is-rendering-twice-because-of-strict-mode).
-
-#### index.js
-
-```diff
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
--  <React.StrictMode>
-    {app}
--  </React.StrictMode>
-,
-  document.getElementById('root')
-);
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 ```
 
 ## Reference
