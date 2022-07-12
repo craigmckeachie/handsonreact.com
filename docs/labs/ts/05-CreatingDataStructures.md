@@ -16,7 +16,7 @@ title: 'Lab 5: Data'
    2. **Click** the **Green Code button** then choose **Download ZIP**.
    3. Unzip the file `starter-files-main.zip` archive you downloaded in the prior step.
 1. Open File Explorer (Windows) or Finder (Mac).
-1. **Copy** the `images` directory and its contents into the `keeptrack\public` directory.
+1. **Copy** the `assets` directory and its contents into the `keeptrack\public` directory.
 1. **Create** two files to be the model and the data and fill in the code as shown below.
 
    #### `src\projects\Project.ts`
