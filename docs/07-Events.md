@@ -33,7 +33,7 @@ Handling events with **React elements** is very similar to handling events on **
    ```js
    //main.js
    function handleClick() {
-     console.log("clicked");
+     console.log('clicked');
    }
    ```
 3. Refresh the page in your browser
@@ -56,14 +56,14 @@ Handling events with **React elements** is very similar to handling events on **
 
    ```js
    function handleClick() {
-     console.log("clicked");
+     console.log('clicked');
    }
 
    function Button() {
      return <button onClick={handleClick()}>Click Me!</button>;
    }
 
-   ReactDOM.createRoot(document.getElementById("root")).render(<Button />);
+   ReactDOM.createRoot(document.getElementById('root')).render(<Button />);
    ```
 
 2. If not already opened from the previous step, open `Chrome DevTools` switch to the `Console` tab
@@ -106,14 +106,14 @@ As we discussed earlier, we can't invoke a function when we subscribe to an even
    }
 
    const data = [
-     { id: 1, name: "apple" },
-     { id: 2, name: "orange" },
-     { id: 3, name: "blueberry" },
-     { id: 4, name: "banana" },
-     { id: 5, name: "kiwi" },
+     { id: 1, name: 'apple' },
+     { id: 2, name: 'orange' },
+     { id: 3, name: 'blueberry' },
+     { id: 4, name: 'banana' },
+     { id: 5, name: 'kiwi' },
    ];
 
-   ReactDOM.createRoot(document.getElementById("root")).render(
+   ReactDOM.createRoot(document.getElementById('root')).render(
      <FruitList fruits={data} />
    );
    ```
@@ -161,8 +161,6 @@ There are two solutions to this problem:
    ReactDOM.createRoot(document.getElementById("root")).render(
     <FruitList fruits={data} />
    );
-
-
    ```
 
 ### Reference
@@ -187,7 +185,7 @@ Handling events requires us to prevent the default browser behavior.
 
      return (
        <li onClick={(e) => handleClick(e, props.fruit.id)}>
-         {props.fruit.name}{" "}
+         {props.fruit.name}{' '}
        </li>
      );
    }
@@ -200,14 +198,14 @@ Handling events requires us to prevent the default browser behavior.
    }
 
    const data = [
-     { id: 1, name: "apple" },
-     { id: 2, name: "orange" },
-     { id: 3, name: "blueberry" },
-     { id: 4, name: "banana" },
-     { id: 5, name: "kiwi" },
+     { id: 1, name: 'apple' },
+     { id: 2, name: 'orange' },
+     { id: 3, name: 'blueberry' },
+     { id: 4, name: 'banana' },
+     { id: 5, name: 'kiwi' },
    ];
 
-   ReactDOM.createRoot(document.getElementById("root")).render(
+   ReactDOM.createRoot(document.getElementById('root')).render(
      <FruitList fruits={data} />
    );
    ```
@@ -217,10 +215,10 @@ Handling events requires us to prevent the default browser behavior.
 5. Click an item on the list
 6. In the `Console` you should see something similar to the following:
 
-```
-SyntheticBaseEvent {_reactName: 'onClick', _targetInst: null, type: 'click', nativeEvent: PointerEvent, target: li, …} main.js:4
-removed 2
-```
+   ```
+     SyntheticBaseEvent {_reactName: 'onClick', _targetInst: null, type: 'click', nativeEvent: PointerEvent, target: li, …} main.js:4
+     removed 2
+   ```
 
 > Note that with bind any further arguments including the event object is automatically forwarded.
 
@@ -254,7 +252,7 @@ A `SyntheticEvent` is a cross-browser wrapper around the browser’s native even
      }
 
      handleClick() {
-       console.log("clicked");
+       console.log('clicked');
      }
 
      render() {
@@ -262,7 +260,7 @@ A `SyntheticEvent` is a cross-browser wrapper around the browser’s native even
      }
    }
 
-   ReactDOM.createRoot(document.getElementById("root")).render(<Button />);
+   ReactDOM.createRoot(document.getElementById('root')).render(<Button />);
    ```
 
    > Bind? The next section discusses why binding is necessary as well as alternative syntaxes that can be used to bind the event handler including which are considering the best practice.
@@ -327,7 +325,7 @@ This next section is about the different ways to do the binding.
     }
   }
 
-  ReactDOM.createRoot(document.getElementById("root")).render(
+  ReactDOM.createRoot(document.getElementById('root')).render(
     <ExplainBindingsComponent />
   );
   ```
@@ -353,7 +351,7 @@ This next section is about the different ways to do the binding.
       );
     }
   }
-  ReactDOM.createRoot(document.getElementById("root")).render(
+  ReactDOM.createRoot(document.getElementById('root')).render(
     <ExplainBindingsComponent />
   );
   ```
@@ -381,7 +379,7 @@ This next section is about the different ways to do the binding.
       );
     }
   }
-  ReactDOM.createRoot(document.getElementById("root")).render(
+  ReactDOM.createRoot(document.getElementById('root')).render(
     <ExplainBindingsComponent />
   );
   ```
@@ -403,7 +401,7 @@ This next section is about the different ways to do the binding.
 
   ```js
   function ExplainBindingsComponent() {
-    const memberValue = "test";
+    const memberValue = 'test';
     function handleClick() {
       console.log(memberValue);
     }
@@ -415,7 +413,7 @@ This next section is about the different ways to do the binding.
     );
   }
 
-  ReactDOM.createRoot(document.getElementById("root")).render(
+  ReactDOM.createRoot(document.getElementById('root')).render(
     <ExplainBindingsComponent />
   );
   ```
@@ -424,7 +422,7 @@ This next section is about the different ways to do the binding.
 
   ```js
   function ExplainBindingsComponent() {
-    const memberValue = "test";
+    const memberValue = 'test';
     const handleClick = () => {
       console.log(memberValue);
     };
@@ -435,7 +433,7 @@ This next section is about the different ways to do the binding.
       </button>
     );
   }
-  ReactDOM.createRoot(document.getElementById("root")).render(
+  ReactDOM.createRoot(document.getElementById('root')).render(
     <ExplainBindingsComponent />
   );
   ```
