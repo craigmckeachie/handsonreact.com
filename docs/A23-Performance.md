@@ -358,7 +358,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
 ## Class Components
 
-### Class Component Render Demo
+<!-- ### Class Component Render Demo
 
 #### styles.css
 
@@ -481,7 +481,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 // Override shouldComponentUpdate: return false results in no re-renders (current component and all descendants).
 // Override shouldComponentUpdate: see if props changed and only then return true. Change value prop in Parent and child will re-render first time (when value changes) but not subsequent times because value prop remains the same (true).
 // PureComponent: comment out shouldComponentUpdate and make ChildA a PureComponent. Change value prop in Parent and child will re-render first time (when value changes) but not subsequent times because value prop remains the same (true).
-```
+``` -->
 
 ### `React.PureComponent` Demo
 
