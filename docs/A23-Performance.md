@@ -17,7 +17,7 @@ Premature Optimization is optimizing before we know that we need to do it.
 
 A re-render can only be triggered if a component’s state has changed. The state can change from a `props` change, or from a call to `setState` or a `useState` update state function. The component gets the updated state and React decides if it should re-render the component. Unfortunately, by default React is incredibly simplistic and basically re-renders everything all the time.
 
-Component changed? Re-render. Parent changed? Re-render. Section of props that doesn't actually impact the view changed? Re-render.
+Component changed? Re-render. Parent changed? Re-render parent and all it's children. Section of props that doesn't actually impact the view changed? Re-render.
 
 ### Summary
 
@@ -26,7 +26,7 @@ Component changed? Re-render. Parent changed? Re-render. Section of props that d
 - **Default Behavior**: **Update a prop in a component**
 
   - results in **that component and all descendants** re-rendered.
-  - uses a strict equality check `===`
+  - the check for whether a prop changed uses a strict equality check `===`
 
   ```
   const a = { "test": 1 };
@@ -188,64 +188,6 @@ function LastRendered() {
   return <p>Last Rendered: {new Date().toLocaleTimeString()}</p>;
 }
 
-function ListItem({ item, onEdit, onRemove }) {
-  return (
-    <div className="box">
-      <LastRendered />
-      <p>
-        <span>{item.name}</span>
-        <button onClick={() => onEdit(item)}>Edit</button>
-        <button onClick={() => onRemove(item)}>Remove</button>
-      </p>
-    </div>
-  );
-}
-
-// const ListItem = React.memo(
-//   function ListItem({ item, onEdit, onRemove }) {
-//     return (
-//       <div className="box">
-//         <LastRendered />
-//         <p>
-//           <span>{item.name}</span>
-//           <button onClick={() => onEdit(item)}>Edit</button>
-//           <button onClick={() => onRemove(item)}>Remove</button>
-//         </p>
-//       </div>
-//     );
-//   },
-//   (previous, next) => previous.item === next.item
-// );
-
-function List({ items, onRemove, onUpdate }) {
-  const [editingItem, setEditingItem] = React.useState(null);
-
-  const handleEdit = (item) => {
-    setEditingItem(item);
-  };
-
-  const handleCancel = () => {
-    setEditingItem(null);
-  };
-
-  return (
-    <div className="box">
-      <LastRendered />
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            {item === editingItem ? (
-              <Form item={item} onSubmit={onUpdate} onCancel={handleCancel} />
-            ) : (
-              <ListItem item={item} onEdit={handleEdit} onRemove={onRemove} />
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 function Form({ item, onSubmit, onCancel, buttonValue }) {
   const [inputValue, setInputValue] = React.useState(item.name || '');
 
@@ -285,6 +227,86 @@ function Form({ item, onSubmit, onCancel, buttonValue }) {
   );
 }
 
+//1) Wasted renders when adding item
+function ListItem({ item, onEdit, onRemove }) {
+  return (
+    <div className="box">
+      <LastRendered />
+      <p>
+        <span>{item.name}</span>
+        <button onClick={() => onEdit(item)}>Edit</button>
+        <button onClick={() => onRemove(item)}>Remove</button>
+      </p>
+    </div>
+  );
+}
+
+//2) Wasted renders fixed using React.memo and custom areEqual function
+// const ListItem = React.memo(
+//   function ListItem({ item, onEdit, onRemove }) {
+//     return (
+//       <div className="box">
+//         <LastRendered />
+//         <p>
+//           <span>{item.name}</span>
+//           <button onClick={() => onEdit(item)}>Edit</button>
+//           <button onClick={() => onRemove(item)}>Remove</button>
+//         </p>
+//       </div>
+//     );
+//   },
+//   (previous, next) => previous.item === next.item
+// );
+
+//3) Wasted renders fixed using React.memo and useCallback
+// const ListItem = React.memo(function ListItem({ item, onEdit }) {
+//   return (
+//     <div className="box">
+//       <LastRendered />
+//       <p>
+//         <span>{item.name}</span>
+//         <button onClick={() => onEdit(item)}>Edit</button>
+//         <button onClick={() => onRemove(item)}>Remove</button>
+//       </p>
+//     </div>
+//   );
+// });
+
+function List({ items, onRemove, onUpdate }) {
+  const [editingItem, setEditingItem] = React.useState(null);
+
+  const handleEdit = (item) => {
+    setEditingItem(item);
+  };
+  // const handleEdit = React.useCallback(
+  //   (item) => {
+  //     setEditingItem(item);
+  //   },
+  //   [setEditingItem]
+  // );
+
+  const handleCancel = () => {
+    setEditingItem(null);
+  };
+
+  return (
+    <div className="box">
+      <LastRendered />
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>
+            {item === editingItem ? (
+              <Form item={item} onSubmit={onUpdate} onCancel={handleCancel} />
+            ) : (
+              <ListItem item={item} onEdit={handleEdit} onRemove={onRemove} />
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function Container() {
   const [items, setItems] = React.useState([]);
 
@@ -308,10 +330,16 @@ function Container() {
     setItems(filteredItems);
   };
 
+  // const removeItem = React.useCallback((removeThisItem) => {
+  //   const filteredItems = items.filter((item) => item.id != removeThisItem.id);
+  //   setItems(filteredItems);
+  // }, setItems);
+
   return (
     <div className="box">
       <LastRendered />
       <Form item="" onSubmit={addItem} buttonValue="Add" />
+
       <List items={items} onRemove={removeItem} onUpdate={updateItem} />
     </div>
   );
