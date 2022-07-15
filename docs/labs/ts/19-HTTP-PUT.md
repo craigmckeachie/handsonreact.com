@@ -1,5 +1,5 @@
 ---
-title: "Lab 19: HTTP PUT"
+title: 'Lab 19: HTTP PUT'
 ---
 
 ## Objectives
@@ -15,8 +15,6 @@ title: "Lab 19: HTTP PUT"
    #### `src\projects\projectAPI.ts`
 
    ```diff
-   + import { Project } from './Project';
-   ...
 
    const projectAPI = {
    ...
