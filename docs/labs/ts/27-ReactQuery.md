@@ -24,7 +24,7 @@ git diff 9e548ac0ac4dd05c8e9778475a47351f6246f058..react-query-working -->
    #### npm
 
    ```sh
-   npm install react-query
+   npm install react-query@3
    ```
 
    OR
@@ -32,7 +32,7 @@ git diff 9e548ac0ac4dd05c8e9778475a47351f6246f058..react-query-working -->
    #### yarn
 
    ```
-   yard add react-query
+   yard add react-query@3
    ```
 
 ### Configure **React Query Client** provider and **React Query Devtools**.

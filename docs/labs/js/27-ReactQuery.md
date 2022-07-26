@@ -21,7 +21,7 @@ title: 'Lab 27: React Query Refactor'
    #### npm
 
    ```sh
-   npm install react-query
+   npm install react-query@3
    ```
 
    OR
@@ -29,7 +29,7 @@ title: 'Lab 27: React Query Refactor'
    #### yarn
 
    ```
-   yard add react-query
+   yard add react-query@3
    ```
 
 ### Configure **React Query Client** provider and **React Query Devtools**.

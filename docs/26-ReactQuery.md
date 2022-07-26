@@ -12,7 +12,15 @@ slug: /react-query
 ## Installation
 
 ```
-npm i react-query
+npm i react-query@3
+```
+
+#### `index.html`
+
+```html
+...
+<script src="/node_modules/react-query/dist/react-query.production.min.js"></script>
+...
 ```
 
 ## Complete: Example
