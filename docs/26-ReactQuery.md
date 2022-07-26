@@ -9,10 +9,16 @@ slug: /react-query
 
 - Start with the solution code from the [Custom Hooks Demo](./16-CustomHooks.md#complete-function-component-example-with-api-object--custom-hook)
 
+## Installation
+
+```
+npm i react-query
+```
+
 ## Complete: Example
 
 ```js
-const baseUrl = "http://localhost:3000";
+const baseUrl = 'http://localhost:3000';
 const url = `${baseUrl}/photos`;
 
 const {
@@ -28,11 +34,11 @@ const {
 function translateStatusToErrorMessage(status) {
   switch (status) {
     case 401:
-      return "Please login again.";
+      return 'Please login again.';
     case 403:
-      return "You do not have permission to view the photos.";
+      return 'You do not have permission to view the photos.';
     default:
-      return "There was an error retrieving the photos. Please try again.";
+      return 'There was an error retrieving the photos. Please try again.';
   }
 }
 
@@ -80,7 +86,7 @@ const photoAPI = {
 };
 
 function usePhotos() {
-  const queryInfo = useQuery("photos", photoAPI.getAll);
+  const queryInfo = useQuery('photos', photoAPI.getAll);
   console.log(queryInfo);
   const { isLoading: loading, error, data: photos } = queryInfo;
   return { loading, photos, error };
@@ -129,7 +135,7 @@ function PhotoList() {
 }
 
 const queryClient = new QueryClient();
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <QueryClientProvider client={queryClient}>
     <PhotoList />
     <ReactQueryDevtools initialIsOpen={false} />
@@ -139,5 +145,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 ## Reference
 
-- [React Query Documementation](https://react-query.tanstack.com/)
-- [Video: React Query: It's Time to Break up with your "Global State"!](https://react-query.tanstack.com/videos)
+- [React Query Documementation](https://react-query-v3.tanstack.com/)
+- [Video: React Query: It's Time to Break up with your "Global State"!](https://react-query-v3.tanstack.com/videos)
