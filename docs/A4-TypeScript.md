@@ -244,7 +244,7 @@ You can use these language features in your own application code but the React l
 
 ## Reference
 
-- [TypeScript Deep Dive](https://basarat.gitbooks.io/typescript/content/docs/getting-started.html)
+- [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/basic-types.html)
 - [TypeScript Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 - [ECMAScript Compatibility Chart](https://kangax.github.io/compat-table/es6/)

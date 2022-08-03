@@ -55,10 +55,10 @@ function App() {
 }
 
 function Parent() {
-  const [words, setWords] = React.useState("");
+  const [words, setWords] = React.useState('');
 
   const handleClick = () => {
-    setWords("Did you do your homework?");
+    setWords('Did you do your homework?');
   };
 
   return (
@@ -79,7 +79,7 @@ function Child(props) {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 ```
 
 **Child to Parent** communication is passing a function as a property into a component. The function is later invoked in the child but executed in the context of the parent.
@@ -91,8 +91,8 @@ function App() {
 
 function Parent() {
   const handleRequest = (request) => {
-    if (request.includes("car")) {
-      alert("No");
+    if (request.includes('car')) {
+      alert('No');
     }
   };
 
@@ -105,7 +105,7 @@ function Parent() {
 }
 function Child(props) {
   const handleClick = () => {
-    props.onRequest("Can I have the car?");
+    props.onRequest('Can I have the car?');
   };
 
   return (
@@ -116,7 +116,7 @@ function Child(props) {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 ```
 
 #### Additional Communication Patterns
@@ -165,7 +165,7 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 ```
 
 ### Class Component Example
@@ -202,7 +202,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 ```
 
 The React documentation summarizes it best:
@@ -271,7 +271,7 @@ Here are some steps you might find useful as you learn to **Think in React**
    - Rendering the screen initially involves props and state flowing down the hierarchy
    - Inverse data flow refers to components deep in the hierarchy responding to user actions (clicking a button, hovering, typing) and then updating the state in the higher container component(s)
 
-See the section [Thinking in React](https://reactjs.org/docs/thinking-in-react.htm) in the documentation for more information.
+See the section [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) in the documentation for more information.
 
 <!-- ## Items (CRUD) Demo
 

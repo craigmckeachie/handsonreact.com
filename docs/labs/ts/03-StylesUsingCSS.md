@@ -103,7 +103,7 @@ title: 'Lab 3: Styles Using CSS'
 
    ![image](https://user-images.githubusercontent.com/1474579/64926635-c2eb9f80-d7cd-11e9-8ff7-84660d706ff9.png)
 
-> [Mini.css](https://minicss.org/) is a **minimal**, responsive, style-agnostic **CSS framework**. `Mini.css` is similar to `Bootstrap` but lighter and **requires fewer CSS classes** so you can **focus** on learning `React` but still get a **professional look**.
+> [Mini.css](https://minicss.us/) is a **minimal**, responsive, style-agnostic **CSS framework**. `Mini.css` is similar to `Bootstrap` but lighter and **requires fewer CSS classes** so you can **focus** on learning `React` but still get a **professional look**.
 
 ---
 
