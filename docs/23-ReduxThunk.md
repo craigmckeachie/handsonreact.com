@@ -12,8 +12,8 @@ Thunk middleware for Redux. Enables async actions (making http calls from action
 - `redux-thunk` is separate package/library
 - enables async actions (AJAX calls)
 - implemented as middleware for extending redux to handle async actions
-- is only 15 lines of code
-  - https://github.com/reduxjs/redux-thunk/blob/master/src/index.js
+- is only 53 lines of code (used to be 15 in js)
+  - https://github.com/reduxjs/redux-thunk/blob/master/src/index.ts
   - why separate? ...following the Unix philosophy of doing one thing and doing it well
 
 ## Async

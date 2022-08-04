@@ -43,7 +43,6 @@ Good use cases for Redux include:
 
 - A count of something that displays in a header or sidebar (likes, upvotes, active projects, items in shopping cart, unread messages)
   - Again, this often can be done by having a common parent component but sometimes it might be too far removed from where you are updating this information
-- Steps in a workflow or wizard that share data (although this can easily be done by storing the shared data in a parent component)
 - Collaborative software where multiple users can work on the same document at the same time (Google Docs, Google Sheets etc...)
 
 ## Deciding How to Handle State
