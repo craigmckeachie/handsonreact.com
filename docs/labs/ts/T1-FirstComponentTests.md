@@ -1,5 +1,5 @@
 ---
-title: "Testing Lab 1: Your First Component Test"
+title: 'Testing Lab 1: Your First Component Test'
 ---
 
 ## Objectives
@@ -21,7 +21,7 @@ title: "Testing Lab 1: Your First Component Test"
    ```
    git clone https://github.com/craigmckeachie/keeptrack-ts.git keeptrack
    cd keeptrack
-   git checkout testing-start
+   git checkout lab25
    ```
 
    OR
@@ -131,13 +131,13 @@ title: "Testing Lab 1: Your First Component Test"
    #### `src\home\HomePage.test.tsx`
 
    ```ts
-   import React from "react";
-   import { render, screen } from "@testing-library/react";
-   import HomePage from "./HomePage";
+   import React from 'react';
+   import { render, screen } from '@testing-library/react';
+   import HomePage from './HomePage';
 
-   test("renders home heading", () => {
+   test('renders home heading', () => {
      render(<HomePage />);
-     expect(screen.getByRole("heading")).toHaveTextContent("Home");
+     expect(screen.getByRole('heading')).toHaveTextContent('Home');
    });
    ```
 
