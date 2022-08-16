@@ -129,7 +129,7 @@ title: 'Lab 5: Data'
 ### Display the data
 
 1. Open the file `src\projects\ProjectsPage.tsx`.
-2. Use `JSON.stringify()` to output the `MOCK_PROJECTS` array from `MockProjects.ts` in the `render` method of the component.
+2. Use `JSON.stringify()` to output the `MOCK_PROJECTS` array from `MockProjects.ts` in the component.
 
    > **TIPS:**
    >
