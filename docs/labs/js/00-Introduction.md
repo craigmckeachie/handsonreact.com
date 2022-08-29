@@ -10,7 +10,7 @@ Build a project management application step-by-step in React by following the di
 ![Lab Application Preview](../../../static/img/lab-application-preview.gif)
 _This is a preview of the application you will build._
 
-- Uses TypeScript
+- Uses JavaScript
 - Uses only function components with Hooks
 - Uses a pre-built `Node.js` REST API as a backend to do CRUD operations
 - Uses React Router
