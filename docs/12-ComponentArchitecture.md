@@ -124,7 +124,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 Now that you understand how this communication works in practice then we can explore these additional communication patterns which are essentially variations on "Parent to Child" and "Child to Parent"
 
 - Child to Child (siblings)
-- Parent to Grandchild
+- Grandparent to Grandchild
 - Grandchild to Parent
 
 Essentially, **communication doesn't skip generations** so if it is going to happen you need to manually communicate up or down between each generation.

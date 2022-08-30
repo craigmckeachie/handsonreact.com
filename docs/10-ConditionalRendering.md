@@ -14,8 +14,10 @@ function Example(){
     const elementVariable;
 
     return (
+        <>
         <h3>Nothing will be rendered below</h3>
         {elementVariable}
+        </>
     )
 }
 ```
@@ -38,8 +40,10 @@ if(condition){
 }
 
 return (
+    <>
     <h3>Element Variables</h3>
     {elementVariable}
+    </>
 )
 ```
 
@@ -56,8 +60,10 @@ else{
 }
 
 return (
+    <>
     <h3>Element Variables</h3>
     {elementVariable}
+    </>
 )
 ```
 
@@ -126,7 +132,7 @@ function DropdownMenu() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
+ReactDOM.createRoot(document.getElementById('root')).render(<DropdownMenu />);
 ```
 
 #### Class Component Example
@@ -163,7 +169,7 @@ class DropdownMenu extends React.Component {
   }
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
+ReactDOM.createRoot(document.getElementById('root')).render(<DropdownMenu />);
 ```
 
 ## Conditional Operator ? true : false
@@ -191,7 +197,7 @@ function DropdownMenu() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
+ReactDOM.createRoot(document.getElementById('root')).render(<DropdownMenu />);
 ```
 
 #### Class Component Example
@@ -224,7 +230,7 @@ class DropdownMenu extends React.Component {
   }
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
+ReactDOM.createRoot(document.getElementById('root')).render(<DropdownMenu />);
 ```
 
 When there isn't an `else` condition, the return of `null` becomes awkward and difficult to read. In the next section, we'll look at a solution to this the logical && operator.
@@ -254,7 +260,7 @@ function DropdownMenu() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
+ReactDOM.createRoot(document.getElementById('root')).render(<DropdownMenu />);
 ```
 
 #### Class Component Example
@@ -287,7 +293,7 @@ class DropdownMenu extends React.Component {
   }
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
+ReactDOM.createRoot(document.getElementById('root')).render(<DropdownMenu />);
 ```
 
 ## Reference
@@ -295,146 +301,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(<DropdownMenu />);
 - [Conditional Rendering: Official Documentation](https://reactjs.org/docs/conditional-rendering.html)
 - [All React Conditional Rendering Techniques](https://www.robinwieruch.de/conditional-rendering-react/)
 - [AirBnb Styleguide: Conditional Rendering (Discussion: no rule yet)](https://github.com/airbnb/javascript/issues/520)
-
-<!-- ### Null
-
-An element that is null or undefined will render nothing.
-
-```js
-function Example(){
-    const elementVariable;
-
-    return (
-        <h3>Nothing will be rendered below</h3>
-        {elementVariable}
-    )
-}
-```
-
-A component that returns null or undefined will render nothing.
-
-```js
-
-function MyComponent{
-    return null;
-}
-
-function Example(){
-
-    return (
-        <h3>Nothing will be rendered below</h3>
-        <MyComponent/>
-    )
-}
-```
-
-Returning null can be used to prevent a component from rendering at all. We will explore how to do this in the next section. -->
-
-<!-- ### Preventing Components from Rendering
-
-In rare cases you might want a component to hide itself even though it was rendered by another component. This can be achieved by returning `null` instead of its render output.
-
-```js
-function WarningBanner(props) {
-  if (!props.warn) {
-    return null;
-  }
-
-  return <div className="warning">Warning!</div>;
-}
-
-class Page extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { showWarning: true };
-    this.handleToggleClick = this.handleToggleClick.bind(this);
-  }
-
-  handleToggleClick() {
-    this.setState((state) => ({
-      showWarning: !state.showWarning,
-    }));
-  }
-
-  render() {
-    return (
-      <div>
-        <WarningBanner warn={this.state.showWarning} />
-        <button onClick={this.handleToggleClick}>
-          {this.state.showWarning ? "Hide" : "Show"}
-        </button>
-      </div>
-    );
-  }
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
-```
-
-> It is preferred to handle the if logic in the parent component because lifecycle methods still run when you return null from a render function.
-
-### Component
-
-Here is an example of how to add or remove an entire component.
-
-```js
-function CorrectAnswer(props) {
-  return <div>&#10004; Correct</div>;
-}
-
-function IncorrectAnswer(props) {
-  return <div>&#10006; Wrong</div>;
-}
-
-function Answer(props) {
-  const isCorrect = props.isCorrect;
-  if (isCorrect) {
-    return <CorrectAnswer />;
-  } else {
-    return <IncorrectAnswer />;
-  }
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  // Try changing to isCorrect={false}
-  <Answer isCorrect={true} />
-);
-```
-
-### Simple
-
-In simpler cases where the amount of JSX is small the conditional operator can be easier to read.
-
-Why?
-
-- Only a few lines
-- The logic is **inline** closer to the elements/components because conditional operators can be in the return statement
-- `()` may not be needed
-
-```js
-function CorrectAnswer(props) {
-  return <div>&#10004; Correct</div>;
-}
-
-function IncorrectAnswer(props) {
-  return <div>&#10006; Wrong</div>;
-}
-
-function Answer(props) {
-  const isCorrect = props.isCorrect;
-  return isCorrect ? <CorrectAnswer /> : <IncorrectAnswer />;
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  // Try changing to isCorrect={false}
-  <Answer isCorrect={true} />
-);
-```
-
-### Complicated
-
-In more complicated cases where the amount of JSX grows the conditional operator can be more difficult to read.
-
-> As shown above this is particularly helpful if you need to add or remove an entire component from the rendered output.
-
-> More often however you need to hide or show a part of a component (an element) we'll explore how to do this in the next section -->
