@@ -36,9 +36,6 @@ title: 'Lab 21: Route Parameters'
    import React from 'react';
    import { Project } from './Project';
 
-   interface ProjectDetailProps {
-     project: Project;
-   }
    export default function ProjectDetail({ project }) {
      return (
        <div className="row">
@@ -82,8 +79,8 @@ title: 'Lab 21: Route Parameters'
 
    function ProjectPage(props: any) {
      const [loading, setLoading] = useState(false);
-     const [project, setProject] = (useState < Project) | (null > null);
-     const [error, setError] = (useState < string) | (null > null);
+     const [project, setProject] = useState(null);
+     const [error, setError] = useState(null);
      const params = useParams();
      const id = Number(params.id);
 
