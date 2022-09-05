@@ -19,15 +19,15 @@ slug: /state-management
 - You can recreate the functionality of Redux using React Context
 - React Context is designed for low frequency updates (Authenticated User, Theme, Locale (language))
 - React Context is not designed for high frequency updates (keyboard input)
-- React Context by default causes a rerender of all components on the page
-- The rerenders caused by React Context can be avoided by creating additional Contexts (basically multiple stores)
+- React Context by default causes a rerender of all components on the page which use a given context
+- The rerenders caused by React Context can be avoided by creating additional contexts (basically multiple stores)
 - Redux is complex and requires a lot of _boilerplate_ code and subsequently can be difficult to understand
-- React Context has a easier to understand API than Redux
+- React Context has an easier to understand API than Redux
+- Using TypeScript with Redux provides strong typing advantages, but further increases the amount of _boilerplate_ code
 - Using Redux Toolkit can significantly reduce the amount of _boilerplate_ code in Redux
-- Using TypeScript with Redux provides strong typing advantages but further increases the amount of _boilerplate_ code
 - Implementing Redux functionality with React Context often often results in eventually recreating Redux
 - Consider using libraries that focus on the specific kind of state that is most challenging, network state, such as React Query and SWR.
-- The React Query and SWR APIs ar similar to the popular Apollo Client library for GraphQL but works with REST APIs as well as GraphQL APIs
+- The React Query and SWR APIs ar similar to the popular Apollo Client library for GraphQL but work with REST APIs as well as GraphQL APIs
 - Consider libraries which give you the basic functionality of Redux with a simpler API like [Recoil](https://recoiljs.org/), [Zustand](https://zustand.surge.sh/) or [Easy Peasy](https://easy-peasy.vercel.app/)
 - [npm Trends Chart comparing SWR, React Query, Recoil, Zustand, Easy Peasy](https://www.npmtrends.com/easy-peasy-vs-react-query-vs-swr-vs-zustand-vs-recoil)
 
@@ -42,7 +42,7 @@ Good use cases for React Context include:
 Good use cases for Redux include:
 
 - A count of something that displays in a header or sidebar (likes, upvotes, active projects, items in shopping cart, unread messages)
-  - Again, this often can be done by having a common parent component but sometimes it might be too far removed from where you are updating this information
+  - Again, this often can be done by having a common parent component (in many cases the App component) but sometimes it might be too far removed from where you are updating this information
 - Collaborative software where multiple users can work on the same document at the same time (Google Docs, Google Sheets etc...)
 
 ## Deciding How to Handle State

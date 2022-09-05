@@ -87,7 +87,14 @@ function reducer(state = 5, action) {
       return state;
   }
 }
-var store = Redux.createStore(reducer);
+
+var store = Redux.createStore(reducer, enableDevTools());
+
+function enableDevTools() {
+  return (
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
+}
 
 function Counter() {
   const count = ReactRedux.useSelector((state) => state);

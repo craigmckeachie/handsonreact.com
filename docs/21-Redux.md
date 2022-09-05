@@ -11,6 +11,40 @@ slug: /redux
 - Commonly used with libraries such as React or Angular for building user interfaces.
 - Similar to (and inspired by) Facebook's Flux architecture, it was created by Dan Abramov and Andrew Clark.
 
+## Architecture
+
+- The primary reason you need Redux is to help share data and functions between components in your application which are in different parts of the component tree and not immediate relatives
+- The sharing between components is achieved by pulling data and functions out of the components and into a shared object (Store) that is not a component
+- You may need Redux for other reasons
+- These other reasons you need Redux are a lot less common than most people will lead you to believe.
+- Again, it is mostly needed to share data (state) and functions (dispatch actions) in an application. This problem is often described as:
+  - Avoiding Prop Drilling
+  - Handling shared mutable state
+  - Component Communication
+- The shared object (Store) is made available to parts of the application by wrapping it in custom element or tag (React Component) called a provider (because it provides the data and functions).
+
+### Component Diagram no Redux
+
+![component diagram before redux](https://user-images.githubusercontent.com/1474579/188503473-49c049eb-4d0d-4f3d-b871-06410a3eeed6.png)
+
+### Component Diagram with Redux
+
+![component diagram with redux](https://user-images.githubusercontent.com/1474579/188503591-4473d9d5-85fe-469a-b1ea-c01fdcc6cefd.png)
+
+## Component State vs. Redux State
+
+### Component State
+
+- values stored in `React state` using `useState` hook
+- local, encapsulated, private
+
+## Redux State
+
+- values store in `Redux state` inside the `Store`
+- shared, global, public
+- remember shared `state` can have a broader definition to mean within a branch of a component tree (a page component and it's children components)
+  - this means that the same data you stored in `React state` may be promoted to `Redux state` for convenience (easier component communication)
+
 ## What is State?
 
 - State: the particular condition that something is in at a specific time.
@@ -29,7 +63,18 @@ slug: /redux
 - What to Store in State?
   - Shared data
     - Does the data matter to the application as a whole?
+      - Examples: signed in user and their associated permissions/role, theme, language
     - Are there other components that may benefit from this global accessible shared data?
+      - To most people shared data includes sharing in the same component tree branch which can help avoid prop drilling
+        - Examples: Page/Container component as well as list, detail, and form components
+- What Not to Store in State
+  - Form Data
+    - As you are editing the form
+    - Before the data is persisted (saved more permanently)
+    - Includes validation messages
+  - URLs/Routes
+    - In general, most people do not put this data into state
+    - That said, there are libraries to enable routes to be stored in Redux state
 
 ## Benefits
 
@@ -232,7 +277,6 @@ npm install --save redux react-redux redux-thunk
 
 ```js
 //action types
-//action types
 const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
 
@@ -316,6 +360,85 @@ function enableDevTools() {
 > ```
 
 > Then configure your store to use the extension by [following these directions](https://redux.js.org/recipes/configuring-your-store#integrating-the-devtools-extension)
+
+## Pseduo-code Redux
+
+> Note: the example code below will not actually run. It is meant to be pseduo-code to demonstrate how Redux is implemented.
+
+#### main.js
+
+```js
+const { createStore } = require('redux');
+
+//action types
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+
+//action creators
+function increment() {
+  return { type: INCREMENT };
+}
+function decrement() {
+  return { type: DECREMENT };
+}
+
+//reducer
+function reducer(state = 0, action) {
+  switch (action.type) {
+    case INCREMENT:
+      return state + 1;
+    case DECREMENT:
+      return state - 1;
+    default:
+      return state;
+  }
+}
+
+//store
+// var store = Redux.createStore(reducer);
+
+class Store {
+  _state = {};
+  reducer;
+
+  constructor(reducer) {
+    this.reducer = reducer;
+  }
+
+  getState() {
+    return this._state;
+  }
+
+  dispatch(action) {
+    let state = reducer(_state, action);
+    this.callbackFn(state);
+  }
+
+  subscribe(callbackFn) {
+    this.callbackFn = callbackFn;
+  }
+}
+
+function createStore(reducer) {
+  let store = new Store(reducer);
+
+  return store;
+}
+
+function logState() {
+  console.log(store.getState().toString());
+}
+
+store.subscribe(logState);
+
+store.dispatch({ type: 'innncrement' });
+store.dispatch(increment());
+store.dispatch(increment());
+store.dispatch(decrement());
+store.dispatch(decrement());
+store.dispatch(decrement());
+store.dispatch(decrement());
+```
 
 ## Gotchas/Tips
 
