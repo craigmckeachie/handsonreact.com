@@ -137,6 +137,11 @@ function Clock() {
 ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
 ```
 
+### useEffect Diagram
+
+![React Hooks Lifecycle](https://user-images.githubusercontent.com/1474579/188507412-37ae0138-f4f1-4e9b-8b5f-f78a46611de6.png)
+Image from https://github.com/learn-co-curriculum/react-hooks-use-effect-cleanup
+
 ## Lifecycle (in class components)
 
 ### What are Lifecycle Methods
