@@ -287,3 +287,13 @@ title: 'Lab 25: Redux with React'
 ---
 
 ### &#10004; You have completed Lab 25
+
+> Please let the instructor know you have completed this lab before continuing to the bonus exercise.
+
+## Bonus Exercise (optional)
+
+> Do this exercise in your own time outside of class or while waiting for other students to finish the labs.
+
+Now that you have the `ProjectsPage` (plural) refactored to use `Redux`, use what you have learned to change the `ProjectPage` (singular) code to use `Redux` as well.
+
+Not giving you specific directions on how to do this is intentional at this point. It is time to see if you can apply what you learned without specific guidance. Tip: Remember, it is perfectly valid to reference your existing code from the last few labs to complete this exercise.
