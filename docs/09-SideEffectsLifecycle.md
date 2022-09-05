@@ -63,7 +63,7 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 ```
 
 ### Example (after first render AND subsequent renders caused by a change in a dependency)
@@ -107,7 +107,7 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 ```
 
 ### useEffect Cleanup Example
@@ -134,13 +134,8 @@ function Clock() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
+ReactDOM.createRoot(document.getElementById('root')).render(<Clock />);
 ```
-
-### useEffect Diagram
-
-![React Hooks Lifecycle](https://user-images.githubusercontent.com/1474579/188507412-37ae0138-f4f1-4e9b-8b5f-f78a46611de6.png)
-Image from https://github.com/learn-co-curriculum/react-hooks-use-effect-cleanup
 
 ## Lifecycle (in class components)
 
@@ -199,7 +194,7 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
+ReactDOM.createRoot(document.getElementById('root')).render(<Clock />);
 ```
 
 ### Reference
@@ -209,3 +204,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(<Clock />);
 - [What is Mounting?](https://stackoverflow.com/questions/31556450/what-is-mounting-in-react-js/31559566#31559566)
 - [componentDidUpdate Examples](https://stackoverflow.com/questions/38759703/when-to-use-react-componentdidupdate-method#:~:text=The%20componentDidUpdate%20is%20particularly%20useful,last%20thing%20to%20be%20executed.)
 - [Deprecated Lifecycle Methods](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html)
+- [useEffect Diagram](https://blog.devgenius.io/how-to-use-react-clean-up-function-with-example-7a073392e479)
