@@ -1,5 +1,5 @@
 ---
-title: "Testing Lab 6: Testing Forms"
+title: 'Testing Lab 6: Testing Forms'
 ---
 
 ## Objectives
@@ -35,6 +35,7 @@ One of the great benefits of using React Testing Library is that it helps us bui
          <label htmlFor="name">Project Name</label>
          <input
    +        id="name"
+   +        aria-label="project name"
            type="text"
            name="name"
            placeholder="enter name"
@@ -114,16 +115,16 @@ One of the great benefits of using React Testing Library is that it helps us bui
    #### `src\projects\__tests__\ProjectForm-test.js`
 
    ```js
-   import React from "react";
-   import { render, screen } from "@testing-library/react";
-   import { MemoryRouter } from "react-router-dom";
-   import { Project } from "../Project";
-   import ProjectForm from "../ProjectForm";
-   import { Provider } from "react-redux";
-   import { store } from "../../state";
-   import userEvent from "@testing-library/user-event";
+   import React from 'react';
+   import { render, screen } from '@testing-library/react';
+   import { MemoryRouter } from 'react-router-dom';
+   import { Project } from '../Project';
+   import ProjectForm from '../ProjectForm';
+   import { Provider } from 'react-redux';
+   import { store } from '../../state';
+   import userEvent from '@testing-library/user-event';
 
-   describe("<ProjectForm />", () => {
+   describe('<ProjectForm />', () => {
      let project;
      let updatedProject;
      let handleCancel;
@@ -140,13 +141,13 @@ One of the great benefits of using React Testing Library is that it helps us bui
          </Provider>
        );
 
-       nameTextBox = screen.getByRole("textbox", {
+       nameTextBox = screen.getByRole('textbox', {
          name: /project name/i,
        });
-       descriptionTextBox = screen.getByRole("textbox", {
+       descriptionTextBox = screen.getByRole('textbox', {
          name: /project description/i,
        });
-       budgetTextBox = screen.getByRole("spinbutton", {
+       budgetTextBox = screen.getByRole('spinbutton', {
          name: /project budget/i,
        });
      };
@@ -154,22 +155,22 @@ One of the great benefits of using React Testing Library is that it helps us bui
      beforeEach(() => {
        project = new Project({
          id: 1,
-         name: "Mission Impossible",
-         description: "This is really difficult",
+         name: 'Mission Impossible',
+         description: 'This is really difficult',
          budget: 100,
        });
        updatedProject = new Project({
-         name: "Ghost Protocol",
+         name: 'Ghost Protocol',
          description:
-           "Blamed for a terrorist attack on the Kremlin, Ethan Hunt (Tom Cruise) and the entire IMF agency...",
+           'Blamed for a terrorist attack on the Kremlin, Ethan Hunt (Tom Cruise) and the entire IMF agency...',
        });
        handleCancel = jest.fn();
      });
 
-     test("should load project into form", () => {
+     test('should load project into form', () => {
        setup();
        expect(
-         screen.getByRole("form", {
+         screen.getByRole('form', {
            name: /edit a project/i,
          })
        ).toHaveFormValues({
