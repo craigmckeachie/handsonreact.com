@@ -77,7 +77,7 @@ title: 'Lab 21: Route Parameters'
    import { Project } from './Project';
    import { useParams } from 'react-router-dom';
 
-   function ProjectPage(props: any) {
+   function ProjectPage(props) {
      const [loading, setLoading] = useState(false);
      const [project, setProject] = useState(null);
      const [error, setError] = useState(null);
@@ -133,41 +133,6 @@ title: 'Lab 21: Route Parameters'
 
 3. Add a route to display the `ProjectPage` (notice that we now have a `ProjectPage` and a `ProjectsPage` so be careful you are in the correct file).
 
-   #### `src\App.tsx`
-
-   ```diff
-   import ProjectsPage from './projects/ProjectsPage';
-   + import ProjectPage from './projects/ProjectPage';
-
-   function App() {
-     return (
-       <Router>
-         <header className="sticky">
-           <span className="logo">
-             <img src="/assets/logo-3.svg" alt="logo" width="49" height="99" />
-           </span>
-           <NavLink to="/"  className="button rounded">
-             <span className="icon-home"></span>
-             Home
-           </NavLink>
-           <NavLink to="/projects/" className="button rounded">
-             Projects
-           </NavLink>
-         </header>
-         <div className="container">
-           <Routes>
-             <Route path="/"  element={<HomePage />} />
-             <Route path="/projects"  element={<ProjectsPage /> } />
-   +           <Route path="/projects/:id" element={<ProjectPage />} />
-           </Routes>
-         </div>
-       </Router>
-     );
-   }
-   ```
-
-4. Add a route to display the `ProjectPage` (notice that we now have a `ProjectPage` and a `ProjectsPage` so be careful you are in the correct file).
-
    #### `src\App.js`
 
    ```diff
@@ -201,7 +166,7 @@ title: 'Lab 21: Route Parameters'
    }
    ```
 
-5. Make the name and description clickable by adding a `<Link />` component around them.
+4. Make the name and description clickable by adding a `<Link />` component around them.
 
    #### `src\projects\ProjectCard.js`
 
@@ -230,7 +195,7 @@ title: 'Lab 21: Route Parameters'
    ...
    ```
 
-6. **Verify** the new **route** works by the **following these steps**:
+5. **Verify** the new **route** works by the **following these steps**:
 
    1. **Visit** the root of the site: `http://localhost:3000/` and refresh the page in your browser.
    2. **Click** on `Projects` in the **navigation**.
