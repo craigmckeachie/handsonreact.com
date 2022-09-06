@@ -67,17 +67,20 @@ Gives you a reference to the dispatch function so you can dispatch actions and c
 ### Example
 
 ```js
-const INCREMENT = "INCREMENT";
-const DECREMENT = "DECREMENT";
+//action types
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
 
 function increment() {
-  return { type: INCREMENT };
+  //action creator
+  return { type: INCREMENT }; //action
 }
 function decrement() {
   return { type: DECREMENT };
 }
 
-function reducer(state = 5, action) {
+//reducer
+function reducer(state = 0, action) {
   switch (action.type) {
     case INCREMENT:
       return state + 1;
@@ -96,28 +99,51 @@ function enableDevTools() {
   );
 }
 
-function Counter() {
-  const count = ReactRedux.useSelector((state) => state);
-  const dispatch = ReactRedux.useDispatch();
+const { Provider, useSelector, useDispatch } = ReactRedux;
+
+function Result() {
+  const count = useSelector((state) => state);
   return (
     <React.Fragment>
       <div>Count: {count}</div>
-      <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(decrement())}>-</button>
     </React.Fragment>
   );
 }
 
+function Actions() {
+  const dispatch = useDispatch();
+  return (
+    <>
+      <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={() => dispatch(decrement())}>-</button>
+    </>
+  );
+}
+
+function CounterPage() {
+  return (
+    <>
+      <Actions />
+      <Result />
+    </>
+  );
+}
+
+function App() {
+  return <CounterPage />;
+}
+
 const element = (
   <div>
-    <ReactRedux.Provider store={store}>
-      <Counter />
-    </ReactRedux.Provider>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </div>
 );
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 ReactDOM.createRoot(rootElement).render(element);
+
 ```
 
 ## The `connect` function
