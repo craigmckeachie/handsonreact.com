@@ -46,3 +46,13 @@ title: 'Testing Lab 9: API Tests'
 ---
 
 ### &#10004; You have completed Lab 9
+
+> Please let the instructor know you have completed this lab before continuing to the bonus exercise.
+
+## Bonus Exercise (optional)
+
+> Do this exercise in your own time outside of class or while waiting for other students to finish the labs.
+
+Now that you have tested the `ProjectsPage` (plural), use what you have learned to test the `ProjectPage` (singular) code.
+
+Not giving you specific directions on how to do this is intentional at this point. It is time to see if you can apply what you learned without specific guidance. Tip: Remember, it is perfectly valid to reference your existing code from the last few labs to complete this exercise.
