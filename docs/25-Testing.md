@@ -77,13 +77,13 @@ Tools with similar scope include:
   ```
   import ReactTestUtils from 'react-dom/test-utils';
   ```
-- It is the low level library that React component testing libraries like **React Testing Library** or **Enzyme** use internally
+- It is the low level library that **Enzyme** uses internally
 
 ### JSDOM
 
 - JavaScript implementation of the DOM (Document object model)
 - JavaScript based headless browser that can be used to create a realistic testing environment
-- Enzyme's `mount` API (full rendering) requires a DOM, JSDOM is required in order to use mount
+- Used by default by React Testing Library
 - While Jest provides browser globals such as window thanks to jsdom, they are only approximations of the real browser behavior.
 - Jest is intended to be used for unit tests of your logic and your components rather than the DOM quirks.
 
