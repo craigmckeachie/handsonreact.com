@@ -10,14 +10,14 @@ slug: /computer-setup
 1. A **recent** version of **Windows** (10 or later), **macOS**, or **Linux**, with:
    - _current system updates_
    - at least `4 GB` of `RAM`
-2. **Node.js** installed, a recent **10.x, 12.x, 14.x, or 16.x LTS** version.
-
+2. **Node.js** installed, a recent **14.x, 16.x, or 18.x LTS** version.
+   - Why?  Create React App requires Node >= 14 on your local development machine (not on the server) 
    - **Visit** [http://nodejs.org/](http://nodejs.org/).
-   - **Click** the `16.15.[x] LTS Recommended For Most Users` (or similar) **green button on the left** to **download** the **installer** file.
+   - **Click** the `18.12.[x] LTS Recommended For Most Users` (or similar) **green button on the LEFT** to **download** the **installer** file.
    - **Run** the **installer**, accepting all _default_ _settings_.
    - After installation, **confirm** that the `Path` environment variable on your computer has been modified to include the path for `node` and `npm` by following these steps.
      - **Open** a `command prompt` (Windows) or `terminal` (Mac).
-       > In Windows 7, click the Start button and type `cmd`
+       > In Windows, click the Start button and type `cmd`
      - **Run** the following **commands**:
        ```shell
        node -v
@@ -25,17 +25,16 @@ slug: /computer-setup
        ```
      - **Verify** the **version** of each program is **returned**.
    - Please **DO use** Node.js (Long Term Support (LTS)) versions for this class.
-     - [x] `10.x`
-     - [x] `12.x`
      - [x] `14.x`
      - [x] `16.x`
+     - [x] `18.x`
    - Please **DO NOT use** these Node.js versions for this class.
 
      - [ ] ~~`8.x`~~
      - [ ] ~~`11.x`~~
      - [ ] ~~`13.x`~~
      - [ ] ~~`15.x`~~
-     - [ ] ~~`18.x`~~
+     - [ ] ~~`19.x`~~
 
    - Why?
 
@@ -86,7 +85,9 @@ slug: /computer-setup
 
     > Don't confuse Visual Studio Code with the heavier Visual Studio IDE used for .NET development.
 
-    > **Configure Visual Studio Code** for the course by [following these directions](./00-VisualStudioCodeSetup.md).
+  -  **Configure Visual Studio Code** for the course by [following these directions](./00-VisualStudioCodeSetup.md).
+
+  > ! Don't miss the above link to configure Visual Studio Code with appropriate extensions for the course
 
 - **WebStorm** or **IntelliJ IDEA Ultimate** both made by `JetBrains` are also great choices.
 
