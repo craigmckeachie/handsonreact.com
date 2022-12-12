@@ -44,7 +44,7 @@ const { useState, useEffect } = React;
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<number[] | null>(null);
   function loadData() {
     setLoading(true);
     setTimeout(() => {
