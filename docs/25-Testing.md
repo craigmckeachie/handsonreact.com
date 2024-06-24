@@ -650,3 +650,8 @@ Snapshot testing requires you to install the `react-test-renderer` which we alre
 - [Create React App Docs: Running Tests](https://facebook.github.io/create-react-app/docs/running-tests)
 - [Create React App Docs: Debugging Tests](https://facebook.github.io/create-react-app/docs/debugging-tests)
 - [Create React App Docs: Code Coverage](https://facebook.github.io/create-react-app/docs/running-tests#coverage-reporting)
+
+### How Different Test Frameworks Fit In
+
+![2022-08-02_10-00-35](https://user-images.githubusercontent.com/2447448/182432310-dc5cd6c7-5141-4031-b471-7f629204763a.png)
+
