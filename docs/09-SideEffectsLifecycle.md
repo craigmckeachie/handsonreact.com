@@ -1,8 +1,8 @@
 ---
-id: 09-SideEffectsLifecyle
-title: Side Effects & Lifecyle
-sidebar_label: Side Effects & Lifecyle
-slug: /side-effects-lifecyle
+id: 09-SideEffectsLifecycle
+title: Side Effects & Lifecycle
+sidebar_label: Side Effects & Lifecycle
+slug: /side-effects-lifecycle
 ---
 
 ## Side Effects (in function components)
