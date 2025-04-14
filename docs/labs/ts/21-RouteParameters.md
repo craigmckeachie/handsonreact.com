@@ -57,7 +57,7 @@ title: 'Lab 21: Route Parameters'
                <p>{project.description}</p>
                <p>Budget : {project.budget}</p>
 
-               <p>Signed: {project.contractSignedOn.toLocaleDateString()}</p>
+               <p>Signed: {new Date(project.contractSignedOn).toLocaleDateString()}</p>
                <p>
                  <mark className="active">
                    {' '}
